@@ -107,10 +107,10 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 {
 	auto layercolor = LayerColor::create(Color4B(0, 0, 0, 188), 640.f, VisibleRect::top().y);
 	this->addChild(layercolor);
-
+	Node* paynode = nullptr;
 	if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
 	{
-		auto paynode = GameCSLoader::createNode("storeassets/firstbuygiift.csb");
+		paynode = GameCSLoader::createNode("storeassets/firstbuygiift.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -128,7 +128,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_DAYGIFT) == 0)
 	{
-		auto paynode = GameCSLoader::createNode("storeassets/daybuygiift.csb");
+		paynode = GameCSLoader::createNode("storeassets/daybuygiift.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -161,7 +161,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_TIMEGIFT) == 0)
 	{
-		auto paynode = GameCSLoader::createNode("storeassets/timebuygiift_0.csb");
+		paynode = GameCSLoader::createNode("storeassets/timebuygiift_0.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -179,7 +179,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1) == 0)
 	{
-		auto paynode = GameCSLoader::createNode("storeassets/timebuygiift_1.csb");
+		paynode = GameCSLoader::createNode("storeassets/timebuygiift_1.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -197,7 +197,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_2) == 0)
 	{
-		auto paynode = GameCSLoader::createNode("storeassets/timebuygiift_2.csb");
+		paynode = GameCSLoader::createNode("storeassets/timebuygiift_2.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -217,7 +217,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	{
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("storeassets/uirenwu.ExportJson");
 
-		auto paynode = GameCSLoader::createNode("storeassets/reborn.csb");
+		paynode = GameCSLoader::createNode("storeassets/reborn.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(220.f, VisibleRect::top().y / 2));
 
@@ -265,7 +265,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	{
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("storeassets/uirenwu.ExportJson");
 
-		auto paynode = GameCSLoader::createNode("storeassets/reborn.csb");
+		paynode = GameCSLoader::createNode("storeassets/reborn.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(220.f, VisibleRect::top().y / 2));
 
@@ -313,7 +313,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	{
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("storeassets/uirenwu.ExportJson");
 
-		auto paynode = GameCSLoader::createNode("storeassets/reborn.csb");
+		paynode = GameCSLoader::createNode("storeassets/reborn.csb");
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(220.f, VisibleRect::top().y / 2));
 
@@ -358,6 +358,13 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
 	}
 
+
+	if (paynode)
+	{
+		paynode->setScale(0.5f);
+		auto action = ScaleTo::create(0.2f, 1.f);
+		paynode->runAction(action);
+	}
 }
 
 
