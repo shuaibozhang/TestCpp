@@ -1,0 +1,416 @@
+{
+  "skill_0": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_1": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      1, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_2": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      2, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_3": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      3, 
+      3, 
+      0
+    ]
+  }, 
+  "skill_4": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      4, 
+      4, 
+      0
+    ]
+  }, 
+  "skill_5": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      5, 
+      5, 
+      0
+    ]
+  }, 
+  "skill_6": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      6, 
+      6, 
+      1
+    ]
+  }, 
+  "skill_7": {
+    "roleid": 0, 
+    "animid": "", 
+    "skills": [
+      7, 
+      7, 
+      1
+    ]
+  }, 
+  "skill_8": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      9, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_9": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      8, 
+      1, 
+      2
+    ]
+  }, 
+  "skill_10": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      11, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_11": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      10, 
+      3, 
+      2
+    ]
+  }, 
+  "skill_12": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      13, 
+      4, 
+      0
+    ]
+  }, 
+  "skill_13": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      12, 
+      5, 
+      2
+    ]
+  }, 
+  "skill_14": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      15, 
+      6, 
+      1
+    ]
+  }, 
+  "skill_15": {
+    "roleid": 1, 
+    "animid": "", 
+    "skills": [
+      14, 
+      7, 
+      1
+    ]
+  }, 
+  "skill_16": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      16, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_17": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      23, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_18": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      27, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_19": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      20, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_20": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      21, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_21": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      25, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_22": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      17, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_23": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      22, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_24": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      26, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_25": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      18, 
+      3, 
+      0
+    ]
+  }, 
+  "skill_26": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      24, 
+      3, 
+      0
+    ]
+  }, 
+  "skill_27": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      19, 
+      4, 
+      0
+    ]
+  }, 
+  "skill_28": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      28, 
+      6, 
+      1
+    ]
+  }, 
+  "skill_29": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      29, 
+      7, 
+      1
+    ]
+  }, 
+  "skill_30": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      31, 
+      8, 
+      1
+    ]
+  }, 
+  "skill_31": {
+    "roleid": 2, 
+    "animid": "", 
+    "skills": [
+      30, 
+      9, 
+      1
+    ]
+  }, 
+  "skill_32": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      32, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_33": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      37, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_34": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      40, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_35": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      34, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_36": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      36, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_37": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      41, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_38": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      33, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_39": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      38, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_40": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      42, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_41": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      35, 
+      3, 
+      0
+    ]
+  }, 
+  "skill_42": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      39, 
+      3, 
+      0
+    ]
+  }, 
+  "skill_43": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      43, 
+      6, 
+      1
+    ]
+  }, 
+  "skill_44": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      44, 
+      7, 
+      1
+    ]
+  }, 
+  "skill_45": {
+    "roleid": 3, 
+    "animid": "", 
+    "skills": [
+      45, 
+      8, 
+      1
+    ]
+  }
+}

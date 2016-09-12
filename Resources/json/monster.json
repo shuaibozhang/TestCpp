@@ -1,0 +1,5573 @@
+{
+  "Mons_0": {
+    "id": 0, 
+    "name": "下人", 
+    "aniname": "Ocr_04", 
+    "typeid": 0, 
+    "rank": 0, 
+    "animid": 0.0, 
+    "minatt": 16.0, 
+    "maxatt": 18.0, 
+    "hp": 25, 
+    "exper": 6, 
+    "runpro": 0.0, 
+    "mingold": 5, 
+    "maxgold": 7, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_1": {
+    "id": 1, 
+    "name": "下人", 
+    "aniname": "Ocr_04", 
+    "typeid": 0, 
+    "rank": 0, 
+    "animid": 0.0, 
+    "minatt": 18.0, 
+    "maxatt": 20.0, 
+    "hp": 25, 
+    "exper": 9, 
+    "runpro": 0.0, 
+    "mingold": 5, 
+    "maxgold": 7, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_2": {
+    "id": 2, 
+    "name": "打手", 
+    "aniname": "Ocr_05", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 25.0, 
+    "maxatt": 28.0, 
+    "hp": 30, 
+    "exper": 12, 
+    "runpro": 0.0, 
+    "mingold": 6, 
+    "maxgold": 8, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1000, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_3": {
+    "id": 3, 
+    "name": "打手", 
+    "aniname": "Ocr_05", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 32.0, 
+    "maxatt": 35.0, 
+    "hp": 35, 
+    "exper": 14, 
+    "runpro": 0.3, 
+    "mingold": 6, 
+    "maxgold": 8, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_4": {
+    "id": 4, 
+    "name": "打手", 
+    "aniname": "Ocr_05", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 38.0, 
+    "maxatt": 43.0, 
+    "hp": 50, 
+    "exper": 18, 
+    "runpro": 0.0, 
+    "mingold": 6, 
+    "maxgold": 8, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_5": {
+    "id": 5, 
+    "name": "门卫", 
+    "aniname": "orcwomman", 
+    "typeid": 0, 
+    "rank": 2, 
+    "animid": 0.0, 
+    "minatt": 45.0, 
+    "maxatt": 50.0, 
+    "hp": 55, 
+    "exper": 21, 
+    "runpro": 0.0, 
+    "mingold": 8, 
+    "maxgold": 10, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1001, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_6": {
+    "id": 6, 
+    "name": "门卫", 
+    "aniname": "orcwomman", 
+    "typeid": 0, 
+    "rank": 2, 
+    "animid": 0.0, 
+    "minatt": 50.0, 
+    "maxatt": 60.0, 
+    "hp": 65, 
+    "exper": 24, 
+    "runpro": 0.0, 
+    "mingold": 8, 
+    "maxgold": 10, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1008, 
+        "pro": 0.2
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      101
+    ]
+  }, 
+  "Mons_7": {
+    "id": 7, 
+    "name": "树精", 
+    "aniname": "tree_01", 
+    "typeid": 0, 
+    "rank": 2, 
+    "animid": 0.0, 
+    "minatt": 60.0, 
+    "maxatt": 65.0, 
+    "hp": 80, 
+    "exper": 35, 
+    "runpro": 0.0, 
+    "mingold": 13, 
+    "maxgold": 15, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_8": {
+    "id": 8, 
+    "name": "树精", 
+    "aniname": "tree_01", 
+    "typeid": 0, 
+    "rank": 3, 
+    "animid": 0.0, 
+    "minatt": 65.0, 
+    "maxatt": 70.0, 
+    "hp": 85, 
+    "exper": 40, 
+    "runpro": 0.0, 
+    "mingold": 14, 
+    "maxgold": 16, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "id": 1000, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          6
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      1
+    ]
+  }, 
+  "Mons_9": {
+    "id": 9, 
+    "name": "树精", 
+    "aniname": "tree_01", 
+    "typeid": 0, 
+    "rank": 3, 
+    "animid": 0.0, 
+    "minatt": 70.0, 
+    "maxatt": 75.0, 
+    "hp": 100, 
+    "exper": 55, 
+    "runpro": 0.0, 
+    "mingold": 17, 
+    "maxgold": 19, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          6
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_10": {
+    "id": 10, 
+    "name": "毒蛇", 
+    "aniname": "snake", 
+    "typeid": 0, 
+    "rank": 4, 
+    "animid": 0.0, 
+    "minatt": 80.0, 
+    "maxatt": 85.0, 
+    "hp": 105, 
+    "exper": 60, 
+    "runpro": 0.0, 
+    "mingold": 18, 
+    "maxgold": 20, 
+    "zoom": 0.14, 
+    "dropnums": [
+      {
+        "id": 1002, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          7
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      2
+    ]
+  }, 
+  "Mons_11": {
+    "id": 11, 
+    "name": "毒蛇", 
+    "aniname": "snake", 
+    "typeid": 0, 
+    "rank": 4, 
+    "animid": 0.0, 
+    "minatt": 80.0, 
+    "maxatt": 90.0, 
+    "hp": 110, 
+    "exper": 70, 
+    "runpro": 0.0, 
+    "mingold": 20, 
+    "maxgold": 22, 
+    "zoom": 0.14, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 4, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_12": {
+    "id": 12, 
+    "name": "年掌柜", 
+    "aniname": "nianzg", 
+    "typeid": 1, 
+    "rank": 8, 
+    "animid": 0.0, 
+    "minatt": 78.0, 
+    "maxatt": 88.0, 
+    "hp": 850, 
+    "exper": 100, 
+    "runpro": 0.0, 
+    "mingold": 50, 
+    "maxgold": 60, 
+    "zoom": 0.7, 
+    "dropnums": [
+      {
+        "id": 1003, 
+        "pro": 1
+      }, 
+      {
+        "id": 1016, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 0, 
+        "hurt": 1.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          7
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      3
+    ]
+  }, 
+  "Mons_13": {
+    "id": 13, 
+    "name": "火怪", 
+    "aniname": "fire", 
+    "typeid": 0, 
+    "rank": 4, 
+    "animid": 0.0, 
+    "minatt": 90.0, 
+    "maxatt": 95.0, 
+    "hp": 120, 
+    "exper": 80, 
+    "runpro": 0.0, 
+    "mingold": 22, 
+    "maxgold": 24, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          106
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_14": {
+    "id": 14, 
+    "name": "火怪", 
+    "aniname": "fire", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 100.0, 
+    "maxatt": 105.0, 
+    "hp": 130, 
+    "exper": 90, 
+    "runpro": 0.0, 
+    "mingold": 23, 
+    "maxgold": 25, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_15": {
+    "id": 15, 
+    "name": "山精", 
+    "aniname": "xingling1", 
+    "typeid": 0, 
+    "rank": 7, 
+    "animid": 0.0, 
+    "minatt": 105.0, 
+    "maxatt": 115.0, 
+    "hp": 140, 
+    "exper": 100, 
+    "runpro": 0.0, 
+    "mingold": 22, 
+    "maxgold": 25, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_16": {
+    "id": 16, 
+    "name": "红面侠", 
+    "aniname": "longwu01", 
+    "typeid": 0, 
+    "rank": 7, 
+    "animid": 0.0, 
+    "minatt": 110.0, 
+    "maxatt": 120.0, 
+    "hp": 150, 
+    "exper": 110, 
+    "runpro": 0.0, 
+    "mingold": 23, 
+    "maxgold": 26, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          402
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_17": {
+    "id": 17, 
+    "name": "红面侠", 
+    "aniname": "longwu01", 
+    "typeid": 0, 
+    "rank": 7, 
+    "animid": 0.0, 
+    "minatt": 115.0, 
+    "maxatt": 125.0, 
+    "hp": 170, 
+    "exper": 120, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 27, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1009, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          401
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      102
+    ]
+  }, 
+  "Mons_18": {
+    "id": 18, 
+    "name": "红面侠", 
+    "aniname": "longwu01", 
+    "typeid": 0, 
+    "rank": 6, 
+    "animid": 0.0, 
+    "minatt": 125.0, 
+    "maxatt": 135.0, 
+    "hp": 190, 
+    "exper": 132, 
+    "runpro": 0.0, 
+    "mingold": 26, 
+    "maxgold": 28, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          400
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_19": {
+    "id": 19, 
+    "name": "绿脸侠", 
+    "aniname": "longwu02", 
+    "typeid": 0, 
+    "rank": 7, 
+    "animid": 0.0, 
+    "minatt": 140.0, 
+    "maxatt": 145.0, 
+    "hp": 230, 
+    "exper": 145, 
+    "runpro": 0.0, 
+    "mingold": 28, 
+    "maxgold": 30, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      105, 
+      100
+    ]
+  }, 
+  "Mons_20": {
+    "id": 20, 
+    "name": "山精", 
+    "aniname": "xingling1", 
+    "typeid": 0, 
+    "rank": 7, 
+    "animid": 0.0, 
+    "minatt": 145.0, 
+    "maxatt": 155.0, 
+    "hp": 260, 
+    "exper": 160, 
+    "runpro": 0.0, 
+    "mingold": 30, 
+    "maxgold": 32, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1002, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_21": {
+    "id": 21, 
+    "name": "绿脸侠", 
+    "aniname": "longwu02", 
+    "typeid": 0, 
+    "rank": 8, 
+    "animid": 0.0, 
+    "minatt": 150.0, 
+    "maxatt": 160.0, 
+    "hp": 280, 
+    "exper": 180, 
+    "runpro": 0.0, 
+    "mingold": 32, 
+    "maxgold": 35, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_22": {
+    "id": 22, 
+    "name": "绿脸侠", 
+    "aniname": "longwu02", 
+    "typeid": 0, 
+    "rank": 9, 
+    "animid": 0.0, 
+    "minatt": 170.0, 
+    "maxatt": 180.0, 
+    "hp": 320, 
+    "exper": 190, 
+    "runpro": 0.0, 
+    "mingold": 32, 
+    "maxgold": 35, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1009, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.3
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          7
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      104
+    ]
+  }, 
+  "Mons_23": {
+    "id": 23, 
+    "name": "青花寨主", 
+    "aniname": "zhaizh", 
+    "typeid": 1, 
+    "rank": 10, 
+    "animid": 0.0, 
+    "minatt": 160.0, 
+    "maxatt": 170.0, 
+    "hp": 2800, 
+    "exper": 720, 
+    "runpro": 0.0, 
+    "mingold": 70, 
+    "maxgold": 80, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1004, 
+        "pro": 1
+      }, 
+      {
+        "id": 1017, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 1.3
+      }, 
+      {
+        "id": 1, 
+        "hurt": 1.3
+      }, 
+      {
+        "id": 3, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          6
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      6
+    ]
+  }, 
+  "Mons_24": {
+    "id": 24, 
+    "name": "山精", 
+    "aniname": "xingling1", 
+    "typeid": 0, 
+    "rank": 10, 
+    "animid": 0.0, 
+    "minatt": 180.0, 
+    "maxatt": 190.0, 
+    "hp": 350, 
+    "exper": 200, 
+    "runpro": 0.0, 
+    "mingold": 20, 
+    "maxgold": 22, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_25": {
+    "id": 25, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 130.0, 
+    "maxatt": 135.0, 
+    "hp": 300, 
+    "exper": 210, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 28, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_26": {
+    "id": 26, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 140.0, 
+    "maxatt": 150.0, 
+    "hp": 350, 
+    "exper": 230, 
+    "runpro": 0.0, 
+    "mingold": 32, 
+    "maxgold": 35, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 4, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_27": {
+    "id": 27, 
+    "name": "骷髅", 
+    "aniname": "bones03", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 145.0, 
+    "maxatt": 160.0, 
+    "hp": 320, 
+    "exper": 250, 
+    "runpro": 0.0, 
+    "mingold": 34, 
+    "maxgold": 38, 
+    "zoom": 0.25, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_28": {
+    "id": 28, 
+    "name": "骷髅", 
+    "aniname": "bones03", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 150.0, 
+    "maxatt": 170.0, 
+    "hp": 380, 
+    "exper": 270, 
+    "runpro": 0.0, 
+    "mingold": 38, 
+    "maxgold": 40, 
+    "zoom": 0.25, 
+    "dropnums": [
+      {
+        "id": 1003, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          106
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      105
+    ]
+  }, 
+  "Mons_29": {
+    "id": 29, 
+    "name": "骷髅王", 
+    "aniname": "ghostbones", 
+    "typeid": 0, 
+    "rank": 10, 
+    "animid": 0.0, 
+    "minatt": 170.0, 
+    "maxatt": 180.0, 
+    "hp": 450, 
+    "exper": 290, 
+    "runpro": 0.0, 
+    "mingold": 40, 
+    "maxgold": 42, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.4
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_30": {
+    "id": 30, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 175.0, 
+    "maxatt": 190.0, 
+    "hp": 550, 
+    "exper": 310, 
+    "runpro": 0.0, 
+    "mingold": 42, 
+    "maxgold": 46, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          302
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_31": {
+    "id": 31, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 13, 
+    "animid": 0.0, 
+    "minatt": 185.0, 
+    "maxatt": 210.0, 
+    "hp": 600, 
+    "exper": 330, 
+    "runpro": 0.0, 
+    "mingold": 45, 
+    "maxgold": 50, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 4, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      4
+    ]
+  }, 
+  "Mons_32": {
+    "id": 32, 
+    "name": "骷髅王", 
+    "aniname": "ghostbones", 
+    "typeid": 0, 
+    "rank": 13, 
+    "animid": 0.0, 
+    "minatt": 200.0, 
+    "maxatt": 220.0, 
+    "hp": 650, 
+    "exper": 350, 
+    "runpro": 0.5, 
+    "mingold": 48, 
+    "maxgold": 55, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.4
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          6
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_33": {
+    "id": 33, 
+    "name": "南宫残红", 
+    "aniname": "nangongch", 
+    "typeid": 1, 
+    "rank": 15, 
+    "animid": 0.0, 
+    "minatt": 200.0, 
+    "maxatt": 220.0, 
+    "hp": 5000, 
+    "exper": 1200, 
+    "runpro": 0.0, 
+    "mingold": 100, 
+    "maxgold": 120, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1005, 
+        "pro": 1
+      }, 
+      {
+        "id": 1018, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 2, 
+        "hurt": 1.3
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 4, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          400
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          101
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      102
+    ]
+  }, 
+  "Mons_34": {
+    "id": 34, 
+    "name": "神秘杀手", 
+    "aniname": "dongcss_1", 
+    "typeid": 1, 
+    "rank": 25, 
+    "animid": 0.0, 
+    "minatt": 340.0, 
+    "maxatt": 360.0, 
+    "hp": 8000, 
+    "exper": 2400, 
+    "runpro": 0.0, 
+    "mingold": 120, 
+    "maxgold": 150, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1006, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.3
+      }, 
+      {
+        "id": 1, 
+        "hurt": 1.4
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          6
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          4
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      107
+    ]
+  }, 
+  "Mons_35": {
+    "id": 35, 
+    "name": "疯狗", 
+    "aniname": "dog", 
+    "typeid": 0, 
+    "rank": 14, 
+    "animid": 0.0, 
+    "minatt": 210.0, 
+    "maxatt": 225.0, 
+    "hp": 700, 
+    "exper": 400, 
+    "runpro": 0.0, 
+    "mingold": 55, 
+    "maxgold": 60, 
+    "zoom": 0.15, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_36": {
+    "id": 36, 
+    "name": "疯狗", 
+    "aniname": "dog", 
+    "typeid": 0, 
+    "rank": 15, 
+    "animid": 0.0, 
+    "minatt": 230.0, 
+    "maxatt": 245.0, 
+    "hp": 750, 
+    "exper": 450, 
+    "runpro": 0.0, 
+    "mingold": 60, 
+    "maxgold": 70, 
+    "zoom": 0.15, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 3, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_37": {
+    "id": 37, 
+    "name": "野猪", 
+    "aniname": "black_luopo", 
+    "typeid": 0, 
+    "rank": 16, 
+    "animid": 0.0, 
+    "minatt": 250.0, 
+    "maxatt": 265.0, 
+    "hp": 800, 
+    "exper": 500, 
+    "runpro": 0.0, 
+    "mingold": 70, 
+    "maxgold": 75, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_38": {
+    "id": 38, 
+    "name": "野猪", 
+    "aniname": "black_luopo", 
+    "typeid": 0, 
+    "rank": 18, 
+    "animid": 0.0, 
+    "minatt": 270.0, 
+    "maxatt": 285.0, 
+    "hp": 900, 
+    "exper": 550, 
+    "runpro": 0.0, 
+    "mingold": 70, 
+    "maxgold": 75, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1003, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 4, 
+        "attid": [
+          2
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      108
+    ]
+  }, 
+  "Mons_39": {
+    "id": 39, 
+    "name": "电狼", 
+    "aniname": "ghostwolf", 
+    "typeid": 0, 
+    "rank": 20, 
+    "animid": 0.0, 
+    "minatt": 300.0, 
+    "maxatt": 310.0, 
+    "hp": 1000, 
+    "exper": 600, 
+    "runpro": 0.0, 
+    "mingold": 80, 
+    "maxgold": 85, 
+    "zoom": 0.28, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_40": {
+    "id": 40, 
+    "name": "电狼", 
+    "aniname": "ghostwolf", 
+    "typeid": 0, 
+    "rank": 20, 
+    "animid": 0.0, 
+    "minatt": 320.0, 
+    "maxatt": 330.0, 
+    "hp": 900, 
+    "exper": 650, 
+    "runpro": 0.0, 
+    "mingold": 80, 
+    "maxgold": 85, 
+    "zoom": 0.28, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          3
+        ]
+      }, 
+      {
+        "attNum": 3, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          302
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      6
+    ]
+  }, 
+  "Mons_41": {
+    "id": 41, 
+    "name": "青花会副舵主", 
+    "aniname": "dongcss_2", 
+    "typeid": 1, 
+    "rank": 37, 
+    "animid": 0.0, 
+    "minatt": 680.0, 
+    "maxatt": 720.0, 
+    "hp": 18000, 
+    "exper": 3600, 
+    "runpro": 0.0, 
+    "mingold": 170, 
+    "maxgold": 180, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1011, 
+        "pro": 1
+      }, 
+      {
+        "id": 1019, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 2, 
+        "hurt": 1.5
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          2
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          201
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      9
+    ]
+  }, 
+  "Mons_42": {
+    "id": 42, 
+    "name": "雪山精", 
+    "aniname": "xingling1", 
+    "typeid": 0, 
+    "rank": 23, 
+    "animid": 0.0, 
+    "minatt": 380.0, 
+    "maxatt": 390.0, 
+    "hp": 1000, 
+    "exper": 750, 
+    "runpro": 0.0, 
+    "mingold": 85, 
+    "maxgold": 90, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          6
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_43": {
+    "id": 43, 
+    "name": "雪山精", 
+    "aniname": "xingling1", 
+    "typeid": 0, 
+    "rank": 24, 
+    "animid": 0.0, 
+    "minatt": 400.0, 
+    "maxatt": 420.0, 
+    "hp": 1050, 
+    "exper": 800, 
+    "runpro": 0.0, 
+    "mingold": 85, 
+    "maxgold": 90, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 3, 
+        "round": 2, 
+        "attid": [
+          6
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_44": {
+    "id": 44, 
+    "name": "夜骷髅", 
+    "aniname": "ghostorc", 
+    "typeid": 0, 
+    "rank": 25, 
+    "animid": 0.0, 
+    "minatt": 410.0, 
+    "maxatt": 430.0, 
+    "hp": 1100, 
+    "exper": 900, 
+    "runpro": 0.0, 
+    "mingold": 90, 
+    "maxgold": 100, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "id": 1004, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          1
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      10, 
+      0
+    ]
+  }, 
+  "Mons_45": {
+    "id": 45, 
+    "name": "夜骷髅", 
+    "aniname": "ghostorc", 
+    "typeid": 0, 
+    "rank": 28, 
+    "animid": 0.0, 
+    "minatt": 460.0, 
+    "maxatt": 480.0, 
+    "hp": 1200, 
+    "exper": 980, 
+    "runpro": 0.0, 
+    "mingold": 95, 
+    "maxgold": 100, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 3, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          6
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_46": {
+    "id": 46, 
+    "name": "夜骷髅", 
+    "aniname": "ghostorc", 
+    "typeid": 0, 
+    "rank": 30, 
+    "animid": 0.0, 
+    "minatt": 500.0, 
+    "maxatt": 520.0, 
+    "hp": 1300, 
+    "exper": 1050, 
+    "runpro": 0.0, 
+    "mingold": 100, 
+    "maxgold": 110, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 4, 
+        "attid": [
+          302
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_47": {
+    "id": 47, 
+    "name": "雪山怪", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 33, 
+    "animid": 0.0, 
+    "minatt": 545.0, 
+    "maxatt": 570.0, 
+    "hp": 1400, 
+    "exper": 1200, 
+    "runpro": 0.0, 
+    "mingold": 110, 
+    "maxgold": 120, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_48": {
+    "id": 48, 
+    "name": "雪山怪", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 35, 
+    "animid": 0.0, 
+    "minatt": 580.0, 
+    "maxatt": 620.0, 
+    "hp": 1500, 
+    "exper": 1280, 
+    "runpro": 0.0, 
+    "mingold": 120, 
+    "maxgold": 130, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.5
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 3, 
+        "round": 3, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_49": {
+    "id": 49, 
+    "name": "雪山怪", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 37, 
+    "animid": 0.0, 
+    "minatt": 620.0, 
+    "maxatt": 640.0, 
+    "hp": 1600, 
+    "exper": 1360, 
+    "runpro": 0.0, 
+    "mingold": 130, 
+    "maxgold": 140, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.4
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      7
+    ]
+  }, 
+  "Mons_50": {
+    "id": 50, 
+    "name": "东厂杀手", 
+    "aniname": "dongcss_3", 
+    "typeid": 1, 
+    "rank": 40, 
+    "animid": 0.0, 
+    "minatt": 640.0, 
+    "maxatt": 660.0, 
+    "hp": 20000, 
+    "exper": 4800, 
+    "runpro": 0.0, 
+    "mingold": 180, 
+    "maxgold": 200, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1007, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 1.4
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          8
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          302
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          7
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }
+    ], 
+    "atttype": [
+      109, 
+      100
+    ]
+  }, 
+  "Mons_51": {
+    "id": 51, 
+    "name": "白眉太监", 
+    "aniname": "dongcss_4", 
+    "typeid": 1, 
+    "rank": 42, 
+    "animid": 0.0, 
+    "minatt": 690.0, 
+    "maxatt": 740.0, 
+    "hp": 23000, 
+    "exper": 6000, 
+    "runpro": 0.0, 
+    "mingold": 200, 
+    "maxgold": 250, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1012, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.0
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          3
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          8
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      11
+    ]
+  }, 
+  "Mons_52": {
+    "id": 52, 
+    "name": "掌印太监", 
+    "aniname": "zhangytj", 
+    "typeid": 1, 
+    "rank": 45, 
+    "animid": 0.0, 
+    "minatt": 720.0, 
+    "maxatt": 800.0, 
+    "hp": 35000, 
+    "exper": 7200, 
+    "runpro": 0.0, 
+    "mingold": 250, 
+    "maxgold": 300, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1013, 
+        "pro": 1
+      }, 
+      {
+        "id": 1015, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 2, 
+        "hurt": 1.5
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          102
+        ]
+      }, 
+      {
+        "attNum": 4, 
+        "round": 3, 
+        "attid": [
+          400
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          101
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      12, 
+      13
+    ]
+  }, 
+  "Mons_53": {
+    "id": 53, 
+    "name": "雪山妖", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 41, 
+    "animid": 0.0, 
+    "minatt": 700.0, 
+    "maxatt": 720.0, 
+    "hp": 1700, 
+    "exper": 1380, 
+    "runpro": 0.0, 
+    "mingold": 140, 
+    "maxgold": 150, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.4
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0.4
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 4, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_54": {
+    "id": 54, 
+    "name": "火龙", 
+    "aniname": "dragon01", 
+    "typeid": 0, 
+    "rank": 45, 
+    "animid": 0.0, 
+    "minatt": 750.0, 
+    "maxatt": 800.0, 
+    "hp": 1900, 
+    "exper": 1580, 
+    "runpro": 0.0, 
+    "mingold": 150, 
+    "maxgold": 160, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.4
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 4, 
+        "round": 2, 
+        "attid": [
+          400
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_55": {
+    "id": 55, 
+    "name": "火龙", 
+    "aniname": "dragon01", 
+    "typeid": 0, 
+    "rank": 51, 
+    "animid": 0.0, 
+    "minatt": 740.0, 
+    "maxatt": 850.0, 
+    "hp": 2300, 
+    "exper": 1780, 
+    "runpro": 0.0, 
+    "mingold": 160, 
+    "maxgold": 170, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "id": 1005, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.4
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          102
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      12, 
+      0
+    ]
+  }, 
+  "Mons_56": {
+    "id": 56, 
+    "name": "雪骷髅", 
+    "aniname": "ghostorc", 
+    "typeid": 0, 
+    "rank": 48, 
+    "animid": 0.0, 
+    "minatt": 780.0, 
+    "maxatt": 850.0, 
+    "hp": 2000, 
+    "exper": 1980, 
+    "runpro": 0.0, 
+    "mingold": 170, 
+    "maxgold": 180, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.3
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 4, 
+        "round": 2, 
+        "attid": [
+          302
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_57": {
+    "id": 57, 
+    "name": "雪骷髅", 
+    "aniname": "ghostorc", 
+    "typeid": 0, 
+    "rank": 53, 
+    "animid": 0.0, 
+    "minatt": 800.0, 
+    "maxatt": 900.0, 
+    "hp": 2300, 
+    "exper": 2180, 
+    "runpro": 0.0, 
+    "mingold": 180, 
+    "maxgold": 190, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.3
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          3
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      14
+    ]
+  }, 
+  "Mons_58": {
+    "id": 58, 
+    "name": "雪妖王", 
+    "aniname": "fire03", 
+    "typeid": 0, 
+    "rank": 51, 
+    "animid": 0.0, 
+    "minatt": 720.0, 
+    "maxatt": 780.0, 
+    "hp": 2500, 
+    "exper": 2380, 
+    "runpro": 0.0, 
+    "mingold": 190, 
+    "maxgold": 200, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 4, 
+        "round": 2, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 1, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_59": {
+    "id": 59, 
+    "name": "雪妖王", 
+    "aniname": "fire03", 
+    "typeid": 0, 
+    "rank": 55, 
+    "animid": 0.0, 
+    "minatt": 800.0, 
+    "maxatt": 850.0, 
+    "hp": 2700, 
+    "exper": 2580, 
+    "runpro": 0.0, 
+    "mingold": 200, 
+    "maxgold": 210, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 4, 
+        "round": 2, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 1, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          4
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      107
+    ]
+  }, 
+  "Mons_60": {
+    "id": 60, 
+    "name": "大内总管", 
+    "aniname": "changd", 
+    "typeid": 1, 
+    "rank": 50, 
+    "animid": 0.0, 
+    "minatt": 850.0, 
+    "maxatt": 880.0, 
+    "hp": 50000, 
+    "exper": 8400, 
+    "runpro": 0.0, 
+    "mingold": 500, 
+    "maxgold": 600, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1013, 
+        "pro": 1
+      }, 
+      {
+        "id": 1007, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 1.2
+      }, 
+      {
+        "id": 1, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          7
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 3, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          302
+        ]
+      }
+    ], 
+    "atttype": [
+      15, 
+      0, 
+      9
+    ]
+  }, 
+  "Mons_61": {
+    "id": 61, 
+    "name": "皇太后", 
+    "aniname": "huangth", 
+    "typeid": 1, 
+    "rank": 55, 
+    "animid": 0.0, 
+    "minatt": 1100.0, 
+    "maxatt": 1200.0, 
+    "hp": 80000, 
+    "exper": 9600, 
+    "runpro": 0.0, 
+    "mingold": 700, 
+    "maxgold": 900, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.6
+      }, 
+      {
+        "id": 1, 
+        "hurt": 0.6
+      }, 
+      {
+        "id": 3, 
+        "hurt": 0.0
+      }, 
+      {
+        "id": 2, 
+        "hurt": 1.4
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          108
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          104
+        ]
+      }, 
+      {
+        "attNum": 3, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          402
+        ]
+      }
+    ], 
+    "atttype": [
+      116, 
+      100, 
+      107
+    ]
+  }, 
+  "Mons_62": {
+    "id": 62, 
+    "name": "电狼", 
+    "aniname": "ghostwolf", 
+    "typeid": 0, 
+    "rank": 16, 
+    "animid": 0.0, 
+    "minatt": 270.0, 
+    "maxatt": 280.0, 
+    "hp": 750, 
+    "exper": 525, 
+    "runpro": 0.5, 
+    "mingold": 70, 
+    "maxgold": 90, 
+    "zoom": 0.28, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.4
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          1
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      3
+    ]
+  }, 
+  "Mons_63": {
+    "id": 63, 
+    "name": "苍月", 
+    "aniname": "fudz", 
+    "typeid": 1, 
+    "rank": 32, 
+    "animid": 0.0, 
+    "minatt": 500.0, 
+    "maxatt": 550.0, 
+    "hp": 12000, 
+    "exper": 2400, 
+    "runpro": 0.0, 
+    "mingold": 150, 
+    "maxgold": 160, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "id": 1010, 
+        "pro": 1
+      }, 
+      {
+        "id": 1014, 
+        "pro": 1
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.2
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 3, 
+        "round": 4, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          3
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_64": {
+    "id": 64, 
+    "name": "雪山妖", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 45, 
+    "animid": 0.0, 
+    "minatt": 780.0, 
+    "maxatt": 850.0, 
+    "hp": 1700, 
+    "exper": 1080, 
+    "runpro": 0.0, 
+    "mingold": 180, 
+    "maxgold": 200, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.4
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0.4
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          2
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      3
+    ]
+  }, 
+  "Mons_65": {
+    "id": 65, 
+    "name": "雪山妖", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 55, 
+    "animid": 0.0, 
+    "minatt": 820.0, 
+    "maxatt": 900.0, 
+    "hp": 2500, 
+    "exper": 1920, 
+    "runpro": 0.0, 
+    "mingold": 230, 
+    "maxgold": 260, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "id": 1006, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      9
+    ]
+  }, 
+  "Mons_66": {
+    "id": 66, 
+    "name": "下人", 
+    "aniname": "Ocr_04", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 18.0, 
+    "maxatt": 20.0, 
+    "hp": 50, 
+    "exper": 8, 
+    "runpro": 0.0, 
+    "mingold": 5, 
+    "maxgold": 8, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_67": {
+    "id": 67, 
+    "name": "打手", 
+    "aniname": "Ocr_05", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 150.0, 
+    "maxatt": 151.0, 
+    "hp": 55, 
+    "exper": 9, 
+    "runpro": 0.0, 
+    "mingold": 5, 
+    "maxgold": 8, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 1, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_68": {
+    "id": 68, 
+    "name": "打手", 
+    "aniname": "Ocr_05", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 20.0, 
+    "maxatt": 22.0, 
+    "hp": 70, 
+    "exper": 9, 
+    "runpro": 0.0, 
+    "mingold": 5, 
+    "maxgold": 8, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 5, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_69": {
+    "id": 69, 
+    "name": "下人", 
+    "aniname": "Ocr_04", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 20.0, 
+    "maxatt": 25.0, 
+    "hp": 30, 
+    "exper": 9, 
+    "runpro": 0.0, 
+    "mingold": 5, 
+    "maxgold": 8, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_70": {
+    "id": 70, 
+    "name": "打手", 
+    "aniname": "Ocr_05", 
+    "typeid": 0, 
+    "rank": 1, 
+    "animid": 0.0, 
+    "minatt": 28.0, 
+    "maxatt": 32.0, 
+    "hp": 40, 
+    "exper": 14, 
+    "runpro": 0.3, 
+    "mingold": 6, 
+    "maxgold": 10, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_71": {
+    "id": 71, 
+    "name": "树精", 
+    "aniname": "tree_01", 
+    "typeid": 0, 
+    "rank": 4, 
+    "animid": 0.0, 
+    "minatt": 95.0, 
+    "maxatt": 100.0, 
+    "hp": 130, 
+    "exper": 45, 
+    "runpro": 0.0, 
+    "mingold": 14, 
+    "maxgold": 18, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          301
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_72": {
+    "id": 72, 
+    "name": "毒蛇", 
+    "aniname": "snake", 
+    "typeid": 0, 
+    "rank": 4, 
+    "animid": 0.0, 
+    "minatt": 95.0, 
+    "maxatt": 105.0, 
+    "hp": 140, 
+    "exper": 58, 
+    "runpro": 0.0, 
+    "mingold": 18, 
+    "maxgold": 20, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "id": 1002, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          7
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      2
+    ]
+  }, 
+  "Mons_73": {
+    "id": 73, 
+    "name": "火怪", 
+    "aniname": "fire", 
+    "typeid": 0, 
+    "rank": 4, 
+    "animid": 0.0, 
+    "minatt": 90.0, 
+    "maxatt": 100.0, 
+    "hp": 150, 
+    "exper": 82, 
+    "runpro": 0.0, 
+    "mingold": 20, 
+    "maxgold": 25, 
+    "zoom": 0.28, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          400
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_74": {
+    "id": 74, 
+    "name": "红面侠", 
+    "aniname": "longwu01", 
+    "typeid": 0, 
+    "rank": 6, 
+    "animid": 0.0, 
+    "minatt": 110.0, 
+    "maxatt": 130.0, 
+    "hp": 250, 
+    "exper": 116, 
+    "runpro": 0.0, 
+    "mingold": 30, 
+    "maxgold": 35, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "id": 1009, 
+        "pro": 0.3
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          402
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      102
+    ]
+  }, 
+  "Mons_75": {
+    "id": 75, 
+    "name": "绿脸侠", 
+    "aniname": "longwu02", 
+    "typeid": 0, 
+    "rank": 10, 
+    "animid": 0.0, 
+    "minatt": 180.0, 
+    "maxatt": 190.0, 
+    "hp": 400, 
+    "exper": 180, 
+    "runpro": 0.0, 
+    "mingold": 50, 
+    "maxgold": 60, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.3
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0.3
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_76": {
+    "id": 76, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 130.0, 
+    "maxatt": 140.0, 
+    "hp": 400, 
+    "exper": 236, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 30, 
+    "zoom": 0.4, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          7
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_77": {
+    "id": 77, 
+    "name": "骷髅", 
+    "aniname": "bones03", 
+    "typeid": 0, 
+    "rank": 11, 
+    "animid": 0.0, 
+    "minatt": 180.0, 
+    "maxatt": 190.0, 
+    "hp": 500, 
+    "exper": 258, 
+    "runpro": 0.0, 
+    "mingold": 40, 
+    "maxgold": 45, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          107
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_78": {
+    "id": 78, 
+    "name": "疯狗", 
+    "aniname": "dog", 
+    "typeid": 0, 
+    "rank": 17, 
+    "animid": 0.0, 
+    "minatt": 200.0, 
+    "maxatt": 230.0, 
+    "hp": 1000, 
+    "exper": 436, 
+    "runpro": 0.0, 
+    "mingold": 70, 
+    "maxgold": 80, 
+    "zoom": 0.25, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          1
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_79": {
+    "id": 79, 
+    "name": "电狼", 
+    "aniname": "ghostwolf", 
+    "typeid": 0, 
+    "rank": 24, 
+    "animid": 0.0, 
+    "minatt": 290.0, 
+    "maxatt": 320.0, 
+    "hp": 1400, 
+    "exper": 520, 
+    "runpro": 0.0, 
+    "mingold": 90, 
+    "maxgold": 100, 
+    "zoom": 0.33, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_80": {
+    "id": 80, 
+    "name": "夜骷髅", 
+    "aniname": "ghostorc", 
+    "typeid": 0, 
+    "rank": 28, 
+    "animid": 0.0, 
+    "minatt": 430.0, 
+    "maxatt": 450.0, 
+    "hp": 1800, 
+    "exper": 820, 
+    "runpro": 0.0, 
+    "mingold": 120, 
+    "maxgold": 140, 
+    "zoom": 0.35, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_81": {
+    "id": 81, 
+    "name": "雪山怪", 
+    "aniname": "wendigo", 
+    "typeid": 0, 
+    "rank": 37, 
+    "animid": 0.0, 
+    "minatt": 560.0, 
+    "maxatt": 580.0, 
+    "hp": 1800, 
+    "exper": 1060, 
+    "runpro": 0.0, 
+    "mingold": 160, 
+    "maxgold": 180, 
+    "zoom": 0.38, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          4
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": 2, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      7
+    ]
+  }, 
+  "Mons_82": {
+    "id": 82, 
+    "name": "雪妖王", 
+    "aniname": "fire03", 
+    "typeid": 0, 
+    "rank": 55, 
+    "animid": 0.0, 
+    "minatt": 720.0, 
+    "maxatt": 750.0, 
+    "hp": 3000, 
+    "exper": 2260, 
+    "runpro": 0.0, 
+    "mingold": 280, 
+    "maxgold": 320, 
+    "zoom": 0.38, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 3, 
+        "round": 2, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_83": {
+    "id": 83, 
+    "name": "毒蛇", 
+    "aniname": "snake", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 60.0, 
+    "maxatt": 70.0, 
+    "hp": 80, 
+    "exper": 80, 
+    "runpro": 0.0, 
+    "mingold": 20, 
+    "maxgold": 25, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_84": {
+    "id": 84, 
+    "name": "火怪", 
+    "aniname": "fire", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 80.0, 
+    "maxatt": 90.0, 
+    "hp": 90, 
+    "exper": 90, 
+    "runpro": 0.0, 
+    "mingold": 22, 
+    "maxgold": 25, 
+    "zoom": 0.2, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          401
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          100
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_85": {
+    "id": 85, 
+    "name": "宝箱1", 
+    "aniname": "baoxiangguai_l", 
+    "typeid": 2, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 150.0, 
+    "maxatt": 160.0, 
+    "hp": 200, 
+    "exper": 100, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 27, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 10, 
+        "attid": [
+          -1
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": 1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_86": {
+    "id": 86, 
+    "name": "绿脸侠", 
+    "aniname": "longwu02", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 85.0, 
+    "maxatt": 95.0, 
+    "hp": 120, 
+    "exper": 120, 
+    "runpro": 0.0, 
+    "mingold": 32, 
+    "maxgold": 35, 
+    "zoom": 0.22, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_87": {
+    "id": 87, 
+    "name": "绿脸侠", 
+    "aniname": "longwu02", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 100.0, 
+    "maxatt": 110.0, 
+    "hp": 150, 
+    "exper": 180, 
+    "runpro": 0.0, 
+    "mingold": 40, 
+    "maxgold": 45, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          1
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      100
+    ]
+  }, 
+  "Mons_88": {
+    "id": 88, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 110.0, 
+    "maxatt": 120.0, 
+    "hp": 160, 
+    "exper": 210, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 30, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          302
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_89": {
+    "id": 89, 
+    "name": "石头人", 
+    "aniname": "bigrock", 
+    "typeid": 0, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 115.0, 
+    "maxatt": 125.0, 
+    "hp": 200, 
+    "exper": 230, 
+    "runpro": 0.0, 
+    "mingold": 35, 
+    "maxgold": 38, 
+    "zoom": 0.3, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 2, 
+        "hurt": 0.5
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          2
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 4, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_90": {
+    "id": 90, 
+    "name": "树神", 
+    "aniname": "tree_02", 
+    "typeid": 1, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 180.0, 
+    "maxatt": 200.0, 
+    "hp": 1200, 
+    "exper": 250, 
+    "runpro": 0.0, 
+    "mingold": 50, 
+    "maxgold": 60, 
+    "zoom": 0.45, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 1, 
+        "hurt": 0.3
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          3
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 4, 
+        "attid": [
+          300
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      6
+    ]
+  }, 
+  "Mons_91": {
+    "id": 91, 
+    "name": "宝箱2", 
+    "aniname": "baoxiangguai_z", 
+    "typeid": 2, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 350.0, 
+    "maxatt": 400.0, 
+    "hp": 400, 
+    "exper": 100, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 27, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 7, 
+        "attid": [
+          -1
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_92": {
+    "id": 92, 
+    "name": "红面大王", 
+    "aniname": "longwu01", 
+    "typeid": 1, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 230.0, 
+    "maxatt": 250.0, 
+    "hp": 2000, 
+    "exper": 300, 
+    "runpro": 0.0, 
+    "mingold": 60, 
+    "maxgold": 80, 
+    "zoom": 0.4, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 0, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 1, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 2, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          107
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          100
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          201
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": -1, 
+        "round": 3, 
+        "attid": [
+          401
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      102
+    ]
+  }, 
+  "Mons_93": {
+    "id": 93, 
+    "name": "青花会Boss", 
+    "aniname": "ghost_bigrock", 
+    "typeid": 1, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 300.0, 
+    "maxatt": 320.0, 
+    "hp": 4000, 
+    "exper": 350, 
+    "runpro": 0.0, 
+    "mingold": 80, 
+    "maxgold": 90, 
+    "zoom": 0.45, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.2
+      }, 
+      {
+        "id": 4, 
+        "hurt": 0
+      }, 
+      {
+        "id": 5, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          4
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "round": 3, 
+        "attid": [
+          5
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 2, 
+        "attid": [
+          201
+        ]
+      }
+    ], 
+    "atttype": [
+      100, 
+      107
+    ]
+  }, 
+  "Mons_94": {
+    "id": 94, 
+    "name": "宝箱3", 
+    "aniname": "baoxiangguai_h", 
+    "typeid": 2, 
+    "rank": 5, 
+    "animid": 0.0, 
+    "minatt": 450.0, 
+    "maxatt": 500.0, 
+    "hp": 3000, 
+    "exper": 100, 
+    "runpro": 0.0, 
+    "mingold": 25, 
+    "maxgold": 27, 
+    "zoom": 1.0, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": 3, 
+        "hurt": 0.0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "round": 6, 
+        "attid": [
+          -1
+        ]
+      }, 
+      {
+        "attNum": 1, 
+        "round": 3, 
+        "attid": [
+          0
+        ]
+      }, 
+      {
+        "attNum": 2, 
+        "next": 1, 
+        "round": 2, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_95": {
+    "id": 95, 
+    "name": "宝箱怪1", 
+    "aniname": "xiang_1", 
+    "typeid": 2, 
+    "rank": 20, 
+    "animid": 0.0, 
+    "minatt": 0.0, 
+    "maxatt": 0.0, 
+    "hp": 0, 
+    "exper": 0, 
+    "runpro": 0.0, 
+    "mingold": 0, 
+    "maxgold": 0, 
+    "zoom": 0.6, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 8, 
+        "attid": [
+          -2
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_96": {
+    "id": 96, 
+    "name": "宝箱怪2", 
+    "aniname": "xiang_2", 
+    "typeid": 2, 
+    "rank": 20, 
+    "animid": 0.0, 
+    "minatt": 0.0, 
+    "maxatt": 0.0, 
+    "hp": 0, 
+    "exper": 0, 
+    "runpro": 0.0, 
+    "mingold": 0, 
+    "maxgold": 0, 
+    "zoom": 0.6, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 8, 
+        "attid": [
+          -2
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_97": {
+    "id": 97, 
+    "name": "宝箱怪3", 
+    "aniname": "xiang_4", 
+    "typeid": 2, 
+    "rank": 20, 
+    "animid": 0.0, 
+    "minatt": 0.0, 
+    "maxatt": 0.0, 
+    "hp": 0, 
+    "exper": 0, 
+    "runpro": 0.0, 
+    "mingold": 0, 
+    "maxgold": 0, 
+    "zoom": 0.6, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 8, 
+        "attid": [
+          -2
+        ]
+      }
+    ], 
+    "atttype": [
+      0
+    ]
+  }, 
+  "Mons_98": {
+    "id": 98, 
+    "name": "副本怪", 
+    "aniname": "tree_02", 
+    "typeid": 1, 
+    "rank": 55, 
+    "animid": 0.0, 
+    "minatt": 999999.0, 
+    "maxatt": 999999.0, 
+    "hp": 999999, 
+    "exper": 0, 
+    "runpro": 0.0, 
+    "mingold": 0, 
+    "maxgold": 0, 
+    "zoom": 0.45, 
+    "dropnums": [
+      {
+        "pro": 0, 
+        "id": 0
+      }
+    ], 
+    "def": [
+      {
+        "id": -1, 
+        "hurt": 0
+      }
+    ], 
+    "attlogic": [
+      {
+        "attNum": 1, 
+        "next": -1, 
+        "round": 100, 
+        "attid": [
+          0
+        ]
+      }
+    ], 
+    "atttype": [
+      0, 
+      6
+    ]
+  }
+}

@@ -1,0 +1,1228 @@
+{
+  "skill_0": {
+    "id": 0, 
+    "role": 0, 
+    "name": "火焰斩", 
+    "icon": "sicon_huoyan.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack02", 
+    "skill_act": "skill_0", 
+    "buff_act": "buff_0", 
+    "starNum": 0, 
+    "attribute": 0, 
+    "price": 500, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2, 
+      2
+    ], 
+    "description": "给单个敌人造成120%的火焰伤害。发动强化技能可达200%，并附带2回合以上火焰伤害。"
+  }, 
+  "skill_1": {
+    "id": 1, 
+    "role": 0, 
+    "name": "雷鸣斩", 
+    "icon": "sicon_leiming.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack03", 
+    "skill_act": "skill_1", 
+    "buff_act": "buff_1", 
+    "starNum": 0, 
+    "attribute": 1, 
+    "price": 500, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2, 
+      2
+    ], 
+    "description": "给单个敌人造成120%的雷电伤害。发动强化技能可达200%，并附带2回合以上电击伤害。"
+  }, 
+  "skill_2": {
+    "id": 2, 
+    "role": 0, 
+    "name": "烈焰击", 
+    "icon": "sicon_huoyan1.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack02", 
+    "skill_act": "skill_0", 
+    "buff_act": "buff_0", 
+    "starNum": 1, 
+    "attribute": 0, 
+    "price": 1000, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.5, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.3, 
+      2
+    ], 
+    "description": "给单个敌人造成150%的火焰伤害。发动强化技能可达230%，并附带2回合以上火焰伤害。"
+  }, 
+  "skill_3": {
+    "id": 3, 
+    "role": 0, 
+    "name": "强雷击", 
+    "icon": "sicon_leiming1.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack03", 
+    "skill_act": "skill_1", 
+    "buff_act": "buff_1", 
+    "starNum": 1, 
+    "attribute": 1, 
+    "price": 20, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.6, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.4, 
+      2
+    ], 
+    "description": "给单个敌人造成160%的雷电伤害。发动强化技能可达240%，并附带2回合以上电击伤害。"
+  }, 
+  "skill_4": {
+    "id": 4, 
+    "role": 0, 
+    "name": "赤炎舞", 
+    "icon": "sicon_huoyan2.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack02", 
+    "skill_act": "skill_0", 
+    "buff_act": "buff_0", 
+    "starNum": 2, 
+    "attribute": 0, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.8, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.6, 
+      2
+    ], 
+    "description": "给单个敌人造成180%的火焰伤害。发动强化技能可达260%，并附带2回合以上火焰伤害。"
+  }, 
+  "skill_5": {
+    "id": 5, 
+    "role": 0, 
+    "name": "奔雷怒", 
+    "icon": "sicon_leiming2.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack03", 
+    "skill_act": "skill_1", 
+    "buff_act": "buff_1", 
+    "starNum": 2, 
+    "attribute": 1, 
+    "price": 40, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.8, 
+      2
+    ], 
+    "description": "给单个敌人造成200%的雷电伤害。发动强化技能可达280%，并附带2回合以上电击伤害。"
+  }, 
+  "skill_6": {
+    "id": 6, 
+    "role": 0, 
+    "name": "地狱火", 
+    "icon": "sicon_diyuhuo.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_18", 
+    "buff_act": "buff_0", 
+    "starNum": -1, 
+    "attribute": 0, 
+    "price": 50, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      0, 
+      3, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      4, 
+      3
+    ], 
+    "description": "给全体敌人造成300%的火焰伤害。与强化技能结合可达400%，并附带3回合以上火焰伤害。"
+  }, 
+  "skill_7": {
+    "id": 7, 
+    "role": 0, 
+    "name": "电光火石", 
+    "icon": "sicon_dianguang.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack05", 
+    "skill_act": "skill_19", 
+    "buff_act": "buff_1", 
+    "starNum": -1, 
+    "attribute": 1, 
+    "price": 50, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      0, 
+      3.3, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      4.3, 
+      3
+    ], 
+    "description": "给全体敌人造成330%的雷电伤害。与强化技能结合可达430%，并附带3回合以上雷电伤害。"
+  }, 
+  "skill_8": {
+    "id": 8, 
+    "role": 1, 
+    "name": "硬气功", 
+    "icon": "sicon_hudun.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_31", 
+    "buff_act": "buff_6", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 4, 
+    "price_type": 2, 
+    "mark": 3, 
+    "normalVal": [
+      1.5, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      2.3, 
+      2, 
+      0.75
+    ], 
+    "description": "以150%回复力恢复防御值，发动强化技能可达230%，并持续2回合的自我回复。"
+  }, 
+  "skill_9": {
+    "id": 9, 
+    "role": 1, 
+    "name": "碎冰击", 
+    "icon": "sicon_hanbing.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack07", 
+    "skill_act": "skill_6", 
+    "buff_act": "buff_2", 
+    "starNum": 0, 
+    "attribute": 2, 
+    "price": 20, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2, 
+      2
+    ], 
+    "description": "给单个敌人造成120%的冰冻伤害。发动强化技能可达200%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_10": {
+    "id": 10, 
+    "role": 1, 
+    "name": "金钟罩", 
+    "icon": "sicon_hudun1.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_32", 
+    "buff_act": "buff_6", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 20, 
+    "price_type": 2, 
+    "mark": 3, 
+    "normalVal": [
+      2.4, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      3.2, 
+      2, 
+      1.2
+    ], 
+    "description": "以240%回复力恢复防御值。发动强化技能可达320%，并持续2回合的自我回复。"
+  }, 
+  "skill_11": {
+    "id": 11, 
+    "role": 1, 
+    "name": "寒冰魄", 
+    "icon": "sicon_hanbing1.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack07", 
+    "skill_act": "skill_6", 
+    "buff_act": "buff_2", 
+    "starNum": 1, 
+    "attribute": 2, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.5, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.4, 
+      2
+    ], 
+    "description": "给单个敌人造成150%的冰冻伤害。发动强化技能可达240%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_12": {
+    "id": 12, 
+    "role": 1, 
+    "name": "金刚护体", 
+    "icon": "sicon_hudun2.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_33", 
+    "buff_act": "buff_6", 
+    "starNum": 2, 
+    "attribute": -1, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 3, 
+    "normalVal": [
+      3, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      4, 
+      4, 
+      1.5
+    ], 
+    "description": "以300%回复力恢复防御值。发送强化技能可达400%，并持续4回合的自我回复。"
+  }, 
+  "skill_13": {
+    "id": 13, 
+    "role": 1, 
+    "name": "凝冰之剑", 
+    "icon": "sicon_hanbing2.png", 
+    "range": false, 
+    "move": true, 
+    "role_act": "attack07", 
+    "skill_act": "skill_6", 
+    "buff_act": "buff_2", 
+    "starNum": 2, 
+    "attribute": 2, 
+    "price": 40, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.8, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.6, 
+      2
+    ], 
+    "description": "给单个敌人造成180%的冰冻伤害。发动强化技能可达260%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_14": {
+    "id": 14, 
+    "role": 1, 
+    "name": "九阳神功", 
+    "icon": "sicon_jiuyang.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack08", 
+    "skill_act": "skill_38", 
+    "buff_act": "", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 120, 
+    "price_type": 2, 
+    "mark": 6, 
+    "normalVal": [
+      3.2, 
+      3, 
+      3
+    ], 
+    "enhanceVal": [
+      3.2, 
+      3, 
+      5
+    ], 
+    "description": "以320%的回复力来恢复防御值，并产生免疫敌人伤害的防护罩，可防御3次以上的敌人攻击。"
+  }, 
+  "skill_15": {
+    "id": 15, 
+    "role": 1, 
+    "name": "寒冰风暴", 
+    "icon": "sicon_fengbao.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_20", 
+    "buff_act": "buff_2", 
+    "starNum": -1, 
+    "attribute": 2, 
+    "price": 100, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      0, 
+      3, 
+      2
+    ], 
+    "enhanceVal": [
+      0, 
+      4, 
+      4
+    ], 
+    "description": "给全体敌人造成300%的冰冻伤害，并附带2回合的冰冻伤害。与强化技能结合可达400%，并附带4回合以上冰冻伤害。"
+  }, 
+  "skill_16": {
+    "id": 16, 
+    "role": 2, 
+    "name": "火球术", 
+    "icon": "sicon_huoqiu.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_7", 
+    "buff_act": "buff_0", 
+    "starNum": 0, 
+    "attribute": 0, 
+    "price": 600, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.6, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.4, 
+      2
+    ], 
+    "description": "给单个敌人造成160%的火焰伤害。发动强化技能可达240%，并造成2回合以上火焰伤害。"
+  }, 
+  "skill_17": {
+    "id": 17, 
+    "role": 2, 
+    "name": "冰冻术", 
+    "icon": "sicon_bingdong.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_17", 
+    "buff_act": "buff_2", 
+    "starNum": 0, 
+    "attribute": 2, 
+    "price": 500, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.5, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.3, 
+      2
+    ], 
+    "description": "给单个敌人造成150%的冰冻伤害。发动强化技能可达230%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_18": {
+    "id": 18, 
+    "role": 2, 
+    "name": "缩小术", 
+    "icon": "sicon_suoxiao.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_34", 
+    "buff_act": "buff_4", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 5, 
+    "price_type": 2, 
+    "mark": 4, 
+    "normalVal": [
+      3, 
+      0.4
+    ], 
+    "enhanceVal": [
+      4, 
+      0.4
+    ], 
+    "description": "给予单体3回合的缩小状态，使其防御力与攻击力降低40%。发动强化技能会造成4回合以上的缩小状态。"
+  }, 
+  "skill_19": {
+    "id": 19, 
+    "role": 2, 
+    "name": "混乱术", 
+    "icon": "sicon_hunluan.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_36", 
+    "buff_act": "buff_5", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 10, 
+    "price_type": 2, 
+    "mark": 5, 
+    "normalVal": [
+      3, 
+      -1
+    ], 
+    "enhanceVal": [
+      4, 
+      -1
+    ], 
+    "description": "给予单体3回合以上的混乱状态，使其敌我不分。发动强化技能会造成4回合以上的混乱状态。"
+  }, 
+  "skill_20": {
+    "id": 20, 
+    "role": 2, 
+    "name": "闪电术", 
+    "icon": "sicon_leidian.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_8", 
+    "buff_act": "buff_1", 
+    "starNum": 0, 
+    "attribute": 1, 
+    "price": 2, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.5, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.3, 
+      2
+    ], 
+    "description": "给单个敌人造成150%的雷电伤害。发动强化技能可达230%，并造成2回合以上电击伤害。"
+  }, 
+  "skill_21": {
+    "id": 21, 
+    "role": 2, 
+    "name": "强闪电术", 
+    "icon": "sicon_leidian1.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_8", 
+    "buff_act": "buff_1", 
+    "starNum": 1, 
+    "attribute": 1, 
+    "price": 20, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.8, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.6, 
+      2
+    ], 
+    "description": "给单个敌人造成180%的雷电伤害。发动强化技能可达260%，并造成2回合以上电击伤害。"
+  }, 
+  "skill_22": {
+    "id": 22, 
+    "role": 2, 
+    "name": "强冰冻术", 
+    "icon": "sicon_bingdong1.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_17", 
+    "buff_act": "buff_2", 
+    "starNum": 1, 
+    "attribute": 2, 
+    "price": 20, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.8, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.6, 
+      2
+    ], 
+    "description": "给单个敌人造成180%的冰冻伤害。发动强化技能可达260%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_23": {
+    "id": 23, 
+    "role": 2, 
+    "name": "强火球术", 
+    "icon": "sicon_huoqiu1.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_7", 
+    "buff_act": "buff_0", 
+    "starNum": 1, 
+    "attribute": 0, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.9, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.7, 
+      2
+    ], 
+    "description": "给单个敌人造成190%的火焰伤害。发动强化技能可达270%，并造成2回合以上火焰伤害。"
+  }, 
+  "skill_24": {
+    "id": 24, 
+    "role": 2, 
+    "name": "强缩小术", 
+    "icon": "sicon_suoxiao.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_35", 
+    "buff_act": "buff_4", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 40, 
+    "price_type": 2, 
+    "mark": 4, 
+    "normalVal": [
+      3, 
+      0.6
+    ], 
+    "enhanceVal": [
+      5, 
+      0.6
+    ], 
+    "description": "给予单体3回合的缩小状态，使其防御力与攻击力降低60%。发动强化技能会造成5回合以上的缩小状态。"
+  }, 
+  "skill_25": {
+    "id": 25, 
+    "role": 2, 
+    "name": "超闪电术", 
+    "icon": "sicon_leidian2.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_8", 
+    "buff_act": "buff_1", 
+    "starNum": 2, 
+    "attribute": 1, 
+    "price": 40, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.8, 
+      2
+    ], 
+    "description": "给单个敌人造成200%的雷电伤害。发动强化技能可达280%，并造成2回合以上电击伤害。"
+  }, 
+  "skill_26": {
+    "id": 26, 
+    "role": 2, 
+    "name": "超冰冻术", 
+    "icon": "sicon_bingdong2.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_17", 
+    "buff_act": "buff_2", 
+    "starNum": 2, 
+    "attribute": 2, 
+    "price": 40, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.8, 
+      2
+    ], 
+    "description": "给单个敌人造成200%的冰冻伤害。发动强化技能可达280%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_27": {
+    "id": 27, 
+    "role": 2, 
+    "name": "超火球术", 
+    "icon": "sicon_huoqiu2.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_7", 
+    "buff_act": "buff_0", 
+    "starNum": 2, 
+    "attribute": 0, 
+    "price": 50, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      2.2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      3, 
+      2
+    ], 
+    "description": "给单个敌人造成220%的火焰伤害。发动强化技能可达300%，并造成2回合以上火焰伤害。"
+  }, 
+  "skill_28": {
+    "id": 28, 
+    "role": 2, 
+    "name": "陨石术", 
+    "icon": "sicon_yunshi.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_21", 
+    "buff_act": "buff_0", 
+    "starNum": -1, 
+    "attribute": 0, 
+    "price": 100, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      0, 
+      3.7, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      5.2, 
+      2
+    ], 
+    "description": "给全体敌人造成370%的火焰伤害。与强化技能结合可达520%，并造成2回合以上火焰伤害。"
+  }, 
+  "skill_29": {
+    "id": 29, 
+    "role": 2, 
+    "name": "雷电之门", 
+    "icon": "sicon_leidzm.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_22", 
+    "buff_act": "buff_1", 
+    "starNum": -1, 
+    "attribute": 1, 
+    "price": 80, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      0, 
+      3.5, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      5, 
+      2
+    ], 
+    "description": "给全体敌人造成350%的雷电伤害。与强化技能结合可达500%，并造成2回合以上雷电伤害。"
+  }, 
+  "skill_30": {
+    "id": 30, 
+    "role": 2, 
+    "name": "魅惑之心", 
+    "icon": "sicon_meihuo.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_37", 
+    "buff_act": "buff_5", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 60, 
+    "price_type": 2, 
+    "mark": 5, 
+    "normalVal": [
+      3, 
+      -1
+    ], 
+    "enhanceVal": [
+      5, 
+      -1
+    ], 
+    "description": "给予敌人全体3回合以上的混乱状态，使其敌我不分。与强化技能结合可达5回合。"
+  }, 
+  "skill_31": {
+    "id": 31, 
+    "role": 2, 
+    "name": "北极冰封", 
+    "icon": "sicon_bingfeng.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_23", 
+    "buff_act": "buff_2", 
+    "starNum": -1, 
+    "attribute": 2, 
+    "price": 80, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      0, 
+      3.7, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      5.5, 
+      2
+    ], 
+    "description": "给全体敌人造成370%的冰冻伤害。与强化技能结合可达550%，并造成2回合以上冰冻伤害。"
+  }, 
+  "skill_32": {
+    "id": 32, 
+    "role": 3, 
+    "name": "回复术", 
+    "icon": "sicon_huifu.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack01", 
+    "skill_act": "skill_24", 
+    "buff_act": "buff_7", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 5, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      1.5, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      2.3, 
+      0, 
+      0
+    ], 
+    "description": "以150%的回复力来恢复生命值。发动强化技能可达230%。"
+  }, 
+  "skill_33": {
+    "id": 33, 
+    "role": 3, 
+    "name": "净化术", 
+    "icon": "sicon_jinghua.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_39", 
+    "buff_act": "buff_9", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 600, 
+    "price_type": 0, 
+    "mark": 7, 
+    "normalVal": [
+      1, 
+      4, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      6, 
+      0
+    ], 
+    "description": "回复100%的生命值，并净化敌人4个初级邪恶镖符。发动强化技能可净化6个以上。"
+  }, 
+  "skill_34": {
+    "id": 34, 
+    "role": 3, 
+    "name": "自疗术", 
+    "icon": "sicon_ziliao.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_29", 
+    "buff_act": "buff_7", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 500, 
+    "price_type": 0, 
+    "mark": 2, 
+    "normalVal": [
+      1.2, 
+      2, 
+      0.3
+    ], 
+    "enhanceVal": [
+      2, 
+      4, 
+      0.3
+    ], 
+    "description": "以120%的回复力来恢复生命值，并产生2回合以上的自疗效果。发动强化技能可达200%，并产生4回合以上的自疗效果。"
+  }, 
+  "skill_35": {
+    "id": 35, 
+    "role": 3, 
+    "name": "增幅术", 
+    "icon": "sicon_zengfu.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_42", 
+    "buff_act": "buff_8", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 800, 
+    "price_type": 0, 
+    "mark": 8, 
+    "normalVal": [
+      1, 
+      2
+    ], 
+    "enhanceVal": [
+      1, 
+      3
+    ], 
+    "description": "以100%的回复力来恢复生命值，并将2个镖符升级为技能镖符。发动强化技能可升级3个以上。"
+  }, 
+  "skill_36": {
+    "id": 36, 
+    "role": 3, 
+    "name": "中自疗术", 
+    "icon": "sicon_ziliao1.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_28", 
+    "buff_act": "buff_7", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 3000, 
+    "price_type": 0, 
+    "mark": 2, 
+    "normalVal": [
+      1.5, 
+      2, 
+      0.2
+    ], 
+    "enhanceVal": [
+      2.3, 
+      4, 
+      0.2
+    ], 
+    "description": "以150%的回复力来恢复生命值，并产生2回合以上的自疗效果。发动强化技能可达230%，并产生4回合以上的自疗效果。"
+  }, 
+  "skill_37": {
+    "id": 37, 
+    "role": 3, 
+    "name": "中回复术", 
+    "icon": "sicon_huifu1.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack01", 
+    "skill_act": "skill_25", 
+    "buff_act": "buff_7", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 15, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      2, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      2.8, 
+      0, 
+      0
+    ], 
+    "description": "以200%的回复力来恢复生命值。发动强化技能可达280%。"
+  }, 
+  "skill_38": {
+    "id": 38, 
+    "role": 3, 
+    "name": "中净化术", 
+    "icon": "sicon_jinghua1.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_40", 
+    "buff_act": "buff_9", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 7, 
+    "normalVal": [
+      1.5, 
+      4, 
+      1
+    ], 
+    "enhanceVal": [
+      1.5, 
+      6, 
+      1
+    ], 
+    "description": "以150%的回复力来恢复生命值，并净化敌人4个中级邪恶镖符。发动强化技能可净化6个以上。"
+  }, 
+  "skill_39": {
+    "id": 39, 
+    "role": 3, 
+    "name": "中增幅术", 
+    "icon": "sicon_zengfu1.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_42", 
+    "buff_act": "buff_8", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 8, 
+    "normalVal": [
+      1.5, 
+      2
+    ], 
+    "enhanceVal": [
+      1.5, 
+      3
+    ], 
+    "description": "以150%的回复力来恢复生命值，并将2个镖符升级为技能镖符。发动强化技能可升级3个以上。"
+  }, 
+  "skill_40": {
+    "id": 40, 
+    "role": 3, 
+    "name": "大回复术", 
+    "icon": "sicon_huifu2.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack01", 
+    "skill_act": "skill_26", 
+    "buff_act": "buff_7", 
+    "starNum": 2, 
+    "attribute": -1, 
+    "price": 35, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      2.5, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      3.3, 
+      0, 
+      0
+    ], 
+    "description": "以250%的回复力来恢复生命值。发动强化技能可达330%。"
+  }, 
+  "skill_41": {
+    "id": 41, 
+    "role": 3, 
+    "name": "大自疗术", 
+    "icon": "sicon_ziliao2.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_30", 
+    "buff_act": "buff_7", 
+    "starNum": 2, 
+    "attribute": -1, 
+    "price": 40, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      1.8, 
+      2, 
+      0.4
+    ], 
+    "enhanceVal": [
+      2.6, 
+      4, 
+      0.4
+    ], 
+    "description": "以180%的回复力来恢复生命值，并产生2回合以上的自疗效果。发动强化技能可达260%，并产生4回合以上的自疗效果。"
+  }, 
+  "skill_42": {
+    "id": 42, 
+    "role": 3, 
+    "name": "大净化术", 
+    "icon": "sicon_jinghua2.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_41", 
+    "buff_act": "buff_9", 
+    "starNum": 2, 
+    "attribute": -1, 
+    "price": 60, 
+    "price_type": 2, 
+    "mark": 7, 
+    "normalVal": [
+      1.8, 
+      4, 
+      2
+    ], 
+    "enhanceVal": [
+      1.8, 
+      6, 
+      2
+    ], 
+    "description": "以180%的回复力来恢复生命值，并净化敌人4个高级邪恶镖符。发动强化技能可解除6个以上。"
+  }, 
+  "skill_43": {
+    "id": 43, 
+    "role": 3, 
+    "name": "返老还童", 
+    "icon": "sicon_fanlao.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_27", 
+    "buff_act": "buff_7", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 80, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      4, 
+      0, 
+      0
+    ], 
+    "enhanceVal": [
+      5, 
+      0, 
+      0
+    ], 
+    "description": "以400%的回复力来恢复生命值。发动强化技能可达500%。"
+  }, 
+  "skill_44": {
+    "id": 44, 
+    "role": 3, 
+    "name": "起死回生", 
+    "icon": "sicon_fuhuo.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack05", 
+    "skill_act": "skill_44", 
+    "buff_act": "buff_10", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 120, 
+    "price_type": 2, 
+    "mark": 9, 
+    "normalVal": [
+      0.5, 
+      3
+    ], 
+    "enhanceVal": [
+      0.5, 
+      3
+    ], 
+    "description": "以300%的回复力来恢复生命值，在队伍死亡时可立即复活，同时回复50%的生命值。"
+  }, 
+  "skill_45": {
+    "id": 45, 
+    "role": 3, 
+    "name": "容光焕发", 
+    "icon": "sicon_rongguang.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack06", 
+    "skill_act": "skill_45", 
+    "buff_act": "buff_9", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 100, 
+    "price_type": 2, 
+    "mark": 10, 
+    "normalVal": [
+      3, 
+      -1
+    ], 
+    "enhanceVal": [
+      3, 
+      -1
+    ], 
+    "description": "以300%的回复力来恢复生命值，并净化敌人所有的邪恶镖符。"
+  }
+}

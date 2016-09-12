@@ -1,0 +1,2242 @@
+{
+  "equip_0": {
+    "roleid": 0, 
+    "id": 500, 
+    "name": "小砍刀", 
+    "price": 400, 
+    "price_type": 0, 
+    "picname": "lsj_jian_01.png", 
+    "description": "作为镖局的掌柜，这把刀就是临时用来耍耍的。", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      3, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_1": {
+    "roleid": 0, 
+    "id": 501, 
+    "name": "明甬刀", 
+    "price": 1200, 
+    "price_type": 0, 
+    "picname": "lsj_jian_02.png", 
+    "description": "据传永乐大帝时所铸，崭新如初，质量上乘。", 
+    "limit": 3, 
+    "attrib": [
+      10, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      4, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_2": {
+    "roleid": 0, 
+    "id": 502, 
+    "name": "日本刀", 
+    "price": 25, 
+    "price_type": 2, 
+    "picname": "lsj_jian_03.png", 
+    "description": "从倭寇手里缴获，小日本的东西，你懂的！", 
+    "limit": 5, 
+    "attrib": [
+      20, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      3, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      5, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_3": {
+    "roleid": 0, 
+    "id": 503, 
+    "name": "苗刀", 
+    "price": 5000, 
+    "price_type": 0, 
+    "picname": "lsj_jian_04.png", 
+    "description": "苗族的神秘贡品，可惜路上被劫，流落到黑市，买到就是赚到。", 
+    "limit": 7, 
+    "attrib": [
+      50, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      4, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      6, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_4": {
+    "roleid": 0, 
+    "id": 504, 
+    "name": "马背刀", 
+    "price": 60, 
+    "price_type": 2, 
+    "picname": "lsj_jian_05.png", 
+    "description": "正宗西域货，销铁非如泥，跳楼白菜价，千年等一回。", 
+    "limit": 9, 
+    "attrib": [
+      80, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      5, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      7, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_5": {
+    "roleid": 0, 
+    "id": 505, 
+    "name": "大唐龙雀刀", 
+    "price": 13000, 
+    "price_type": 0, 
+    "picname": "lsj_jian_06.png", 
+    "description": "唐朝孤品，在平定安史之乱中，轻取上千首级，获誉无数。", 
+    "limit": 11, 
+    "attrib": [
+      100, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      7, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      9, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_6": {
+    "roleid": 0, 
+    "id": 506, 
+    "name": "吴越刀", 
+    "price": 120, 
+    "price_type": 2, 
+    "picname": "lsj_jian_07.png", 
+    "description": "吴越之地，户户熔铁，家家铸剑，良剑一出，谁与争锋。", 
+    "limit": 15, 
+    "attrib": [
+      150, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      9, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      11, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_7": {
+    "roleid": 0, 
+    "id": 507, 
+    "name": "龙泉汉刀", 
+    "price": 150, 
+    "price_type": 2, 
+    "picname": "lsj_jian_08.png", 
+    "description": "龙泉圣地，古法锻造，如若不信，可否借狗头一试？", 
+    "limit": 17, 
+    "attrib": [
+      180, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      10, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      14, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_8": {
+    "roleid": 0, 
+    "id": 508, 
+    "name": "尚方宝刀", 
+    "price": 100000, 
+    "price_type": 0, 
+    "picname": "lsj_jian_09.png", 
+    "description": "先皇御赐，上斩昏君，下斩佞臣，杀人越货，居家必备。", 
+    "limit": 20, 
+    "attrib": [
+      200, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      13, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      17, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_9": {
+    "roleid": 0, 
+    "id": 509, 
+    "name": "干将莫邪", 
+    "price": 300, 
+    "price_type": 2, 
+    "picname": "lsj_jian_10.png", 
+    "description": "紫气冲霄，飞云缠绕，天下名器，莫不如是。", 
+    "limit": 25, 
+    "attrib": [
+      250, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      16, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      20, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_10": {
+    "roleid": 1, 
+    "id": 510, 
+    "name": "石斧", 
+    "price": 400, 
+    "price_type": 0, 
+    "picname": "cbd_dun_01.png", 
+    "description": "最适合砍柴火，买卖好每天可以挣八文钱。", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      8, 
+      6, 
+      0
+    ], 
+    "lvaddmin": [
+      2, 
+      2, 
+      2, 
+      0
+    ], 
+    "lvaddmax": [
+      3, 
+      3, 
+      3, 
+      0
+    ]
+  }, 
+  "equip_11": {
+    "roleid": 1, 
+    "id": 511, 
+    "name": "小铁斧", 
+    "price": 10, 
+    "price_type": 2, 
+    "picname": "cbd_dun_02.png", 
+    "description": "小铁斧不仅适合挖矿，还可以朝头顶bang的一下。", 
+    "limit": 3, 
+    "attrib": [
+      9, 
+      10, 
+      10, 
+      0
+    ], 
+    "lvaddmin": [
+      2, 
+      2, 
+      2, 
+      0
+    ], 
+    "lvaddmax": [
+      4, 
+      4, 
+      5, 
+      0
+    ]
+  }, 
+  "equip_12": {
+    "roleid": 1, 
+    "id": 512, 
+    "name": "大锥斧", 
+    "price": 2500, 
+    "price_type": 0, 
+    "picname": "cbd_dun_03.png", 
+    "description": "听说八斗偶尔用来炒菜，比铲子方便多了。", 
+    "limit": 5, 
+    "attrib": [
+      18, 
+      17, 
+      19, 
+      0
+    ], 
+    "lvaddmin": [
+      3, 
+      3, 
+      3, 
+      0
+    ], 
+    "lvaddmax": [
+      5, 
+      5, 
+      5, 
+      0
+    ]
+  }, 
+  "equip_13": {
+    "roleid": 1, 
+    "id": 513, 
+    "name": "铜斧", 
+    "price": 40, 
+    "price_type": 2, 
+    "picname": "cbd_dun_04.png", 
+    "description": "一把斧头值十几两银子，城乡结合部暴发户专用。", 
+    "limit": 7, 
+    "attrib": [
+      48, 
+      35, 
+      40, 
+      0
+    ], 
+    "lvaddmin": [
+      4, 
+      4, 
+      4, 
+      0
+    ], 
+    "lvaddmax": [
+      6, 
+      6, 
+      6, 
+      0
+    ]
+  }, 
+  "equip_14": {
+    "roleid": 1, 
+    "id": 514, 
+    "name": "黄铜斧", 
+    "price": 8000, 
+    "price_type": 0, 
+    "picname": "cbd_dun_05.png", 
+    "description": "用这货才是真正的行家，八斗手提狗头笑而不语。", 
+    "limit": 9, 
+    "attrib": [
+      78, 
+      61, 
+      62, 
+      0
+    ], 
+    "lvaddmin": [
+      5, 
+      5, 
+      5, 
+      0
+    ], 
+    "lvaddmax": [
+      7, 
+      7, 
+      7, 
+      0
+    ]
+  }, 
+  "equip_15": {
+    "roleid": 1, 
+    "id": 515, 
+    "name": "破银斧", 
+    "price": 100, 
+    "price_type": 2, 
+    "picname": "cbd_dun_06.png", 
+    "description": "八斗当宝贝一样供着，怕不小心把自己的银子敲碎了。", 
+    "limit": 11, 
+    "attrib": [
+      93, 
+      79, 
+      81, 
+      0
+    ], 
+    "lvaddmin": [
+      7, 
+      7, 
+      7, 
+      0
+    ], 
+    "lvaddmax": [
+      9, 
+      9, 
+      9, 
+      0
+    ]
+  }, 
+  "equip_16": {
+    "roleid": 1, 
+    "id": 516, 
+    "name": "六叶斧", 
+    "price": 20000, 
+    "price_type": 0, 
+    "picname": "cbd_dun_07.png", 
+    "description": "战时六叶封六窍，余下一窍菊花开！", 
+    "limit": 15, 
+    "attrib": [
+      139, 
+      128, 
+      136, 
+      0
+    ], 
+    "lvaddmin": [
+      9, 
+      9, 
+      9, 
+      0
+    ], 
+    "lvaddmax": [
+      11, 
+      11, 
+      11, 
+      0
+    ]
+  }, 
+  "equip_17": {
+    "roleid": 1, 
+    "id": 517, 
+    "name": "钢玉斧", 
+    "price": 150, 
+    "price_type": 2, 
+    "picname": "cbd_dun_08.png", 
+    "description": "金刚如玉，大杀四方，敲猫变虎，打马化龙！", 
+    "limit": 17, 
+    "attrib": [
+      171, 
+      146, 
+      159, 
+      0
+    ], 
+    "lvaddmin": [
+      10, 
+      10, 
+      10, 
+      0
+    ], 
+    "lvaddmax": [
+      14, 
+      14, 
+      14, 
+      0
+    ]
+  }, 
+  "equip_18": {
+    "roleid": 1, 
+    "id": 518, 
+    "name": "流金斧", 
+    "price": 200, 
+    "price_type": 2, 
+    "picname": "cbd_dun_09.png", 
+    "description": "八斗有言在先：这斧头可是金子做的，粘上你的狗血就不纯了", 
+    "limit": 20, 
+    "attrib": [
+      199, 
+      179, 
+      194, 
+      0
+    ], 
+    "lvaddmin": [
+      13, 
+      13, 
+      13, 
+      0
+    ], 
+    "lvaddmax": [
+      17, 
+      17, 
+      17, 
+      0
+    ]
+  }, 
+  "equip_19": {
+    "roleid": 1, 
+    "id": 519, 
+    "name": "八瓣莲花斧", 
+    "price": 300, 
+    "price_type": 2, 
+    "picname": "cbd_dun_10.png", 
+    "description": "据传乃观音座下佛陀专用，只要让他Duang的一下，你就西天取经去啦！", 
+    "limit": 25, 
+    "attrib": [
+      232, 
+      203, 
+      207, 
+      0
+    ], 
+    "lvaddmin": [
+      16, 
+      16, 
+      16, 
+      0
+    ], 
+    "lvaddmax": [
+      20, 
+      20, 
+      20, 
+      0
+    ]
+  }, 
+  "equip_20": {
+    "roleid": 2, 
+    "id": 520, 
+    "name": "简镖", 
+    "price": 400, 
+    "price_type": 0, 
+    "picname": "lqc_biao_01.png", 
+    "description": "最简简单单的镖，最痛痛快快的死！", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      3, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_21": {
+    "roleid": 2, 
+    "id": 521, 
+    "name": "袖镖", 
+    "price": 1200, 
+    "price_type": 0, 
+    "picname": "lqc_biao_02.png", 
+    "description": "只见吕大侠袖口一甩，那厮就人头落地，袖镖从此江湖扬名。", 
+    "limit": 3, 
+    "attrib": [
+      9, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      4, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_22": {
+    "roleid": 2, 
+    "id": 522, 
+    "name": "细线镖", 
+    "price": 2000, 
+    "price_type": 0, 
+    "picname": "lqc_biao_03.png", 
+    "description": "如线一般丝滑，多摸几下，人就挂了。", 
+    "limit": 5, 
+    "attrib": [
+      17, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      3, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      5, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_23": {
+    "roleid": 2, 
+    "id": 523, 
+    "name": "弹丸镖", 
+    "price": 5000, 
+    "price_type": 0, 
+    "picname": "lqc_biao_04.png", 
+    "description": "弹(tan)丸（wan）镖，听说弹jj弹到死，蛋疼之……", 
+    "limit": 7, 
+    "attrib": [
+      45, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      4, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      6, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_24": {
+    "roleid": 2, 
+    "id": 524, 
+    "name": "柳叶镖", 
+    "price": 60, 
+    "price_type": 2, 
+    "picname": "lqc_biao_05.png", 
+    "description": "细如柳叶，利若寒风，真真是春梦了无痕呐！", 
+    "limit": 9, 
+    "attrib": [
+      74, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      5, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      7, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_25": {
+    "roleid": 2, 
+    "id": 525, 
+    "name": "钱镖", 
+    "price": 12000, 
+    "price_type": 0, 
+    "picname": "lqc_biao_06.png", 
+    "description": "青橙可不舍得用，这都是白敬祺的私房钱啊！", 
+    "limit": 11, 
+    "attrib": [
+      88, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      7, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      9, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_26": {
+    "roleid": 2, 
+    "id": 526, 
+    "name": "箭镖", 
+    "price": 120, 
+    "price_type": 2, 
+    "picname": "lqc_biao_07.png", 
+    "description": "比箭？谁能有这货箭！", 
+    "limit": 15, 
+    "attrib": [
+      129, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      9, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      11, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_27": {
+    "roleid": 2, 
+    "id": 527, 
+    "name": "峨眉镖", 
+    "price": 50000, 
+    "price_type": 0, 
+    "picname": "lqc_biao_08.png", 
+    "description": "传说这是周芷若姐姐用的暗器，青橙妹妹，你什么时候和她一样美呀！", 
+    "limit": 17, 
+    "attrib": [
+      154, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      10, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      14, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_28": {
+    "roleid": 2, 
+    "id": 528, 
+    "name": "梅花针", 
+    "price": 200, 
+    "price_type": 2, 
+    "picname": "lqc_biao_09.png", 
+    "description": "梅花一弄断人肠,梅花二弄费思量,梅花三弄风波起,云烟深处水茫茫！", 
+    "limit": 20, 
+    "attrib": [
+      184, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      13, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      17, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_29": {
+    "roleid": 2, 
+    "id": 529, 
+    "name": "烟花绣", 
+    "price": 300, 
+    "price_type": 2, 
+    "picname": "lqc_biao_10.png", 
+    "description": "烟花缥缈，花荣失色，生的伟大，死的悄悄。", 
+    "limit": 25, 
+    "attrib": [
+      221, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      15, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      18, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_30": {
+    "roleid": 3, 
+    "id": 530, 
+    "name": "玫瑰枝", 
+    "price": 400, 
+    "price_type": 0, 
+    "picname": "sqy_hua_01.png", 
+    "description": "无色无味，杀人于数米之外，靠的是什么？就是秋月姐的完美，Perfect！", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      5
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      3
+    ]
+  }, 
+  "equip_31": {
+    "roleid": 3, 
+    "id": 531, 
+    "name": "白莲杖", 
+    "price": 1200, 
+    "price_type": 0, 
+    "picname": "sqy_hua_02.png", 
+    "description": "糊糊不知从哪里搞来的，但是听说效果不错，你要不试试？", 
+    "limit": 3, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      10
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      2
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      4
+    ]
+  }, 
+  "equip_32": {
+    "roleid": 3, 
+    "id": 532, 
+    "name": "菊花手杖", 
+    "price": 25, 
+    "price_type": 2, 
+    "picname": "sqy_hua_03.png", 
+    "description": "不要多想，这是有一年重阳节秋月姐上山遇到……，好啦，编不下去了，你们瞎想去吧。", 
+    "limit": 5, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      16
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      3
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      5
+    ]
+  }, 
+  "equip_33": {
+    "roleid": 3, 
+    "id": 533, 
+    "name": "桃花仙枝", 
+    "price": 5000, 
+    "price_type": 0, 
+    "picname": "sqy_hua_04.png", 
+    "description": "此武器要慎用，否则那么多烂桃花贴上来，甩都甩不掉。", 
+    "limit": 7, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      39
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      4
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      6
+    ]
+  }, 
+  "equip_34": {
+    "roleid": 3, 
+    "id": 534, 
+    "name": "洪氏打狗棒", 
+    "price": 60, 
+    "price_type": 2, 
+    "picname": "sqy_hua_05.png", 
+    "description": "小时候乞丐送给她的，说她骨骼惊奇，日后必成武林一霸，后来，她结婚了。", 
+    "limit": 9, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      64
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      5
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      7
+    ]
+  }, 
+  "equip_35": {
+    "roleid": 3, 
+    "id": 535, 
+    "name": "幻音魔法杖", 
+    "price": 12000, 
+    "price_type": 0, 
+    "picname": "sqy_hua_06.png", 
+    "description": "当家的送给秋月姐的第一件礼物，秋月姐爱的不要不要的，就差用自个身上了。", 
+    "limit": 11, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      76
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      7
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      9
+    ]
+  }, 
+  "equip_36": {
+    "roleid": 3, 
+    "id": 536, 
+    "name": "寒冰杖", 
+    "price": 20000, 
+    "price_type": 0, 
+    "picname": "sqy_hua_07.png", 
+    "description": "手拿此杖大庭之中一声吼：谁还敢多嘴！然后就安静了。", 
+    "limit": 15, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      118
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      9
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      11
+    ]
+  }, 
+  "equip_37": {
+    "roleid": 3, 
+    "id": 537, 
+    "name": "消魔杖", 
+    "price": 150, 
+    "price_type": 2, 
+    "picname": "sqy_hua_08.png", 
+    "description": "镖局上上下下的小鬼小妖，都靠它来收拾，否则乱糟糟的，糊糊怎么睡觉。", 
+    "limit": 17, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      139
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      10
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      14
+    ]
+  }, 
+  "equip_38": {
+    "roleid": 3, 
+    "id": 538, 
+    "name": "巴里巴拉魔杖", 
+    "price": 200, 
+    "price_type": 2, 
+    "picname": "sqy_hua_09.png", 
+    "description": "这可是陆三金从西洋带回来的，听说秋月姐第一次见到，就红了脸。", 
+    "limit": 20, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      152
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      13
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      17
+    ]
+  }, 
+  "equip_39": {
+    "roleid": 3, 
+    "id": 539, 
+    "name": "迷你笑笑枝", 
+    "price": 300, 
+    "price_type": 2, 
+    "picname": "sqy_hua_10.png", 
+    "description": "随枝附送秋月姐的独门秘籍，三剑笑开怀！请出门大笑三声，左转不谢。", 
+    "limit": 25, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      194
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      16
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      20
+    ]
+  }, 
+  "equip_40": {
+    "roleid": 0, 
+    "id": 1500, 
+    "name": "小砍刀", 
+    "price": 4, 
+    "price_type": 0, 
+    "picname": "lsj_jian_01.png", 
+    "description": "作为镖局的掌柜，这把刀就是临时用来耍耍的。", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_41": {
+    "roleid": 0, 
+    "id": 1501, 
+    "name": "明甬刀", 
+    "price": 7, 
+    "price_type": 0, 
+    "picname": "lsj_jian_02.png", 
+    "description": "据传永乐大帝时所铸，崭新如初，质量上乘。", 
+    "limit": 0, 
+    "attrib": [
+      20, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_42": {
+    "roleid": 0, 
+    "id": 1502, 
+    "name": "日本刀", 
+    "price": 20, 
+    "price_type": 0, 
+    "picname": "lsj_jian_03.png", 
+    "description": "从倭寇手里缴获，小日本的东西，你懂的！", 
+    "limit": 0, 
+    "attrib": [
+      58, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_43": {
+    "roleid": 0, 
+    "id": 1503, 
+    "name": "苗刀", 
+    "price": 40, 
+    "price_type": 0, 
+    "picname": "lsj_jian_04.png", 
+    "description": "苗族的神秘贡品，可惜路上被劫，流落到黑市，买到就是赚到。", 
+    "limit": 0, 
+    "attrib": [
+      100, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_44": {
+    "roleid": 0, 
+    "id": 1504, 
+    "name": "马背刀", 
+    "price": 60, 
+    "price_type": 0, 
+    "picname": "lsj_jian_05.png", 
+    "description": "正宗西域货，销铁非如泥，跳楼白菜价，千年等一回。", 
+    "limit": 0, 
+    "attrib": [
+      156, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_45": {
+    "roleid": 0, 
+    "id": 1505, 
+    "name": "大唐龙雀刀", 
+    "price": 100, 
+    "price_type": 0, 
+    "picname": "lsj_jian_06.png", 
+    "description": "唐朝孤品，在平定安史之乱中，轻取上千首级，获誉无数。", 
+    "limit": 0, 
+    "attrib": [
+      210, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_46": {
+    "roleid": 0, 
+    "id": 1506, 
+    "name": "吴越刀", 
+    "price": 2, 
+    "price_type": 2, 
+    "picname": "lsj_jian_07.png", 
+    "description": "吴越之地，户户熔铁，家家铸剑，良剑一出，谁与争锋。", 
+    "limit": 0, 
+    "attrib": [
+      278, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_47": {
+    "roleid": 0, 
+    "id": 1507, 
+    "name": "龙泉汉刀", 
+    "price": 3, 
+    "price_type": 2, 
+    "picname": "lsj_jian_08.png", 
+    "description": "龙泉圣地，古法锻造，如若不信，可否借狗头一试？", 
+    "limit": 0, 
+    "attrib": [
+      368, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_48": {
+    "roleid": 0, 
+    "id": 1508, 
+    "name": "尚方宝刀", 
+    "price": 4, 
+    "price_type": 2, 
+    "picname": "lsj_jian_09.png", 
+    "description": "先皇御赐，上斩昏君，下斩佞臣，杀人越货，居家必备。", 
+    "limit": 0, 
+    "attrib": [
+      420, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_49": {
+    "roleid": 0, 
+    "id": 1509, 
+    "name": "干将莫邪", 
+    "price": 6, 
+    "price_type": 2, 
+    "picname": "lsj_jian_10.png", 
+    "description": "紫气冲霄，飞云缠绕，天下名器，莫不如是。", 
+    "limit": 0, 
+    "attrib": [
+      518, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_50": {
+    "roleid": 1, 
+    "id": 1510, 
+    "name": "石斧", 
+    "price": 4, 
+    "price_type": 0, 
+    "picname": "cbd_dun_01.png", 
+    "description": "最适合砍柴火，买卖好每天可以挣八文钱。", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      8, 
+      6, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_51": {
+    "roleid": 1, 
+    "id": 1511, 
+    "name": "小铁斧", 
+    "price": 7, 
+    "price_type": 0, 
+    "picname": "cbd_dun_02.png", 
+    "description": "小铁斧不仅适合挖矿，还可以朝头顶bang的一下。", 
+    "limit": 0, 
+    "attrib": [
+      18, 
+      20, 
+      20, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_52": {
+    "roleid": 1, 
+    "id": 1512, 
+    "name": "大锥斧", 
+    "price": 20, 
+    "price_type": 0, 
+    "picname": "cbd_dun_03.png", 
+    "description": "听说八斗偶尔用来炒菜，比铲子方便多了。", 
+    "limit": 0, 
+    "attrib": [
+      52, 
+      48, 
+      54, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_53": {
+    "roleid": 1, 
+    "id": 1513, 
+    "name": "铜斧", 
+    "price": 40, 
+    "price_type": 0, 
+    "picname": "cbd_dun_04.png", 
+    "description": "一把斧头值十几两银子，城乡结合部暴发户专用。", 
+    "limit": 0, 
+    "attrib": [
+      96, 
+      70, 
+      80, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_54": {
+    "roleid": 1, 
+    "id": 1514, 
+    "name": "黄铜斧", 
+    "price": 60, 
+    "price_type": 0, 
+    "picname": "cbd_dun_05.png", 
+    "description": "用这货才是真正的行家，八斗手提狗头笑而不语。", 
+    "limit": 0, 
+    "attrib": [
+      152, 
+      118, 
+      120, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_55": {
+    "roleid": 1, 
+    "id": 1515, 
+    "name": "破银斧", 
+    "price": 100, 
+    "price_type": 0, 
+    "picname": "cbd_dun_06.png", 
+    "description": "八斗当宝贝一样供着，怕不小心把自己的银子敲碎了。", 
+    "limit": 0, 
+    "attrib": [
+      195, 
+      165, 
+      170, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_56": {
+    "roleid": 1, 
+    "id": 1516, 
+    "name": "六叶斧", 
+    "price": 2, 
+    "price_type": 2, 
+    "picname": "cbd_dun_07.png", 
+    "description": "战时六叶封六窍，余下一窍菊花开！", 
+    "limit": 0, 
+    "attrib": [
+      258, 
+      238, 
+      252, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_57": {
+    "roleid": 1, 
+    "id": 1517, 
+    "name": "钢玉斧", 
+    "price": 3, 
+    "price_type": 2, 
+    "picname": "cbd_dun_08.png", 
+    "description": "金刚如玉，大杀四方，敲猫变虎，打马化龙！", 
+    "limit": 0, 
+    "attrib": [
+      348, 
+      298, 
+      325, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_58": {
+    "roleid": 1, 
+    "id": 1518, 
+    "name": "流金斧", 
+    "price": 4, 
+    "price_type": 2, 
+    "picname": "cbd_dun_09.png", 
+    "description": "八斗有言在先：这斧头可是金子做的，粘上你的狗血就不纯了", 
+    "limit": 0, 
+    "attrib": [
+      398, 
+      358, 
+      387, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_59": {
+    "roleid": 1, 
+    "id": 1519, 
+    "name": "八瓣莲花斧", 
+    "price": 6, 
+    "price_type": 2, 
+    "picname": "cbd_dun_10.png", 
+    "description": "据传乃观音座下佛陀专用，只要让他Duang的一下，你就西天取经去啦！", 
+    "limit": 0, 
+    "attrib": [
+      480, 
+      420, 
+      428, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_60": {
+    "roleid": 2, 
+    "id": 1520, 
+    "name": "简镖", 
+    "price": 4, 
+    "price_type": 0, 
+    "picname": "lqc_biao_01.png", 
+    "description": "最简简单单的镖，最痛痛快快的死！", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_61": {
+    "roleid": 2, 
+    "id": 1521, 
+    "name": "袖镖", 
+    "price": 7, 
+    "price_type": 0, 
+    "picname": "lqc_biao_02.png", 
+    "description": "只见吕大侠袖口一甩，那厮就人头落地，袖镖从此江湖扬名。", 
+    "limit": 0, 
+    "attrib": [
+      18, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_62": {
+    "roleid": 2, 
+    "id": 1522, 
+    "name": "细线镖", 
+    "price": 20, 
+    "price_type": 0, 
+    "picname": "lqc_biao_03.png", 
+    "description": "如线一般丝滑，多摸几下，人就挂了。", 
+    "limit": 0, 
+    "attrib": [
+      50, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_63": {
+    "roleid": 2, 
+    "id": 1523, 
+    "name": "弹丸镖", 
+    "price": 40, 
+    "price_type": 0, 
+    "picname": "lqc_biao_04.png", 
+    "description": "弹(tan)丸（wan）镖，听说弹jj弹到死，蛋疼之……", 
+    "limit": 0, 
+    "attrib": [
+      90, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_64": {
+    "roleid": 2, 
+    "id": 1524, 
+    "name": "柳叶镖", 
+    "price": 60, 
+    "price_type": 0, 
+    "picname": "lqc_biao_05.png", 
+    "description": "细如柳叶，利若寒风，真真是春梦了无痕呐！", 
+    "limit": 0, 
+    "attrib": [
+      145, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_65": {
+    "roleid": 2, 
+    "id": 1525, 
+    "name": "钱镖", 
+    "price": 100, 
+    "price_type": 0, 
+    "picname": "lqc_biao_06.png", 
+    "description": "青橙可不舍得用，这都是白敬祺的私房钱啊！", 
+    "limit": 0, 
+    "attrib": [
+      185, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_66": {
+    "roleid": 2, 
+    "id": 1526, 
+    "name": "箭镖", 
+    "price": 2, 
+    "price_type": 2, 
+    "picname": "lqc_biao_07.png", 
+    "description": "比箭？谁能有这货箭！", 
+    "limit": 0, 
+    "attrib": [
+      240, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_67": {
+    "roleid": 2, 
+    "id": 1527, 
+    "name": "峨眉镖", 
+    "price": 3, 
+    "price_type": 2, 
+    "picname": "lqc_biao_08.png", 
+    "description": "传说这是周芷若姐姐用的暗器，青橙妹妹，你什么时候和她一样美呀！", 
+    "limit": 0, 
+    "attrib": [
+      316, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_68": {
+    "roleid": 2, 
+    "id": 1528, 
+    "name": "梅花针", 
+    "price": 4, 
+    "price_type": 2, 
+    "picname": "lqc_biao_09.png", 
+    "description": "梅花一弄断人肠,梅花二弄费思量,梅花三弄风波起,云烟深处水茫茫！", 
+    "limit": 0, 
+    "attrib": [
+      387, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_69": {
+    "roleid": 2, 
+    "id": 1529, 
+    "name": "烟花绣", 
+    "price": 6, 
+    "price_type": 2, 
+    "picname": "lqc_biao_10.png", 
+    "description": "烟花缥缈，花荣失色，生的伟大，死的悄悄。", 
+    "limit": 0, 
+    "attrib": [
+      458, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_70": {
+    "roleid": 3, 
+    "id": 1530, 
+    "name": "玫瑰枝", 
+    "price": 4, 
+    "price_type": 0, 
+    "picname": "sqy_hua_01.png", 
+    "description": "无色无味，杀人于数米之外，靠的是什么？就是秋月姐的完美，Perfect！", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      5
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_71": {
+    "roleid": 3, 
+    "id": 1531, 
+    "name": "白莲杖", 
+    "price": 7, 
+    "price_type": 0, 
+    "picname": "sqy_hua_02.png", 
+    "description": "糊糊不知从哪里搞来的，但是听说效果不错，你要不试试？", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      20
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_72": {
+    "roleid": 3, 
+    "id": 1532, 
+    "name": "菊花手杖", 
+    "price": 20, 
+    "price_type": 0, 
+    "picname": "sqy_hua_03.png", 
+    "description": "不要多想，这是有一年重阳节秋月姐上山遇到……，好啦，编不下去了，你们瞎想去吧。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      48
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_73": {
+    "roleid": 3, 
+    "id": 1533, 
+    "name": "桃花仙枝", 
+    "price": 40, 
+    "price_type": 0, 
+    "picname": "sqy_hua_04.png", 
+    "description": "此武器要慎用，否则那么多烂桃花贴上来，甩都甩不掉。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      78
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_74": {
+    "roleid": 3, 
+    "id": 1534, 
+    "name": "洪氏打狗棒", 
+    "price": 60, 
+    "price_type": 0, 
+    "picname": "sqy_hua_05.png", 
+    "description": "小时候乞丐送给她的，说她骨骼惊奇，日后必成武林一霸，后来，她结婚了。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      125
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_75": {
+    "roleid": 3, 
+    "id": 1535, 
+    "name": "幻音魔法杖", 
+    "price": 100, 
+    "price_type": 0, 
+    "picname": "sqy_hua_06.png", 
+    "description": "当家的送给秋月姐的第一件礼物，秋月姐爱的不要不要的，就差用自个身上了。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      160
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_76": {
+    "roleid": 3, 
+    "id": 1536, 
+    "name": "寒冰杖", 
+    "price": 2, 
+    "price_type": 2, 
+    "picname": "sqy_hua_07.png", 
+    "description": "手拿此杖大庭之中一声吼：谁还敢多嘴！然后就安静了。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      219
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_77": {
+    "roleid": 3, 
+    "id": 1537, 
+    "name": "消魔杖", 
+    "price": 3, 
+    "price_type": 2, 
+    "picname": "sqy_hua_08.png", 
+    "description": "镖局上上下下的小鬼小妖，都靠它来收拾，否则乱糟糟的，糊糊怎么睡觉。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      285
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_78": {
+    "roleid": 3, 
+    "id": 1538, 
+    "name": "巴里巴拉魔杖", 
+    "price": 4, 
+    "price_type": 2, 
+    "picname": "sqy_hua_09.png", 
+    "description": "这可是陆三金从西洋带回来的，听说秋月姐第一次见到，就红了脸。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      320
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_79": {
+    "roleid": 3, 
+    "id": 1539, 
+    "name": "迷你笑笑枝", 
+    "price": 6, 
+    "price_type": 2, 
+    "picname": "sqy_hua_10.png", 
+    "description": "随枝附送秋月姐的独门秘籍，三剑笑开怀！请出门大笑三声，左转不谢。", 
+    "limit": 0, 
+    "attrib": [
+      0, 
+      0, 
+      0, 
+      402
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }
+}

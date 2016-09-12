@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      1
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "monsArray": [
+    [
+    [
+     	98
+     	]
+     	]
+    ]
+  }
+]
