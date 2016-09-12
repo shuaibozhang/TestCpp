@@ -84,7 +84,7 @@ TimeLimitActivityMgr * TimeLimitActivityMgr::getInstance()
 		s_instance->addActicityInfo(temp);*/
 
 		int srcDayTeacher = JRTime::getDayInYear(2016, 6, 12);
-		int teacherDay = JRTime::getDayInYear(2016, 9, 9);
+		int teacherDay = JRTime::getDayInYear(2016, 9, 12);
 		int teacherStartday = JRTime::compareTheDay(2016, srcDayTeacher, 2016, teacherDay);
 
 		TimeLimitActivityInfo temp;

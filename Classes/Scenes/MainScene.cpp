@@ -1169,6 +1169,8 @@ void MainLayer::initActivityInfo(int idx)
 	_rightBtnsNode->addChild(_timeLimitActivityBtn);
 	_timeLimitActivityBtn->setPosition(pos);
 
+	_arrrRightBnts.push_back(_timeLimitActivityBtn);
+
 	_timeLimitActivityText = ui::TextAtlas::create("", "fonts/num_boxcountout.png", 12.f, 20.f, ".");
 	_timeLimitActivityBtn->addChild(_timeLimitActivityText, MAPUI_POP);
 	_timeLimitActivityText->setPosition(Vec2(45.f, -10.f));
@@ -1223,6 +1225,7 @@ void MainLayer::initActivityInfo(int idx)
 			}
 		}
 	});
+	updataGiftBtns();
 
 	this->schedule(CC_CALLBACK_1(MainLayer::offlineClickAction, this), 1, CC_REPEAT_FOREVER, 0, "offlineClickAction");
 }
@@ -2006,11 +2009,11 @@ void MainLayer::updataGiftBtns()
 #endif
 	}
 
-	auto pos = Vec2(150.f, VisibleRect::top().y - 300.f) + Vec2(-100.f, 60.f);
+	auto pos = Vec2(150.f, VisibleRect::top().y - 200.f) + Vec2(-100.f, 60.f);
 	int idx2 = 0;
 	if (_timeLimitActivityBtn == nullptr || (_timeLimitActivityBtn != nullptr && _timeLimitActivityBtn->isVisible() == false))
 	{
-		pos += Vec2(0.f, 100.f);
+		//pos += Vec2(0.f, 100.f);
 	}
 	for (auto& temp : _arrrRightBnts)
 	{

@@ -6,6 +6,7 @@
 #include "GLCommon/Utils/ResMgr.h"
 #include "GLCommon/JRCommon.h"
 #include "UserData.h"
+#include "WeaponControl.h"
 
 USING_NS_CC;
 using namespace rapidjson;
@@ -1290,6 +1291,8 @@ void ParamMgr::reloadStoreFreshItemsConfig()
 {
 	//item config
 	{
+		static int lastconfigid = -1;
+
 		int configidx[] = { 10, 19, 32, 41, 48, 64, 72, 80 };
 		int fileconfigidx = 7;
 		for (int i = 0; i < 8; i++)
@@ -1300,6 +1303,16 @@ void ParamMgr::reloadStoreFreshItemsConfig()
 				break;
 			}
 		}
+
+		if (lastconfigid == fileconfigidx)
+		{
+			return;
+		}
+		else
+		{
+			lastconfigid = fileconfigidx;
+		}
+
 		_vvectorBoxPosConfig.clear();
 
 		auto filestring = String::createWithFormat("json/storebox_config_%d.json", fileconfigidx)->getCString();
@@ -1338,6 +1351,35 @@ void ParamMgr::reloadStoreFreshItemsConfig()
 
 			_vvectorBoxPosConfig.push_back(temparr);
 		}
+	}
+}
+
+void ParamMgr::loadHotStoreWenponCofig()
+{
+	rapidjson::Document _jsonBezierDoc;
+
+	auto contentStr = FileUtils::getInstance()->getDataFromFile("jsonb/ins_equip.b");
+	ToolsUtil::unbtea(contentStr);
+	std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
+	_jsonBezierDoc.Parse<0>(load_str.c_str());
+
+	if (_jsonBezierDoc.HasParseError())
+	{
+		CCLOG("JSonItemsError%s\n", _jsonBezierDoc.GetParseError());
+	}
+
+	auto count = _jsonBezierDoc.Capacity();
+	for (int i = 0; i < count; i++)
+	{
+		rapidjson::Value& temp = _jsonBezierDoc[i];
+		auto config = new HotStoreWenpon_T();
+		config->name = temp["name"].GetString();
+		config->wenponpartid = temp["equip_id"].GetInt();
+		config->num = temp["group"].GetInt();
+		config->price = temp["price"].GetInt();
+		config->pricetype = temp["price_type"].GetInt();
+
+		_arrHotStoreWenpons.push_back(config);
 	}
 }
 
@@ -1539,4 +1581,10 @@ void ParamMgr::changeShowReliveWeight(int typeValue)
 		_showReliveWeight = MAX(0, _showReliveWeight - 3);
 		break;
 	}
+}
+
+const HotStoreWenpon_T * ParamMgr::getHotStoreWenponsByIdx(int idx)
+{
+	CCASSERT((idx - WeaponControl::s_weaponStartIdx) < 40 && (idx - WeaponControl::s_weaponStartIdx) >=0, "out of range");
+	return _arrHotStoreWenpons[idx - WeaponControl::s_weaponStartIdx];
 }

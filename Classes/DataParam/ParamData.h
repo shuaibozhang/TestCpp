@@ -698,6 +698,15 @@ typedef struct _BoxInStoreConfig
 	int boxlv;
 }BoxInStoreConfig_T;
 
+typedef struct _HotStoreWenpon_T
+{
+	int wenponpartid;
+	std::string name;
+	int num;
+	int price;
+	int pricetype;
+}HotStoreWenpon_T;
+
 /***************************Rank Struct End*********************************************/
 
 

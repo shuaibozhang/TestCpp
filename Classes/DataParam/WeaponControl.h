@@ -43,6 +43,7 @@ public:
 	int getWenponOwner(int wenponid);
 
 	int getWenponType(int posidx);
+	void getPlayerUnlockWenponIds(int playerid, std::vector<int>&);
 private:
 	WeaponControl();
 	static WeaponControl* _instance;

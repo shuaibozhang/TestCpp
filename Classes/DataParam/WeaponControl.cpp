@@ -25,6 +25,17 @@ int WeaponControl::getWenponType(int posidx)
 	return *(postype + posidx);
 }
 
+void WeaponControl::getPlayerUnlockWenponIds(int playerid, std::vector<int>& temp)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		if (_arrWeaponControl[i + playerid * 10].unlock == true)
+		{
+			temp.push_back(_arrWeaponControl[i + playerid * 10].weaponid);
+		}
+	}
+}
+
 WeaponControl::WeaponControl()
 {
 

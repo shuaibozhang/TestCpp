@@ -100,7 +100,7 @@ const std::string g_arrPreLoadSound[] = {
 
 
 //const int g_loadGameResCount = sizeof(g_loadGameResInfo) / sizeof(g_loadGameResInfo[0]);
-const int g_loadFuncCount = 19;
+const int g_loadFuncCount = 20;
 const int g_loadSoundCount = sizeof(g_arrPreLoadSound) / sizeof(g_arrPreLoadSound[0]);
 //const int g_loadSkillCount = 9;
 
@@ -274,6 +274,7 @@ void LoadingScene::loadGameData(int index)
 		CC_CALLBACK_0(ParamMgr::loadBoxDetailInfo, ParamMgr::getInstance()),
 		CC_CALLBACK_0(ParamMgr::loadDungeonInfo, ParamMgr::getInstance()),
 		CC_CALLBACK_0(ParamMgr::loadDungeonRewardInfo, ParamMgr::getInstance()),
+		CC_CALLBACK_0(ParamMgr::loadHotStoreWenponCofig, ParamMgr::getInstance()),
 	};
 
 //	CCASSERT((_curLoadIndex - g_loadGameResCount) >= 0, "_curLoadIndex error!!!!");

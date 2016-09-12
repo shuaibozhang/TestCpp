@@ -55,6 +55,7 @@ public:
 	void loadWenponUpConfig();
 
 	void reloadStoreFreshItemsConfig();
+	void loadHotStoreWenponCofig();
 
 	const DragonBoneInfo_T *getRoleArmtrInfo(int id);
 //	const DragonBoneInfo_T *getMonsterArmtrInfo(int id);
@@ -99,7 +100,7 @@ public:
 	void getBoxItems(int boxidx, std::vector<int>& itemids, std::vector<int>& nums);
 	void getBoxItems(int boxidx, std::vector<PopItemInfo_T>& arrItems);
 
-	const std::vector<StorePageOneItem_T>& getStorePageOneItems() { return _vectorPageOneItems; }
+	std::vector<StorePageOneItem_T>& getStorePageOneItems() { return _vectorPageOneItems; }
 	const std::vector<std::vector<StorePageOnePosConfig_T> >& getStoreOneConfig() { return _vvectorBoxPosConfig; }
 
 	std::vector<WenponLvUpInfo_T>& getWenponUpInfoByType(int type) { return _vectorArrWenponup[type]; }
@@ -110,6 +111,11 @@ public:
 
 	void changeShowReliveWeight(int typeValue);	//0.lose 1.win 2.show
 	CC_SYNTHESIZE_READONLY(int, _showReliveWeight, ShowReliveWeight);
+
+	/**
+	*@param idx is 500 to 540
+	*/
+	const HotStoreWenpon_T* getHotStoreWenponsByIdx(int wenponid);
 private:
 	static ParamMgr *s_pInstance;
 	vector<DragonBoneInfo_T *> _arrRoleArmtrInfo;
@@ -147,6 +153,7 @@ private:
 
 	std::vector<DungeonDeatilInfo_T *> _arrDungeonInfo;
 	std::vector<DungeonReward_T *> _arrDungeonReward;
+	std::vector<HotStoreWenpon_T *> _arrHotStoreWenpons;
 };
 
 

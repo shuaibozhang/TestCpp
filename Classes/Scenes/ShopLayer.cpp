@@ -2183,7 +2183,7 @@ bool StoreLayer2::init()
 	this->addChild(root);
 
 	auto actionshow = EaseSineOut::create(MoveTo::create(0.3f, Vec2(0.f, 0.f)));
-	root->setPositionY(-VisibleRect::top().y + 100.f);
+	root->setPositionY(-VisibleRect::top().y + 120.f);
 	root->runAction(actionshow);
 
 	//exchange
@@ -2502,7 +2502,21 @@ void StoreLayer2::menuOnPageOneBtns(Ref * ref, Widget::TouchEventType type)
 
 	auto& items = ParamMgr::getInstance()->getStorePageOneItems();
 	auto idx =UserData::getInstance()->getStorePageItemid(btnidx);
-	auto& info = items[idx];
+	StorePageOneItem_T info;
+
+	if (btnidx >= 1 && btnidx <= 6)
+	{
+		auto tempcofig = ParamMgr::getInstance()->getHotStoreWenponsByIdx(_storeItemCurIdx[btnidx]);
+		info.des = tempcofig->name;
+		info.itemid = tempcofig->wenponpartid;
+		info.num = tempcofig->num;
+		info.price = tempcofig->price;
+		info.type = tempcofig->pricetype;
+	}
+	else
+	{
+		info = items[idx];
+	}
 
 	//check is skill allready buy
 	int itemtype = BagItemControl::getInstace()->checkItemType(info.itemid);
@@ -2733,6 +2747,15 @@ void StoreLayer2::freshenItems(bool changids)
 
 	auto& items = ParamMgr::getInstance()->getStorePageOneItems();
 	auto& config = ParamMgr::getInstance()->getStoreOneConfig();
+	
+	std::vector<int> arrPlayerWenponId[4];
+	
+	for (int i = 0; i < 4; i++)
+	{
+		WeaponControl::getInstance()->getPlayerUnlockWenponIds(i, arrPlayerWenponId[i]);
+	}
+	
+
 	for (int i = 0; i < 9; i++)
 	{
 		auto& curposconfig = config[i];
@@ -2741,12 +2764,46 @@ void StoreLayer2::freshenItems(bool changids)
 
 		if (changids)
 		{
-			_storeItemCurIdx[i] = curposconfig[cur].pageoneitemidx - 1;
+			_storeItemCurIdx[i] = curposconfig[cur].pageoneitemidx - 1;			
 			UserData::getInstance()->setStorePageItemid(i, _storeItemCurIdx[i]);
 			UserData::getInstance()->setStorePageStage(i, 1);
 		}
 		
-		auto& iteminfo = items[_storeItemCurIdx[i]];
+		StorePageOneItem_T iteminfo;
+
+		if (changids || _storeItemCurIdx[i] < WeaponControl::s_weaponStartIdx)
+		{
+			if (i >= 1 && i <= 4)
+			{
+				int selectidx = ToolsUtil::getRandomInt(0, ((int)arrPlayerWenponId[i - 1].size() - 1));
+				int wenponid = arrPlayerWenponId[i - 1].at(selectidx);
+				UserData::getInstance()->setStorePageItemid(i, wenponid);
+				_storeItemCurIdx[i] = wenponid;
+			}
+			else if (i == 5 || i == 6)
+			{
+				int playerid = ToolsUtil::getRandomInt(0, 3);
+				int wenponid = arrPlayerWenponId[playerid].back();
+				UserData::getInstance()->setStorePageItemid(i, wenponid);
+				_storeItemCurIdx[i] = wenponid;
+			}
+		}
+
+
+		if (i >= 1 && i <= 6)
+		{
+			auto tempcofig = ParamMgr::getInstance()->getHotStoreWenponsByIdx(_storeItemCurIdx[i]);
+			iteminfo.des = tempcofig->name;
+			iteminfo.itemid = tempcofig->wenponpartid;
+			iteminfo.num = tempcofig->num;
+			iteminfo.price = tempcofig->price;
+			iteminfo.type = tempcofig->pricetype;
+		}
+		else
+		{
+			iteminfo = items[_storeItemCurIdx[i]];
+		}
+
 		if (iteminfo.itemid == -102)
 		{
 			_arrPageOneItems[i].name->setString(ResMgr::getInstance()->getString("item_name_-102")->getCString());
