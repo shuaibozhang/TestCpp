@@ -18,11 +18,11 @@ USING_NS_CC_EXT;
 
 DailyRewardLayer *DailyRewardLayer::s_pInstance = nullptr;
 
-const int g_arrDailyRewardId[7] = {1014, 502, 21, 1015, 515, 1004, 536};
-const int g_arrDailyRewardCount[7] = {2, 1, 1, 6, 1, 10, 1};
+const int g_arrDailyRewardId[7] = {1014, 1502, 21, 1015, 1515, 1004, 536};
+const int g_arrDailyRewardCount[7] = {2, 30, 1, 6, 20, 5, 1};
 
 const int g_arrWeekRepeatRewardId[7] = { 1012, 1506, -102, 1507, 1004, 1014, 1508 };
-const int  g_arrWeekRepeatRewardCount[7] = { 2, 20, 20, 20, 10, 5, 20 };
+const int  g_arrWeekRepeatRewardCount[7] = { 2, 10, 20, 20, 10, 5, 10 };
 
 DailyRewardLayer *DailyRewardLayer::getInstance(void)
 {
@@ -238,7 +238,7 @@ bool DailyRewardLayer::init(bool isWeekReward)
 						int itemId = g_arrDailyRewardId[_curDayIdx];
 						int itemCount = g_arrDailyRewardCount[_curDayIdx];
 
-						if (1 == _curDayIdx || 4 == _curDayIdx || 6 == _curDayIdx)
+						if (6 == _curDayIdx)
 						{
 							if (WeaponControl::getInstance()->isWeaponUnLock(g_arrDailyRewardId[_curDayIdx]))
 							{

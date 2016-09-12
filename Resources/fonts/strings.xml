@@ -250,6 +250,8 @@
 	<string>客官慢慢挑，这里都是好货</string>
 	<key>lv_limit</key>
 	<string>(需要等级%d)</string>
+	<key>lv_nolimit</key>
+	<string>(无等级限制)</string>
 	<key>guanqia_idx</key>
 	<string>第%d关  </string>	
 	<key>guide_unable_item</key>

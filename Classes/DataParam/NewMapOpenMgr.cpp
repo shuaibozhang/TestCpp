@@ -143,7 +143,7 @@ bool NewMapOpenMgr::tryGet(MapOpenType type, bool needpop)
 		}
 	}
 		break;
-	case BGL5000:
+	case BGL50000:
 		p = ToolsUtil::getRandomInt(1, 100);
 		if(p < 10)
 		{

@@ -964,6 +964,10 @@ void ParamMgr::loadWeaponConfig()
 		{
 			temp.des = temp.des + String::createWithFormat(ResMgr::getInstance()->getString("lv_limit")->getCString(), temp.equipMinLv)->getCString();
 		}
+		else
+		{
+			temp.des = temp.des + ResMgr::getInstance()->getString("lv_nolimit")->getCString();			
+		}
 		temp.paytype = item["price_type"].GetInt();
 		temp.type = item["roleid"].GetDouble();
 

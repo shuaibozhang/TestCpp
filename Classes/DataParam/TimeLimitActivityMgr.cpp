@@ -32,11 +32,11 @@ CountdownReward g_arrReward[ParamData::ONLINE_TIME_REWARD_NUM] = {
 
 CountdownReward g_arrTeacher[] = {
 	{ 0, 9,{ ParamData::TILI_ITEM_ID },{ 5 } },
-	{ 1, 10,{ ParamData::GOLD_ITEM_ID },{ 1000 } },
+	{ 1, 10,{ ParamData::GOLD_ITEM_ID },{ 300 } },
 	{ 2, 20,{ 1014 },{ 3 } },
-	{ 3, 30,{ 1503 },{ 30 } },
-	{ 4, 40,{ 1506 },{ 30 } },
-	{ 5, 50,{ ParamData::CRYSTAL_ITEM_ID },{ 30 } },
+	{ 3, 30,{ 1503 },{ 15 } },
+	{ 4, 40,{ 1506 },{ 10 } },
+	{ 5, 50,{ ParamData::CRYSTAL_ITEM_ID },{ 10 } },
 
 //{ 0, 1,{ ParamData::TILI_ITEM_ID },{ 5 } },
 //{ 1, 1,{ ParamData::GOLD_ITEM_ID },{ 1000 } },
@@ -84,13 +84,13 @@ TimeLimitActivityMgr * TimeLimitActivityMgr::getInstance()
 		s_instance->addActicityInfo(temp);*/
 
 		int srcDayTeacher = JRTime::getDayInYear(2016, 6, 12);
-		int teacherDay = JRTime::getDayInYear(2016, 9, 12);
+		int teacherDay = JRTime::getDayInYear(2016, 9, 10);
 		int teacherStartday = JRTime::compareTheDay(2016, srcDayTeacher, 2016, teacherDay);
 
 		TimeLimitActivityInfo temp;
 		temp.activityname = "teacherReward";
 		temp.activityStartTime = teacherStartday;
-		temp.activityLongDay = 3;
+		temp.activityLongDay = 4;
 		temp.pRewadArr = g_arrTeacher;
 		temp.rewardNums = sizeof(g_arrTeacher) / sizeof(g_arrTeacher[0]);
 		temp._initcall = CC_CALLBACK_1(MainLayer::initActivityInfo, MainLayer::getCurMainLayer());
@@ -289,10 +289,8 @@ void CommondActivityMagr::intiAndShowActivitys(int curday)
 		int day = atoi(tempTime[2].c_str());
 		int srcDay = JRTime::getDayInYear(2016, 6, 12);
 		int startday = JRTime::compareTheDay(2016, srcDay, yera, JRTime::getDayInYear(yera, month, day));
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-#else
 		if (startday <= curday && curday < startday + tempconfig.second->longtime)
-#endif
+
 		
 		{
 			tempconfig.second->haveInit = true;
@@ -380,7 +378,7 @@ int CommondActivityMagr::getCurNum(std::string key)
 	}
 	else if (key.compare("pass_mission") == 0)
 	{
-		num = DayActivityMgr::getInstance()->getFinishNum();
+			
 	}
 	return num;
 }
@@ -389,6 +387,25 @@ int CommondActivityMagr::getCurNumByNameAndIdx(std::string name, int idx)
 {
 
 	auto getkey = ((_mapActivitys.at(name))->arrActivitys)[idx]->key;
+	auto & temp = (_mapActivitys.at(name))->arrActivitys;
+
+	if (getkey.compare("pass_mission") == 0)
+	{
+		int num = 0;
+		for (int i = 0; i < (int)temp.size(); i++)
+		{
+			if (temp.at(i)->key.compare("pass_mission") != 0)
+			{
+				if (checkCanGetReward(name, i) != 0)
+				{
+					num++;
+				}
+			}
+		}
+
+		return num;
+	}
+
 	return getCurNum(getkey);
 }
 
@@ -405,7 +422,29 @@ int CommondActivityMagr::checkCanGetReward(std::string activitykey, int idx)
 		return 2;
 	}
 	auto& config = _mapActivitys.at(activitykey)->arrActivitys[idx];
-	int curnum = getCurNum(config->key);
+
+	int curnum = 0;
+
+	if (config->key.compare("pass_mission") == 0)
+	{
+		auto & temp = (_mapActivitys.at(activitykey))->arrActivitys;
+		
+		for (int i = 0; i < (int)temp.size(); i++)
+		{
+			if (temp.at(i)->key.compare("pass_mission") != 0)
+			{
+				if (checkCanGetReward(activitykey, i) != 0)
+				{
+					curnum++;
+				}
+			}
+		}
+
+	}
+	else
+	{
+		curnum = getCurNum(config->key);
+	}
 	
 	if (curnum >= config->num)
 	{
@@ -417,7 +456,10 @@ int CommondActivityMagr::checkCanGetReward(std::string activitykey, int idx)
 
 void CommondActivityMagr::getReward(std::string activitykey, int idx)
 {
-
+	if (UserData::getInstance()->getActivityReward(activitykey, idx) == 2)
+	{
+		return;
+	}
 	std::vector<PopItemInfo_T> arrItems;
 	auto& info = _mapActivitys.at(activitykey);
 

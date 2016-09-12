@@ -707,9 +707,9 @@ void BGLLayer::armCallBack(Armature * armature, MovementEventType movementType, 
 		{
 			_mainArm->getAnimation()->play("bagua_daiji");
 
-			if (_totalExp >= 5000)
+			if (_totalExp >= 50000)
 			{
-				NewMapOpenMgr::getInstance()->tryGet(MapOpenType::BGL5000);
+				NewMapOpenMgr::getInstance()->tryGet(MapOpenType::BGL50000);
 			}
 
 			getReward(_totalExp);

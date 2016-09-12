@@ -771,6 +771,88 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		MainLayer::getCurMainLayer()->updataGiftBtns();
 		BagItemControl::getInstace()->saveItemConfig();
 	}
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1) == 0)
+	{
+		std::vector<PopItemInfo_T> arrItems;
+
+		for (int i = 0; i < 4; i++)
+		{
+			int curid = 507 + 10 * i;
+			int type = WeaponControl::getInstance()->getWenponType(7);
+			auto& info = ParamMgr::getInstance()->getWenponUpInfoByType(type);
+
+			if (WeaponControl::getInstance()->isWeaponUnLock(curid))
+			{
+				PopItemInfo_T temp;
+				temp.itemId = curid + 1000;
+				temp.itemCount = info[0].costparts;
+				arrItems.push_back(temp);
+
+				//UserData::getInstance()->addWeaponPartsNum(curid + 1000, info[0].costparts);
+			}
+			else
+			{
+				//UserData::getInstance()->giveItem(String::createWithFormat("itemid_good_weapon_%d", curid)->getCString(), 1);
+				//BagItemControl::getInstace()->addBagItem(curid);
+
+				PopItemInfo_T temp;
+				temp.itemId = curid;
+				temp.itemCount = 1;
+				arrItems.push_back(temp);
+			}
+		}
+
+		auto layer = PopRewardLayer::create(arrItems);
+		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
+
+		for (int i = 0; i < 4; i++)
+		{
+			MainLayer::getCurMainLayer()->updataEquipLayer(i);
+		}
+		MainLayer::getCurMainLayer()->updataGiftBtns();
+		BagItemControl::getInstace()->saveItemConfig();
+	}
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0) == 0)
+	{
+		std::vector<PopItemInfo_T> arrItems;
+
+		for (int i = 0; i < 4; i++)
+		{
+			int curid = 504 + 10 * i;
+			int type = WeaponControl::getInstance()->getWenponType(4);
+			auto& info = ParamMgr::getInstance()->getWenponUpInfoByType(type);
+
+			if (WeaponControl::getInstance()->isWeaponUnLock(curid))
+			{
+				PopItemInfo_T temp;
+				temp.itemId = curid + 1000;
+				temp.itemCount = info[0].costparts;
+				arrItems.push_back(temp);
+
+				//UserData::getInstance()->addWeaponPartsNum(curid + 1000, info[0].costparts);
+			}
+			else
+			{
+				//UserData::getInstance()->giveItem(String::createWithFormat("itemid_good_weapon_%d", curid)->getCString(), 1);
+				//BagItemControl::getInstace()->addBagItem(curid);
+
+				PopItemInfo_T temp;
+				temp.itemId = curid;
+				temp.itemCount = 1;
+				arrItems.push_back(temp);
+			}
+		}
+
+		auto layer = PopRewardLayer::create(arrItems);
+		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
+
+		for (int i = 0; i < 4; i++)
+		{
+			MainLayer::getCurMainLayer()->updataEquipLayer(i);
+		}
+		MainLayer::getCurMainLayer()->updataGiftBtns();
+		BagItemControl::getInstace()->saveItemConfig();
+	}
 	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
 	{
 		BagItemControl::getInstace()->addBagItem(1004);

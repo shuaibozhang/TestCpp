@@ -2342,7 +2342,7 @@ bool StoreLayer2::init()
 		}
 	});
 
-	_timenode = TimeCountDownNode::createWithNode(4 * 60 * 60, TimeTypeEnum::TIME_SHOPHOTREFRESH);
+	_timenode = TimeCountDownNode::createWithNode(_refreshTime, TimeTypeEnum::TIME_SHOPHOTREFRESH);
 	this->addChild(_timenode);
 
 	static_cast<Text*>(_pageRootNode[1]->getChildByName("Text_1"))->setString(ResMgr::getInstance()->getString("toast_tip_1")->getCString());
@@ -2362,7 +2362,7 @@ bool StoreLayer2::init()
 		else
 		{
 			freshenItems(true);
-			_timenode->setDur(6 * 60 * 60);
+			_timenode->setDur(_refreshTime);
 		}
 	
 	});
@@ -3187,8 +3187,11 @@ void StoreLayer2::showItemInfo(int itemid, int btnidx)
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, node);
 }
 
-std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_TIMEGIFT, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_2, StoreAssetMgr::ITEMID_GOOD_DAYGIFT };
-Button* g_bntGift[4] = { 0 };
+//std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_TIMEGIFT, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_2, StoreAssetMgr::ITEMID_GOOD_DAYGIFT };
+//Button* g_bntGift[4] = { 0 };
+
+std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, StoreAssetMgr::ITEMID_GOOD_DAYGIFT };
+Button* g_bntGift[3] = { 0 };
 
 bool GiftLayer::init()
 {
@@ -3228,7 +3231,7 @@ bool GiftLayer::init()
 	auto list = static_cast<ListView*>(_root->getChildByName("ListView_1"));
 	list->setPositionY(list->getPositionY() + offy);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		auto keyStr = String::createWithFormat("btn_%d", i)->getCString();
 
@@ -3240,7 +3243,6 @@ bool GiftLayer::init()
 
 		_giftNodes.pushBack(btnbuy);
 	}
-
 	/*for (int i = 0; i < 3; i++)
 	{
 		if (UserData::getInstance()->getItemBalance(g_giftItemids[i]) > 0)
@@ -3277,26 +3279,39 @@ void GiftLayer::updateBtns()
 			}
 		}
 	}*/
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		if (_giftNodes.at(i)->getParent() != nullptr)
 		{
 			_giftNodes.at(i)->removeFromParent();
 		}	
 	}
-
+#if 0
 	int idx = getShoulddShowGiftIdx();
 	if (idx != -1)
 	{
 		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(idx));
 	}
+#else
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0) == 0)
+	{
+		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(0));
+	}
 
-	_root->getChildByName("ListView_1")->addChild(_giftNodes.at(3));
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1) == 0 && UserData::getInstance()->getIsBossPass(32) == 1)
+	{
+		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(1));
+	}
+#endif
+	
+
+	_root->getChildByName("ListView_1")->addChild(_giftNodes.at(2));
 }
 
 
 int GiftLayer::getShoulddShowGiftIdx()
 {
+#if 0
 	int idx = 0;
 	int tempidx = -1;
 	std::string itemids[3] = { StoreAssetMgr::ITEMID_GOOD_TIMEGIFT , StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1 , StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_2 };
@@ -3328,4 +3343,7 @@ int GiftLayer::getShoulddShowGiftIdx()
 	int trueidx = idx > 2 ? -1 : idx;
 
 	return trueidx;
+#else
+	return -1;
+#endif
 }

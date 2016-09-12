@@ -2004,9 +2004,6 @@ void MainLayer::updataGiftBtns()
 		{
 			_7xiActivityBtn->setVisible(true);
 		}
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-		_7xiActivityBtn->setVisible(true);
-#endif
 	}
 
 	auto pos = Vec2(150.f, VisibleRect::top().y - 200.f) + Vec2(-100.f, 60.f);

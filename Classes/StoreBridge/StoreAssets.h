@@ -121,5 +121,8 @@ public:
 	static const char* ITEMID_GOOD_REBORN_1;
 	static const char* ITEMID_GOOD_REBORN_2;
 	static const char* ITEMID_GOOD_REBORN_4;
+
+	static const char* ITEMID_GOOD_UNLIMTWENPONGIFT_0;
+	static const char* ITEMID_GOOD_UNLIMTWENPONGIFT_1;
 };
 #endif

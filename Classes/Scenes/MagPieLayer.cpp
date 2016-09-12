@@ -136,6 +136,10 @@ bool MidAutumnLayer::init()
 	_pRoot->setPositionY((VisibleRect::top().y - 960.f) * 0.5f + 80.f);
 	auto nodebtns = _pRoot->getChildByName("main_bg")->getChildByName("sub_bg_1");
 
+	auto actionshow = EaseSineOut::create(MoveTo::create(0.3f, Vec2(0.f, (VisibleRect::top().y - 960.f) * 0.5f + 80.f)));
+	_pRoot->setPositionY(-VisibleRect::top().y + 100);
+	_pRoot->runAction(actionshow);
+
 	auto btncancle = static_cast<ui::Button*>(_pRoot->getChildByName("bt_close"));
 	btncancle->addTouchEventListener([=](Ref*, ui::Widget::TouchEventType type) {
 		if (type == ui::Widget::TouchEventType::ENDED)

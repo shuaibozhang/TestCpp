@@ -141,7 +141,7 @@ void DayActivityMgr::getReward()
 
 		PopItemInfo_T temp;
 		temp.itemId = ParamData::TILI_ITEM_ID;
-		temp.itemCount = 5;
+		temp.itemCount = 2;
 		arrItems.push_back(temp);
 
 		temp.itemId = 1004;
@@ -159,7 +159,7 @@ void DayActivityMgr::getReward()
 
 		PopItemInfo_T temp;
 		temp.itemId = ParamData::TILI_ITEM_ID;
-		temp.itemCount = 10;
+		temp.itemCount = 5;
 		arrItems.push_back(temp);
 
 		temp.itemId = 1011;

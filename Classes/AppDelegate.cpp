@@ -153,7 +153,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 		UserData::getInstance()->addWeaponPartsNum(1500, 20);
 		UserData::getInstance()->giveTili(5);
-		UserData::getInstance()->giveCrystal(10);
+		//UserData::getInstance()->giveCrystal(10);
 		UserData::getInstance()->giveGold(100);
 
  		UserData::getInstance()->setEquipConfig(0, 1000); 

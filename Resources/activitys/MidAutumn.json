@@ -4,8 +4,8 @@
     "activitydes": "",
     "activitytype": "single",
     "isRepeat": true,
-    "startday": "2015-09-08",
-    "longtime": 3,
+    "startday": "2015-09-15",
+    "longtime": 5,
     "activitys": [
         {
             "name": "嫦娥月饼",
@@ -20,13 +20,13 @@
             ],
             "rewardcount": [
                 10,
-                10,
-                5,
-                20
+                2,
+                3,
+                10
             ]
         },
         {
-            "name": "嫦娥月饼",
+            "name": "团圆月饼",
             "des": "当日通过关卡累计至10个",
             "key": "pass_ta",
             "num": 10,
@@ -38,13 +38,13 @@
             ],
             "rewardcount": [
                 15,
-                20,
                 5,
-                20
+                5,
+                10
             ]
         },
         {
-            "name": "嫦娥月饼",
+            "name": "富贵月饼",
             "des": "当日通过关卡累计至10个",
             "key": "payrmb",
             "num": 6,
@@ -56,13 +56,13 @@
             ],
             "rewardcount": [
                 20,
-                30,
+                10,
                 5,
-                20
+                10
             ]
         },
         {
-            "name": "嫦娥月饼",
+            "name": "龙门月饼",
             "des": "当日通过关卡累计至10个",
             "key": "pass_mission",
             "num": 3,
@@ -72,9 +72,9 @@
                 1507
             ],
             "rewardcount": [
-                40,
-                10,
-                20
+                20,
+                6,
+                10
             ]
         }
     ]

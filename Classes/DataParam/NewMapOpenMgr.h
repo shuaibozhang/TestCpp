@@ -16,7 +16,7 @@ enum MapOpenType
 	WENPON20_2,
 	WENPON20_3,
 	TA200,
-	BGL5000,
+	BGL50000,
 	TA500,
 };
 

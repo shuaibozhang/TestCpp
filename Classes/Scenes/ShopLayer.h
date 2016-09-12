@@ -179,7 +179,7 @@ private:
 	void showWenInfo(int wenponid, int btnidx);
 	void showSkillInfo(int wenponid, int btnidx);
 	void showItemInfo(int itemid, int btnidx);
-
+	const int _refreshTime = 4 * 60 * 60;
 	TimeCountDownNode* _timenode;
 	PageView* _mainPageView;
 	Node* _topNode;
