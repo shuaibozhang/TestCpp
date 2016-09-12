@@ -12,7 +12,7 @@ public:
 	static void attPlayer(float damage);
 	static void createWeak(int weakId, int count, int posType, CrushIndex_T posIndex);	//0:pos fixed 1:pos random
 	static void createSpecEle(EleSpecialType specType, int eleId, int count, CrushIndex_T posIndex);
-	static void addMonsterHp(float hp);
+//	static void addMonsterHp(float hp);
 	static void openBox(int count);
 	static int createStoneState();
 	static void cleanStoneState(int eleId);

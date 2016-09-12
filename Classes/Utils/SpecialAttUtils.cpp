@@ -191,7 +191,7 @@ void SpecialAttUtils::createSpecEle(EleSpecialType specType, int eleId, int coun
 	}
 }
 
-
+/*
 void SpecialAttUtils::addMonsterHp(float hp)
 {
 	auto arrMonsters = FightLayer::getInstance()->getCurArrMonster();
@@ -201,7 +201,7 @@ void SpecialAttUtils::addMonsterHp(float hp)
 		auto pMonster = arrMonsters->at(i);
 		pMonster->addHP(hp);
 	}
-}
+}*/
 
 
 void SpecialAttUtils::openBox(int count)

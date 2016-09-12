@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "ParamData.h"
+#include "Defines.h"
 
 USING_NS_CC;
 
@@ -95,8 +96,10 @@ public:
 	CC_SYNTHESIZE(float, _totalDef, TotalDef);
 	CC_SYNTHESIZE(bool, _isDefing, IsDefing);
 	CC_SYNTHESIZE(bool, _isDead, IsDead);
-	CC_SYNTHESIZE(int, _baseLv, BaseLv);
 	CC_SYNTHESIZE(bool, _isWaitRelive, IsWaitRelive);
+#if (0 == CC_ENABLE_NEW_PARAM)
+	CC_SYNTHESIZE(int, _baseLv, BaseLv);
+#endif
 private:
 	void updateBuffTagPos();
 	bool reduceBuffRound(int buffIndex);

@@ -14,6 +14,9 @@
     "mingold": 5, 
     "maxgold": 7, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -62,6 +65,9 @@
     "mingold": 5, 
     "maxgold": 7, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -76,7 +82,7 @@
     ], 
     "attlogic": [
       {
-        "attNum": 2, 
+        "attNum": 1, 
         "round": 2, 
         "attid": [
           0
@@ -110,6 +116,9 @@
     "mingold": 6, 
     "maxgold": 8, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 2, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1000, 
@@ -158,6 +167,9 @@
     "mingold": 6, 
     "maxgold": 8, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -206,6 +218,9 @@
     "mingold": 6, 
     "maxgold": 8, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -221,7 +236,7 @@
     "attlogic": [
       {
         "attNum": 1, 
-        "round": 2, 
+        "round": 3, 
         "attid": [
           0
         ]
@@ -254,6 +269,9 @@
     "mingold": 8, 
     "maxgold": 10, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1001, 
@@ -302,6 +320,9 @@
     "mingold": 8, 
     "maxgold": 10, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "id": 1008, 
@@ -358,6 +379,9 @@
     "mingold": 13, 
     "maxgold": 15, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -406,6 +430,9 @@
     "mingold": 14, 
     "maxgold": 16, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "id": 1000, 
@@ -462,6 +489,9 @@
     "mingold": 17, 
     "maxgold": 19, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 7, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -517,6 +547,9 @@
     "mingold": 18, 
     "maxgold": 20, 
     "zoom": 0.14, 
+    "design_type": 0, 
+    "r_att_m": 2, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1002, 
@@ -573,6 +606,9 @@
     "mingold": 20, 
     "maxgold": 22, 
     "zoom": 0.14, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -628,6 +664,9 @@
     "mingold": 50, 
     "maxgold": 60, 
     "zoom": 0.7, 
+    "design_type": 2, 
+    "r_att_m": 35, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1003, 
@@ -699,6 +738,9 @@
     "mingold": 22, 
     "maxgold": 24, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -754,6 +796,9 @@
     "mingold": 23, 
     "maxgold": 25, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -809,6 +854,9 @@
     "mingold": 22, 
     "maxgold": 25, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -864,6 +912,9 @@
     "mingold": 23, 
     "maxgold": 26, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 2, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -919,6 +970,9 @@
     "mingold": 25, 
     "maxgold": 27, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1009, 
@@ -975,6 +1029,9 @@
     "mingold": 26, 
     "maxgold": 28, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1030,6 +1087,9 @@
     "mingold": 28, 
     "maxgold": 30, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1086,6 +1146,9 @@
     "mingold": 30, 
     "maxgold": 32, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1002, 
@@ -1134,6 +1197,9 @@
     "mingold": 32, 
     "maxgold": 35, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1189,6 +1255,9 @@
     "mingold": 32, 
     "maxgold": 35, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 7, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1009, 
@@ -1249,6 +1318,9 @@
     "mingold": 70, 
     "maxgold": 80, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 45, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1004, 
@@ -1324,6 +1396,9 @@
     "mingold": 20, 
     "maxgold": 22, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1372,6 +1447,9 @@
     "mingold": 25, 
     "maxgold": 28, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1420,6 +1498,9 @@
     "mingold": 32, 
     "maxgold": 35, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1475,6 +1556,9 @@
     "mingold": 34, 
     "maxgold": 38, 
     "zoom": 0.25, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1523,6 +1607,9 @@
     "mingold": 38, 
     "maxgold": 40, 
     "zoom": 0.25, 
+    "design_type": 0, 
+    "r_att_m": 2, 
+    "m_att_r": 3, 
     "dropnums": [
       {
         "id": 1003, 
@@ -1579,6 +1666,9 @@
     "mingold": 40, 
     "maxgold": 42, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1634,6 +1724,9 @@
     "mingold": 42, 
     "maxgold": 46, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1689,6 +1782,9 @@
     "mingold": 45, 
     "maxgold": 50, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1745,6 +1841,9 @@
     "mingold": 48, 
     "maxgold": 55, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1793,6 +1892,9 @@
     "mingold": 100, 
     "maxgold": 120, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 60, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1005, 
@@ -1859,7 +1961,7 @@
   }, 
   "Mons_34": {
     "id": 34, 
-    "name": "神秘杀手", 
+    "name": "神秘杀手1", 
     "aniname": "dongcss_1", 
     "typeid": 1, 
     "rank": 25, 
@@ -1872,6 +1974,9 @@
     "mingold": 120, 
     "maxgold": 150, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 45, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1006, 
@@ -1947,6 +2052,9 @@
     "mingold": 55, 
     "maxgold": 60, 
     "zoom": 0.15, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1995,6 +2103,9 @@
     "mingold": 60, 
     "maxgold": 70, 
     "zoom": 0.15, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2050,6 +2161,9 @@
     "mingold": 70, 
     "maxgold": 75, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2105,6 +2219,9 @@
     "mingold": 70, 
     "maxgold": 75, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "id": 1003, 
@@ -2161,6 +2278,9 @@
     "mingold": 80, 
     "maxgold": 85, 
     "zoom": 0.28, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2209,6 +2329,9 @@
     "mingold": 80, 
     "maxgold": 85, 
     "zoom": 0.28, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2252,7 +2375,7 @@
   }, 
   "Mons_41": {
     "id": 41, 
-    "name": "青花会副舵主", 
+    "name": "神秘杀手2", 
     "aniname": "dongcss_2", 
     "typeid": 1, 
     "rank": 37, 
@@ -2265,6 +2388,9 @@
     "mingold": 170, 
     "maxgold": 180, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 45, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1011, 
@@ -2344,6 +2470,9 @@
     "mingold": 85, 
     "maxgold": 90, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2399,6 +2528,9 @@
     "mingold": 85, 
     "maxgold": 90, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2454,6 +2586,9 @@
     "mingold": 90, 
     "maxgold": 100, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1004, 
@@ -2510,6 +2645,9 @@
     "mingold": 95, 
     "maxgold": 100, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2558,6 +2696,9 @@
     "mingold": 100, 
     "maxgold": 110, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2613,6 +2754,9 @@
     "mingold": 110, 
     "maxgold": 120, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 7, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2661,6 +2805,9 @@
     "mingold": 120, 
     "maxgold": 130, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 8, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2720,6 +2867,9 @@
     "mingold": 130, 
     "maxgold": 140, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 8, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2780,6 +2930,9 @@
     "mingold": 180, 
     "maxgold": 200, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 35, 
+    "m_att_r": 3, 
     "dropnums": [
       {
         "id": 1007, 
@@ -2855,6 +3008,9 @@
     "mingold": 200, 
     "maxgold": 250, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 45, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1012, 
@@ -2926,6 +3082,9 @@
     "mingold": 250, 
     "maxgold": 300, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 60, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1013, 
@@ -3006,6 +3165,9 @@
     "mingold": 140, 
     "maxgold": 150, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3065,6 +3227,9 @@
     "mingold": 150, 
     "maxgold": 160, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3124,6 +3289,9 @@
     "mingold": 160, 
     "maxgold": 170, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1005, 
@@ -3180,6 +3348,9 @@
     "mingold": 170, 
     "maxgold": 180, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3239,6 +3410,9 @@
     "mingold": 180, 
     "maxgold": 190, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 7, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3299,6 +3473,9 @@
     "mingold": 190, 
     "maxgold": 200, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3358,6 +3535,9 @@
     "mingold": 200, 
     "maxgold": 210, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3405,7 +3585,7 @@
   }, 
   "Mons_60": {
     "id": 60, 
-    "name": "大内总管", 
+    "name": "厂督", 
     "aniname": "changd", 
     "typeid": 1, 
     "rank": 50, 
@@ -3418,6 +3598,9 @@
     "mingold": 500, 
     "maxgold": 600, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 50, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1013, 
@@ -3502,6 +3685,9 @@
     "mingold": 700, 
     "maxgold": 900, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 60, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3586,6 +3772,9 @@
     "mingold": 70, 
     "maxgold": 90, 
     "zoom": 0.28, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3629,7 +3818,7 @@
   }, 
   "Mons_63": {
     "id": 63, 
-    "name": "苍月", 
+    "name": "副舵主", 
     "aniname": "fudz", 
     "typeid": 1, 
     "rank": 32, 
@@ -3642,6 +3831,9 @@
     "mingold": 150, 
     "maxgold": 160, 
     "zoom": 1.0, 
+    "design_type": 2, 
+    "r_att_m": 60, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1010, 
@@ -3708,6 +3900,9 @@
     "mingold": 180, 
     "maxgold": 200, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3768,6 +3963,9 @@
     "mingold": 230, 
     "maxgold": 260, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1006, 
@@ -3824,6 +4022,9 @@
     "mingold": 5, 
     "maxgold": 8, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 1, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3872,6 +4073,9 @@
     "mingold": 5, 
     "maxgold": 8, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 20, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3920,6 +4124,9 @@
     "mingold": 5, 
     "maxgold": 8, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3975,6 +4182,9 @@
     "mingold": 5, 
     "maxgold": 8, 
     "zoom": 0.3, 
+    "design_type": 1, 
+    "r_att_m": 5, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3989,7 +4199,7 @@
     ], 
     "attlogic": [
       {
-        "attNum": 2, 
+        "attNum": 1, 
         "round": 2, 
         "attid": [
           0
@@ -4023,6 +4233,9 @@
     "mingold": 6, 
     "maxgold": 10, 
     "zoom": 0.3, 
+    "design_type": 1, 
+    "r_att_m": 5, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4071,6 +4284,9 @@
     "mingold": 14, 
     "maxgold": 18, 
     "zoom": 0.3, 
+    "design_type": 1, 
+    "r_att_m": 8, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4119,6 +4335,9 @@
     "mingold": 18, 
     "maxgold": 20, 
     "zoom": 0.2, 
+    "design_type": 1, 
+    "r_att_m": 5, 
+    "m_att_r": 3, 
     "dropnums": [
       {
         "id": 1002, 
@@ -4175,6 +4394,9 @@
     "mingold": 20, 
     "maxgold": 25, 
     "zoom": 0.28, 
+    "design_type": 1, 
+    "r_att_m": 7, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4230,6 +4452,9 @@
     "mingold": 30, 
     "maxgold": 35, 
     "zoom": 0.3, 
+    "design_type": 1, 
+    "r_att_m": 4, 
+    "m_att_r": 3, 
     "dropnums": [
       {
         "id": 1009, 
@@ -4286,6 +4511,9 @@
     "mingold": 50, 
     "maxgold": 60, 
     "zoom": 0.3, 
+    "design_type": 1, 
+    "r_att_m": 7, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4345,6 +4573,9 @@
     "mingold": 25, 
     "maxgold": 30, 
     "zoom": 0.4, 
+    "design_type": 1, 
+    "r_att_m": 8, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4393,6 +4624,9 @@
     "mingold": 40, 
     "maxgold": 45, 
     "zoom": 0.3, 
+    "design_type": 1, 
+    "r_att_m": 7, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4441,6 +4675,9 @@
     "mingold": 70, 
     "maxgold": 80, 
     "zoom": 0.25, 
+    "design_type": 1, 
+    "r_att_m": 7, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4496,6 +4733,9 @@
     "mingold": 90, 
     "maxgold": 100, 
     "zoom": 0.33, 
+    "design_type": 1, 
+    "r_att_m": 5, 
+    "m_att_r": 3, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4544,6 +4784,9 @@
     "mingold": 120, 
     "maxgold": 140, 
     "zoom": 0.35, 
+    "design_type": 1, 
+    "r_att_m": 6, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4592,6 +4835,9 @@
     "mingold": 160, 
     "maxgold": 180, 
     "zoom": 0.38, 
+    "design_type": 1, 
+    "r_att_m": 8, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4652,6 +4898,9 @@
     "mingold": 280, 
     "maxgold": 320, 
     "zoom": 0.38, 
+    "design_type": 1, 
+    "r_att_m": 7, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4711,6 +4960,9 @@
     "mingold": 20, 
     "maxgold": 25, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4766,6 +5018,9 @@
     "mingold": 22, 
     "maxgold": 25, 
     "zoom": 0.2, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4821,6 +5076,9 @@
     "mingold": 25, 
     "maxgold": 27, 
     "zoom": 1.0, 
+    "design_type": 1, 
+    "r_att_m": 6, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4876,6 +5134,9 @@
     "mingold": 32, 
     "maxgold": 35, 
     "zoom": 0.22, 
+    "design_type": 0, 
+    "r_att_m": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4931,6 +5192,9 @@
     "mingold": 40, 
     "maxgold": 45, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 6, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4986,6 +5250,9 @@
     "mingold": 25, 
     "maxgold": 30, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 5, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5034,6 +5301,9 @@
     "mingold": 35, 
     "maxgold": 38, 
     "zoom": 0.3, 
+    "design_type": 0, 
+    "r_att_m": 7, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5089,6 +5359,9 @@
     "mingold": 50, 
     "maxgold": 60, 
     "zoom": 0.45, 
+    "design_type": 2, 
+    "r_att_m": 35, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5160,6 +5433,9 @@
     "mingold": 25, 
     "maxgold": 27, 
     "zoom": 1.0, 
+    "design_type": 1, 
+    "r_att_m": 8, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5215,6 +5491,9 @@
     "mingold": 60, 
     "maxgold": 80, 
     "zoom": 0.4, 
+    "design_type": 2, 
+    "r_att_m": 40, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5294,6 +5573,9 @@
     "mingold": 80, 
     "maxgold": 90, 
     "zoom": 0.45, 
+    "design_type": 2, 
+    "r_att_m": 50, 
+    "m_att_r": 3, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5365,6 +5647,9 @@
     "mingold": 25, 
     "maxgold": 27, 
     "zoom": 1.0, 
+    "design_type": 1, 
+    "r_att_m": 10, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5420,6 +5705,9 @@
     "mingold": 0, 
     "maxgold": 0, 
     "zoom": 0.6, 
+    "design_type": 0, 
+    "r_att_m": 10, 
+    "m_att_r": 10, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5461,6 +5749,9 @@
     "mingold": 0, 
     "maxgold": 0, 
     "zoom": 0.6, 
+    "design_type": 0, 
+    "r_att_m": 10, 
+    "m_att_r": 10, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5502,6 +5793,9 @@
     "mingold": 0, 
     "maxgold": 0, 
     "zoom": 0.6, 
+    "design_type": 0, 
+    "r_att_m": 10, 
+    "m_att_r": 10, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5543,6 +5837,9 @@
     "mingold": 0, 
     "maxgold": 0, 
     "zoom": 0.45, 
+    "design_type": 2, 
+    "r_att_m": 100000, 
+    "m_att_r": 1, 
     "dropnums": [
       {
         "pro": 0, 

@@ -2764,7 +2764,7 @@ void StoreLayer2::freshenItems(bool changids)
 
 		if (changids)
 		{
-			_storeItemCurIdx[i] = curposconfig[cur].pageoneitemidx - 1;			
+			_storeItemCurIdx[i] = curposconfig[cur].pageoneitemidx - 1;
 			UserData::getInstance()->setStorePageItemid(i, _storeItemCurIdx[i]);
 			UserData::getInstance()->setStorePageStage(i, 1);
 		}

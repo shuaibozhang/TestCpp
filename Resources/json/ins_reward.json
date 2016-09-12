@@ -1,352 +1,569 @@
 [
   {
-    "rank": 1, 
+    "stage": 0, 
     "exp": 40, 
     "gold": 50, 
     "equip": 22, 
     "equip_lv": 1
   }, 
   {
-    "rank": 2, 
+    "stage": 1, 
+    "exp": 40, 
+    "gold": 50, 
+    "equip": 22, 
+    "equip_lv": 1
+  }, 
+  {
+    "stage": 2, 
     "exp": 51, 
     "gold": 60, 
     "equip": 23, 
     "equip_lv": 1
   }, 
   {
-    "rank": 3, 
+    "stage": 3, 
+    "exp": 51, 
+    "gold": 60, 
+    "equip": 23, 
+    "equip_lv": 1
+  }, 
+  {
+    "stage": 4, 
+    "exp": 51, 
+    "gold": 60, 
+    "equip": 23, 
+    "equip_lv": 1
+  }, 
+  {
+    "stage": 5, 
     "exp": 97, 
     "gold": 76, 
     "equip": 24, 
     "equip_lv": 1
   }, 
   {
-    "rank": 4, 
+    "stage": 6, 
+    "exp": 97, 
+    "gold": 76, 
+    "equip": 24, 
+    "equip_lv": 1
+  }, 
+  {
+    "stage": 7, 
     "exp": 207, 
     "gold": 108, 
     "equip": 25, 
     "equip_lv": 1
   }, 
   {
-    "rank": 5, 
+    "stage": 8, 
+    "exp": 207, 
+    "gold": 108, 
+    "equip": 25, 
+    "equip_lv": 1
+  }, 
+  {
+    "stage": 9, 
+    "exp": 326, 
+    "gold": 136, 
+    "equip": 25, 
+    "equip_lv": 1
+  }, 
+  {
+    "stage": 10, 
     "exp": 326, 
     "gold": 136, 
     "equip": 18, 
     "equip_lv": 2
   }, 
   {
-    "rank": 6, 
+    "stage": 11, 
     "exp": 442, 
     "gold": 192, 
     "equip": 19, 
     "equip_lv": 2
   }, 
   {
-    "rank": 7, 
+    "stage": 12, 
+    "exp": 442, 
+    "gold": 192, 
+    "equip": 19, 
+    "equip_lv": 2
+  }, 
+  {
+    "stage": 13, 
     "exp": 622, 
     "gold": 240, 
     "equip": 20, 
     "equip_lv": 2
   }, 
   {
-    "rank": 8, 
+    "stage": 14, 
+    "exp": 622, 
+    "gold": 240, 
+    "equip": 20, 
+    "equip_lv": 2
+  }, 
+  {
+    "stage": 15, 
     "exp": 790, 
     "gold": 280, 
     "equip": 21, 
     "equip_lv": 2
   }, 
   {
-    "rank": 9, 
+    "stage": 16, 
+    "exp": 790, 
+    "gold": 280, 
+    "equip": 21, 
+    "equip_lv": 2
+  }, 
+  {
+    "stage": 17, 
     "exp": 973, 
     "gold": 286, 
-    "equip": 14, 
+    "equip": 18, 
     "equip_lv": 3
   }, 
   {
-    "rank": 10, 
+    "stage": 18, 
+    "exp": 973, 
+    "gold": 286, 
+    "equip": 18, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 19, 
     "exp": 1188, 
     "gold": 288, 
-    "equip": 15, 
+    "equip": 19, 
     "equip_lv": 3
   }, 
   {
-    "rank": 11, 
+    "stage": 20, 
+    "exp": 1188, 
+    "gold": 288, 
+    "equip": 19, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 21, 
     "exp": 1431, 
     "gold": 308, 
-    "equip": 16, 
+    "equip": 20, 
     "equip_lv": 3
   }, 
   {
-    "rank": 12, 
+    "stage": 22, 
+    "exp": 1431, 
+    "gold": 308, 
+    "equip": 20, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 23, 
     "exp": 1693, 
     "gold": 360, 
-    "equip": 17, 
+    "equip": 21, 
     "equip_lv": 3
   }, 
   {
-    "rank": 13, 
+    "stage": 24, 
+    "exp": 1693, 
+    "gold": 360, 
+    "equip": 21, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 25, 
     "exp": 1969, 
     "gold": 360, 
-    "equip": 10, 
-    "equip_lv": 4
+    "equip": 22, 
+    "equip_lv": 3
   }, 
   {
-    "rank": 14, 
+    "stage": 26, 
+    "exp": 1969, 
+    "gold": 360, 
+    "equip": 22, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 27, 
     "exp": 2248, 
     "gold": 480, 
-    "equip": 10, 
-    "equip_lv": 4
+    "equip": 23, 
+    "equip_lv": 3
   }, 
   {
-    "rank": 15, 
+    "stage": 28, 
+    "exp": 2248, 
+    "gold": 480, 
+    "equip": 23, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 29, 
     "exp": 2532, 
     "gold": 560, 
-    "equip": 11, 
+    "equip": 24, 
+    "equip_lv": 3
+  }, 
+  {
+    "stage": 30, 
+    "exp": 2532, 
+    "gold": 560, 
+    "equip": 15, 
     "equip_lv": 4
   }, 
   {
-    "rank": 16, 
-    "exp": 3257, 
-    "gold": 630, 
-    "equip": 11, 
+    "stage": 31, 
+    "exp": 2532, 
+    "gold": 560, 
+    "equip": 15, 
     "equip_lv": 4
   }, 
   {
-    "rank": 17, 
+    "stage": 32, 
+    "exp": 2532, 
+    "gold": 560, 
+    "equip": 16, 
+    "equip_lv": 4
+  }, 
+  {
+    "stage": 33, 
+    "exp": 2532, 
+    "gold": 560, 
+    "equip": 16, 
+    "equip_lv": 4
+  }, 
+  {
+    "stage": 34, 
     "exp": 3587, 
     "gold": 600, 
-    "equip": 9, 
-    "equip_lv": 5
+    "equip": 16, 
+    "equip_lv": 4
   }, 
   {
-    "rank": 18, 
+    "stage": 35, 
+    "exp": 3587, 
+    "gold": 600, 
+    "equip": 16, 
+    "equip_lv": 4
+  }, 
+  {
+    "stage": 36, 
     "exp": 4589, 
     "gold": 720, 
-    "equip": 9, 
-    "equip_lv": 5
+    "equip": 17, 
+    "equip_lv": 4
   }, 
   {
-    "rank": 19, 
+    "stage": 37, 
+    "exp": 4589, 
+    "gold": 720, 
+    "equip": 17, 
+    "equip_lv": 4
+  }, 
+  {
+    "stage": 38, 
+    "exp": 4589, 
+    "gold": 720, 
+    "equip": 13, 
+    "equip_lv": 6
+  }, 
+  {
+    "stage": 39, 
     "exp": 4119, 
     "gold": 700, 
-    "equip": 10, 
-    "equip_lv": 5
+    "equip": 13, 
+    "equip_lv": 6
   }, 
   {
-    "rank": 20, 
+    "stage": 40, 
     "exp": 4672, 
     "gold": 800, 
-    "equip": 10, 
-    "equip_lv": 5
+    "equip": 14, 
+    "equip_lv": 6
   }, 
   {
-    "rank": 21, 
+    "stage": 41, 
+    "exp": 4672, 
+    "gold": 800, 
+    "equip": 14, 
+    "equip_lv": 6
+  }, 
+  {
+    "stage": 42, 
     "exp": 4346, 
     "gold": 810, 
-    "equip": 6, 
+    "equip": 15, 
     "equip_lv": 6
   }, 
   {
-    "rank": 22, 
+    "stage": 43, 
     "exp": 4902, 
     "gold": 900, 
-    "equip": 6, 
+    "equip": 15, 
     "equip_lv": 6
   }, 
   {
-    "rank": 23, 
+    "stage": 44, 
+    "exp": 4902, 
+    "gold": 900, 
+    "equip": 16, 
+    "equip_lv": 6
+  }, 
+  {
+    "stage": 45, 
     "exp": 5282, 
     "gold": 990, 
-    "equip": 6, 
+    "equip": 16, 
     "equip_lv": 6
   }, 
   {
-    "rank": 24, 
+    "stage": 46, 
+    "exp": 5282, 
+    "gold": 990, 
+    "equip": 17, 
+    "equip_lv": 6
+  }, 
+  {
+    "stage": 47, 
     "exp": 4992, 
     "gold": 960, 
-    "equip": 7, 
-    "equip_lv": 6
+    "equip": 5, 
+    "equip_lv": 7
   }, 
   {
-    "rank": 25, 
+    "stage": 48, 
+    "exp": 4992, 
+    "gold": 960, 
+    "equip": 5, 
+    "equip_lv": 7
+  }, 
+  {
+    "stage": 49, 
     "exp": 5158, 
     "gold": 1040, 
     "equip": 5, 
     "equip_lv": 7
   }, 
   {
-    "rank": 26, 
-    "exp": 5837, 
-    "gold": 1120, 
-    "equip": 5, 
-    "equip_lv": 7
-  }, 
-  {
-    "rank": 27, 
-    "exp": 5667, 
-    "gold": 1050, 
-    "equip": 5, 
-    "equip_lv": 7
-  }, 
-  {
-    "rank": 28, 
-    "exp": 5453, 
-    "gold": 1020, 
+    "stage": 50, 
+    "exp": 5158, 
+    "gold": 1040, 
     "equip": 6, 
     "equip_lv": 7
   }, 
   {
-    "rank": 29, 
+    "stage": 51, 
+    "exp": 5837, 
+    "gold": 1120, 
+    "equip": 6, 
+    "equip_lv": 7
+  }, 
+  {
+    "stage": 52, 
+    "exp": 5837, 
+    "gold": 1120, 
+    "equip": 6, 
+    "equip_lv": 7
+  }, 
+  {
+    "stage": 53, 
+    "exp": 5667, 
+    "gold": 1050, 
+    "equip": 6, 
+    "equip_lv": 7
+  }, 
+  {
+    "stage": 54, 
+    "exp": 5667, 
+    "gold": 1050, 
+    "equip": 7, 
+    "equip_lv": 7
+  }, 
+  {
+    "stage": 55, 
+    "exp": 5453, 
+    "gold": 1020, 
+    "equip": 7, 
+    "equip_lv": 7
+  }, 
+  {
+    "stage": 56, 
+    "exp": 5453, 
+    "gold": 1020, 
+    "equip": 4, 
+    "equip_lv": 9
+  }, 
+  {
+    "stage": 57, 
     "exp": 5192, 
     "gold": 1100, 
     "equip": 4, 
-    "equip_lv": 8
+    "equip_lv": 9
   }, 
   {
-    "rank": 30, 
+    "stage": 58, 
+    "exp": 5192, 
+    "gold": 1100, 
+    "equip": 4, 
+    "equip_lv": 9
+  }, 
+  {
+    "stage": 59, 
     "exp": 4627, 
     "gold": 1200, 
     "equip": 4, 
-    "equip_lv": 8
+    "equip_lv": 9
   }, 
   {
-    "rank": 31, 
+    "stage": 60, 
+    "exp": 4627, 
+    "gold": 1200, 
+    "equip": 4, 
+    "equip_lv": 9
+  }, 
+  {
+    "stage": 61, 
     "exp": 5325, 
     "gold": 1300, 
     "equip": 5, 
-    "equip_lv": 8
+    "equip_lv": 9
   }, 
   {
-    "rank": 32, 
+    "stage": 62, 
+    "exp": 5325, 
+    "gold": 1300, 
+    "equip": 5, 
+    "equip_lv": 9
+  }, 
+  {
+    "stage": 63, 
     "exp": 6349, 
     "gold": 1400, 
     "equip": 5, 
-    "equip_lv": 8
+    "equip_lv": 9
   }, 
   {
-    "rank": 33, 
+    "stage": 64, 
+    "exp": 6349, 
+    "gold": 1400, 
+    "equip": 5, 
+    "equip_lv": 9
+  }, 
+  {
+    "stage": 65, 
     "exp": 7430, 
     "gold": 1600, 
-    "equip": 6, 
-    "equip_lv": 8
+    "equip": 5, 
+    "equip_lv": 9
   }, 
   {
-    "rank": 34, 
+    "stage": 66, 
+    "exp": 7430, 
+    "gold": 1600, 
+    "equip": 5, 
+    "equip_lv": 9
+  }, 
+  {
+    "stage": 67, 
     "exp": 8512, 
     "gold": 1800, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 35, 
-    "exp": 10000, 
-    "gold": 2000, 
-    "equip": 3, 
+    "stage": 68, 
+    "exp": 8512, 
+    "gold": 1800, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 36, 
+    "stage": 69, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 37, 
+    "stage": 70, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 38, 
+    "stage": 71, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 39, 
+    "stage": 72, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 40, 
+    "stage": 73, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 41, 
+    "stage": 74, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 42, 
+    "stage": 75, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 43, 
+    "stage": 76, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 44, 
+    "stage": 77, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 45, 
+    "stage": 78, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 46, 
+    "stage": 79, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }, 
   {
-    "rank": 47, 
+    "stage": 80, 
     "exp": 10000, 
     "gold": 2000, 
-    "equip": 3, 
-    "equip_lv": 9
-  }, 
-  {
-    "rank": 48, 
-    "exp": 10000, 
-    "gold": 2000, 
-    "equip": 3, 
-    "equip_lv": 9
-  }, 
-  {
-    "rank": 49, 
-    "exp": 10000, 
-    "gold": 2000, 
-    "equip": 3, 
-    "equip_lv": 9
-  }, 
-  {
-    "rank": 50, 
-    "exp": 10000, 
-    "gold": 2000, 
-    "equip": 3, 
+    "equip": 5, 
     "equip_lv": 9
   }
 ]

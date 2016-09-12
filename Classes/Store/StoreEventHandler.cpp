@@ -141,31 +141,26 @@ void StoreEventHandler::marketPurchase(string& itemId)
 	string subItemId(itemId, 10);
 	if ("item_good_firstgift" == itemId)
 	{
-//		cocos2dx_analyze::pay(2, 20, 1);
 		cocos2dx_analyze::pay(6, subItemId.c_str(), 60, 100, 1);
 		curPayRmbNum = 6;
 	}
 	else if ("item_good_newcrystalpack_0" == itemId)
 	{
-//		cocos2dx_analyze::pay(6, 60, 1);
 		cocos2dx_analyze::pay(6, subItemId.c_str(), 60, 100, 1);
 		curPayRmbNum = 6;
 	}
 	else if ("item_good_newcrystalpack_1" == itemId)
 	{
-//		cocos2dx_analyze::pay(12, 150, 1);
 		cocos2dx_analyze::pay(30, subItemId.c_str(), 420, 100, 1);
 		curPayRmbNum = 30;
 	}
 	else if ("item_good_newcrystalpack_2" == itemId)
 	{
-//		cocos2dx_analyze::pay(20, 260, 1);
 		cocos2dx_analyze::pay(68, subItemId.c_str(), 1100, 100, 1);
 		curPayRmbNum = 68;
 	}
 	else if ("item_good_newcrystalpack_3" == itemId)
 	{
-//		cocos2dx_analyze::pay(30, 420, 1);
 		cocos2dx_analyze::pay(128, subItemId.c_str(), 2400, 100, 1);
 		curPayRmbNum = 128;
 	}

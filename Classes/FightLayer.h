@@ -61,10 +61,13 @@ public:
 	CC_SYNTHESIZE_READONLY(const DungeonDeatilInfo_T *, _pDungeonDeatilInfo, DungeonDeatilInfo);
 	CC_SYNTHESIZE_READONLY(int, _endlessFloor, EndlessFloor);
 	CC_SYNTHESIZE(int, _openBoxCount, OpenBoxCount);
-	CC_SYNTHESIZE(int, _boxMonsterWaveIdx, BoxMonsterWaveIdx)
+	CC_SYNTHESIZE(int, _boxMonsterWaveIdx, BoxMonsterWaveIdx);
+	CC_SYNTHESIZE_READONLY_PASS_BY_REF(DesignRoleInfo_T, _designRoleInfo, DesignRoleInfo);
 private:
 	int getPlayerPosIndex();	//from 0
 	int getTotalPosCount();
+
+	void initDesignInfo();
 
 	static FightLayer *s_pInstance;
 	Vector<Monster *> _arrCurMonster;

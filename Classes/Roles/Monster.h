@@ -102,6 +102,7 @@ private:
 	std::vector<MonsterWeakInfo_T> _arrWeakInfo;
 	int _curShowWeakIndex;
 	RoleDialog *_pDialog;
+	float _attDamage;
 };
 
 

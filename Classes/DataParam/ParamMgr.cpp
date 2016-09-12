@@ -167,6 +167,10 @@ void ParamMgr::loadMonsterInfo()
 		info->name = item["name"].GetString();
 		info->fScale = item["zoom"].GetDouble();
 
+		info->designType = item["design_type"].GetInt();
+		info->mAttRCount = item["m_att_r"].GetInt();
+		info->rAttMCount = item["r_att_m"].GetInt();
+
 		const rapidjson::Value& arry = item["dropnums"];
 		for (int i = 0; i < arry.Capacity();  i++)
 		{
@@ -309,18 +313,29 @@ void ParamMgr::loadStageInfo()
 		info->stageType = item["style"].GetInt();
 		info->boxmonsId = item["boxmons_monsid"].GetInt();
 		info->boxmonsBoxid = item["boxmons_id"].GetInt();
+		/*design info*/
+		info->roleLv = item["role_lv"].GetInt();
+		info->goldPer = item["gold_per"].GetInt();
+		info->expPer = item["exp_per"].GetInt();
+		rapidjson::Value& arrWeaponId = item["arr_weapon_id"];
+		rapidjson::Value& arrWeaponLv = item["arr_weapon_lv"];
+		for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+		{
+			info->arrWeaponId[j] = arrWeaponId[j].GetInt();
+			info->arrWeaponLv[j] = arrWeaponLv[j].GetInt();
+		}
 
 		auto& arrboxids = item["boxid"];
 		auto& arrboxp = item["boxpro"];
 		int boxnnum = arrboxids.Capacity();
-		for (int i = 0; i < ParamData::BOX_COUNT; i++)
+		for (int j = 0; j < ParamData::BOX_COUNT; j++)
 		{
-			info->arrBoxChance[i] = 0.f;
+			info->arrBoxChance[j] = 0.f;
 		}
-		for (int i = 0; i < boxnnum; i++)
+		for (int j = 0; j < boxnnum; j++)
 		{
-			int boxcurid = arrboxids[i].GetInt();
-			float p = arrboxp[i].GetDouble();
+			int boxcurid = arrboxids[j].GetInt();
+			float p = arrboxp[j].GetDouble();
 			info->arrBoxChance[boxcurid] = p;
 		}
 		
@@ -378,6 +393,18 @@ void ParamMgr::loadStageInfo()
 		info->boxmonsId = -1;
 		info->boxmonsBoxid = -1;
 
+		/*design info*/
+		info->roleLv = 0;// item["role_lv"].GetInt();
+		info->goldPer = 0;//item["gold_per"].GetInt();
+		info->expPer = 0;//item["exp_per"].GetInt();
+//		rapidjson::Value& arrWeaponId = item["arr_weapon_id"];
+//		rapidjson::Value& arrWeaponLv = item["arr_weapon_lv"];
+		for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+		{
+			info->arrWeaponId[j] = 0;//arrWeaponId[j].GetInt();
+			info->arrWeaponLv[j] = 0;//arrWeaponLv[j].GetInt();
+		}
+
 		_pUnStopStageInfo = info;
 	}
 	CCLOG("load state OK!");
@@ -425,6 +452,18 @@ void ParamMgr::loadStageInfo()
 		info->boxmonsId = -1;
 		info->boxmonsBoxid = -1;
 
+		/*design info*/
+		info->roleLv = 0;// item["role_lv"].GetInt();
+		info->goldPer = 0;//item["gold_per"].GetInt();
+		info->expPer = 0;//item["exp_per"].GetInt();
+						 //		rapidjson::Value& arrWeaponId = item["arr_weapon_id"];
+						 //		rapidjson::Value& arrWeaponLv = item["arr_weapon_lv"];
+		for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+		{
+			info->arrWeaponId[j] = 0;//arrWeaponId[j].GetInt();
+			info->arrWeaponLv[j] = 0;//arrWeaponLv[j].GetInt();
+		}
+
 		_pInstanceStageInfo = info;
 	}
 }
@@ -469,25 +508,25 @@ void ParamMgr::loadBoxDetailInfo()
 		{ 172,90,41,23,2888 }
 	};
 	int arrTmpData[][7] = {
-		{ 5,10,12,18,30,45,100 },
+		{ 5,10,12,18,60,90,200 },
 		{ 2,2,3,3,3,3,3 },
 		{ 100,100,100,100,100,100,100 },
 		{ 75,60,40,30,33,33,33 },
 		{ 15,25,30,30,33,33,33 },
 		{ 10,15,30,40,34,34,34 },
-		{ 1,2,5,8,10,25,50 },
+		{ 1,2,5,8,20,50,100 },
 		{ 1,2,2,2,3,3,3 },
 		{ 50,100,100,100,100,100,100 },
 		{ 80,60,50,40,33,33,33 },
 		{ 15,30,30,30,33,33,33 },
 		{ 5,10,20,30,34,34,34 },
-		{ 0,0,1,2,5,12,25 },
+		{ 0,0,1,2,7,18,40 },
 		{ 0,0,1,2,2,3,3 },
 		{ 0,0,50,100,100,100,100 },
 		{ 0,0,60,70,33,33,33 },
 		{ 0,0,30,20,33,33,33 },
 		{ 0,0,10,10,34,34,34 },
-		{ 0,0,0,0,3,6,15 },
+		{ 0,0,0,0,4,8,20 },
 		{ 0,0,0,0,1,1,1 },
 		{ 0,0,0,0,100,100,100 },
 		{ 0,0,0,0,100,100,100 },
@@ -740,7 +779,7 @@ void ParamMgr::loadDungeonRewardInfo()
 		rapidjson::Value& item = _jsonBezierDoc[i];
 
 		auto info = new DungeonReward_T();
-		info->level = item["rank"].GetDouble();
+		info->level = item["stage"].GetDouble();
 		info->exp = item["exp"].GetDouble();
 		info->gold = item["gold"].GetDouble();
 		info->equip = item["equip"].GetDouble();

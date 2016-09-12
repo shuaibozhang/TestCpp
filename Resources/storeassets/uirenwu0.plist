@@ -7,7 +7,7 @@
             <key>jiemian_dd1/qun_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{308,323},{99,54}}</string>
+                <string>{{222,415},{99,54}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>jiemian_dd1/qun_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,323},{100,98}}</string>
+                <string>{{222,315},{100,98}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,20 +33,33 @@
             <key>jiemian_dd1/ren.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{319,454}}</string>
+                <string>{{2,2},{319,311}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{319,454}}</string>
+                <string>{{0,0},{319,311}}</string>
                 <key>sourceSize</key>
-                <string>{319,454}</string>
+                <string>{319,311}</string>
+            </dict>
+            <key>jiemian_dd1/ren1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,315},{119,176}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{119,176}}</string>
+                <key>sourceSize</key>
+                <string>{119,176}</string>
             </dict>
             <key>jiemian_dd1/yan_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{259,323},{47,70}}</string>
+                <string>{{173,420},{47,70}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +72,7 @@
             <key>jiemian_dd1/yan_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{209,323},{48,70}}</string>
+                <string>{{123,420},{48,70}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,11 +85,11 @@
             <key>jiemian_dd1/yan_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{104,323},{86,103}}</string>
+                <string>{{123,315},{86,103}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{86,103}}</string>
                 <key>sourceSize</key>
@@ -90,9 +103,9 @@
             <key>realTextureFileName</key>
             <string>uirenwu0.pvr.ccz</string>
             <key>size</key>
-            <string>{458,423}</string>
+            <string>{324,493}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c0639d2412aee54e3d0a9c1cbae2dc53$</string>
+            <string>$TexturePacker:SmartUpdate:7cb56fd083ece5467d4ff71967ec6934$</string>
             <key>textureFileName</key>
             <string>uirenwu0.pvr.ccz</string>
         </dict>

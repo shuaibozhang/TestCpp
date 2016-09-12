@@ -14,6 +14,8 @@
 #include "Role.h"
 #include "UserData.h"
 #include "GameLayer.h"
+#include "Defines.h"
+#include "FightUtil.h"
 
 
 EleIcon::EleIcon()
@@ -282,10 +284,12 @@ bool EleIcon::doRound()
 //			this->playRoundEffect();
 			int roleId = _eleId - EleIconId_E::ELE_ID_SWORD;
 			roleId = (roleId >= 0 && roleId <= 3) ? roleId : 0;
-
+#if (1 == CC_ENABLE_NEW_PARAM)
+			float param = FightUtil::calcWeakDamageValue(0, FightLayer::getInstance()->getDesignRoleInfo());
+#else
 			float param = CrushUtil::getWeakDamageValue(0, Player::getInstance()->getBaseLv(), 10.f);
+#endif
 			this->createFlyWeak(0, roleId, param);
-//			SpecialAttUtils::attPlayer(10.f);
 		}
 	}
 	else if (nullptr != _pSpecInfo)
@@ -817,12 +821,20 @@ void EleIcon::doSpecAtt()
 			{
 				if (5 == _eleId)
 				{
-					float param = CrushUtil::getWeakDamageValue(1, Player::getInstance()->getBaseLv(), 0);
+#if (1 == CC_ENABLE_NEW_PARAM)
+					float param = FightUtil::calcWeakDamageValue(1, FightLayer::getInstance()->getDesignRoleInfo());
+#else
+					float param = CrushUtil::getWeakDamageValue(1, Player::getInstance()->getBaseLv(), 0.f);
+#endif
 					this->createFlyWeak(1, i, param);
 				}
 				else if (7 == _eleId)
 				{
-					float param = CrushUtil::getWeakDamageValue(1, Player::getInstance()->getBaseLv(), 0);
+#if (1 == CC_ENABLE_NEW_PARAM)
+					float param = FightUtil::calcWeakDamageValue(2, FightLayer::getInstance()->getDesignRoleInfo());
+#else
+					float param = CrushUtil::getWeakDamageValue(2, Player::getInstance()->getBaseLv(), 0.f);
+#endif
 					this->createFlyWeak(2, i, param);
 				}
 			}
@@ -846,7 +858,11 @@ void EleIcon::doSpecAtt()
 			break;
 		case 4:
 		{
-			float param = CrushUtil::getWeakDamageValue(3, Player::getInstance()->getBaseLv(), 0);
+#if (1 == CC_ENABLE_NEW_PARAM)
+			float param = FightUtil::calcWeakDamageValue(3, FightLayer::getInstance()->getDesignRoleInfo());
+#else
+			float param = CrushUtil::getWeakDamageValue(3, Player::getInstance()->getBaseLv(), 0.f);
+#endif
 			this->createFlyWeak(3, -1, param);
 		}
 //			SpecialAttUtils::addMonsterHp(_pSpecInfo->attParam3);

@@ -25,6 +25,8 @@
 #include "NewMapOpenMgr.h"
 #include "Defines.h"
 #include "Role.h"
+#include "WeaponControl.h"
+#include "FightUtil.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -89,8 +91,25 @@ void FightLayer::update(float delta)
 {
 	if (2 == _gameState || 3 == _gameState)
 	{
-		CrushLayer::getInstance()->getStateMac()->changeState(SettleState::getInstance());
-		_gameState = 4;
+		if (Player::getInstance()->isCurAttFinish())
+		{
+			bool isAllFinish = true;
+			for (int i = 0; i < _arrCurMonster.size(); i++)
+			{
+				auto pMonster = _arrCurMonster.at(i);
+				if (!pMonster->getIsAttFinish())
+				{
+					isAllFinish = false;
+					break;
+				}
+			}
+
+			if (isAllFinish)
+			{
+				CrushLayer::getInstance()->getStateMac()->changeState(SettleState::getInstance());
+				_gameState = 4;
+			}
+		}
 	}
 	else if (1 == _gameState)
 	{
@@ -239,7 +258,23 @@ void FightLayer::update(float delta)
 		{
 			if (Player::getInstance()->getIsWaitRelive())
 			{
-				_gameState = 5;
+				bool isAllFinish = true;
+				for (int i = 0; i < _arrCurMonster.size(); i++)
+				{
+					auto pMonster = _arrCurMonster.at(i);
+					if (!pMonster->getIsAttFinish())
+					{
+						isAllFinish = false;
+						break;
+					}
+				}
+
+				if (isAllFinish)
+				{
+					GameLayer::getInstance()->popReborn();
+					_gameState = 5;
+				}
+//				_gameState = 5;
 			}
 			else
 			{
@@ -435,9 +470,11 @@ void FightLayer::startFight()
 	if (1 == GameLayer::getInstance()->getFightType())
 	{
 		_pStageInfo = ParamMgr::getInstance()->getStageInfo(-1);
+#if (0 == CC_ENABLE_NEW_PARAM)
 		//set base lv
 		int baseLv = CrushUtil::getEndlessBaseLv(Player::getInstance()->getBaseLv());
 		Player::getInstance()->setBaseLv(baseLv);
+#endif
 	}
 	else if (3 == GameLayer::getInstance()->getFightType())
 	{
@@ -480,19 +517,42 @@ void FightLayer::startFight()
 		_pStageInfo = ParamMgr::getInstance()->getStageInfo(GameLayer::getInstance()->getSceneId());
 	}
 	_arrMonsterWaveInfo = &_pStageInfo->arrMonsterWaveInfo;
-	/*
-	std::vector<int> a;
-	a.push_back(0);
-//	a.push_back(0);
-//	a.push_back(0);
 
-	std::vector<std::vector<int>> b;
-	b.push_back(a);
-	b.push_back(a);
-	b.push_back(a);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	float totalTime = 0.f;
+	for (int i = 0; i < _arrMonsterWaveInfo->size(); i++)
+	{
+		auto arrFloorInfo = _arrMonsterWaveInfo->at(i);
+		for (int j = 0; j < arrFloorInfo.size(); j++)
+		{
+			auto arrWaveInfo = arrFloorInfo.at(j);
 
-	_arrMonsterWaveInfo.push_back(b);
-	_arrMonsterWaveInfo.push_back(b);*/
+			for (int k = 0; k < arrWaveInfo.size(); k++)
+			{
+				int monsterId = arrWaveInfo.at(k);
+				auto pMonsterInfo = ParamMgr::getInstance()->getMonsterInfo(monsterId);
+
+				if (0 == pMonsterInfo->designType)
+				{
+					totalTime += FightUtil::DESIGN_NOR_MONSTER_TIME;
+				}
+				else if (1 == pMonsterInfo->designType)
+				{
+					totalTime += FightUtil::DESIGN_ELITE_MONSTER_TIME;
+				}
+				else if (2 == pMonsterInfo->designType)
+				{
+					totalTime += FightUtil::DESIGN_BOSS_TIME;
+				}
+			}
+		}
+	}
+	CCLOG("*****************sceneId = %d, designTime = %f*********************", _pStageInfo->id, totalTime);
+#endif
+
+#if (1 == CC_ENABLE_NEW_PARAM)
+	this->initDesignInfo();
+#endif
 
 	if (0 == GameLayer::getInstance()->getFightType() && -1 != _pStageInfo->boxmonsId && UserData::getInstance()->getBoxGet(GameLayer::getInstance()->getSceneId()) == 0)
 	{
@@ -600,14 +660,9 @@ void FightLayer::enterNewFloor()
 		_endlessFloor++;
 		if (_curFloor == _pStageInfo->arrMonsterWaveInfo.size())
 		{
-//			if (_endlessFloor > 1)
-//			{
-				Player::getInstance()->setBaseLv(Player::getInstance()->getBaseLv() + ParamData::ENDLESS_STAGE_ADD_LV);
-//			}
-//			else
-//			{
-//				Player::getInstance()->setBaseLv(Player::getInstance()->getBaseLv() + 6);
-//			}
+#if (0 == CC_ENABLE_NEW_PARAM)
+			Player::getInstance()->setBaseLv(Player::getInstance()->getBaseLv() + ParamData::ENDLESS_STAGE_ADD_LV);
+#endif
 			_curFloor = 0;
 		}
 		if (_endlessFloor > 0)
@@ -925,4 +980,77 @@ void FightLayer::startRound(int roundType)
 			return;
 		}
 	}
+}
+
+
+void FightLayer::initDesignInfo()
+{
+	auto pStageInfo = _pStageInfo;
+
+	switch (GameLayer::getInstance()->getFightType())
+	{
+	case 0:
+		break;
+	case 1:
+	{
+		int maxPos = UserData::getInstance()->getMaxPos();
+		pStageInfo = ParamMgr::getInstance()->getStageInfo(maxPos);
+	}
+		break;
+	case 2:
+	{
+		int sceneId = GameLayer::getInstance()->getSceneId();
+		int designSceneId = FightUtil::getDesignEliteSceneId(sceneId);
+		pStageInfo = ParamMgr::getInstance()->getStageInfo(designSceneId);
+	}
+		break;
+	case 3:
+	{
+		int maxPos = UserData::getInstance()->getMaxPos();
+		pStageInfo = ParamMgr::getInstance()->getStageInfo(maxPos);
+	}
+		break;
+	}
+
+	int roleLv = pStageInfo->roleLv;
+
+	memset((void *)&_designRoleInfo, 0, sizeof(_designRoleInfo));
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	{
+		auto roleInfo = ParamMgr::getInstance()->getPlayerInfo(i, roleLv);
+
+		_designRoleInfo.hp += roleInfo.hp;
+		_designRoleInfo.dp += roleInfo.dp;
+
+		int weaponIndex = pStageInfo->arrWeaponId[i] + i * 10;
+		int weaponId = weaponIndex + 500;
+		auto weaponInfo = ParamMgr::getInstance()->getWeaponByID(weaponId);
+
+		if (1 == i)
+		{
+			_designRoleInfo.att += ((roleInfo.attack + weaponInfo.attack) / 2.f);
+		}
+		else
+		{
+			_designRoleInfo.att += (roleInfo.attack + weaponInfo.attack);
+		}
+		_designRoleInfo.def += (roleInfo.def + weaponInfo.def);
+		_designRoleInfo.dpAdd += (roleInfo.dpadd + weaponInfo.dpadd);
+		_designRoleInfo.hpAdd += (roleInfo.hpadd + weaponInfo.hpadd);
+
+		if (pStageInfo->arrWeaponLv[i] > 0)
+		{
+			auto& weaponUpInfo = (ParamMgr::getInstance()->getWeaponVector())[weaponIndex];
+
+			_designRoleInfo.att += (weaponUpInfo.lvMaxAttack + weaponUpInfo.lvMinAttack) * pStageInfo->arrWeaponLv[i] / 2.f;
+			_designRoleInfo.def += (weaponUpInfo.lvMaxDef + weaponUpInfo.lvMinDef) * pStageInfo->arrWeaponLv[i] / 2.f;
+			_designRoleInfo.dpAdd += (weaponUpInfo.lvMaxDpadd + weaponUpInfo.lvMinDpadd) * pStageInfo->arrWeaponLv[i] / 2.f;
+			_designRoleInfo.hpAdd += (weaponUpInfo.lvMaxHpadd + weaponUpInfo.lvMinHpadd) * pStageInfo->arrWeaponLv[i] / 2.f;
+		}
+	}
+
+	_designRoleInfo.att /= 3.f;
+
+	_designRoleInfo.perGold = pStageInfo->goldPer;
+	_designRoleInfo.perExp = pStageInfo->expPer;
 }

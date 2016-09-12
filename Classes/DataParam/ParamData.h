@@ -316,6 +316,9 @@ typedef struct _MonsterInfo_T
 	int goldRange[2];
 	float hp;
 	int exp;
+	int designType;	//0.nor 1.elite 2.boss
+	int rAttMCount;
+	int mAttRCount;
 	float runPro;
 	float fScale;
 	std::string animName;
@@ -483,6 +486,11 @@ typedef struct _StageInfo
 	float arrBoxChance[ParamData::BOX_COUNT];
 	int boxmonsId;
 	int boxmonsBoxid;
+	int roleLv;
+	int arrWeaponId[ParamData::ROLE_COUNT];
+	int arrWeaponLv[ParamData::ROLE_COUNT];
+	int goldPer;
+	int expPer;
 }StageInfo_T;
 
 
@@ -698,6 +706,21 @@ typedef struct _BoxInStoreConfig
 	int boxlv;
 }BoxInStoreConfig_T;
 
+/***************************Rank Struct End*********************************************/
+
+
+typedef struct _DesignRoleInfo
+{
+	int perGold;
+	int perExp;
+	float hp;
+	float dp;
+	float att;
+	float def;
+	float dpAdd;	//defRecover
+	float hpAdd;
+}DesignRoleInfo_T;
+
 typedef struct _HotStoreWenpon_T
 {
 	int wenponpartid;
@@ -706,8 +729,5 @@ typedef struct _HotStoreWenpon_T
 	int price;
 	int pricetype;
 }HotStoreWenpon_T;
-
-/***************************Rank Struct End*********************************************/
-
 
 #endif

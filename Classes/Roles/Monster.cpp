@@ -21,6 +21,8 @@
 #include "Scenes/PopRewardLayer.h"
 #include "Scenes/MainScene.h"
 #include "UserData.h"
+#include "Defines.h"
+#include "FightUtil.h"
 
 
 Monster::Monster()
@@ -77,7 +79,25 @@ bool Monster::init(int id, int posIndex)
 		_pMonsterInfo = ParamMgr::getInstance()->getMonsterInfo(_monsterId);
 		_curAttIndex = 0;
 		_curRound = _pMonsterInfo->arrAttInfo.at(_curAttIndex).round;
+#if (1 == CC_ENABLE_NEW_PARAM)
+		_totalHp = FightUtil::calcMonsterHp(FightLayer::getInstance()->getDesignRoleInfo(), _pMonsterInfo->rAttMCount);
+		_attDamage = FightUtil::calcMonsterAtt(FightLayer::getInstance()->getDesignRoleInfo(), _pMonsterInfo->mAttRCount);
+		if (1 == GameLayer::getInstance()->getFightType())
+		{
+			int times = FightLayer::getInstance()->getEndlessFloor() / 10;
+
+			_totalHp *= (1.f + 0.6f * times);
+			_attDamage *= (1.f + 0.4f * times);
+		}
+
+		if ((0 == GameLayer::getInstance()->getFightType() || 2 == GameLayer::getInstance()->getFightType())
+			&& 0 == _pMonsterInfo->type && 0 != GameLayer::getInstance()->getSceneId())
+		{
+			_curRound = ToolsUtil::getRandomInt(2, 4);
+		}
+#else
 		_totalHp = CrushUtil::getMonsterHpValue(_pMonsterInfo->lv, Player::getInstance()->getBaseLv(), _pMonsterInfo->hp, _pMonsterInfo->type, GameLayer::getInstance()->getIsNeedGrow());
+#endif
 		_hp = _totalHp;
 		_pMonsterAttArmInfo = ParamMgr::getInstance()->getMonsterAttArmInfo(_monsterId);
 
@@ -302,7 +322,11 @@ void Monster::doDead()
 {
 	if (!_isDead)
 	{
+#if (1 == CC_ENABLE_NEW_PARAM)
+		int exp = FightUtil::calcMonsterExp(_pMonsterInfo->designType, FightLayer::getInstance()->getDesignRoleInfo().perExp);
+#else
 		int exp = CrushUtil::getMonsterExpValue(_pMonsterInfo->lv, Player::getInstance()->getBaseLv(), _pMonsterInfo->exp, GameLayer::getInstance()->getIsNeedGrow());
+#endif
 		exp *= GameLayer::getInstance()->getExpTimes();
 		FightLayer::getInstance()->setTotalExp(FightLayer::getInstance()->getTotalExp() + exp);
 		_isDead = true;
@@ -327,8 +351,12 @@ void Monster::doDead()
 		}
 
 		Vec2 createPos = this->getPosition();
+#if (1 == CC_ENABLE_NEW_PARAM)
+		int goldCount = FightUtil::calcMonsterGold(_pMonsterInfo->designType, FightLayer::getInstance()->getDesignRoleInfo().perGold);
+#else
 		int goldCount = ToolsUtil::getRandomInt(_pMonsterInfo->goldRange[0], _pMonsterInfo->goldRange[1]);
 		goldCount = CrushUtil::getMonsterGoldValue(_pMonsterInfo->lv, Player::getInstance()->getBaseLv(), goldCount, GameLayer::getInstance()->getIsNeedGrow());
+#endif
 //		goldCount = 1;
 		while (goldCount > 0)
 		{
@@ -366,6 +394,10 @@ void Monster::doDead()
 
 void Monster::addHP(float addValue)
 {
+#if (1 == CC_ENABLE_NEW_PARAM)
+	float addPerc = 1 / 20.f;
+	addValue = _totalHp * addPerc;
+#endif
 	_hp = MIN(_totalHp, _hp+addValue);
 
 	auto hpBar = static_cast<LoadingBar*>(_pHpBarNode->getChildByName("bar_hp"));
@@ -622,16 +654,26 @@ void Monster::startAttAnim()
 
 void Monster::doAttPer()
 {
-	float damage = ToolsUtil::getRandomFloat(_pMonsterInfo->attRange[0], _pMonsterInfo->attRange[1]);
+	float damage = 0.f;
 	auto pCurAttInfo = _pMonsterInfo->arrAttInfo.at(_curAttIndex);
 
+
+#if (1 == CC_ENABLE_NEW_PARAM)
+	damage = _attDamage;
 	//boss kill
 	if (201 == pCurAttInfo.attId)
 	{
 		damage *= 1.5f;
 	}
-
+#else
+	damage = ToolsUtil::getRandomFloat(_pMonsterInfo->attRange[0], _pMonsterInfo->attRange[1]);
+	//boss kill
+	if (201 == pCurAttInfo.attId)
+	{
+		damage *= 1.5f;
+	}
 	damage = CrushUtil::getMonsterAttValue(_pMonsterInfo->lv, Player::getInstance()->getBaseLv(), damage, _pMonsterInfo->type, GameLayer::getInstance()->getIsNeedGrow());
+#endif
 
 	if (pCurAttInfo.attId > 0 && pCurAttInfo.attId < 200)
 	{

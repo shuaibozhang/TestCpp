@@ -16,6 +16,8 @@
 #include "UserData.h"
 #include "Scenes/PopRewardLayer.h"
 #include "Scenes/MainScene.h"
+#include "Defines.h"
+#include "FightUtil.h"
 
 
 SettleState *SettleState::s_pInstance = nullptr;
@@ -80,7 +82,11 @@ void SettleState::enter(CrushLayer * pOwner)
 	{
 		int dungeonType = GameMap::getCurGameMap()->getDungeonIdx();
 		std::vector<PopItemInfo_T> arrReward;
+#if (1 == CC_ENABLE_NEW_PARAM)
+		int exp = FightUtil::getDungeonReward(dungeonType, arrReward, FightLayer::getInstance()->getDesignRoleInfo());
+#else
 		int exp = CrushUtil::getDungeonReward(dungeonType, UserData::getInstance()->getPlayerCurLv(0), arrReward);
+#endif
 		
 		if (0 == dungeonType)
 		{

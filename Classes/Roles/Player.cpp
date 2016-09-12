@@ -32,7 +32,9 @@ Player::Player()
 	_isDefing = false;
 	_pArmtrShield = nullptr;
 	_isDead = false;
+#if (0 == CC_ENABLE_NEW_PARAM)
 	_baseLv = 0;
+#endif
 	_isWaitRelive = false;
 }
 
@@ -106,20 +108,24 @@ void Player::initFightData()
 	memset(_arrRoleSkillId, -1, sizeof(_arrRoleSkillId));
 	_totalHp = 0.f;
 	_totalDef = 0.f;
+#if (0 == CC_ENABLE_NEW_PARAM)
 	_baseLv = 1000;
+#endif
 	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		int roleLv = UserData::getInstance()->getPlayerCurLv(i);
 		_arrRoleInfo[i] = ParamMgr::getInstance()->getPlayerInfo(i, roleLv);
 
+#if (0 == CC_ENABLE_NEW_PARAM)
 		_baseLv = MIN(_baseLv, roleLv);
+#endif
 		_totalHp += _arrRoleInfo[i].hp;
 		_totalDef += _arrRoleInfo[i].dp;
 
 		auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(i);
 		auto attInfo = UserData::getInstance()->getWeaponAttack(weaponInfo.id-500);
 		_arrRoleInfo[i].attack += attInfo.attack;//weaponInfo.attack;
-		_arrRoleInfo[i].dp += attInfo.def;//weaponInfo.def;
+//		_arrRoleInfo[i].dp += attInfo.def;//weaponInfo.def;
 		_arrRoleInfo[i].hpadd += attInfo.hpAdd;//weaponInfo.hpadd;
 		_arrRoleInfo[i].dpadd += attInfo.dpAdd;//weaponInfo.dpadd;
 		_arrRoleInfo[i].def += attInfo.def;//weaponInfo.def;
@@ -138,12 +144,14 @@ void Player::initFightData()
 		_arrRoles[i]->initFightData();
 	}
 
+
+#if (0 == CC_ENABLE_NEW_PARAM)
 	if (2 == GameLayer::getInstance()->getFightType())
 	{
 		int sceneId = GameLayer::getInstance()->getSceneId();
-//		_baseLv += CrushUtil::getEliteAddLv(sceneId);//ParamData::ELITE_STAGE_ADD_LV;
 		_baseLv = CrushUtil::getEliteAddLv(sceneId);//ParamData::ELITE_STAGE_ADD_LV;
 	}
+#endif
 
 	_curHp = _totalHp;
 	_curDef = _totalDef;
@@ -405,12 +413,12 @@ void Player::doHurtByMonster(int attribute, float damage, int monsterLv)
 	else if (_curDef > 0.f)// || (6 == _arrRecoverInfo[3].param1 && _arrRecoverInfo[3].round>0))
 	{
 		float armorValue = _arrRoleInfo[1].def;
-// 		if (6 == _arrRecoverInfo[3].param1 && _arrRecoverInfo[3].round>0)
-// 		{
-// 			armorValue *= 3;
-// 		}
+#if (1 == CC_ENABLE_NEW_PARAM)
+		actDamage = MAX(damage  - armorValue, 5);
+#else
 		float valueN = CrushUtil::getDamageN(MAX(monsterLv, _baseLv));
 		actDamage = damage * 1.f / (1.f + valueN * armorValue);
+#endif
 
 		if (_curDef == _totalDef && damage > 0.f)
 		{
@@ -768,14 +776,14 @@ void Player::doDead()
 				{
 					_isWaitRelive = true;
 					_reliveTimes++;
-					GameLayer::getInstance()->popReborn();
+//					GameLayer::getInstance()->popReborn();
 				}
 			}
 			else if (ParamMgr::getInstance()->getShowReliveWeight() >= 4)
 			{
 				_isWaitRelive = true;
 				ParamMgr::getInstance()->changeShowReliveWeight(2);
-				GameLayer::getInstance()->popReborn();
+//				GameLayer::getInstance()->popReborn();
 			}
 		}
 		_isDead = true;
