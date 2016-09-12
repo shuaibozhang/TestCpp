@@ -19,10 +19,10 @@ USING_NS_CC_EXT;
 DailyRewardLayer *DailyRewardLayer::s_pInstance = nullptr;
 
 const int g_arrDailyRewardId[7] = {1014, 1502, 21, 1015, 1515, 1004, 536};
-const int g_arrDailyRewardCount[7] = {2, 30, 1, 6, 20, 5, 1};
+const int g_arrDailyRewardCount[7] = {2, 30, 1, 3, 20, 5, 1};
 
-const int g_arrWeekRepeatRewardId[7] = { 1012, 1506, -102, 1507, 1004, 1014, 1508 };
-const int  g_arrWeekRepeatRewardCount[7] = { 2, 10, 20, 20, 10, 5, 10 };
+const int g_arrWeekRepeatRewardId[7] = { 1012, 1503, -102, 1506, 1004, 1014, 1508 };
+const int  g_arrWeekRepeatRewardCount[7] = { 2, 10, 20, 10, 5, 5, 10 };
 
 DailyRewardLayer *DailyRewardLayer::getInstance(void)
 {
@@ -170,7 +170,15 @@ bool DailyRewardLayer::init(bool isWeekReward)
 
 				
 			}
-
+			else
+			{
+				if (g_arrDailyRewardId[i] >= 1500)
+				{
+					auto spriteParts = Sprite::createWithSpriteFrameName("com_icon_parts_0.png");
+					pItem->addChild(spriteParts,2);
+					spriteParts->setPosition(Vec2(45.f, 120.f));
+				}
+			}
 			auto pItemPic = dynamic_cast<ImageView *>(pItem->getChildByName("item_bg")->getChildByName("item"));
 			auto pItemCount = (pItem->getChildByName("item_bg")->getChildByName("count"));
 
@@ -180,6 +188,11 @@ bool DailyRewardLayer::init(bool isWeekReward)
 				if (isWeekReward)
 				{
 					count = g_arrWeekRepeatRewardCount[i];
+					pCount->setString(String::createWithFormat("/%d", count)->getCString());
+				}
+				else
+				{
+					count = g_arrDailyRewardCount[i];
 					pCount->setString(String::createWithFormat("/%d", count)->getCString());
 				}
 
@@ -290,7 +303,7 @@ bool DailyRewardLayer::init(bool isWeekReward)
 				spritename->setPosition(picname->getPosition() + Vec2(0.f, -30.f));
 
 				ComInfo_T cominfo;
-				ParamMgr::getInstance()->getComGameItemInfo(g_arrWeekRepeatRewardId[i], cominfo);
+				ParamMgr::getInstance()->getComGameItemInfo(g_arrWeekRepeatRewardId[i] + arrwWenponOwner[6] * 10, cominfo);
 
 				auto texttitle = Text::create();
 				texttitle->setFontSize(30);
