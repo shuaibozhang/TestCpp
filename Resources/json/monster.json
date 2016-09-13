@@ -220,7 +220,7 @@
     "zoom": 0.22, 
     "design_type": 0, 
     "r_att_m": 3, 
-    "m_att_r": 5, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -271,7 +271,7 @@
     "zoom": 0.22, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "id": 1001, 
@@ -321,7 +321,7 @@
     "maxgold": 10, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 5, 
+    "r_att_m": 4, 
     "m_att_r": 7, 
     "dropnums": [
       {
@@ -338,7 +338,7 @@
     "attlogic": [
       {
         "attNum": 1, 
-        "round": 3, 
+        "round": 4, 
         "attid": [
           0
         ]
@@ -353,7 +353,7 @@
       {
         "attNum": 1, 
         "next": -1, 
-        "round": 3, 
+        "round": 4, 
         "attid": [
           0
         ]
@@ -380,7 +380,7 @@
     "maxgold": 15, 
     "zoom": 0.2, 
     "design_type": 0, 
-    "r_att_m": 5, 
+    "r_att_m": 4, 
     "m_att_r": 9, 
     "dropnums": [
       {
@@ -431,8 +431,8 @@
     "maxgold": 16, 
     "zoom": 0.2, 
     "design_type": 0, 
-    "r_att_m": 6, 
-    "m_att_r": 9, 
+    "r_att_m": 5, 
+    "m_att_r": 10, 
     "dropnums": [
       {
         "id": 1000, 
@@ -490,8 +490,8 @@
     "maxgold": 19, 
     "zoom": 0.2, 
     "design_type": 0, 
-    "r_att_m": 7, 
-    "m_att_r": 8, 
+    "r_att_m": 5, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -549,7 +549,7 @@
     "zoom": 0.14, 
     "design_type": 0, 
     "r_att_m": 2, 
-    "m_att_r": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1002, 
@@ -608,7 +608,7 @@
     "zoom": 0.14, 
     "design_type": 0, 
     "r_att_m": 3, 
-    "m_att_r": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -740,7 +740,7 @@
     "zoom": 0.2, 
     "design_type": 0, 
     "r_att_m": 3, 
-    "m_att_r": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -798,7 +798,7 @@
     "zoom": 0.2, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 5, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -914,7 +914,7 @@
     "zoom": 0.22, 
     "design_type": 0, 
     "r_att_m": 2, 
-    "m_att_r": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1088,8 +1088,8 @@
     "maxgold": 30, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 6, 
-    "m_att_r": 8, 
+    "r_att_m": 5, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1148,7 +1148,7 @@
     "zoom": 0.22, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "id": 1002, 
@@ -1198,8 +1198,8 @@
     "maxgold": 35, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 6, 
-    "m_att_r": 7, 
+    "r_att_m": 5, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1256,8 +1256,8 @@
     "maxgold": 35, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 7, 
-    "m_att_r": 6, 
+    "r_att_m": 5, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "id": 1009, 
@@ -1319,7 +1319,7 @@
     "maxgold": 80, 
     "zoom": 1.0, 
     "design_type": 2, 
-    "r_att_m": 45, 
+    "r_att_m": 40, 
     "m_att_r": 5, 
     "dropnums": [
       {
@@ -1397,8 +1397,8 @@
     "maxgold": 22, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 5, 
-    "m_att_r": 5, 
+    "r_att_m": 4, 
+    "m_att_r": 10, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1448,7 +1448,7 @@
     "maxgold": 28, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 6, 
+    "r_att_m": 4, 
     "m_att_r": 9, 
     "dropnums": [
       {
@@ -1499,8 +1499,8 @@
     "maxgold": 35, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 6, 
-    "m_att_r": 8, 
+    "r_att_m": 5, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1557,8 +1557,8 @@
     "maxgold": 38, 
     "zoom": 0.25, 
     "design_type": 0, 
-    "r_att_m": 3, 
-    "m_att_r": 4, 
+    "r_att_m": 2, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1608,8 +1608,8 @@
     "maxgold": 40, 
     "zoom": 0.25, 
     "design_type": 0, 
-    "r_att_m": 2, 
-    "m_att_r": 3, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1003, 
@@ -1726,7 +1726,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 6, 
-    "m_att_r": 8, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1784,7 +1784,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 6, 
-    "m_att_r": 7, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1843,7 +1843,7 @@
     "zoom": 0.2, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 5, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -1893,7 +1893,7 @@
     "maxgold": 120, 
     "zoom": 1.0, 
     "design_type": 2, 
-    "r_att_m": 60, 
+    "r_att_m": 50, 
     "m_att_r": 5, 
     "dropnums": [
       {
@@ -1975,7 +1975,7 @@
     "maxgold": 150, 
     "zoom": 1.0, 
     "design_type": 2, 
-    "r_att_m": 45, 
+    "r_att_m": 40, 
     "m_att_r": 4, 
     "dropnums": [
       {
@@ -2105,7 +2105,7 @@
     "zoom": 0.15, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2162,7 +2162,7 @@
     "maxgold": 75, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 5, 
+    "r_att_m": 4, 
     "m_att_r": 7, 
     "dropnums": [
       {
@@ -2220,7 +2220,7 @@
     "maxgold": 75, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 6, 
+    "r_att_m": 5, 
     "m_att_r": 8, 
     "dropnums": [
       {
@@ -2330,8 +2330,8 @@
     "maxgold": 85, 
     "zoom": 0.28, 
     "design_type": 0, 
-    "r_att_m": 4, 
-    "m_att_r": 4, 
+    "r_att_m": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2530,7 +2530,7 @@
     "zoom": 0.22, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 5, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2587,8 +2587,8 @@
     "maxgold": 100, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 3, 
-    "m_att_r": 5, 
+    "r_att_m": 4, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "id": 1004, 
@@ -2646,8 +2646,8 @@
     "maxgold": 100, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 4, 
-    "m_att_r": 5, 
+    "r_att_m": 5, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2697,8 +2697,8 @@
     "maxgold": 110, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 5, 
-    "m_att_r": 4, 
+    "r_att_m": 4, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2755,8 +2755,8 @@
     "maxgold": 120, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 7, 
-    "m_att_r": 8, 
+    "r_att_m": 5, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -2806,7 +2806,7 @@
     "maxgold": 130, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 8, 
+    "r_att_m": 4, 
     "m_att_r": 7, 
     "dropnums": [
       {
@@ -2868,8 +2868,8 @@
     "maxgold": 140, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 8, 
-    "m_att_r": 6, 
+    "r_att_m": 5, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3083,7 +3083,7 @@
     "maxgold": 300, 
     "zoom": 1.0, 
     "design_type": 2, 
-    "r_att_m": 60, 
+    "r_att_m": 50, 
     "m_att_r": 4, 
     "dropnums": [
       {
@@ -3166,7 +3166,7 @@
     "maxgold": 150, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 6, 
+    "r_att_m": 3, 
     "m_att_r": 7, 
     "dropnums": [
       {
@@ -3229,7 +3229,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 3, 
-    "m_att_r": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3291,7 +3291,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "id": 1005, 
@@ -3349,7 +3349,7 @@
     "maxgold": 180, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 6, 
+    "r_att_m": 5, 
     "m_att_r": 8, 
     "dropnums": [
       {
@@ -3411,8 +3411,8 @@
     "maxgold": 190, 
     "zoom": 0.22, 
     "design_type": 0, 
-    "r_att_m": 7, 
-    "m_att_r": 7, 
+    "r_att_m": 6, 
+    "m_att_r": 10, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3475,7 +3475,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 5, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3536,8 +3536,8 @@
     "maxgold": 210, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 5, 
-    "m_att_r": 4, 
+    "r_att_m": 4, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3774,7 +3774,7 @@
     "zoom": 0.28, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 5, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3832,7 +3832,7 @@
     "maxgold": 160, 
     "zoom": 1.0, 
     "design_type": 2, 
-    "r_att_m": 60, 
+    "r_att_m": 50, 
     "m_att_r": 5, 
     "dropnums": [
       {
@@ -3902,7 +3902,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 6, 
-    "m_att_r": 7, 
+    "m_att_r": 9, 
     "dropnums": [
       {
         "pro": 0, 
@@ -3965,7 +3965,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 5, 
-    "m_att_r": 6, 
+    "m_att_r": 8, 
     "dropnums": [
       {
         "id": 1006, 
@@ -4285,7 +4285,7 @@
     "maxgold": 18, 
     "zoom": 0.3, 
     "design_type": 1, 
-    "r_att_m": 8, 
+    "r_att_m": 5, 
     "m_att_r": 6, 
     "dropnums": [
       {
@@ -4337,7 +4337,7 @@
     "zoom": 0.2, 
     "design_type": 1, 
     "r_att_m": 5, 
-    "m_att_r": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "id": 1002, 
@@ -4396,7 +4396,7 @@
     "zoom": 0.28, 
     "design_type": 1, 
     "r_att_m": 7, 
-    "m_att_r": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4454,7 +4454,7 @@
     "zoom": 0.3, 
     "design_type": 1, 
     "r_att_m": 4, 
-    "m_att_r": 3, 
+    "m_att_r": 4, 
     "dropnums": [
       {
         "id": 1009, 
@@ -4513,7 +4513,7 @@
     "zoom": 0.3, 
     "design_type": 1, 
     "r_att_m": 7, 
-    "m_att_r": 5, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4574,8 +4574,8 @@
     "maxgold": 30, 
     "zoom": 0.4, 
     "design_type": 1, 
-    "r_att_m": 8, 
-    "m_att_r": 5, 
+    "r_att_m": 7, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4625,8 +4625,8 @@
     "maxgold": 45, 
     "zoom": 0.3, 
     "design_type": 1, 
-    "r_att_m": 7, 
-    "m_att_r": 4, 
+    "r_att_m": 6, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4677,7 +4677,7 @@
     "zoom": 0.25, 
     "design_type": 1, 
     "r_att_m": 7, 
-    "m_att_r": 4, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4735,7 +4735,7 @@
     "zoom": 0.33, 
     "design_type": 1, 
     "r_att_m": 5, 
-    "m_att_r": 3, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4785,8 +4785,8 @@
     "maxgold": 140, 
     "zoom": 0.35, 
     "design_type": 1, 
-    "r_att_m": 6, 
-    "m_att_r": 4, 
+    "r_att_m": 5, 
+    "m_att_r": 5, 
     "dropnums": [
       {
         "pro": 0, 
@@ -4836,7 +4836,7 @@
     "maxgold": 180, 
     "zoom": 0.38, 
     "design_type": 1, 
-    "r_att_m": 8, 
+    "r_att_m": 7, 
     "m_att_r": 5, 
     "dropnums": [
       {
@@ -4899,7 +4899,7 @@
     "maxgold": 320, 
     "zoom": 0.38, 
     "design_type": 1, 
-    "r_att_m": 7, 
+    "r_att_m": 6, 
     "m_att_r": 4, 
     "dropnums": [
       {
@@ -5136,7 +5136,7 @@
     "zoom": 0.22, 
     "design_type": 0, 
     "r_att_m": 4, 
-    "m_att_r": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5193,8 +5193,8 @@
     "maxgold": 45, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 6, 
-    "m_att_r": 5, 
+    "r_att_m": 5, 
+    "m_att_r": 6, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5252,7 +5252,7 @@
     "zoom": 0.3, 
     "design_type": 0, 
     "r_att_m": 5, 
-    "m_att_r": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 
@@ -5302,8 +5302,8 @@
     "maxgold": 38, 
     "zoom": 0.3, 
     "design_type": 0, 
-    "r_att_m": 7, 
-    "m_att_r": 5, 
+    "r_att_m": 6, 
+    "m_att_r": 7, 
     "dropnums": [
       {
         "pro": 0, 

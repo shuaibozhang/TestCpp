@@ -289,7 +289,12 @@ void CommondActivityMagr::intiAndShowActivitys(int curday)
 		int day = atoi(tempTime[2].c_str());
 		int srcDay = JRTime::getDayInYear(2016, 6, 12);
 		int startday = JRTime::compareTheDay(2016, srcDay, yera, JRTime::getDayInYear(yera, month, day));
-		if (startday <= curday && curday < startday + tempconfig.second->longtime)		
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+		if (startday <= curday && curday < startday + tempconfig.second->longtime)
+#else
+		if (startday <= curday && curday < startday + tempconfig.second->longtime)
+#endif
+		
 		{
 			tempconfig.second->haveInit = true;
 			initCallMap.at((tempconfig.second)->storekey)(curday);

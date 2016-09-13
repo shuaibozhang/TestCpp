@@ -1026,14 +1026,15 @@ void FightLayer::initDesignInfo()
 		int weaponId = weaponIndex + 500;
 		auto weaponInfo = ParamMgr::getInstance()->getWeaponByID(weaponId);
 
-		if (1 == i)
-		{
-			_designRoleInfo.att += ((roleInfo.attack + weaponInfo.attack) / 2.f);
-		}
-		else
-		{
-			_designRoleInfo.att += (roleInfo.attack + weaponInfo.attack);
-		}
+// 		if (1 == i)
+// 		{
+// 			_designRoleInfo.att += ((roleInfo.attack + weaponInfo.attack) / 2.f);
+// 		}
+// 		else
+// 		{
+// 			_designRoleInfo.att += (roleInfo.attack + weaponInfo.attack);
+// 		}
+		_designRoleInfo.att += (roleInfo.attack + weaponInfo.attack);
 		_designRoleInfo.def += (roleInfo.def + weaponInfo.def);
 		_designRoleInfo.dpAdd += (roleInfo.dpadd + weaponInfo.dpadd);
 		_designRoleInfo.hpAdd += (roleInfo.hpadd + weaponInfo.hpadd);
@@ -1053,4 +1054,69 @@ void FightLayer::initDesignInfo()
 
 	_designRoleInfo.perGold = pStageInfo->goldPer;
 	_designRoleInfo.perExp = pStageInfo->expPer;
+
+#if 0
+
+	if (true)
+	{
+		CCLOG("*********TIME************");
+		for (int s = 0; s < 80; s++)
+		{
+			auto pStageInfoT = ParamMgr::getInstance()->getStageInfo(s);
+			auto arrMonsterWaveInfo = pStageInfoT->arrMonsterWaveInfo;
+
+			float totalTime = 0.f;
+			for (int i = 0; i < arrMonsterWaveInfo.size(); i++)
+			{
+				auto arrFloorInfo = arrMonsterWaveInfo.at(i);
+				for (int j = 0; j < arrFloorInfo.size(); j++)
+				{
+					auto arrWaveInfo = arrFloorInfo.at(j);
+
+					for (int k = 0; k < arrWaveInfo.size(); k++)
+					{
+						int monsterId = arrWaveInfo.at(k);
+						auto pMonsterInfo = ParamMgr::getInstance()->getMonsterInfo(monsterId);
+
+						if (0 == pMonsterInfo->designType)
+						{
+							totalTime += FightUtil::DESIGN_NOR_MONSTER_TIME;
+						}
+						else if (1 == pMonsterInfo->designType)
+						{
+							totalTime += FightUtil::DESIGN_ELITE_MONSTER_TIME;
+						}
+						else if (2 == pMonsterInfo->designType)
+						{
+							totalTime += FightUtil::DESIGN_BOSS_TIME;
+						}
+					}
+				}
+			}
+
+			CCLOG("%f", totalTime);
+		}
+
+		CCLOG("********GOLD*************");
+		for (int s = 0; s < 80; s++)
+		{
+			auto pStageInfoT = ParamMgr::getInstance()->getStageInfo(s);
+
+
+			CCLOG("%d", pStageInfoT->goldPer);
+		}
+
+		CCLOG("********EXP*************");
+		for (int s = 0; s < 80; s++)
+		{
+			auto pStageInfoT = ParamMgr::getInstance()->getStageInfo(s);
+
+
+			CCLOG("%d", pStageInfoT->expPer);
+		}
+	}
+
+	return;
+#endif
+
 }

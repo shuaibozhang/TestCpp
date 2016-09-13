@@ -78,7 +78,7 @@ float FightUtil::calcWeakDamageValue(int weakId, const DesignRoleInfo_T & design
 	{
 	case 0:
 		//fire
-		ret = designRoleInfo.hp / 20.f;
+		ret = designRoleInfo.hp / 30.f;
 		break;
 	case 1:
 		//boom
@@ -86,7 +86,7 @@ float FightUtil::calcWeakDamageValue(int weakId, const DesignRoleInfo_T & design
 		break;
 	case 2:
 		//thunder
-		ret = designRoleInfo.hp / 12.f;
+		ret = designRoleInfo.hp / 18.f;
 		break;
 	case 3:
 		//add hp

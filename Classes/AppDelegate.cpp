@@ -153,7 +153,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 		UserData::getInstance()->addWeaponPartsNum(1500, 20);
 		UserData::getInstance()->giveTili(5);
-		//UserData::getInstance()->giveCrystal(10);
+		UserData::getInstance()->giveCrystal(5);
 		UserData::getInstance()->giveGold(100);
 
  		UserData::getInstance()->setEquipConfig(0, 1000); 
@@ -176,7 +176,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		ParamData::FIGHT_BG_HEIGHT = VisibleRect::getVisibleRect().getMaxY() - ParamData::CRUSH_BG_HEIGHT;
 //		ParamData::ROLE_START_POS_Y = 960.f - 282.f;////642.f;// 743.f;
 	}
-	ParamData::ROLE_START_POS_Y = ParamData::CRUSH_BG_HEIGHT + 90.f;//82.f;//62.f;
+	ParamData::ROLE_START_POS_Y = ParamData::CRUSH_BG_HEIGHT + 108.f;//90.f;//82.f;//62.f;
 	ParamData::MONSTER_START_POS_Y = ParamData::ROLE_START_POS_Y;
 	ParamData::FIGHT_LAYER_POS_Y = -(ParamData::CRUSH_BG_HEIGHT - 50.f);
 

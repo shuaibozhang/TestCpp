@@ -1591,10 +1591,10 @@ void MainLayer::enterFight()
 	_leftBtnsNode->setVisible(false);
 	_rightBtnsNode->setVisible(false);
 
-	if (nullptr != _giftBtn && UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
-	{
-		_giftBtn->setVisible(false);
-	}
+	//if (nullptr != _giftBtn && UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
+	//{
+		//_giftBtn->setVisible(false);
+	//}
 }
 
 void MainLayer::leaveFight()
@@ -1612,10 +1612,10 @@ void MainLayer::leaveFight()
 	_leftBtnsNode->runAction(act->clone());
 	_rightBtnsNode->runAction(act->clone());
 	
-	if (nullptr != _giftBtn && UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
-	{
-		_giftBtn->runAction(act->clone());
-	}
+	//if (nullptr != _giftBtn && UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
+	//{
+		//_giftBtn->runAction(act->clone());
+	//}
 	
 	if (StoryInfoLayer::getCurShowTextIdx() != UserData::getInstance()->getShowTextIdx())
 	{

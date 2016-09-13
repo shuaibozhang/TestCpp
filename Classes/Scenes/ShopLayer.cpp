@@ -43,17 +43,26 @@ struct Resfresh_T
 	int num;
 };
 
-Resfresh_T g_arrResfresh[10] = {
-	{0, 200},
-	{0, 500},
-	{0, 1000},
-	{2, 20},
-	{2, 40},
-	{2, 60},
-	{2, 80},
-	{2, 100},
-	{2, 120},
-	{2, 140}
+//Resfresh_T g_arrResfresh[10] = {
+//	{0, 200},
+//	{0, 500},
+//	{0, 1000},
+//	{2, 20},
+//	{2, 40},
+//	{2, 60},
+//	{2, 80},
+//	{2, 100},
+//	{2, 120},
+//	{2, 140}
+//};
+
+Resfresh_T g_arrResfresh[] = {
+	{ 2, 6 },
+	{ 2, 8 },
+	{ 2, 12 },
+	{ 2, 18 },
+	{ 2, 25 },
+	{ 2, 40 },
 };
 
 ShopLayer::ShopLayer()
@@ -2438,7 +2447,9 @@ void StoreLayer2::menuOnRefresh(Ref * ref, Widget::TouchEventType type)
 	{
 		int curtimes = UserData::getInstance()->getRefashTimes();
 		
-		curtimes = curtimes > 9 ? 9 : curtimes;
+		int maxtime = sizeof(g_arrResfresh) / sizeof(g_arrResfresh[0]) - 1;
+
+		curtimes = curtimes > maxtime ? maxtime : curtimes;
 
 		auto& priceinfo = g_arrResfresh[curtimes];
 		int canafford = -1;
@@ -2736,7 +2747,8 @@ void StoreLayer2::showBoxget(const std::vector<int>& itemids, const std::vector<
 void StoreLayer2::freshenItems(bool changids)
 {
 	int curtimes = UserData::getInstance()->getRefashTimes();
-	curtimes = curtimes > 9 ? 9 : curtimes;
+	int maxtime = sizeof(g_arrResfresh) / sizeof(g_arrResfresh[0]) - 1;
+	curtimes = curtimes > maxtime ? maxtime : curtimes;
 	auto& priceinfo = g_arrResfresh[curtimes];
 
 	const char* pricepicname[3] = { "com_goldbag.png","com_crystal.png","com_crystal.png" };

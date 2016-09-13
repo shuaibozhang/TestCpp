@@ -164,22 +164,19 @@ void StoreEventHandler::marketPurchase(string& itemId)
 		cocos2dx_analyze::pay(128, subItemId.c_str(), 2400, 100, 1);
 		curPayRmbNum = 128;
 	}
-	else if ("item_good_reborn1" == itemId)
+	else if (0 == itemId.compare(StoreAssetMgr::ITEMID_GOOD_REBORN_1))
 	{
-		//		cocos2dx_analyze::pay(30, 420, 1);
-		cocos2dx_analyze::pay(1, subItemId.c_str(), 2400, 100, 1);
+		cocos2dx_analyze::pay(1, StoreAssetMgr::ITEMID_GOOD_REBORN_1, 10, 100, 1);
 		curPayRmbNum = 1;
 	}
-	else if ("item_good_reborn2" == itemId)
+	else if (0 == itemId.compare(StoreAssetMgr::ITEMID_GOOD_REBORN_2))
 	{
-		//		cocos2dx_analyze::pay(30, 420, 1);
-		cocos2dx_analyze::pay(2, subItemId.c_str(), 2400, 100, 1);
+		cocos2dx_analyze::pay(2, StoreAssetMgr::ITEMID_GOOD_REBORN_2, 20, 100, 1);
 		curPayRmbNum = 2;
 	}
-	else if ("item_good_reborn4" == itemId)
+	else if (0 == itemId.compare(StoreAssetMgr::ITEMID_GOOD_REBORN_4))
 	{
-		//		cocos2dx_analyze::pay(30, 420, 1);
-		cocos2dx_analyze::pay(4, subItemId.c_str(), 2400, 100, 1);
+		cocos2dx_analyze::pay(4, StoreAssetMgr::ITEMID_GOOD_REBORN_4, 40, 100, 1);
 		curPayRmbNum = 4;
 	}
 
