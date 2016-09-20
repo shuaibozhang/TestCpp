@@ -2368,7 +2368,6 @@ bool PlayersLayer::init()
 		_playerArm[i] = _pArmtr;
 //		_pArmtr->setScale(0.8f);
 
-
 		_vectorPlayerNode.push_back(node);
 
 		auto layout = ui::Layout::create();

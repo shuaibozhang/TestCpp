@@ -26,8 +26,8 @@ struct BGLWenponInfo_T
 };
 
 BGLWenponInfo_T g_BglWenponInfo[10] = {
-	{4.f, 2.f },
-	{7.f, 2.f },
+	{4.f, 2.3f },
+	{7.f, 2.4f },
 	{ 8.f, 2.5f },
 	{ 25.f, 2.5f },
 	{ 40.f, 2.5f },
