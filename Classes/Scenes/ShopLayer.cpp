@@ -2679,22 +2679,35 @@ void StoreLayer2::menuOnPageOneShowInfoBtns(Ref * ref, Widget::TouchEventType ty
 	}
 
 	int idx = int(((Node*)(ref))->getUserData());
+	if (idx == 0 || idx == 7 || idx == 8)
+	{
+		auto& items = ParamMgr::getInstance()->getStorePageOneItems();
+		auto& iteminfo = items[_storeItemCurIdx[idx]];
+		int typeidx = BagItemControl::getInstace()->checkItemType(iteminfo.itemid);
+		if (typeidx == 3)
+		{
+			showWenInfo(iteminfo.itemid - 1000, idx);
+		}
+		else if (typeidx == 1)
+		{
+			showSkillInfo(iteminfo.itemid, idx);
+		}
+		else if (typeidx == 0 || typeidx == -102)
+		{
+			showItemInfo(iteminfo.itemid, idx);
+		}
+	}
+	else
+	{
+		//auto& items = ParamMgr::getInstance()->getStorePageOneItems();
+		//auto& iteminfo = items[_storeItemCurIdx[idx]];
+		//int typeidx = BagItemControl::getInstace()->checkItemType(iteminfo.itemid);
+		if (_storeItemCurIdx[idx] >= 500)
+		{
+			showWenInfo(_storeItemCurIdx[idx], idx);
+		}		
+	}
 	
-	auto& items = ParamMgr::getInstance()->getStorePageOneItems();
-	auto& iteminfo = items[_storeItemCurIdx[idx]];
-	int typeidx =BagItemControl::getInstace()->checkItemType(iteminfo.itemid);
-	if (typeidx == 3)
-	{
-		showWenInfo(iteminfo.itemid - 1000, idx);
-	}
-	else if (typeidx == 1)
-	{
-		showSkillInfo(iteminfo.itemid, idx);
-	}
-	else if (typeidx == 0 || typeidx == -102)
-	{
-		showItemInfo(iteminfo.itemid, idx);
-	}
 	
 }
 

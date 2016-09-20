@@ -115,7 +115,7 @@ int FightUtil::getDungeonReward(int dungeonType, std::vector<PopItemInfo_T>& arr
 	}
 	else if (2 == dungeonType)
 	{
-		int itemId = 1500 + ToolsUtil::getRandomInt(0, 4) * 10 + pReward->equipLv - 1;
+		int itemId = 1500 + ToolsUtil::getRandomInt(0, 3) * 10 + pReward->equipLv - 1;
 		CrushUtil::addPopItem(arrReward, itemId, pReward->equip);
 	}
 
