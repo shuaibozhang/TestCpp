@@ -43,23 +43,42 @@ typedef enum _EleIconId
 {
 	ELE_ID_INVALID = -2,
 	ELE_ID_EMPTY = -1,
-	ELE_ID_SWORD,
-	ELE_ID_SHIELD,
-	ELE_ID_DART,
-	ELE_ID_HEART,
-	ELE_ID_SUPER,
+	ELE_ID_0,
+//	ELE_ID_SWORD = ELE_ID_0,
+	ELE_ID_1,
+	ELE_ID_2, 
+	ELE_ID_3,
+//	ELE_ID_HEART = ELE_ID_3,
+	ELE_ID_ROLE_COUNT,
+	ELE_ID_SUPER = ELE_ID_ROLE_COUNT,
 	/*special*/
-// 	ELE_ID_BOOM,
-// 	ELE_ID_VOLCANO,
-// 	ELE_ID_THUNDER,
-// 	ELE_ID_STONE,
-// 	ELE_ID_THORN_EYE,
-// 	ELE_ID_THORN,
-// 	ELE_ID_ICE,
-// 	ELE_ID_RECOVER,
+ 	ELE_ID_BOOM,
+ 	ELE_ID_VOLCANO,
+ 	ELE_ID_THUNDER,
+ 	ELE_ID_STONE,
+ 	ELE_ID_THORN_EYE,
+ 	ELE_ID_THORN,
+ 	ELE_ID_ICE,
+	ELE_ID_RECOVER,
+	ELE_ID_KEY,
+	ELE_ID_SPEC_LINE,
+	ELE_ID_SLATE = ELE_ID_SPEC_LINE,
+	ELE_ID_SLATE_EX,	//can't fall
 	//keep it
 //	ELE_ID_COUNT
 }EleIconId_E;
+
+
+typedef enum _RoleId
+{
+	ROLE_ID_LSJ = 0,
+	ROLE_ID_CBD,
+	ROLE_ID_LQC,
+	ROLE_ID_SQY,
+	ROLE_ID_QYL,
+	ROLE_ID_COUNT
+}RoleId_E;
+
 
 typedef enum _RoleAnimIndex
 {
@@ -153,7 +172,11 @@ public:
 	static const float WEAK_ROUND_DAMAGE_PARAM;
 	static float FIGHT_LAYER_POS_Y;
 
-	static const int ROLE_COUNT = 4;
+	static const int ROLE_COUNT = 5;
+	static const int FIGHT_ROLE_COUNT = 4;
+
+	static const int SKILL_COUNT = 12 * ROLE_COUNT;
+	static const int WENPON_COUNT = 10 * ROLE_COUNT;
 
 	static const float ELE_CRUSH_DUR;
 	static const float ELE_CRUSH_WAIT;
@@ -487,8 +510,8 @@ typedef struct _StageInfo
 	int boxmonsId;
 	int boxmonsBoxid;
 	int roleLv;
-	int arrWeaponId[ParamData::ROLE_COUNT];
-	int arrWeaponLv[ParamData::ROLE_COUNT];
+	int arrWeaponId[ParamData::FIGHT_ROLE_COUNT];
+	int arrWeaponLv[ParamData::FIGHT_ROLE_COUNT];
 	int goldPer;
 	int expPer;
 }StageInfo_T;

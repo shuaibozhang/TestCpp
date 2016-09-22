@@ -48,7 +48,7 @@ private:
 	WeaponControl();
 	static WeaponControl* _instance;
 	std::map<std::string, ccWeaponCallback> _callBackMap;
-	WeaponControl_T _arrWeaponControl[40];
+	WeaponControl_T _arrWeaponControl[ParamData::WENPON_COUNT];
 };
 #endif
 

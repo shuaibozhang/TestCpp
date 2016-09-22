@@ -220,9 +220,19 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 		}
 		else
 		{
+			std::vector<int> tempCurWenponId;
 			for (auto&temp : shopinfo[shopidx]._weaponsconfig)
 			{
-				_vectorSellItems.push_back(temp);
+				int owner = WeaponControl::getInstance()->getWenponOwner(temp);
+				if (UserData::getInstance()->getPlayerIsOn(owner) != 0)
+				{
+					tempCurWenponId.push_back(temp);
+				}
+			}
+
+			for (int i = 0; i < 4; i++)
+			{
+				_vectorSellItems.push_back(tempCurWenponId[i]);
 			}
 		}
 	}
@@ -376,7 +386,7 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 	float off = 50.f;
 	Vec2 posarr[4] = { Vec2(140.f + off, 0), Vec2(250.f + off,0), Vec2(400.f + off,0.f), Vec2(510.f + off, 0.f) };
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
 		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(i);
 		auto _pArmtr = GameArmtr::createRole(pArmInfo);
@@ -484,7 +494,7 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 		ScaleTo::create(1.f, 0.98f), ScaleTo::create(1.f, 1.0f)
 		));
 	role->runAction(actionscale);
-
+	removeUnequipPlayerSkill();
 	updataSkillSp();
 
 	return true;
@@ -903,35 +913,38 @@ void ItemsShop::updataSkillSp()
 		return;
 	}
 
-	for (int i = 0; i < 4; i++)
+	if (_shoptype == 1)
 	{
-		int skillid = _vectorSellItems[i];
-		if ((!SkillControl::getInstance()->isSkillLock(skillid) || BagItemControl::getInstace()->isInBag(skillid)))
+		for (int i = 0; i < 4; i++)
 		{
-			int trueskil = 0;
-			for (auto& newskill : _vectorSellISkillsSp)
-			{	
-				trueskil = newskill;
-				bool haveskill = false;
-				if ((!SkillControl::getInstance()->isSkillLock(newskill) || BagItemControl::getInstace()->isInBag(newskill)))
-				{		
-					haveskill = true;
-				}
-				else if(std::find(_vectorSellItems.begin(), _vectorSellItems.end(), newskill) != _vectorSellItems.end())
+			int skillid = _vectorSellItems[i];
+			if ((!SkillControl::getInstance()->isSkillLock(skillid) || BagItemControl::getInstace()->isInBag(skillid)))
+			{
+				int trueskil = 0;
+				for (auto& newskill : _vectorSellISkillsSp)
 				{
-					haveskill = true;
-				}
+					trueskil = newskill;
+					bool haveskill = false;
+					if ((!SkillControl::getInstance()->isSkillLock(newskill) || BagItemControl::getInstace()->isInBag(newskill)))
+					{
+						haveskill = true;
+					}
+					else if (std::find(_vectorSellItems.begin(), _vectorSellItems.end(), newskill) != _vectorSellItems.end())
+					{
+						haveskill = true;
+					}
 
-				if (haveskill == false)
-				{				
-					_vectorSellItems[i] = trueskil;			
-					break;
-				}
+					if (haveskill == false)
+					{
+						_vectorSellItems[i] = trueskil;
+						break;
+					}
 
+				}
 			}
 		}
 	}
-
+	
 	for (int i = 0; i < 4; i++)
 	{
 		ComInfo_T item = { 0 };
@@ -990,6 +1003,36 @@ void ItemsShop::updataShopBagIcons()
 			}
 		}
 	}
+}
+
+void ItemsShop::removeUnequipPlayerSkill()
+{
+	if (_shoptype == 1)
+	{
+		for (int i = _vectorSellISkillsSp.size() - 1; i >= 0; i--)
+		{
+			auto& itemid = _vectorSellISkillsSp[i];
+			auto info = SkillControl::getInstance()->getPlayerSkillInfo(itemid);
+			if (UserData::getInstance()->getPlayerIsOn(info.owner) == 0)
+			{
+				_vectorSellISkillsSp.erase(_vectorSellISkillsSp.begin() + i);
+			}
+		}
+	}
+	/*else if (_shoptype == 2)
+	{
+		for (int i = _vectorSellIWenponsSp.size() - 1; i >= 0; i--)
+		{
+			auto& itemid = _vectorSellIWenponsSp[i];
+
+			int owner = WeaponControl::getInstance()->getWenponOwner(itemid);
+
+			if (UserData::getInstance()->getPlayerIsOn(owner) == 0)
+			{
+				_vectorSellIWenponsSp.erase(_vectorSellIWenponsSp.begin() + i);
+			}
+		}
+	}*/
 }
 
 int ItemsShop::checkIsTouchItem(cocos2d::Vec2 touchPos)

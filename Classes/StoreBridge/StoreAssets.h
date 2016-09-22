@@ -124,5 +124,7 @@ public:
 
 	static const char* ITEMID_GOOD_UNLIMTWENPONGIFT_0;
 	static const char* ITEMID_GOOD_UNLIMTWENPONGIFT_1;
+
+	static const char* ITEMID_GOOD_PLAYER_4;
 };
 #endif

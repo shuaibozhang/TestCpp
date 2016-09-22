@@ -308,9 +308,14 @@ void LoadingScene::initSkillResData()
 {
 	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
+		/*test*/
+		if (i == RoleId_E::ROLE_ID_QYL)
+		{
+			break;
+		}
 		for (int j = 0; j < 3; j++)
 		{
-			if (j == 2 && i != 1)
+			if (j == 2 && i != RoleId_E::ROLE_ID_CBD)
 			{
 				break;
 			}

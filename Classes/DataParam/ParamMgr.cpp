@@ -319,7 +319,7 @@ void ParamMgr::loadStageInfo()
 		info->expPer = item["exp_per"].GetInt();
 		rapidjson::Value& arrWeaponId = item["arr_weapon_id"];
 		rapidjson::Value& arrWeaponLv = item["arr_weapon_lv"];
-		for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+		for (int j = 0; j < ParamData::FIGHT_ROLE_COUNT; j++)
 		{
 			info->arrWeaponId[j] = arrWeaponId[j].GetInt();
 			info->arrWeaponLv[j] = arrWeaponLv[j].GetInt();
@@ -399,7 +399,7 @@ void ParamMgr::loadStageInfo()
 		info->expPer = 0;//item["exp_per"].GetInt();
 //		rapidjson::Value& arrWeaponId = item["arr_weapon_id"];
 //		rapidjson::Value& arrWeaponLv = item["arr_weapon_lv"];
-		for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+		for (int j = 0; j < ParamData::FIGHT_ROLE_COUNT; j++)
 		{
 			info->arrWeaponId[j] = 0;//arrWeaponId[j].GetInt();
 			info->arrWeaponLv[j] = 0;//arrWeaponLv[j].GetInt();
@@ -458,7 +458,7 @@ void ParamMgr::loadStageInfo()
 		info->expPer = 0;//item["exp_per"].GetInt();
 						 //		rapidjson::Value& arrWeaponId = item["arr_weapon_id"];
 						 //		rapidjson::Value& arrWeaponLv = item["arr_weapon_lv"];
-		for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+		for (int j = 0; j < ParamData::FIGHT_ROLE_COUNT; j++)
 		{
 			info->arrWeaponId[j] = 0;//arrWeaponId[j].GetInt();
 			info->arrWeaponLv[j] = 0;//arrWeaponLv[j].GetInt();
@@ -816,7 +816,7 @@ const EleWeakInfo_T *ParamMgr::getWeakInfo(int id)
 
 const EleSpecialInfo_T *ParamMgr::getEleSpecInfo(int id)
 {
-	return _arrEleSpecInfo[id-EleIconId_E::ELE_ID_SUPER-1];
+	return _arrEleSpecInfo[id-EleIconId_E::ELE_ID_ROLE_COUNT -1];
 }
 
 
@@ -938,6 +938,11 @@ void ParamMgr::loadSkillsConfig()
 		temp.paytype = item["price_type"].GetInt();
 		temp.price = item["price"].GetInt();
 		temp.icon = item["icon"].GetString();
+		//debug newplayer
+		if (i >= 46)
+		{
+			temp.icon = "sicon_rongguang.png";
+		}
 		temp.mark = item["mark"].GetInt();
 		temp.starNum = item["starNum"].GetInt();
 		temp.isHurtAll = item["range"].GetBool();
@@ -1037,7 +1042,7 @@ void ParamMgr::loadWeaponConfig()
 	s_pInstance->_weaponstartid = s_pInstance->getWeaponVector().at(0).id;
 
 	auto& att = _vectorWeapons;
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		if (UserData::getInstance()->getWeaponLv(i) <= 1)
 		{
@@ -1054,7 +1059,7 @@ void ParamMgr::loadWeaponConfig()
 
 void ParamMgr::loadPlayerInfo()
 {
-	for (int playidx = 0; playidx < 4; playidx ++)
+	for (int playidx = 0; playidx < ParamData::ROLE_COUNT; playidx ++)
 	{
 		rapidjson::Document _jsonBezierDoc;
 		/*std::string contentStr = FileUtils::getInstance()->getStringFromFile(String::createWithFormat("json/player_%d.json", playidx)->getCString());
@@ -1070,6 +1075,7 @@ void ParamMgr::loadPlayerInfo()
 		{
 			CCLOG("JSonItemsError%s\n", _jsonBezierDoc.GetParseError());
 		}
+
 		rapidjson::Value& arrhp = _jsonBezierDoc["hp"];
 		rapidjson::Value& arrexp = _jsonBezierDoc["exp"];
 		rapidjson::Value& arrdp = _jsonBezierDoc["dp"];
@@ -1485,13 +1491,14 @@ void ParamMgr::getComGameItemInfo(int idx, ComInfo_T& cominfo)
 {
 	if (idx >= 1500)
 	{
-		cominfo.id = _vectorWeapons[idx - 1500 + 40].id;
-		cominfo.name = _vectorWeapons[idx - 1500 + 40].name;
-		cominfo.des = _vectorWeapons[idx - 1500 + 40].des;
-		cominfo.picname = _vectorWeapons[idx - 1500 + 40].picname;
-		cominfo.price = _vectorWeapons[idx - 1500 + 40].price;
-		cominfo.value = _vectorWeapons[idx - 1500 + 40].type;
-		cominfo.paytype = _vectorWeapons[idx - 1500 + 40].paytype;
+		int offid = ParamData::WENPON_COUNT;
+		cominfo.id = _vectorWeapons[idx - 1500 + offid].id;
+		cominfo.name = _vectorWeapons[idx - 1500 + offid].name;
+		cominfo.des = _vectorWeapons[idx - 1500 + offid].des;
+		cominfo.picname = _vectorWeapons[idx - 1500 + offid].picname;
+		cominfo.price = _vectorWeapons[idx - 1500 + offid].price;
+		cominfo.value = _vectorWeapons[idx - 1500 + offid].type;
+		cominfo.paytype = _vectorWeapons[idx - 1500 + offid].paytype;
 	}
 	else if (idx >= 1000)
 	{
@@ -1628,6 +1635,6 @@ void ParamMgr::changeShowReliveWeight(int typeValue)
 
 const HotStoreWenpon_T * ParamMgr::getHotStoreWenponsByIdx(int idx)
 {
-	CCASSERT((idx - WeaponControl::s_weaponStartIdx) < 40 && (idx - WeaponControl::s_weaponStartIdx) >=0, "out of range");
+	CCASSERT((idx - WeaponControl::s_weaponStartIdx) < ParamData::WENPON_COUNT && (idx - WeaponControl::s_weaponStartIdx) >=0, "out of range");
 	return _arrHotStoreWenpons[idx - WeaponControl::s_weaponStartIdx];
 }

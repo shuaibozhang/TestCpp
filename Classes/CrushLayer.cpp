@@ -122,11 +122,11 @@ bool CrushLayer::init()
 
 				if (5 == pDungeonDeatilInfo->initContentId)
 				{
-					eleId = EleIconId_E::ELE_ID_SUPER + 11;
+					eleId = EleIconId_E::ELE_ID_SLATE_EX;
 				}
 				else if (8 == pDungeonDeatilInfo->initContentId)
 				{
-					eleId = EleIconId_E::ELE_ID_SUPER + 6;
+					eleId = EleIconId_E::ELE_ID_THORN;
 				}
 
 				for (int i = 0; i < pDungeonDeatilInfo->arrInitPosX.size(); i++)
@@ -507,7 +507,7 @@ bool CrushLayer::checkCrushTravelse()
 //			bool isCrush = this->travelseCrushEle(i, j, _curCrushArrCount);
 			if (isCrush)
 			{
-				curInfo.arrCrushDetail[curInfo.crushArrCount].crushEleId = curInfo.arrEleId[i][j];//_arrEleIcon[i][j]->getEleId();
+				curInfo.arrCrushDetail[curInfo.crushArrCount].crushEleId = curInfo.arrEleId[i][j];
 
 				if (0 == curInfo.arrCrushDetail[curInfo.crushArrCount].crushType)
 				{
@@ -607,8 +607,10 @@ bool CrushLayer::doCleanCrush()
 				int arrIndex = _arrCrushArrIndex[i][j];
 				EleIcon *pEle = _arrEleIcon[i][j];
 				CrushArr_T *pInfo = &_arrCrushArrInfo[arrIndex];
+				int rolePosIndex = pEle->getEleId();
+				int roleId = Player::getInstance()->getRoleIdByPosIndex(rolePosIndex);
 
-				if (nullptr != pEle && pEle->getEleId() == EleIconId_E::ELE_ID_HEART && !_arrIsStone[EleIconId_E::ELE_ID_HEART] && 4 != pInfo->crushType)
+				if (nullptr != pEle && roleId == RoleId_E::ROLE_ID_SQY && !_arrIsStone[rolePosIndex] && 4 != pInfo->crushType)
 				{
 					if (3 == pInfo->crushType)
 					{
@@ -640,7 +642,7 @@ bool CrushLayer::doCrush()
 				bRet = true;
 				int arrIndex = _arrCrushArrIndex[i][j];
 
-				if (4 != _arrCrushArrInfo[arrIndex].crushType && _arrEleIcon[i][j]->getEleId() >= EleIconId_E::ELE_ID_SWORD && _arrEleIcon[i][j]->getEleId() <= EleIconId_E::ELE_ID_HEART)
+				if (4 != _arrCrushArrInfo[arrIndex].crushType && _arrEleIcon[i][j]->getEleId() >= EleIconId_E::ELE_ID_0 && _arrEleIcon[i][j]->getEleId() < EleIconId_E::ELE_ID_ROLE_COUNT)
 				{
 					auto pFlyIcon = FlyIcon::create(_arrEleIcon[i][j]->getEleId(), _arrEleIcon[i][j]->getEleLv());
 
@@ -737,20 +739,27 @@ bool CrushLayer::doCrush()
 		this->runAction(Sequence::create(DelayTime::create(ParamData::ELE_FLY_DUR), CallFunc::create([=] {
 			for (int i = 0; i < _curCrushArrCount; i++)
 			{
-				switch (_arrCrushArrInfo[i].crushEleId)
+				if (_arrCrushArrInfo[i].crushEleId >= EleIconId_E::ELE_ID_0 && _arrCrushArrInfo[i].crushEleId <= EleIconId_E::ELE_ID_3)
 				{
-				case 0:
-					GameUtils::playEffect("xiaochu_lsj.ogg");
-					break;
-				case 1:
-					GameUtils::playEffect("xiaochu_cbd.ogg");
-					break;
-				case 2:
-					GameUtils::playEffect("xiaochu_lqc.ogg");
-					break;
-				case 3:
-					GameUtils::playEffect("xiaochu_sqy.ogg");
-					break;
+					int roleId = Player::getInstance()->getRoleIdByPosIndex(_arrCrushArrInfo[i].crushEleId);
+					switch (roleId)
+					{
+					case RoleId_E::ROLE_ID_LSJ:
+						GameUtils::playEffect("xiaochu_lsj.ogg");
+						break;
+					case RoleId_E::ROLE_ID_CBD:
+						GameUtils::playEffect("xiaochu_cbd.ogg");
+						break;
+					case RoleId_E::ROLE_ID_LQC:
+						GameUtils::playEffect("xiaochu_lqc.ogg");
+						break;
+					case RoleId_E::ROLE_ID_SQY:
+						GameUtils::playEffect("xiaochu_sqy.ogg");
+						break;
+					case RoleId_E::ROLE_ID_QYL:
+//						GameUtils::playEffect("xiaochu_sqy.ogg");
+						break;
+					}
 				}
 
 				Player::getInstance()->addAttInfo(_arrCrushArrInfo + i);
@@ -1322,7 +1331,7 @@ void CrushLayer::createNewEleId(int (*arrEleId)[ParamData::CRUSH_COL], int (*arr
 		for (int j = 0; j < ParamData::CRUSH_COL; j++)
 		{
 			int eleId = arrEleId[i][j];
-			if (eleId>=EleIconId_E::ELE_ID_SWORD && eleId<=EleIconId_E::ELE_ID_HEART)
+			if (eleId >= EleIconId_E::ELE_ID_0 && eleId < EleIconId_E::ELE_ID_ROLE_COUNT)
 			{
 				arrSampleInfo[0].arrEleCount[eleId]++;
 			}			
@@ -1357,7 +1366,7 @@ void CrushLayer::createNewEleId(int (*arrEleId)[ParamData::CRUSH_COL], int (*arr
 				{
 					if (GameLayer::getInstance()->getIsGuiding())
 					{
-						eleId = EleIconId_E::ELE_ID_SUPER + 10;
+						eleId = EleIconId_E::ELE_ID_SLATE;
 					}
 					else
 					{

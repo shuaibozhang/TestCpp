@@ -2,6 +2,7 @@
 #define __SKILLCONTROL_H__
 
 #include "cocos2d.h"
+#include "ParamData.h"
 
 USING_NS_CC;
 /*o is unequip, 1 is equip, 2 is new unlock*/
@@ -44,12 +45,12 @@ public:
 
 	int getEquipSkillByPlayer(int playerIndex, int flagMask); //flag 0.nor 1.super 2.def
 
-	int _arrSkillId[48];
+	int _arrSkillId[ParamData::SKILL_COUNT];
 private:
 	SkillControl();
 	static SkillControl* _instance;
 	std::map<std::string, ccSkillEquipCallback> _callBackMap;
 	//SkillControl_T _arrSkillControl[48];	
-	std::vector<SkillControl_T> _arrPlayerSkillControl[4];
+	std::vector<SkillControl_T> _arrPlayerSkillControl[ParamData::ROLE_COUNT];
 };
 #endif

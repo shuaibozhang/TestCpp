@@ -134,7 +134,7 @@ private:
 	Node* _comboNode;
 	int _comboNum;
 
-	Node* _aniNode[4];
+	Node* _aniNode[ParamData::FIGHT_ROLE_COUNT];
 	bool _isNeedUpdateExp;
 
 	bool _isExpNodeShow;

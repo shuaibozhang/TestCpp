@@ -812,7 +812,7 @@ void BGLLayer::updateLvInfo()
 
 void BGLLayer::updateNumsInfo()
 {
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		int pratsnum = UserData::getInstance()->getWeaponParts(i);
 		_tempNums[i] = pratsnum;

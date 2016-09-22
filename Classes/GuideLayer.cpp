@@ -194,7 +194,7 @@ GuideLayer::~GuideLayer()
 {
 	s_pInstance = nullptr;
 
-	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
 		if (nullptr != Player::getInstance())
 		{
@@ -549,7 +549,7 @@ void GuideLayer::finishAllGuide()
 		{
 			auto pEle = CrushLayer::getInstance()->getEleIcon(i, j);
 			pEle->setIsCanTouch(true);
-			if (pEle->getEleId() != (EleIconId_E::ELE_ID_SUPER + 10))
+			if (pEle->getEleId() != (EleIconId_E::ELE_ID_SLATE))
 			{
 				arrNewEleId[i][j] = pEle->getEleId();
 			}
@@ -562,7 +562,7 @@ void GuideLayer::finishAllGuide()
 		for (int j = 0; j < ParamData::CRUSH_COL; j++)
 		{
 			auto pEle = CrushLayer::getInstance()->getEleIcon(i, j);
-			if (pEle->getEleId() == (EleIconId_E::ELE_ID_SUPER + 10))
+			if (pEle->getEleId() == (EleIconId_E::ELE_ID_SLATE))
 			{
 				pEle->changeEle(arrNewEleId[i][j], 0);
 			}

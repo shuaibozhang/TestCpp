@@ -105,6 +105,8 @@ const char* KEY_ACTIVITY_REWARDGET = "key_activity_%s_rewardget_%d";
 const char* g_activityKeys[] = { "moonactivity" };
 const int g_activityRewardsNum[] = {4};
 
+const char* KEY_PLAYERSTATE_ISON = "key_player_ison_%d";
+
 UserData::UserData()
 {
 
@@ -189,13 +191,13 @@ bool UserData::loadUserData()
 		_userInfoBak._arrEquipConfig[i] = _userInfo._arrEquipConfig[i];
 	}
 
-	for (int i = 0; i < s_skillNum; i++)
+	for (int i = 0; i < ParamData::SKILL_COUNT; i++)
 	{		
 		_userInfo._arrSkillEquipConfig[i] = getIntFromDBForKey(String::createWithFormat("skillconfig_%d", i)->getCString(), 0);
 		_userInfoBak._arrSkillEquipConfig[i] = _userInfo._arrSkillEquipConfig[i];
 	}
 
-	for (int i = 0; i < s_weaponNum; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		_userInfo._arrWeaponEquipConfig[i] = getIntFromDBForKey(String::createWithFormat("weaponconfig_%d", i)->getCString(), 0);
 		_userInfoBak._arrWeaponEquipConfig[i] = _userInfo._arrWeaponEquipConfig[i];
@@ -459,6 +461,18 @@ bool UserData::loadUserData()
 		}
 	}
 
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	{
+		auto key = String::createWithFormat(KEY_PLAYERSTATE_ISON, i);
+		int value = 1;
+		if (i >= 4)
+		{
+			value = 0;
+		}
+
+		USERDATA_LOAD_INT(_userInfo._arrPlayersIsOn[i], _userInfoBak._arrPlayersIsOn[i], key->getCString(), value);
+	}
+
 	if (GLLocalStorage::getIsInitialized() == 1)
 	{
 		GLLocalStorage::glLocalStorageFree();
@@ -495,7 +509,7 @@ bool UserData::saveUserData(bool close)
 		}	
 	}
 
-	for (int i = 0; i < s_skillNum; i++)
+	for (int i = 0; i < ParamData::SKILL_COUNT; i++)
 	{
 		if (_userInfo._arrSkillEquipConfig[i] != _userInfoBak._arrSkillEquipConfig[i])
 		{
@@ -504,7 +518,7 @@ bool UserData::saveUserData(bool close)
 		}
 	}
 
-	for (int i = 0; i < s_weaponNum; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		if (_userInfo._arrWeaponEquipConfig[i] != _userInfoBak._arrWeaponEquipConfig[i])
 		{
@@ -815,6 +829,12 @@ bool UserData::saveUserData(bool close)
 			(*lastvalue).second = temp.second;
 		}
 		
+	}
+
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	{
+		auto key = String::createWithFormat(KEY_PLAYERSTATE_ISON, i);
+		USERDATA_SAVE_INT(_userInfo._arrPlayersIsOn[i], _userInfoBak._arrPlayersIsOn[i], key->getCString());
 	}
 
 	if (close && GLLocalStorage::getIsInitialized() == 1)

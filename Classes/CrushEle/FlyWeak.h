@@ -12,14 +12,14 @@ public:
 	FlyWeak();
 	~FlyWeak();
 
-	static FlyWeak *create(int weakId, int roleId, float param);	//0.fire 1.boom 2.thunder 3.
+	static FlyWeak *create(int weakId, int roleIndex, float param);	//0.fire 1.boom 2.thunder 3.
 
-	virtual bool init(int weakId, int roleId, float param);
+	virtual bool init(int weakId, int roleIndex, float param);
 
 	void update(float delta) override;
 
 	CC_SYNTHESIZE_READONLY(int, _weakId, WeakId);
-	CC_SYNTHESIZE_READONLY(int, _roleId, RoleId);
+	CC_SYNTHESIZE_READONLY(int, _roleIndex, RoleIndex);
 	CC_SYNTHESIZE_READONLY(int, _param, Param);
 private:
 	Sprite *_pModel;

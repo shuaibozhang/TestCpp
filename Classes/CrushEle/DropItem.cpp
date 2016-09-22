@@ -69,7 +69,7 @@ bool DropItem::init(int itemId)
 		this->addChild(_pShadow, 1);
 		_pShadow->setScale(0.5f);
 
-		_posId = ToolsUtil::getRandomInt(0, ParamData::ROLE_COUNT - 1);
+		_posId = ToolsUtil::getRandomInt(0, ParamData::FIGHT_ROLE_COUNT - 1);
 
 		float offsetY = ToolsUtil::getRandomFloat(80.f, 200.f);
 		float offsetX = ToolsUtil::getRandomFloat(-150.f, 150.f);

@@ -32,7 +32,7 @@ public:
 	static Vec2 getMonsterFrontPos(int waveIndex);
 	static Vec2 getRoleCenterPos(int posId);
 //	static Vec2 getRoleFrontPos(int posId);
-	static Vec2 getRolePos(int roleId, int posId);
+	static Vec2 getRolePos(int roleIndex, int posId);
 	static Vec2 getMonsterAttPos(int posId, int monsterIndex, int waveCount);
 	static Vec2 getMonsterSkillPos(int posId, int monsterIndex, int waveCount);
 	static Vec2 getRoleDefPos(int posId);
@@ -74,6 +74,8 @@ public:
 	static string getItemPicName(int itemId);
 
 	static int getDungeonReward(int dungeonType, int lv, std::vector<PopItemInfo_T>& arrReward);
+
+	static __String *getEleAnimName(int eleId, int eleLv, bool isStone, int animId);	//animId:0.idle 1.miss 2.touch
 };
 
 

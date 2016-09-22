@@ -132,8 +132,8 @@ private:
 	std::vector<Item_T> _vectorItems;
 	std::vector<Skill_T> _vectorSkills;
 	std::vector<Weapon_T> _vectorWeapons;
-	std::vector<PlayerInfo_T>_vectorPlayerInfo[4];
-	PlayerWAndSkill_T _arrPlayerWAndSkill[4];
+	std::vector<PlayerInfo_T>_vectorPlayerInfo[ParamData::ROLE_COUNT];
+	PlayerWAndSkill_T _arrPlayerWAndSkill[ParamData::ROLE_COUNT];
 
 	std::vector<ShopAttr_T> _vectorShopAttr;
 	std::map<int, std::string> _posnameMap;

@@ -706,7 +706,7 @@ void GameLayer::itemsCallback(cocos2d::Ref* pSender, Widget::TouchEventType type
 
 void GameLayer::setEquipBtnEnabled(bool enable)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < sizeof(_arrEquipItems)/sizeof(_arrEquipItems[0]); i++)
 	{
 		if (nullptr != _arrEquipItems[i])
 		{
@@ -965,16 +965,17 @@ void GameLayer::initUpdateNode()
 		_mapOffpos = 660;
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
+		int roleId = Player::getInstance()->getRoleIdByPosIndex(i);
 		_aniNode[i] = GameCSLoader::createNode("csb/winupdate.csb");
 		this->addChild(_aniNode[i], 10);
 		_aniNode[i]->setPosition(Vec2(90.f + (3-i) * 150.f, _mapOffpos));
 
-		int curlv = UserData::getInstance()->getPlayerCurLv(i);
-		const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(i, curlv);
-		((ui::TextAtlas*)(_aniNode[i]->getChildByName("expnum")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
-		float percent = UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp;
+		int curlv = UserData::getInstance()->getPlayerCurLv(roleId);
+		const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(roleId, curlv);
+		((ui::TextAtlas*)(_aniNode[i]->getChildByName("expnum")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(roleId))->getCString());
+		float percent = UserData::getInstance()->getPlayerCurExp(roleId) * 100.f / info.exp;
 		((ui::LoadingBar*)(_aniNode[i]->getChildByName("bar")))->setPercent(percent);
 
 		auto textadd = ui::TextAtlas::create("/0", "fonts/num_score_exp.png", 20.f, 26.f, ".");
@@ -996,9 +997,9 @@ void GameLayer::removeUpdateNode()
 		return;
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < sizeof(_aniNode)/sizeof(_aniNode[0]); i++)
 	{
-		if (_aniNode[i])
+		if (nullptr != _aniNode[i])
 		{
 			_aniNode[i]->removeFromParent();
 			_aniNode[i] = nullptr;
@@ -1356,7 +1357,7 @@ void GameLayer::loadImageCallback(Texture2D *pTexture, LoadResInfo_T resInfo, in
 		if (0 == param1)
 		{
 			bool isEquip = false;
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 			{
 				isEquip = SkillControl::getInstance()->checkIsEquipSkill(i, parma2);
 				if (isEquip)

@@ -27,7 +27,7 @@ SkillControl * SkillControl::getInstance()
 
 void SkillControl::loadSkillConfig()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto& sas = ParamMgr::getInstance()->getPlayerWAndSkillInfo(i);
 		int j = 0;
@@ -165,7 +165,7 @@ void SkillControl::addNewSkill(int skillid)
 
 bool SkillControl::isSkillLock(int skillid)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto& arr = _arrPlayerSkillControl[i];
 		for (auto& item : arr)
@@ -182,7 +182,7 @@ bool SkillControl::isSkillLock(int skillid)
 
 int SkillControl::getSkillOwnerBySkillid(int skillid)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		for (auto& temp : _arrPlayerSkillControl[i])
 		{
@@ -212,7 +212,7 @@ SkillControl_T & SkillControl::getPlayerSkillInfo(int playidx, int skillid)
 
 SkillControl_T & SkillControl::getPlayerSkillInfo(int skillid)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto& arr = _arrPlayerSkillControl[i];
 		for (auto& item : arr)
@@ -223,6 +223,7 @@ SkillControl_T & SkillControl::getPlayerSkillInfo(int skillid)
 			}
 		}
 	}
+
 	CCASSERT(0, "canot find skill in this player");
 }
 

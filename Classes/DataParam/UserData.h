@@ -376,6 +376,9 @@ public:
 	void addPayRmb(int num) { _userInfo._payRmb += num; }
 	int getPayRmb() { return _userInfo._payRmb; }
 	void setPayRmb(int num) { _userInfo._payRmb = num; }
+
+	int getPlayerIsOn(int playeridx) { return _userInfo._arrPlayersIsOn[playeridx]; }
+	void setPlayerIsOn(int playeridx, int ison) {_userInfo._arrPlayersIsOn[playeridx] = ison;}
 private:
 	int getIntFromDBForKey(std::string key, int defult);
 	std::string getStringFromDBForKey(std::string key);
@@ -389,8 +392,6 @@ private:
 	UserData();
 	static UserData* _instance;
 
-	const static int s_skillNum = 48;
-	const static int s_weaponNum = 40;
 	const static int s_equipcount = 4;
 
 	typedef struct _UserDataInfo {
@@ -398,13 +399,13 @@ private:
 		int _arrEquipConfig[s_equipcount];
 		int _arrItemConfig[g_pagecount][g_onepagetnum];
 
-		int _arrSkillEquipConfig[s_skillNum];
+		int _arrSkillEquipConfig[ParamData::SKILL_COUNT];
 
-		int _arrWeaponEquipConfig[s_weaponNum];
+		int _arrWeaponEquipConfig[ParamData::WENPON_COUNT];
 
-		int _playerCurExp[4];
+		int _playerCurExp[ParamData::ROLE_COUNT];
 
-		int _playerCurLv[4];
+		int _playerCurLv[ParamData::ROLE_COUNT];
 
 		//int _goldnum;
 		//int _crystalnum;
@@ -432,14 +433,14 @@ private:
 		//0~3 is nor box; 4 is topwin get box
 		int _boxtypeStage[5];
 
-		int _wenponlv[40];
+		int _wenponlv[ParamData::WENPON_COUNT];
 
-		int _wenponPartNum[40];
+		int _wenponPartNum[ParamData::WENPON_COUNT];
 
 		int _storePageOneItemIdx[9];
 		int _storePageOneItemStage[9];
 
-		AttactInfo_T _wenponCurAttack[40];
+		AttactInfo_T _wenponCurAttack[ParamData::WENPON_COUNT];
 		int _tili;
 		std::string _account;
 		std::string _nickName;
@@ -501,6 +502,7 @@ private:
 		int _firstPlayDayInYear;
 		int _popBossGuide;
 		int _payRmb;
+		int _arrPlayersIsOn[ParamData::ROLE_COUNT];
 		std::map<std::string, int> _activityMap;
 	}UserDataInfo_T;
 

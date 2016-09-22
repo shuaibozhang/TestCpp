@@ -318,5 +318,85 @@
     "group": 10, 
     "price": 12000, 
     "price_type": 0
+  }, 
+  {
+    "excel_id": 41, 
+    "equip_id": 1540, 
+    "name": "青木杖", 
+    "group": 60, 
+    "price": 240, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 42, 
+    "equip_id": 1541, 
+    "name": "天星杖", 
+    "group": 50, 
+    "price": 350, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 43, 
+    "equip_id": 1542, 
+    "name": "月光杖", 
+    "group": 40, 
+    "price": 600, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 44, 
+    "equip_id": 1543, 
+    "name": "绿玉杖", 
+    "group": 30, 
+    "price": 1200, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 45, 
+    "equip_id": 1544, 
+    "name": "破法杖", 
+    "group": 30, 
+    "price": 2000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 46, 
+    "equip_id": 1545, 
+    "name": "饮血杖", 
+    "group": 30, 
+    "price": 3500, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 47, 
+    "equip_id": 1546, 
+    "name": "彩金杖", 
+    "group": 20, 
+    "price": 5000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 48, 
+    "equip_id": 1547, 
+    "name": "星钻神杖", 
+    "group": 20, 
+    "price": 8000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 49, 
+    "equip_id": 1548, 
+    "name": "紫銮法杖", 
+    "group": 20, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 50, 
+    "equip_id": 1549, 
+    "name": "黄金圣杖", 
+    "group": 10, 
+    "price": 12000, 
+    "price_type": 0
   }
 ]

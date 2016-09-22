@@ -1015,7 +1015,7 @@ void FightLayer::initDesignInfo()
 	int roleLv = pStageInfo->roleLv;
 
 	memset((void *)&_designRoleInfo, 0, sizeof(_designRoleInfo));
-	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
 		auto roleInfo = ParamMgr::getInstance()->getPlayerInfo(i, roleLv);
 
@@ -1055,7 +1055,7 @@ void FightLayer::initDesignInfo()
 	_designRoleInfo.perGold = pStageInfo->goldPer;
 	_designRoleInfo.perExp = pStageInfo->expPer;
 
-#if 0
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 
 	if (true)
 	{

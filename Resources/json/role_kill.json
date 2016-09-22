@@ -1224,5 +1224,248 @@
       -1
     ], 
     "description": "以300%的回复力来恢复生命值，并净化敌人所有的邪恶镖符。"
+  }, 
+  "skill_46": {
+    "id": 46, 
+    "role": 4, 
+    "name": "初级吞噬", 
+    "icon": "sicon_tunshi.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_46", 
+    "buff_act": "", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 500, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      1.6, 
+      0
+    ], 
+    "description": "给单个敌人造成120%的伤害，同时将伤害值转化为团队的血量。发动强化技能可达160%。"
+  }, 
+  "skill_47": {
+    "id": 47, 
+    "role": 4, 
+    "name": "中级吞噬", 
+    "icon": "sicon_tunshi.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_46", 
+    "buff_act": "", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 3000, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.5, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2, 
+      0
+    ], 
+    "description": "给单个敌人造成150%的伤害，同时将伤害值转化为团队的血量。发动强化技能可达200%。"
+  }, 
+  "skill_48": {
+    "id": 48, 
+    "role": 4, 
+    "name": "高级吞噬", 
+    "icon": "sicon_tunshi.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack02", 
+    "skill_act": "skill_46", 
+    "buff_act": "", 
+    "starNum": 2, 
+    "attribute": -1, 
+    "price": 50, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.8, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      2.4, 
+      0
+    ], 
+    "description": "给单个敌人造成180%的伤害，同时将伤害值转化为团队的血量。发动强化技能可达240%。"
+  }, 
+  "skill_49": {
+    "id": 49, 
+    "role": 4, 
+    "name": "麻醉", 
+    "icon": "sicon_mazui.png", 
+    "range": false, 
+    "move": false, 
+    "role_act": "attack03", 
+    "skill_act": "skill_47", 
+    "buff_act": "buff_11", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 30, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      2, 
+      0
+    ], 
+    "enhanceVal": [
+      1, 
+      4, 
+      0
+    ], 
+    "description": "给予单体2回合的麻醉状态，使其无法攻击和施放技能。发动强化技能会造成4回合以上的麻醉状态。"
+  }, 
+  "skill_50": {
+    "id": 50, 
+    "role": 4, 
+    "name": "初级枯荣", 
+    "icon": "sicon_kurong.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_48", 
+    "buff_act": "buff_12", 
+    "starNum": 0, 
+    "attribute": -1, 
+    "price": 1000, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.2, 
+      2
+    ], 
+    "enhanceVal": [
+      1, 
+      1.2, 
+      3
+    ], 
+    "description": "给单个敌人造成120%的伤害，同时产生一个提升团队120%攻击力的buff，持续2回合。发动强化技能可持续3回合。"
+  }, 
+  "skill_51": {
+    "id": 51, 
+    "role": 4, 
+    "name": "中级枯荣", 
+    "icon": "sicon_kurong.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_48", 
+    "buff_act": "buff_12", 
+    "starNum": 1, 
+    "attribute": -1, 
+    "price": 5000, 
+    "price_type": 0, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.4, 
+      2
+    ], 
+    "enhanceVal": [
+      1, 
+      1.4, 
+      3
+    ], 
+    "description": "给单个敌人造成140%的伤害，同时产生一个提升团队140%攻击力的buff，持续2回合。发动强化技能可持续3回合。"
+  }, 
+  "skill_52": {
+    "id": 52, 
+    "role": 4, 
+    "name": "高级枯荣", 
+    "icon": "sicon_kurong.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack04", 
+    "skill_act": "skill_48", 
+    "buff_act": "buff_12", 
+    "starNum": 2, 
+    "attribute": -1, 
+    "price": 60, 
+    "price_type": 2, 
+    "mark": 1, 
+    "normalVal": [
+      1, 
+      1.6, 
+      2
+    ], 
+    "enhanceVal": [
+      1, 
+      1.6, 
+      3
+    ], 
+    "description": "给单个敌人造成160%的伤害，同时产生一个提升团队160%攻击力的buff，持续2回合。发动强化技能可持续3回合。"
+  }, 
+  "skill_53": {
+    "id": 53, 
+    "role": 4, 
+    "name": "闭月羞花", 
+    "icon": "sicon_biyue.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack05", 
+    "skill_act": "skill_49", 
+    "buff_act": "buff_11", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 100, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      0, 
+      4, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      6, 
+      0
+    ], 
+    "description": "给予敌人全体4回合以上的麻醉状态，使其无法攻击和施放技能。与强化技能结合可达6回合。"
+  }, 
+  "skill_54": {
+    "id": 54, 
+    "role": 4, 
+    "name": "致命一击", 
+    "icon": "sicon_zhiming.png", 
+    "range": true, 
+    "move": false, 
+    "role_act": "attack06", 
+    "skill_act": "skill_50", 
+    "buff_act": "", 
+    "starNum": -1, 
+    "attribute": -1, 
+    "price": 100, 
+    "price_type": 2, 
+    "mark": 2, 
+    "normalVal": [
+      0, 
+      0.8, 
+      0
+    ], 
+    "enhanceVal": [
+      0, 
+      0.8, 
+      0
+    ], 
+    "description": "将团队现有的防御值完全释放，按照80%的比例转化为攻击，对敌人全体造成致命伤害。"
   }
 }

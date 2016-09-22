@@ -6,6 +6,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "Widgets/GameButton.h"
 #include "BagItemControl.h"
+#include "ParamData.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -54,6 +55,8 @@ public:
 	void say(int idx);
 
 	void updataShopBagIcons();
+
+	void removeUnequipPlayerSkill();
 private:
 	//const static int BAGPAGES = 3;
 	/*0~13 bagitems 14~17 shop buy items*/
@@ -94,8 +97,9 @@ private:
 	GameButton* _btnChangePageR;
 	GameButton* _btnChangePageL;
 
-	GameArmtr* _playerAni[4];
+	GameArmtr* _playerAni[ParamData::FIGHT_ROLE_COUNT];
 	std::vector<int> _vectorSellISkillsSp;
+	//std::vector<int> _vectorSellIWenponsSp;
 	Node* _sellSpriteNode[4];
 };
 

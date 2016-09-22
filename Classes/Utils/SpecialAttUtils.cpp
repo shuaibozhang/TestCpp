@@ -84,7 +84,7 @@ void SpecialAttUtils::createSpecEle(EleSpecialType specType, int eleId, int coun
 				{
 					EleIcon *pEle = arrEle[tmpPos.row][tmpPos.column];
 
-					if (nullptr != pEle && pEle->getEleId() >= EleIconId_E::ELE_ID_SWORD && pEle->getEleId() <= EleIconId_E::ELE_ID_HEART
+					if (nullptr != pEle && pEle->getEleId() >= EleIconId_E::ELE_ID_0 && pEle->getEleId() < EleIconId_E::ELE_ID_ROLE_COUNT
 						&& nullptr == pEle->getWeakInfo())
 					{
 						pEle->doRemove(false);
@@ -290,7 +290,7 @@ void SpecialAttUtils::createRandomS()
 		int tmpCol = ToolsUtil::getRandomInt(0, ParamData::CRUSH_COL-1);
 		EleIcon *pEle = CrushLayer::getInstance()->getEleIcon(tmpRow, tmpCol);
 
-		if (nullptr != pEle && EleIconId_E::ELE_ID_SWORD <= pEle->getEleId() && pEle->getEleId() < EleIconId_E::ELE_ID_SUPER)
+		if (nullptr != pEle && EleIconId_E::ELE_ID_0 <= pEle->getEleId() && pEle->getEleId() < EleIconId_E::ELE_ID_SUPER)
 		{
 			pEle->changeEle(EleIconId_E::ELE_ID_SUPER, 0);
 			break;
@@ -309,9 +309,9 @@ void SpecialAttUtils::createRandomKey( int round )
 	{
 		EleIcon *pEle = CrushLayer::getInstance()->getEleIcon(tmpRow, tmpCol);
 
-		if (nullptr != pEle && EleIconId_E::ELE_ID_SWORD <= pEle->getEleId() && pEle->getEleId() < EleIconId_E::ELE_ID_SUPER && nullptr == pEle->getWeakInfo())
+		if (nullptr != pEle && EleIconId_E::ELE_ID_0 <= pEle->getEleId() && pEle->getEleId() < EleIconId_E::ELE_ID_SUPER && nullptr == pEle->getWeakInfo())
 		{
-			pEle->changeEle(EleIconId_E::ELE_ID_SUPER + 9, 0);
+			pEle->changeEle(EleIconId_E::ELE_ID_KEY, 0);
 			pEle->setTotalRound(round);
 			break;
 		}
@@ -347,7 +347,7 @@ void SpecialAttUtils::travelseThorn(int row, int col, int arrTag[ParamData::CRUS
 		SpecialAttUtils::travelseThorn(row, col+1, arrTag, arrEle);
 		SpecialAttUtils::travelseThorn(row, col-1, arrTag, arrEle);
 	}
-	else if (nullptr != pEle && pEle->getEleId() >= EleIconId_E::ELE_ID_SWORD && pEle->getEleId() <= EleIconId_E::ELE_ID_HEART
+	else if (nullptr != pEle && pEle->getEleId() >= EleIconId_E::ELE_ID_0 && pEle->getEleId() < EleIconId_E::ELE_ID_ROLE_COUNT
 		&& nullptr == pEle->getWeakInfo())
 	{
 		arrTag[row][col] = -1;

@@ -412,5 +412,86 @@
       8, 
       1
     ]
+  }, 
+  "skill_46": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      46, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_47": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      47, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_48": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      48, 
+      0, 
+      0
+    ]
+  }, 
+  "skill_49": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      49, 
+      1, 
+      0
+    ]
+  }, 
+  "skill_50": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      50, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_51": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      51, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_52": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      52, 
+      2, 
+      0
+    ]
+  }, 
+  "skill_53": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      53, 
+      7, 
+      1
+    ]
+  }, 
+  "skill_54": {
+    "roleid": 4, 
+    "animid": "", 
+    "skills": [
+      54, 
+      6, 
+      1
+    ]
   }
 }

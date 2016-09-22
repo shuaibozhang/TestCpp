@@ -37,7 +37,7 @@ EleIcon::EleIcon()
 
 EleIcon::~EleIcon()
 {
-	if (_eleId >= EleIconId_E::ELE_ID_SWORD && _eleId <= EleIconId_E::ELE_ID_SUPER)
+	if (_eleId >= EleIconId_E::ELE_ID_0 && _eleId <= EleIconId_E::ELE_ID_SUPER)
 	{
 		GameResPool::getInstance()->recycleRes(GameResId_E::RES_ELE_ICON, _pModel);
 	}
@@ -89,7 +89,7 @@ bool EleIcon::init(int eleId, int eleLv)
 		if (_eleId <= EleIconId_E::ELE_ID_SUPER)
 		{
 			_pModel = dynamic_cast<GameArmtr *>(GameResPool::getInstance()->getResById(GameResId_E::RES_ELE_ICON));//GameArmtr::createEleIcon();
-			strFileName = String::createWithFormat("idle_%d_%d", _eleId, _eleLv + 1);
+			strFileName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 0);
 			_pModel->play(strFileName->getCString()); 
 			_pModel->setPosition(Vec2::ZERO);
 			this->addChild(_pModel);
@@ -282,14 +282,14 @@ bool EleIcon::doRound()
 		{
 			//unfinished
 //			this->playRoundEffect();
-			int roleId = _eleId - EleIconId_E::ELE_ID_SWORD;
-			roleId = (roleId >= 0 && roleId <= 3) ? roleId : 0;
+			int roleIndex = _eleId - EleIconId_E::ELE_ID_0;
+			roleIndex = (roleIndex >= EleIconId_E::ELE_ID_0 && roleIndex <= EleIconId_E::ELE_ID_3) ? roleIndex : EleIconId_E::ELE_ID_0;
 #if (1 == CC_ENABLE_NEW_PARAM)
 			float param = FightUtil::calcWeakDamageValue(0, FightLayer::getInstance()->getDesignRoleInfo());
 #else
 			float param = CrushUtil::getWeakDamageValue(0, Player::getInstance()->getBaseLv(), 10.f);
 #endif
-			this->createFlyWeak(0, roleId, param);
+			this->createFlyWeak(0, roleIndex, param);
 		}
 	}
 	else if (nullptr != _pSpecInfo)
@@ -433,7 +433,7 @@ bool EleIcon::obtainWeak(int weakId)
 {
 	auto pNewWeakInfo = ParamMgr::getInstance()->getWeakInfo(weakId);
 	
-	if (_eleId < EleIconId_E::ELE_ID_SWORD || _eleId > EleIconId_E::ELE_ID_HEART)
+	if (_eleId < EleIconId_E::ELE_ID_0 || _eleId >= EleIconId_E::ELE_ID_ROLE_COUNT)
 	{
 		return false;
 	}
@@ -476,7 +476,7 @@ bool EleIcon::obtainWeak(int weakId)
 	else
 	{
 		/*stone*/
-		auto strAnimName = String::createWithFormat("shihua_%d", _eleId);
+		auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, true, 0);
 		_pModel->play(strAnimName->getCString());
 
 		if (nullptr != _pWeakSprite)
@@ -525,9 +525,9 @@ void EleIcon::doRemove(float delayTime, bool isCleanup)
 	}
 }
 
-void EleIcon::createFlyWeak(int weakId, int roleId, float param)
+void EleIcon::createFlyWeak(int weakId, int roleIndex, float param)
 {
-	auto pFlyIcon = FlyWeak::create(weakId, roleId, param);
+	auto pFlyIcon = FlyWeak::create(weakId, roleIndex, param);
 
 	Vec2 worldPos = this->convertToWorldSpaceAR(Vec2::ZERO);
 	Vec2 iconPos = FightLayer::getInstance()->convertToNodeSpace(worldPos);
@@ -596,12 +596,12 @@ float EleIcon::playCrushAnim(bool isStone)
 	{
 		if (isStone)
 		{
-			auto strAnimName = String::createWithFormat("shihua_miss_%d", _eleId);
+			auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, true, 1);
 			_pModel->play(strAnimName->getCString());
 		}
 		else
 		{
-			auto strAnimName = String::createWithFormat("miss_%d_%d", _eleId, _eleLv + 1);
+			auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 1);
 			_pModel->play(strAnimName->getCString());
 		}
 	}
@@ -631,12 +631,12 @@ void EleIcon::playSelAnim()
 {
 	if (nullptr != _pWeakInfo && _pWeakInfo->type == EleWeakType::STONE)
 	{
-		auto strAnimName = String::createWithFormat("shihua_touch_%d", _eleId);
+		auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, true, 2);
 		_pModel->play(strAnimName->getCString());
 	}
 	else
 	{
-		auto strAnimName = String::createWithFormat("touch_%d_%d", _eleId, _eleLv + 1);
+		auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 2); 
 		_pModel->play(strAnimName->getCString());
 	}
 
@@ -647,19 +647,19 @@ void EleIcon::stopSelAnim()
 {
 	if (nullptr != _pWeakInfo && _pWeakInfo->type == EleWeakType::STONE)
 	{
-		auto strAnimName = String::createWithFormat("shihua_%d", _eleId);
+		auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, true, 0);
 		_pModel->play(strAnimName->getCString());
 	}
 	else
 	{
-		auto strAnimName = String::createWithFormat("idle_%d_%d", _eleId, _eleLv + 1);
+		auto strAnimName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 0);
 		_pModel->play(strAnimName->getCString());
 	}
 }
 
 void EleIcon::playCrushEffect(int index)
 {
-	if (_eleId >= EleIconId_E::ELE_ID_SWORD && _eleId <= EleIconId_E::ELE_ID_SUPER && nullptr == _pWeakInfo)
+	if (_eleId >= EleIconId_E::ELE_ID_0 && _eleId <= EleIconId_E::ELE_ID_SUPER && nullptr == _pWeakInfo)
 	{
 		auto pEffect = dynamic_cast<GameArmtr *>(GameResPool::getInstance()->getResById(GameResId_E::RES_CRUSH_EFFECT));//GameArmtr::createCrushEffect();
 		auto strName = __String::createWithFormat("crush_%d", index + 1);//
@@ -710,7 +710,7 @@ void EleIcon::changeEle(int newId, int newLv)
 		_pModel = dynamic_cast<GameArmtr *>(GameResPool::getInstance()->getResById(GameResId_E::RES_ELE_ICON));//GameArmtr::createEleIcon();
 		_pModel->setPosition(Vec2::ZERO);
 		this->addChild(_pModel);
-		strFileName = __String::createWithFormat("idle_%d_%d", _eleId, _eleLv+1);
+		strFileName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 0);
 		_pModel->play(strFileName->getCString());
 
 		if (CrushLayer::getInstance()->isStoneState(_eleId))
@@ -785,30 +785,29 @@ void EleIcon::doSpecAtt()
 {
 	if (nullptr != _pSpecInfo)
 	{
-
-		switch (_eleId-EleIconId_E::ELE_ID_SUPER-1)
+		switch (_eleId)
 		{
-		case 0:
+		case EleIconId_E::ELE_ID_BOOM:// 0:
 			//boom
 			GameUtils::playEffect("zhadan.ogg");
 			break;
-		case 1:
+		case EleIconId_E::ELE_ID_VOLCANO:// 1:
 			//volcano
 			GameUtils::playEffect("huoshan.ogg");
 			break;
-		case 2:
+		case EleIconId_E::ELE_ID_THUNDER:// 2:
 			//thunder
 			GameUtils::playEffect("leidian.ogg");
 			break;
-		case 3:
+		case EleIconId_E::ELE_ID_STONE:// 3:
 			//stone
 			GameUtils::playEffect("shihua.ogg");
 			break;
-		case 4:
+		case EleIconId_E::ELE_ID_THORN_EYE:// 4:
 			//thorn_eye
 			GameUtils::playEffect("jingji.ogg");
 			break;
-		case 6:
+		case EleIconId_E::ELE_ID_ICE:// 6:
 			//ice
 			GameUtils::playEffect("bingfeng.ogg");
 			break;
@@ -817,9 +816,9 @@ void EleIcon::doSpecAtt()
 		switch (_pSpecInfo->attType)
 		{
 		case 0:
-			for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+			for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 			{
-				if (5 == _eleId)
+				if (EleIconId_E::ELE_ID_BOOM == _eleId)
 				{
 #if (1 == CC_ENABLE_NEW_PARAM)
 					float param = FightUtil::calcWeakDamageValue(1, FightLayer::getInstance()->getDesignRoleInfo());
@@ -828,7 +827,7 @@ void EleIcon::doSpecAtt()
 #endif
 					this->createFlyWeak(1, i, param);
 				}
-				else if (7 == _eleId)
+				else if (EleIconId_E::ELE_ID_THUNDER == _eleId)
 				{
 #if (1 == CC_ENABLE_NEW_PARAM)
 					float param = FightUtil::calcWeakDamageValue(2, FightLayer::getInstance()->getDesignRoleInfo());
@@ -893,7 +892,7 @@ void EleIcon::updateModelSprite()
 	__String *strFileName = nullptr;
 	if (_eleId <= EleIconId_E::ELE_ID_SUPER)
 	{
-		strFileName = __String::createWithFormat("idle_%d_%d", _eleId, _eleLv+1);
+		strFileName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 0);
 		_pModel->play(strFileName->getCString());
 	}
 }
@@ -926,7 +925,7 @@ void EleIcon::removeWeak()
 {
 	if (nullptr != _pWeakInfo)
 	{
-		auto strFileName = __String::createWithFormat("idle_%d_%d", _eleId, _eleLv + 1);
+		auto strFileName = CrushUtil::getEleAnimName(_eleId, _eleLv, false, 0);
 		_pModel->play(strFileName->getCString());
 
 		if (1 == _pWeakInfo->id)
@@ -955,7 +954,7 @@ void EleIcon::removeSpec()
 {
 	if (nullptr != _pSpecInfo)
 	{
-		if (_eleId == (EleIconId_E::ELE_ID_SUPER + 6))
+		if (_eleId == (EleIconId_E::ELE_ID_THORN))
 		{
 			FightLayer::getInstance()->countDungeonDes(8, 1);
 		}
@@ -969,7 +968,7 @@ void EleIcon::removeSpec()
 
 void EleIcon::playCreateEffect()
 {
-	if (_eleId >= EleIconId_E::ELE_ID_SWORD && _eleId <= EleIconId_E::ELE_ID_HEART)
+	if (_eleId >= EleIconId_E::ELE_ID_0 && _eleId < EleIconId_E::ELE_ID_ROLE_COUNT)
 	{
 		if (_eleLv > 0)
 		{
@@ -992,7 +991,7 @@ void EleIcon::playCreateEffect()
 	}
 	else
 	{
-		if ((_eleId - EleIconId_E::ELE_ID_SUPER - 1) < 9)
+		if (_eleId < EleIconId_E::ELE_ID_SPEC_LINE)
 		{
 			auto pEffect = GameArmtr::createSpecialEx();
 			auto strName = __String::createWithFormat("shengcheng_%d", _eleId - EleIconId_E::ELE_ID_SUPER - 1);
@@ -1070,7 +1069,7 @@ void EleIcon::updateEleBg()
 		}
 		_pEleBg->setSpriteFrame("crush_ele_bg_4.png");
 	}
-	else if (_eleId >= EleIconId_E::ELE_ID_SWORD && _eleId <= EleIconId_E::ELE_ID_HEART && _eleLv > 0)
+	else if (_eleId >= EleIconId_E::ELE_ID_0 && _eleId < EleIconId_E::ELE_ID_ROLE_COUNT && _eleLv > 0)
 	{
 		auto strName = __String::createWithFormat("crush_ele_bg_%d.png", _eleLv + 1);
 		if (nullptr == _pEleBg)

@@ -49,19 +49,10 @@ bool FlyIcon::init(int iconId, int iconLv)
 		_iconId = iconId;
 		_iconLv = iconLv;
 
-// 		std::string arrName[][3] = { {"dao.png", "dao_2.png", "dao_3.png" },
-// 		{ "dun.png", "dun_2.png", "dun_3.png" },
-// 		{ "feibiao.png", "feibiao_2.png", "feibiao_3.png" },
-// 		{ "aixin.png", "aixin_2.png", "aixin_3.png" },
-// 		{ "sji.png", "", "" }
-// 		};
-
-//		__String *strFileName = nullptr;
 		if (_iconId <= EleIconId_E::ELE_ID_SUPER)
 		{
-//			strFileName = String::createWithFormat("anniutubiao/%s", arrName[_iconId][_iconLv].c_str());
-			int resId = GameResId_E::RES_FLY_ICON_START + _iconId * 3 + _iconLv;
-//			_pModel = Sprite::createWithSpriteFrameName(strFileName->getCString());
+			int roleId = Player::getInstance()->getRoleIdByPosIndex(_iconId);
+			int resId = GameResId_E::RES_FLY_ICON_START + roleId * 3 + _iconLv;
 			_pModel = dynamic_cast<Sprite *> (GameResPool::getInstance()->getResById(resId));
 			this->addChild(_pModel);
 
@@ -89,7 +80,7 @@ void FlyIcon::update(float delta)
 	}
 	else
 	{
-		Vec2 desPos = Player::getInstance()->getCurRolePos(_iconId - EleIconId_E::ELE_ID_SWORD) + Vec2(0.f, 40.f);
+		Vec2 desPos = Player::getInstance()->getCurRolePos(_iconId - EleIconId_E::ELE_ID_0) + Vec2(0.f, 40.f);
 		Vec2 curPos = this->getPosition();
 		float fDist = curPos.getDistance(desPos);
 		Vec2 norVec = desPos - curPos;

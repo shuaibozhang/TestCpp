@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Armtr/GameArmtr.h"
+#include "ParamData.h"
 
 USING_NS_CC;
 using namespace std;
@@ -26,7 +27,7 @@ typedef enum GameResId
 	RES_GOLD_1,
 	RES_GOLD_2,
 	RES_FLY_ICON_START,
-	RES_FLY_ICON_END = RES_FLY_ICON_START + 13 - 1,
+	RES_FLY_ICON_END = RES_FLY_ICON_START + ParamData::ROLE_COUNT * 3,
 	//keep it
 	RES_COUNT
 }GameResId_E;

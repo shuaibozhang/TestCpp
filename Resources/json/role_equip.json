@@ -1120,6 +1120,286 @@
     ]
   }, 
   "equip_40": {
+    "roleid": 4, 
+    "id": 540, 
+    "name": "青木杖", 
+    "price": 400, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_01.png", 
+    "description": "用当夏的桃木枝做的，救死扶伤必备。", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      3, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_41": {
+    "roleid": 4, 
+    "id": 541, 
+    "name": "天星杖", 
+    "price": 1200, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_02.png", 
+    "description": "杖上蕴含了熹微的法术，对付一般的小菜鸟足够了。", 
+    "limit": 3, 
+    "attrib": [
+      14, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      4, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_42": {
+    "roleid": 4, 
+    "id": 542, 
+    "name": "月光杖", 
+    "price": 2500, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_03.png", 
+    "description": "邱璎珞很喜欢的一件物品，因为在月光下，她看起来很美。", 
+    "limit": 7, 
+    "attrib": [
+      28, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      3, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      5, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_43": {
+    "roleid": 4, 
+    "id": 543, 
+    "name": "绿玉杖", 
+    "price": 5000, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_04.png", 
+    "description": "形状独特，造型精妙，很多人看了爱不释手，邱璎珞泡男必备。", 
+    "limit": 12, 
+    "attrib": [
+      50, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      4, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      6, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_44": {
+    "roleid": 4, 
+    "id": 544, 
+    "name": "破法杖", 
+    "price": 60, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_05.png", 
+    "description": "可以破坏敌人的结界和魔法，对付深山老怪，非此杖莫属。", 
+    "limit": 0, 
+    "attrib": [
+      88, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      5, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      7, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_45": {
+    "roleid": 4, 
+    "id": 545, 
+    "name": "饮血杖", 
+    "price": 13000, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_06.png", 
+    "description": "听说会让邱璎珞的法力大增，在饮血的光环下，一切敌人灰飞烟灭。", 
+    "limit": 15, 
+    "attrib": [
+      120, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      6, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      9, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_46": {
+    "roleid": 4, 
+    "id": 546, 
+    "name": "彩金杖", 
+    "price": 20000, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_07.png", 
+    "description": "看起来光彩夺目，杀气人来也威武霸气。", 
+    "limit": 20, 
+    "attrib": [
+      155, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      8, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      11, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_47": {
+    "roleid": 4, 
+    "id": 547, 
+    "name": "星钻神杖", 
+    "price": 150, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_08.png", 
+    "description": "一把非常高级的武器，每次施法的时候，都好似有钻石在飞舞。", 
+    "limit": 0, 
+    "attrib": [
+      200, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      10, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      13, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_48": {
+    "roleid": 4, 
+    "id": 548, 
+    "name": "紫銮法杖", 
+    "price": 100000, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_09.png", 
+    "description": "邱氏祖传，遇雨成风，威力无穷，少儿不宜。", 
+    "limit": 25, 
+    "attrib": [
+      248, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      12, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      16, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_49": {
+    "roleid": 4, 
+    "id": 549, 
+    "name": "黄金圣杖", 
+    "price": 300, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_10.png", 
+    "description": "皇家御赐，珍惜无比，邱璎珞轻易不拿出手，因为一出手就要死人滴。", 
+    "limit": 30, 
+    "attrib": [
+      308, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      14, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      17, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_50": {
     "roleid": 0, 
     "id": 1500, 
     "name": "小砍刀", 
@@ -1147,7 +1427,7 @@
       0
     ]
   }, 
-  "equip_41": {
+  "equip_51": {
     "roleid": 0, 
     "id": 1501, 
     "name": "明甬刀", 
@@ -1175,7 +1455,7 @@
       0
     ]
   }, 
-  "equip_42": {
+  "equip_52": {
     "roleid": 0, 
     "id": 1502, 
     "name": "日本刀", 
@@ -1203,7 +1483,7 @@
       0
     ]
   }, 
-  "equip_43": {
+  "equip_53": {
     "roleid": 0, 
     "id": 1503, 
     "name": "苗刀", 
@@ -1231,7 +1511,7 @@
       0
     ]
   }, 
-  "equip_44": {
+  "equip_54": {
     "roleid": 0, 
     "id": 1504, 
     "name": "马背刀", 
@@ -1259,7 +1539,7 @@
       0
     ]
   }, 
-  "equip_45": {
+  "equip_55": {
     "roleid": 0, 
     "id": 1505, 
     "name": "大唐龙雀刀", 
@@ -1287,7 +1567,7 @@
       0
     ]
   }, 
-  "equip_46": {
+  "equip_56": {
     "roleid": 0, 
     "id": 1506, 
     "name": "吴越刀", 
@@ -1315,7 +1595,7 @@
       0
     ]
   }, 
-  "equip_47": {
+  "equip_57": {
     "roleid": 0, 
     "id": 1507, 
     "name": "龙泉汉刀", 
@@ -1343,7 +1623,7 @@
       0
     ]
   }, 
-  "equip_48": {
+  "equip_58": {
     "roleid": 0, 
     "id": 1508, 
     "name": "尚方宝刀", 
@@ -1371,7 +1651,7 @@
       0
     ]
   }, 
-  "equip_49": {
+  "equip_59": {
     "roleid": 0, 
     "id": 1509, 
     "name": "干将莫邪", 
@@ -1399,7 +1679,7 @@
       0
     ]
   }, 
-  "equip_50": {
+  "equip_60": {
     "roleid": 1, 
     "id": 1510, 
     "name": "石斧", 
@@ -1427,7 +1707,7 @@
       0
     ]
   }, 
-  "equip_51": {
+  "equip_61": {
     "roleid": 1, 
     "id": 1511, 
     "name": "小铁斧", 
@@ -1455,7 +1735,7 @@
       0
     ]
   }, 
-  "equip_52": {
+  "equip_62": {
     "roleid": 1, 
     "id": 1512, 
     "name": "大锥斧", 
@@ -1483,7 +1763,7 @@
       0
     ]
   }, 
-  "equip_53": {
+  "equip_63": {
     "roleid": 1, 
     "id": 1513, 
     "name": "铜斧", 
@@ -1511,7 +1791,7 @@
       0
     ]
   }, 
-  "equip_54": {
+  "equip_64": {
     "roleid": 1, 
     "id": 1514, 
     "name": "黄铜斧", 
@@ -1539,7 +1819,7 @@
       0
     ]
   }, 
-  "equip_55": {
+  "equip_65": {
     "roleid": 1, 
     "id": 1515, 
     "name": "破银斧", 
@@ -1567,7 +1847,7 @@
       0
     ]
   }, 
-  "equip_56": {
+  "equip_66": {
     "roleid": 1, 
     "id": 1516, 
     "name": "六叶斧", 
@@ -1595,7 +1875,7 @@
       0
     ]
   }, 
-  "equip_57": {
+  "equip_67": {
     "roleid": 1, 
     "id": 1517, 
     "name": "钢玉斧", 
@@ -1623,7 +1903,7 @@
       0
     ]
   }, 
-  "equip_58": {
+  "equip_68": {
     "roleid": 1, 
     "id": 1518, 
     "name": "流金斧", 
@@ -1651,7 +1931,7 @@
       0
     ]
   }, 
-  "equip_59": {
+  "equip_69": {
     "roleid": 1, 
     "id": 1519, 
     "name": "八瓣莲花斧", 
@@ -1679,7 +1959,7 @@
       0
     ]
   }, 
-  "equip_60": {
+  "equip_70": {
     "roleid": 2, 
     "id": 1520, 
     "name": "简镖", 
@@ -1707,7 +1987,7 @@
       0
     ]
   }, 
-  "equip_61": {
+  "equip_71": {
     "roleid": 2, 
     "id": 1521, 
     "name": "袖镖", 
@@ -1735,7 +2015,7 @@
       0
     ]
   }, 
-  "equip_62": {
+  "equip_72": {
     "roleid": 2, 
     "id": 1522, 
     "name": "细线镖", 
@@ -1763,7 +2043,7 @@
       0
     ]
   }, 
-  "equip_63": {
+  "equip_73": {
     "roleid": 2, 
     "id": 1523, 
     "name": "弹丸镖", 
@@ -1791,7 +2071,7 @@
       0
     ]
   }, 
-  "equip_64": {
+  "equip_74": {
     "roleid": 2, 
     "id": 1524, 
     "name": "柳叶镖", 
@@ -1819,7 +2099,7 @@
       0
     ]
   }, 
-  "equip_65": {
+  "equip_75": {
     "roleid": 2, 
     "id": 1525, 
     "name": "钱镖", 
@@ -1847,7 +2127,7 @@
       0
     ]
   }, 
-  "equip_66": {
+  "equip_76": {
     "roleid": 2, 
     "id": 1526, 
     "name": "箭镖", 
@@ -1875,7 +2155,7 @@
       0
     ]
   }, 
-  "equip_67": {
+  "equip_77": {
     "roleid": 2, 
     "id": 1527, 
     "name": "峨眉镖", 
@@ -1903,7 +2183,7 @@
       0
     ]
   }, 
-  "equip_68": {
+  "equip_78": {
     "roleid": 2, 
     "id": 1528, 
     "name": "梅花针", 
@@ -1931,7 +2211,7 @@
       0
     ]
   }, 
-  "equip_69": {
+  "equip_79": {
     "roleid": 2, 
     "id": 1529, 
     "name": "烟花绣", 
@@ -1959,7 +2239,7 @@
       0
     ]
   }, 
-  "equip_70": {
+  "equip_80": {
     "roleid": 3, 
     "id": 1530, 
     "name": "玫瑰枝", 
@@ -1987,7 +2267,7 @@
       0
     ]
   }, 
-  "equip_71": {
+  "equip_81": {
     "roleid": 3, 
     "id": 1531, 
     "name": "白莲杖", 
@@ -2015,7 +2295,7 @@
       0
     ]
   }, 
-  "equip_72": {
+  "equip_82": {
     "roleid": 3, 
     "id": 1532, 
     "name": "菊花手杖", 
@@ -2043,7 +2323,7 @@
       0
     ]
   }, 
-  "equip_73": {
+  "equip_83": {
     "roleid": 3, 
     "id": 1533, 
     "name": "桃花仙枝", 
@@ -2071,7 +2351,7 @@
       0
     ]
   }, 
-  "equip_74": {
+  "equip_84": {
     "roleid": 3, 
     "id": 1534, 
     "name": "洪氏打狗棒", 
@@ -2099,7 +2379,7 @@
       0
     ]
   }, 
-  "equip_75": {
+  "equip_85": {
     "roleid": 3, 
     "id": 1535, 
     "name": "幻音魔法杖", 
@@ -2127,7 +2407,7 @@
       0
     ]
   }, 
-  "equip_76": {
+  "equip_86": {
     "roleid": 3, 
     "id": 1536, 
     "name": "寒冰杖", 
@@ -2155,7 +2435,7 @@
       0
     ]
   }, 
-  "equip_77": {
+  "equip_87": {
     "roleid": 3, 
     "id": 1537, 
     "name": "消魔杖", 
@@ -2183,7 +2463,7 @@
       0
     ]
   }, 
-  "equip_78": {
+  "equip_88": {
     "roleid": 3, 
     "id": 1538, 
     "name": "巴里巴拉魔杖", 
@@ -2211,7 +2491,7 @@
       0
     ]
   }, 
-  "equip_79": {
+  "equip_89": {
     "roleid": 3, 
     "id": 1539, 
     "name": "迷你笑笑枝", 
@@ -2225,6 +2505,286 @@
       0, 
       0, 
       402
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_90": {
+    "roleid": 4, 
+    "id": 1540, 
+    "name": "青木杖", 
+    "price": 4, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_01.png", 
+    "description": "用当夏的桃木枝做的，救死扶伤必备。", 
+    "limit": 0, 
+    "attrib": [
+      2, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_91": {
+    "roleid": 4, 
+    "id": 1541, 
+    "name": "天星杖", 
+    "price": 7, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_02.png", 
+    "description": "杖上蕴含了熹微的法术，对付一般的小菜鸟足够了。", 
+    "limit": 0, 
+    "attrib": [
+      14, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_92": {
+    "roleid": 4, 
+    "id": 1542, 
+    "name": "月光杖", 
+    "price": 20, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_03.png", 
+    "description": "邱璎珞很喜欢的一件物品，因为在月光下，她看起来很美。", 
+    "limit": 0, 
+    "attrib": [
+      28, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_93": {
+    "roleid": 4, 
+    "id": 1543, 
+    "name": "绿玉杖", 
+    "price": 40, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_04.png", 
+    "description": "形状独特，造型精妙，很多人看了爱不释手，邱璎珞泡男必备。", 
+    "limit": 0, 
+    "attrib": [
+      50, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_94": {
+    "roleid": 4, 
+    "id": 1544, 
+    "name": "破法杖", 
+    "price": 60, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_05.png", 
+    "description": "可以破坏敌人的结界和魔法，对付深山老怪，非此杖莫属。", 
+    "limit": 0, 
+    "attrib": [
+      88, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_95": {
+    "roleid": 4, 
+    "id": 1545, 
+    "name": "饮血杖", 
+    "price": 100, 
+    "price_type": 0, 
+    "picname": "qyl_zhang_06.png", 
+    "description": "听说会让邱璎珞的法力大增，在饮血的光环下，一切敌人灰飞烟灭。", 
+    "limit": 0, 
+    "attrib": [
+      120, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_96": {
+    "roleid": 4, 
+    "id": 1546, 
+    "name": "彩金杖", 
+    "price": 2, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_07.png", 
+    "description": "看起来光彩夺目，杀气人来也威武霸气。", 
+    "limit": 0, 
+    "attrib": [
+      155, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_97": {
+    "roleid": 4, 
+    "id": 1547, 
+    "name": "星钻神杖", 
+    "price": 3, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_08.png", 
+    "description": "一把非常高级的武器，每次施法的时候，都好似有钻石在飞舞。", 
+    "limit": 0, 
+    "attrib": [
+      200, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_98": {
+    "roleid": 4, 
+    "id": 1548, 
+    "name": "紫銮法杖", 
+    "price": 4, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_09.png", 
+    "description": "邱氏祖传，遇雨成风，威力无穷，少儿不宜。", 
+    "limit": 0, 
+    "attrib": [
+      248, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmin": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "lvaddmax": [
+      0, 
+      0, 
+      0, 
+      0
+    ]
+  }, 
+  "equip_99": {
+    "roleid": 4, 
+    "id": 1549, 
+    "name": "黄金圣杖", 
+    "price": 6, 
+    "price_type": 2, 
+    "picname": "qyl_zhang_10.png", 
+    "description": "皇家御赐，珍惜无比，邱璎珞轻易不拿出手，因为一出手就要死人滴。", 
+    "limit": 0, 
+    "attrib": [
+      308, 
+      0, 
+      0, 
+      0
     ], 
     "lvaddmin": [
       0, 

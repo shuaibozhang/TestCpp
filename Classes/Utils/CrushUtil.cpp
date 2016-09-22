@@ -10,6 +10,7 @@
 #include "Scenes/MainScene.h"
 #include "WeaponControl.h"
 #include "SkillControl.h"
+#include "Player.h"
 
 bool CrushUtil::travelseEle(int row, int column, TravelseInfo_T *pCrushInfo, bool isCanCrush, int travelType)
 {
@@ -25,7 +26,7 @@ bool CrushUtil::travelseEle(int row, int column, TravelseInfo_T *pCrushInfo, boo
 		int eleId = pCrushInfo->arrEleId[row][column];
 		pCrushInfo->arrIsTravelsed[row][column] = true;
 
-		if (eleId > EleIconId_E::ELE_ID_HEART || eleId <= EleIconId_E::ELE_ID_EMPTY)
+		if (eleId >= EleIconId_E::ELE_ID_ROLE_COUNT || eleId <= EleIconId_E::ELE_ID_EMPTY)
 		{
 			break;
 		}
@@ -544,7 +545,7 @@ bool CrushUtil::isEleCanTouch(EleIcon * pEle)
 	{
 		int eleId = pEle->getEleId();
 
-		bRet = (eleId >= EleIconId_E::ELE_ID_SWORD && eleId <= EleIconId_E::ELE_ID_SUPER);
+		bRet = (eleId >= EleIconId_E::ELE_ID_0 && eleId <= EleIconId_E::ELE_ID_SUPER);
 
 		if (bRet && nullptr != pEle->getWeakInfo() && !pEle->getWeakInfo()->isCanFall)
 		{
@@ -629,10 +630,10 @@ Vec2 CrushUtil::getRoleCenterPos(int posId)
 }
 
 
-Vec2 CrushUtil::getRolePos(int roleId, int posId)
+cocos2d::Vec2 CrushUtil::getRolePos(int roleIndex, int posId)
 {
 	Vec2 centerPos = CrushUtil::getRoleCenterPos(posId);
-	Vec2 offsetPos = CrushUtil::getRoleOffsetPos(roleId);
+	Vec2 offsetPos = CrushUtil::getRoleOffsetPos(roleIndex);
 	return centerPos+offsetPos;
 }
 
@@ -707,39 +708,48 @@ float CrushUtil::getDamageN(int maxLv)
 
 void CrushUtil::changeWeapon(GameArmtr * pArm, int roleId, int weaponId)
 {
-	string arrBoneName[ParamData::ROLE_COUNT] = {"Layer28", "Layer32" , "Layer54" , "Layer26" };
+	string arrBoneName[ParamData::ROLE_COUNT] = { "Layer28", "Layer32" , "Layer54" , "Layer26" };//, "Layer54" };
 	__String *arrWeaponName[ParamData::ROLE_COUNT][10] = { 0 };
 	__String *arrDefName[10] = { 0 };
-	int arrWeaponStartIndex[ParamData::ROLE_COUNT] = {500, 510, 520, 530};
+	int arrWeaponStartIndex[ParamData::ROLE_COUNT] = { 500, 510, 520, 530};//, 520};
 	int weaponLv = weaponId - arrWeaponStartIndex[roleId];
 
 	for (int i = 0; i < 10; i++)
 	{
 		int tmp = i;
 		auto strName = __String::createWithFormat("wuqi/lsj_wuqi_%d.png", tmp + 1);
-		arrWeaponName[0][i] = strName;
-		
-//		tmp = (tmp > 4) ? 4 : tmp;
+		arrWeaponName[RoleId_E::ROLE_ID_LSJ][i] = strName;
 
 		strName = __String::createWithFormat("wuqi/cbd_wuqi_%d.png", tmp + 1);
-		arrWeaponName[1][i] = strName;
+		arrWeaponName[RoleId_E::ROLE_ID_CBD][i] = strName;
 
 		strName = __String::createWithFormat("wuqi/cbd_dun_%d.png", tmp + 1);
 		arrDefName[i] = strName;
 		
 		strName = __String::createWithFormat("wuqi/lqc_wuqi_%d.png", tmp + 1);
-		arrWeaponName[2][i] = strName; 
+		arrWeaponName[RoleId_E::ROLE_ID_LQC][i] = strName;
 		
 		strName = __String::createWithFormat("wuqi/sqy_wuqi_%d.png", tmp + 1);
-		arrWeaponName[3][i] = strName;
+		arrWeaponName[RoleId_E::ROLE_ID_SQY][i] = strName;
+
+//		strName = __String::createWithFormat("wuqi/lqc_wuqi_%d.png", tmp + 1);
+//		arrWeaponName[RoleId_E::ROLE_ID_QYL][i] = strName;
 	}
-	
-	
-	Skin *skin = Skin::createWithSpriteFrameName(arrWeaponName[roleId][weaponLv]->getCString());
+	const char* weaponName[] = {
+		"wuqi/lsj_wuqi_%d.png",
+		"wuqi/cbd_wuqi_%d.png",
+		"wuqi/lqc_wuqi_%d.png",
+		"wuqi/sqy_wuqi_%d.png",
+		"wuqi/sqy_wuqi_%d.png",
+	};
+	//debug newplayer
+	auto truename = String::createWithFormat(weaponName[(weaponId - 500) / 10], (weaponId - 500) % 10 + 1);
+	Skin *skin = Skin::createWithSpriteFrameName(truename->getCString());
+	//Skin *skin = Skin::createWithSpriteFrameName(arrWeaponName[roleId][weaponLv]->getCString());
 	pArm->getArmtr()->getBone(arrBoneName[roleId])->addDisplay(skin, 0);
 	pArm->getArmtr()->getBone(arrBoneName[roleId])->changeDisplayWithIndex(0, true);
 
-	if (1 == roleId)
+	if (RoleId_E::ROLE_ID_CBD == roleId)
 	{
 		skin = Skin::createWithSpriteFrameName(arrDefName[weaponLv]->getCString());
 		pArm->getArmtr()->getBone("Layer30")->addDisplay(skin, 0);
@@ -1372,9 +1382,63 @@ int CrushUtil::getDungeonReward(int dungeonType, int lv, std::vector<PopItemInfo
 	}
 	else if (2 == dungeonType)
 	{
-		int itemId = 1500 + ToolsUtil::getRandomInt(0, 4) * 10 + pReward->equipLv - 1;
+		int itemId = 1500 + ToolsUtil::getRandomInt(0, ParamData::ROLE_COUNT-1) * 10 + pReward->equipLv - 1;
 		CrushUtil::addPopItem(arrReward, itemId, pReward->equip);
 	}
 
 	return ret;
+}
+
+__String * CrushUtil::getEleAnimName(int eleId, int eleLv, bool isStone, int animId)
+{
+	int animEleId = EleIconId_E::ELE_ID_SUPER;
+	__String *strName = nullptr;
+
+	if (eleId < EleIconId_E::ELE_ID_ROLE_COUNT)
+	{
+		animEleId = Player::getInstance()->getRoleIdByPosIndex(eleId);
+		if (animEleId >= EleIconId_E::ELE_ID_SUPER)
+		{
+			animEleId++;
+		}
+	}
+
+	if (0 == animId)
+	{
+		/*idle*/
+		if (isStone)
+		{
+			strName = String::createWithFormat("shihua_%d", animEleId);
+		}
+		else
+		{
+			strName = String::createWithFormat("idle_%d_%d", animEleId, eleLv + 1);
+		}
+	}
+	else if (1 == animId)
+	{
+		/*miss*/
+		if (isStone)
+		{
+			strName = String::createWithFormat("shihua_miss_%d", animEleId);
+		}
+		else
+		{
+			strName = String::createWithFormat("miss_%d_%d", animEleId, eleLv + 1);
+		}
+	}
+	else if (2 == animId)
+	{
+		/*touch*/
+		if (isStone)
+		{
+			strName = String::createWithFormat("shihua_touch_%d", animEleId);
+		}
+		else
+		{
+			strName = String::createWithFormat("touch_%d_%d", animEleId, eleLv + 1);
+		}
+	}
+
+	return strName;
 }

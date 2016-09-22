@@ -50,6 +50,8 @@ USING_NS_CC;
 using namespace glui;
 using namespace ui;
 
+static int trueIdx[] = { 0,1,2,3,1 };
+
 cocos2d::Scene * MainLayer::scene()
 {
 	auto scene = Scene::create();
@@ -386,7 +388,7 @@ void MainLayer::initSkillAndEpuipLayer()
 	_equipPageView->addEventListener([=](cocos2d::Ref* target, ui::PageView::EventType type) {
 		if (type == ui::PageView::EventType::TURNING)
 		{
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 			{
 				int idx = static_cast<glui::GLPageView*>(target)->getCurPageIndex();
 				auto sprite = static_cast<Sprite*>(_markNode->getChildByName(String::createWithFormat("mark_%d", i)->getCString()));
@@ -414,7 +416,7 @@ void MainLayer::initSkillAndEpuipLayer()
 	_skillPageView->addEventListener([=](cocos2d::Ref* target, ui::PageView::EventType type) {
 		if (type == ui::PageView::EventType::TURNING)
 		{
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 			{
 				int idx = static_cast<glui::GLPageView*>(target)->getCurPageIndex();
 				auto sprite = static_cast<Sprite*>(_markNode->getChildByName(String::createWithFormat("mark_%d", i)->getCString()));
@@ -430,16 +432,18 @@ void MainLayer::initSkillAndEpuipLayer()
 		}
 	});
 
-	for (int i = 0; i < 4; i++)
+	int tempTrueidx[] = { 0,1,2,3,4 };
+
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto layout = ui::Layout::create();
-		auto layer = EquipLayer::createLayer(i);
+		auto layer = EquipLayer::createLayer(tempTrueidx[i]);
 		layout->addChild(layer);
 		_equipPageView->addPage(layout);
 		_arrEquipLayer[i] = layer;
 
 		auto layout2 = ui::Layout::create();
-		auto layer2 = SkillLayer::createLayer(i);
+		auto layer2 = SkillLayer::createLayer(tempTrueidx[i]);
 		layout2->addChild(layer2);
 		_skillPageView->addPage(layout2);
 		_arrSkillLayer[i] = layer2;
@@ -2351,16 +2355,25 @@ bool PlayersLayer::init()
 
 	auto offy = VisibleRect::top().y - 980.f;
 
-	Vec2 pos[] = { Vec2(165.f, 800.f + offy), Vec2(480.f, 800.f + offy), Vec2(165.f, 390.f + offy/2.f), Vec2(480.f, 390.f + offy/2.f) };
-	for (int i = 0; i < 4; i++)
+	_playerScoreView = ui::ScrollView::create();
+	this->addChild(_playerScoreView);
+	_playerScoreView->setContentSize(Size(640.f, VisibleRect::top().y - 50.f));
+	_playerScoreView->setInnerContainerSize(Size(640.f, 1500));
+	_playerScoreView->setClippingEnabled(true);
+
+	Vec2 pos[] = { Vec2(165.f, 800.f + offy), Vec2(480.f, 800.f + offy), Vec2(165.f, 390.f + offy/2.f), Vec2(480.f, 390.f + offy/2.f) ,Vec2(165.f, 150.f)};
+	Vec2 playerPageOnePos[] = { Vec2(165.f,1370.f), Vec2(480.f, 1370.f), Vec2(165.f,970.f), Vec2(480.f, 970.f) ,Vec2(165.f, 570.f) };
+	
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto node = GameCSLoader::createNode(String::createWithFormat("csb/player_%d.csb", i)->getCString());
-		this->addChild(node);
-		node->setPosition(pos[i]);
+		_playerScoreView->addChild(node);
+		node->setPosition(playerPageOnePos[i]);
 		_arrPlayers.pushBack(node);
 		_arrStartPos[i] = node->getPosition();
+		_arrStartPosInScreen[i] = node->convertToWorldSpaceAR(Vec2(0.f, 0.f));
 
-		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(i);
+		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(trueIdx[i]);
 		auto _pArmtr = GameArmtr::createRole(pArmInfo);
 		node->addChild(_pArmtr);
 		_pArmtr->setPosition(Vec2(-80.f, -110.f));
@@ -2376,13 +2389,13 @@ bool PlayersLayer::init()
 		wenpon->setPosition(Vec2(298.f, -45.f));
 		layout->addChild(tempnode);
 
-		auto pArmInfo2 = ParamMgr::getInstance()->getRoleArmtrInfo(i);
+		auto pArmInfo2 = ParamMgr::getInstance()->getRoleArmtrInfo(trueIdx[i]);
 		auto _pArmtr2 = GameArmtr::createRole(pArmInfo2);
 		tempnode->addChild(_pArmtr2);
 		_pArmtr2->setPosition(Vec2(-80.f, -110.f));
 		_pArmtr2->play(ArmtrName::ROLE_IDLE);
 		_playerArm2[i] = _pArmtr2;
-		tempnode->setPosition(pos[0] + Vec2(0.f, 100.f));
+		tempnode->setPosition(_arrStartPosInScreen[0] + Vec2(0.f, 100.f));
 		_scrollPlayersPageView->addPage(layout);
 		_vectorPlayerNode.push_back(tempnode);
 	}
@@ -2396,7 +2409,7 @@ bool PlayersLayer::init()
 
 void PlayersLayer::updataInfo()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		updataPlayerInfo(i);
 	}
@@ -2422,9 +2435,9 @@ void PlayersLayer::updataPlayerInfo(int i)
 	auto& wenpon = WeaponControl::getInstance()->getEquipWenpon(i);
 	int posidx = WeaponControl::getInstance()->getEquipPosIdx(i);
 	auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(i * 10 + posidx);
-
-	CrushUtil::changeWeapon(_playerArm[i], i, wenpon.id);
-	CrushUtil::changeWeapon(_playerArm2[i], i, wenpon.id);
+	
+	CrushUtil::changeWeapon(_playerArm[i], trueIdx[i], wenpon.id);
+	CrushUtil::changeWeapon(_playerArm2[i], trueIdx[i], wenpon.id);
 
 	if (lv >= ParamMgr::getInstance()->getPlayerMaxLv())
 	{
@@ -2452,7 +2465,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 	}
-	else if (i == 1)
+	else if (i == 1 || i == 4)
 	{
 		((ui::TextAtlas*)(temp->getChildByName("player_hp")))->setString(String::createWithFormat("%d", info.hp)->getCString());
 		((ui::TextAtlas*)(temp->getChildByName("player_defens")))->setString(String::createWithFormat("%d", info.dp)->getCString());
@@ -2665,7 +2678,7 @@ void PlayersLayer::equipCallBack(int i, int skillid, int action)
 
 void PlayersLayer::resetPos()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		_arrPlayers.at(i)->setPosition(_arrStartPos[i]);
 		auto wenpon = _arrPlayers.at(i)->getChildByName("wenpon_node");
@@ -2679,25 +2692,33 @@ void PlayersLayer::resetPos()
 
 void PlayersLayer::showChangeToOtherLayer(float dur)
 {
-	for (int i = 1; i < 4; i++)
-	{
-		auto temp = _arrPlayers.at(i)->getPosition() - _arrStartPos[0];
-		auto action = MoveBy::create(dur, temp * 3.f);
-		_arrPlayers.at(i)->runAction(Sequence::create(action, Hide::create(), nullptr));
-	}
-	_arrPlayers.at(0)->setPosition(_arrStartPos[0]);
-	auto action = MoveTo::create(dur/2.f, _arrStartPos[0] + Vec2(0.f, 100.f));
-	_arrPlayers.at(0)->runAction(Sequence::create(action, DelayTime::create(dur / 2.f), Hide::create(),CallFunc::create([this]() {
-		_scrollPlayersPageView->setCurPageIndex(0);
-		_scrollPlayersPageView->setVisible(true);
-	}), nullptr));
+	_playerScoreView->jumpToTop();
+	_playerScoreView->setTouchEnabled(false);
 
-	auto wenpon = _arrPlayers.at(0)->getChildByName("wenpon_node");
-	wenpon->setPosition(Vec2(-2.f, -230.f));
+	//auto actionchange = Sequence::createWithTwoActions(DelayTime::create(0.3f), CallFunc::create([=]() {
+		for (int i = 1; i < ParamData::ROLE_COUNT; i++)
+		{
+			auto temp = _arrPlayers.at(i)->getPosition() - _arrStartPos[0];
+			auto action = MoveBy::create(dur, temp * 3.f);
+			_arrPlayers.at(i)->runAction(Sequence::create(action, Hide::create(), nullptr));
+		}
+		_arrPlayers.at(0)->setPosition(_arrStartPos[0]);
+		auto action = MoveTo::create(dur / 2.f, _arrStartPos[0] + Vec2(0.f, 100.f));
+		_arrPlayers.at(0)->runAction(Sequence::create(action, DelayTime::create(dur / 2.f), Hide::create(), CallFunc::create([this]() {
+			_scrollPlayersPageView->setCurPageIndex(0);
+			_scrollPlayersPageView->setVisible(true);
+		}), nullptr));
 
-	auto actionright = EaseSineOut::create(MoveBy::create(dur / 2.f, Vec2(300.f, 0.f)));
-	auto actionup = EaseSineIn::create(MoveBy::create(dur / 2.f, Vec2(0.f, 185.f)));
-	wenpon->runAction(Sequence::createWithTwoActions(actionright, actionup));
+		auto wenpon = _arrPlayers.at(0)->getChildByName("wenpon_node");
+		wenpon->setPosition(Vec2(-2.f, -230.f));
+
+		auto actionright = EaseSineOut::create(MoveBy::create(dur / 2.f, Vec2(300.f, 0.f)));
+		auto actionup = EaseSineIn::create(MoveBy::create(dur / 2.f, Vec2(0.f, 185.f)));
+		wenpon->runAction(Sequence::createWithTwoActions(actionright, actionup));
+	//}));
+
+	//this->runAction(actionchange);
+	
 }
 
 void PlayersLayer::showChangeBackTo(float dur, int idx)
@@ -2710,7 +2731,7 @@ void PlayersLayer::showChangeBackTo(float dur, int idx)
 	auto actionup = EaseSineOut::create(MoveBy::create(dur / 2.f, Vec2(0.f, -185.f)));
 	wenpon->runAction(Sequence::createWithTwoActions(actionup, actionright));
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		if (idx == i)
 		{
@@ -2732,6 +2753,9 @@ void PlayersLayer::showChangeBackTo(float dur, int idx)
 	}
 	_scrollPlayersPageView->setVisible(false);
 	_scrollPlayersPageView->setCurPageIndex(0);
+
+	auto actionCanTouch = Sequence::createWithTwoActions(DelayTime::create(dur), CallFunc::create([=]() {_playerScoreView->setTouchEnabled(true); }));
+	this->runAction(actionCanTouch);
 }
 
 void PlayersLayer::setScoreShow(bool show)

@@ -44,6 +44,7 @@ public:
 	void initFightData();
 	void resetFightData();
 	void resetBarData();
+	void updateRoleId();
 
 	void placeRole(const Vec2 &newPos);
 	void moveToPos(int posIndex, float xDt, float dur, float bufferTime);
@@ -86,6 +87,8 @@ public:
 
 	void reliveCB(bool isSuccess);
 
+	int getRoleIdByPosIndex(int posIndex);
+
 	CC_SYNTHESIZE_READONLY(float, _curHp, CurHp);
 	CC_SYNTHESIZE_READONLY(float, _curDef, CurDef);
 //	CC_SYNTHESIZE_READONLY(float, _armorRecover, ArmorRecover);
@@ -109,12 +112,13 @@ private:
 	static Player *s_pInstance;
 	std::vector<Role *> _arrRoles;
 //	Vec2 _startPox;
-	PlayerInfo_T _arrRoleInfo[ParamData::ROLE_COUNT];
-	int _arrRoleSkillId[ParamData::ROLE_COUNT][3];	//0:normal att 1:super att 2:def
+	PlayerInfo_T _arrRoleInfo[ParamData::FIGHT_ROLE_COUNT];
+	int _arrRoleSkillId[ParamData::FIGHT_ROLE_COUNT][3];	//0:normal att 1:super att 2:def
 	RecoverInfo_T _arrRecoverInfo[4];	//0.hp 1.def 2.relive 3.shield
 //	ShieldInfo_T _shieldInfo;
 	GameArmtr *_pArmtrShield;
 	int _reliveTimes;
+	int _arrRoleId[ParamData::FIGHT_ROLE_COUNT];
 };
 
 #endif

@@ -31,7 +31,7 @@ public:
 	void doCleanStone();
 	void doRemove(float delayTime = 0.f, bool isCleanup = false);
 
-	void createFlyWeak(int weakId, int roleId, float param);
+	void createFlyWeak(int weakId, int roleIndex, float param);	//0.fire 1.boom 2.thunder
 
 	bool isCrushEffective();
 	bool isNeedDealBottom();

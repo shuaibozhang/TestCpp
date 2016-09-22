@@ -18,11 +18,11 @@ FlyWeak::~FlyWeak()
 {
 }
 
-FlyWeak * FlyWeak::create(int weakId, int roleId, float param)
+FlyWeak * FlyWeak::create(int weakId, int roleIndex, float param)
 {
 	FlyWeak *pRet = new FlyWeak();
 
-	if (nullptr != pRet && pRet->init(weakId, roleId, param))
+	if (nullptr != pRet && pRet->init(weakId, roleIndex, param))
 	{
 		pRet->autorelease();
 	}
@@ -35,7 +35,7 @@ FlyWeak * FlyWeak::create(int weakId, int roleId, float param)
 }
 
 
-bool FlyWeak::init(int weakId, int roleId, float param)
+bool FlyWeak::init(int weakId, int roleIndex, float param)
 {
 	bool bRet = false;
 
@@ -44,7 +44,7 @@ bool FlyWeak::init(int weakId, int roleId, float param)
 		CC_BREAK_IF(!Node::init());
 
 		_weakId = weakId;
-		_roleId = roleId;
+		_roleIndex = roleIndex;
 		_param = param;
 		
 		switch (_weakId)
@@ -88,23 +88,23 @@ void FlyWeak::update(float delta)
 		else if (0 == _weakId)
 		{
 			Player::getInstance()->doHurt(AttAttrbt_E::ATT_FIRE, _param);
-			Player::getInstance()->playStateAnim("buff_0", _roleId, 1);
+			Player::getInstance()->playStateAnim("buff_0", _roleIndex, 1);
 		}
 		else if (1 == _weakId)
 		{
-			if (0 == _roleId)
+			if (0 == _roleIndex)
 			{
 				Player::getInstance()->doHurt(AttAttrbt_E::ATT_FIRE, _param);
 			}
-			Player::getInstance()->playStateAnim("buff_0", _roleId, 1);
+			Player::getInstance()->playStateAnim("buff_0", _roleIndex, 1);
 		}
 		else if (2 == _weakId)
 		{
-			if (0 == _roleId)
+			if (0 == _roleIndex)
 			{
 				Player::getInstance()->doHurt(AttAttrbt_E::ATT_THUNDER, _param);
 			}
-			Player::getInstance()->playStateAnim("buff_2", _roleId, 1);
+			Player::getInstance()->playStateAnim("buff_2", _roleIndex, 1);
 		}
 
 		this->removeFromParent();
@@ -128,7 +128,7 @@ void FlyWeak::update(float delta)
 		}
 		else
 		{
-			desPos = Player::getInstance()->getCurRolePos(_roleId) + Vec2(0.f, 50.f);
+			desPos = Player::getInstance()->getCurRolePos(_roleIndex) + Vec2(0.f, 50.f);
 		}
 		Vec2 curPos = this->getPosition();
 		float fDist = curPos.getDistance(desPos);

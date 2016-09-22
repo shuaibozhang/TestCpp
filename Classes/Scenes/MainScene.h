@@ -216,8 +216,8 @@ private:
 
 	cocos2d::Node* _numInfoNode;
 
-	SkillLayer* _arrSkillLayer[4];
-	EquipLayer* _arrEquipLayer[4];
+	SkillLayer* _arrSkillLayer[ParamData::ROLE_COUNT];
+	EquipLayer* _arrEquipLayer[ParamData::ROLE_COUNT];
 
 	cocos2d::Sprite* _menubg;
 	cocos2d::Sprite* _selectLight;
@@ -437,12 +437,14 @@ public:
 private:
 	glui::GLPageView* _scrollPlayersPageView;
 	cocos2d::Vector<Node*> _arrPlayers;
-	cocos2d::Vec2 _arrStartPos[4];
+	cocos2d::Vec2 _arrStartPos[ParamData::ROLE_COUNT];
+	cocos2d::Vec2 _arrStartPosInScreen[ParamData::ROLE_COUNT];
 	cocos2d::Vec2 _wenPonNodePos;
 	cocos2d::Vec2 _wenPonNodeStartPos;
 	std::vector<cocos2d::Node*> _vectorPlayerNode;
-	GameArmtr* _playerArm[4];
-	GameArmtr* _playerArm2[4];
+	GameArmtr* _playerArm[ParamData::ROLE_COUNT];
+	GameArmtr* _playerArm2[ParamData::ROLE_COUNT];
+	ui::ScrollView* _playerScoreView;
 };
 
 class PageSelecter : public cocos2d::Node

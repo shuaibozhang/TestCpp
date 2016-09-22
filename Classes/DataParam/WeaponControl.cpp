@@ -9,7 +9,7 @@ WeaponControl* WeaponControl::_instance = nullptr;
 
 int WeaponControl::getWenponOwner(int wenponid)
 {
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		if (_arrWeaponControl[i].weaponid == wenponid)
 		{
@@ -58,7 +58,7 @@ WeaponControl * WeaponControl::getInstance()
 void WeaponControl::loadWeaponConfig()
 {
 	auto& vectorWenpon = ParamMgr::getInstance()->getWeaponVector();
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		WeaponControl_T temp;
 		temp.weaponid = vectorWenpon[i].id;
@@ -160,7 +160,7 @@ bool WeaponControl::checkIsEquipWeapon(int playidx, int skillidx)
 
 bool WeaponControl::checkIsEquipWeapon(int weaponidx)
 {
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		if (_arrWeaponControl[i].weaponid == weaponidx)
 		{
@@ -175,7 +175,7 @@ void WeaponControl::addNewWeapon(int skillid)
 {
 	//UserData::getInstance()->giveItem(String::createWithFormat("itemid_good_weapon_%d", skillid)->getCString(), 1);
 	int idx = -1;
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		if (_arrWeaponControl[i].weaponid == skillid)
 		{
@@ -202,7 +202,7 @@ void WeaponControl::addNewWeapon(int skillid)
 
 bool WeaponControl::isWeaponUnLock(int skillid)
 {
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < ParamData::WENPON_COUNT; i++)
 	{
 		if (_arrWeaponControl[i].weaponid == skillid)
 		{

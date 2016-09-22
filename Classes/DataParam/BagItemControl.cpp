@@ -216,6 +216,7 @@ void BagItemControl::init()
 	}
 	
 	int idx = 0;
+	// bei bao zhuangbei d wuping
 	for (auto&config : _bagEquipConfig)
 	{
 		config = UserData::getInstance()->getEquipConfig(idx);

@@ -68,6 +68,8 @@ const char* StoreAssetMgr::ITEMID_GOOD_REBORN_4 = "item_good_reborn4";
 const char* StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0 = "item_good_wpgift0";
 const char* StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1 = "item_good_wpgift1";
 
+const char* StoreAssetMgr::ITEMID_GOOD_PLAYER_4 = "item_good_player_4";
+
 StoreAssetMgr::StoreAssetMgr()
 {
 
