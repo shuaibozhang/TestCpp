@@ -3,6 +3,7 @@
 #include "VisibleRect.h"
 #include "GameMap.h"
 #include "NetDataMgr.h"
+#include "Player.h"
 
 DungeonInfo_T _arrDungeonInfo[3] = {
 	{ DUNGEON_GOLD ,{ 1,0,1,0,1,0,1 },{ 0,0,0,0,0,5,10,15 } },
@@ -167,7 +168,16 @@ bool DungeonMissionNode::initWithIdx(int idx)
 	_pMissionTextAtlas = static_cast<TextAtlas*>(_root->getChildByName("num"));
 
 	auto icon = static_cast<Sprite*>(_root->getChildByName("icon_mission"));
-	icon->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat("dungeon_icon_effect_%d.png", idx)->getCString()));
+	if (idx >= 0 && idx <= 3)
+	{
+		int roleId = Player::getInstance()->getRoleIdByPosIndex(idx);
+		icon->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat("dungeon_icon_player_%d.png", roleId)->getCString()));
+	}
+	else
+	{
+		icon->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat("dungeon_icon_effect_%d.png", idx)->getCString()));
+	}
+
 
 	return true;
 }

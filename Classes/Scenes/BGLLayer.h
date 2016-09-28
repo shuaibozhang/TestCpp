@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "cocostudio/CCArmature.h"
+#include "ParamData.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -59,11 +60,11 @@ private:
 
 	Vec2 _startPressPos;
 	int _curActionType;
-	int _tempNums[40];
-	ui::TextAtlas* _textTempNum[40];
+	int _tempNums[ParamData::WENPON_COUNT];
+	ui::TextAtlas* _textTempNum[ParamData::WENPON_COUNT];
 	int _curpageidx;
-	Button* _delBtns[40];
-	Sprite* _pagetTips[4];
+	Button* _delBtns[ParamData::WENPON_COUNT];
+	Sprite* _pagetTips[ParamData::ROLE_COUNT];
 	Rect _touchRect;
 	Armature* _mainArm;
 	ProgressTimer *_lhProgress;
@@ -72,10 +73,10 @@ private:
 	float _totalExp;
 	Vec2 _startpos;
 	Node* _upNode;
-	Node* _partsInfoNodes[40];
+	Node* _partsInfoNodes[ParamData::WENPON_COUNT];
 	Sprite* _selecIcon;
 	Vec2 _iconPosBak[10];
-	Node* _pageLayout[4];
+	Node* _pageLayout[ParamData::ROLE_COUNT];
 	Button* _btnall;
 };
 #endif

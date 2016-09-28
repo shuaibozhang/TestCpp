@@ -201,3 +201,117 @@ void MidAutumnLayer::updateBtns()
 		}
 	}
 }
+
+GuoqingLayer::GuoqingLayer()
+{
+}
+
+GuoqingLayer::~GuoqingLayer()
+{
+	SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("activitys/nationalday_ui.plist");
+}
+
+bool GuoqingLayer::init()
+{
+	LayerColor::init();
+
+	auto layer = LayerColor::create(Color4B(0, 0, 0, 188), 640.f, VisibleRect::top().y);
+	this->addChild(layer);
+
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+
+	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *unused_event) {return true; };
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	_pRoot = CSLoader::createNode("activitys/nationalday.csb");
+	this->addChild(_pRoot);
+	_pRoot->setPositionY((VisibleRect::top().y - 960.f) * 0.5f + 80.f);
+	
+	auto actionshow = EaseSineOut::create(MoveTo::create(0.3f, Vec2(0.f, (VisibleRect::top().y - 960.f) * 0.5f + 80.f)));
+	_pRoot->setPositionY(-VisibleRect::top().y + 100);
+	_pRoot->runAction(actionshow);
+
+	auto btncancle = static_cast<ui::Button*>(_pRoot->getChildByName("bt_close"));
+	btncancle->addTouchEventListener([=](Ref*, ui::Widget::TouchEventType type) {
+		if (type == ui::Widget::TouchEventType::ENDED)
+		{
+			this->removeFromParent();
+		}
+	});
+
+	auto btnbuy = static_cast<ui::Button*>(_pRoot->getChildByName("Button_1"));
+	btnbuy->addTouchEventListener([=](Ref*, ui::Widget::TouchEventType type) {
+		if (type == ui::Widget::TouchEventType::ENDED)
+		{
+			MainLayer::getCurMainLayer()->popBuyCry();
+			this->removeFromParent();
+		}
+	});
+
+	for (int i = 0; i < 4; i++)
+	{
+		auto name = String::createWithFormat("sub_bg_%d", i + 1)->getCString();
+
+		auto nodebtns = _pRoot->getChildByName("main_bg")->getChildByName(name);
+
+		_arrBtns[i] = static_cast<Button*>(nodebtns->getChildByName("bt_get_0"));
+		_arrBtns[i]->addTouchEventListener([=](Ref* ref, Widget::TouchEventType type) {
+			if (type != Widget::TouchEventType::ENDED)
+			{
+				return;
+			}
+
+			if (CommondActivityMagr::getInstance()->checkCanGetReward(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i) == 1)
+			{
+				CommondActivityMagr::getInstance()->getReward(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i);
+				updateBtns();
+			}
+		});
+
+		auto text = static_cast<Text*>(nodebtns->getChildByName("lack"));
+		int offnum = CommondActivityMagr::getInstance()->getTargetNumByNameAndIdx(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i) - CommondActivityMagr::getInstance()->getCurNumByNameAndIdx(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i);
+		text->setString(String::createWithFormat("%d", offnum)->getCString());
+		_arrOffNumText[i] = text;
+		_arrDesNumText[i] = static_cast<Text*>(nodebtns->getChildByName("task_fin_num_0")); 
+
+		_arrIcondes[i] = static_cast<Sprite*>(nodebtns->getChildByName("icon_0_0"));
+		_arrIconnum[i] = static_cast<Sprite*>(nodebtns->getChildByName("icon_0_0_0"));
+	}
+	updateBtns();
+	return true;
+}
+
+void GuoqingLayer::updateBtns()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (CommondActivityMagr::getInstance()->checkCanGetReward(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i) == 1)
+		{
+			_arrOffNumText[i]->setVisible(false);
+			_arrDesNumText[i]->setVisible(false);
+
+			_arrIcondes[i]->setPositionY(55.f);
+			_arrIconnum[i]->setPositionY(55.f);
+
+			_arrBtns[i]->setEnabled(true);				
+		}
+		else if (CommondActivityMagr::getInstance()->checkCanGetReward(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i) == 2)
+		{
+			_arrBtns[i]->setEnabled(false);			
+			_arrBtns[i]->getChildByName("word_0")->setVisible(false);
+
+			_arrOffNumText[i]->setVisible(false);
+			_arrDesNumText[i]->setVisible(false);
+
+			_arrIcondes[i]->setPositionY(55.f);
+			_arrIconnum[i]->setPositionY(55.f);
+
+		}
+		else if (CommondActivityMagr::getInstance()->checkCanGetReward(CommondActivityMagr::ACTIVITY_NAME_GUOQING, i) == 0)
+		{
+			_arrBtns[i]->setEnabled(false);	
+			_arrBtns[i]->setVisible(false);
+		}
+	}
+}

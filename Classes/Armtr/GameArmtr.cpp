@@ -11,10 +11,12 @@ const std::string ArmtrName::SKILL_NOR_ATT = "attack";
 const std::string ArmtrName::ROLE_STATE_ADD_DEF = "buff_6";
 const std::string ArmtrName::ROLE_STATE_ADD_HP = "buff_7";
 const std::string ArmtrName::ROLE_STATE_CLEAN = "buff_9";
-const std::string ArmtrName::ROLE_STATE_STRONG = "buff_8";
+const std::string ArmtrName::ROLE_STATE_ADD_LV = "buff_8";
 const std::string ArmtrName::ROLE_STATE_RELIVE = "buff_10";
 const std::string ArmtrName::ROLE_STATE_NARROW = "buff_4";
 const std::string ArmtrName::ROLE_STATE_CONFUSE = "buff_5";
+const std::string ArmtrName::ROLE_STATE_ABSORB_HP = "buff_11";
+const std::string ArmtrName::ROLE_STATE_ADD_ATT = "buff_12";
 
 const std::string ArmtrName::MONSTER_IDLE = "stand";
 const std::string ArmtrName::MONSTER_HURT = "hurt";

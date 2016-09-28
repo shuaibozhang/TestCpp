@@ -45,12 +45,14 @@
 #include "DungeonLayer.h"
 #include "Player.h"
 #include "Role.h"
+#include "PlayerMgr.h"
+#include "Defines.h"
 
 USING_NS_CC;
 using namespace glui;
 using namespace ui;
 
-static int trueIdx[] = { 0,1,2,3,1 };
+static int trueIdx[] = { 0,1,2,3,4};
 
 cocos2d::Scene * MainLayer::scene()
 {
@@ -111,7 +113,9 @@ MainLayer::MainLayer():_mainMenu(nullptr),
 	_timeLimitActivityText(nullptr),
 	_dayAcitvityBtn(nullptr),
 	_pTiliMaxIcon(nullptr),
-	_commondActivityBtn(nullptr)
+	_commondActivityBtn(nullptr),
+	_isNeedActivityReward(false),
+	_curTime(0)
 {
 	memset(_arrMenuItems, 0, sizeof(_arrMenuItems));
 	memset(_lightArr, 0, sizeof(_lightArr));
@@ -284,6 +288,12 @@ bool MainLayer::init()
 
 	NetDataMgr::getInstance()->updateRole(CC_CALLBACK_2(MainLayer::onUpdateSelfInfoCallback, this));
 
+#ifdef USING_TIME_MGR
+	this->schedule(CC_CALLBACK_1(MainLayer::timeMgrClick, this), 1, CC_REPEAT_FOREVER, 0, "timeMgrClickAction");
+#endif
+	/*float arr[4] = { 0.25,0.25,0.25,0.25 };
+	GameMap::getCurGameMap()->showResault(true, 100000, 100, arr);*/
+
 	return true;
 }
 
@@ -309,6 +319,11 @@ void MainLayer::onEnter()
 
 	updataGiftBtns();
 	updataDayActivityBtn();
+
+#ifdef USING_TIME_MGR
+	TimeMgr::getInstane()->fixTime();
+#endif
+	
 }
 
 void MainLayer::initMenus()
@@ -495,7 +510,7 @@ void MainLayer::menuCallback(cocos2d::Ref * pSender)
 		startMenuProtect(0.6f);
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		MainLayer::getCurMainLayer()->getCurPlayersLayer()->updataPlayerInfo(i);
 	}
@@ -529,6 +544,16 @@ void MainLayer::menuCallback(cocos2d::Ref * pSender)
 	}
 	else if (idx == MenuItem_E::MapItem)
 	{
+		if (PlayerMgr::getInstance()->getEquipCount() != ParamData::FIGHT_ROLE_COUNT)
+		{
+			GameUtils::toastTip("role_equip_info");
+			return;
+		}
+		else
+		{
+			Player::getInstance()->updateRoleId();
+		}
+
 		if (nullptr != GameGuideLayer::getInstance())
 		{
 			GameGuideLayer::getInstance()->guideStepEnd();
@@ -1236,7 +1261,7 @@ void MainLayer::initActivityInfo(int idx)
 
 void MainLayer::resetMarkPoint()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto sprite = static_cast<Sprite*>(_markNode->getChildByName(String::createWithFormat("mark_%d", i)->getCString()));
 		if (0 == i)
@@ -1685,7 +1710,18 @@ void MainLayer::enterMainLayer()
 		_achCountBg->setVisible(false);
 	}
 
-	if (_isNeedDaily)
+	if(_isNeedActivityReward)
+	{
+		int onlineDay = NetDataMgr::getInstance()->getOnlineDay();
+		if (onlineDay != -1)
+		{
+			auto pLayer = DailyRewardLayer::create(2, onlineDay);
+			this->addChild(pLayer, POP_Z);
+			_isNeedActivityReward = false;
+		}
+		
+	}
+	else if (_isNeedDaily)
 	{
 		auto pLayer = DailyRewardLayer::create();
 		this->addChild(pLayer, POP_Z);
@@ -1770,12 +1806,15 @@ void MainLayer::updataTopInfo()
 {
 	int hp = 0;
 	int dp = 0;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
-		auto& temp  = ParamMgr::getInstance()->getPlayerInfo(i, UserData::getInstance()->getPlayerCurLv(i));
-		hp += temp.hp;
-		dp += temp.dp;
-		dp += WeaponControl::getInstance()->getEquipWenpon(i).def;
+		if (PlayerMgr::getInstance()->getPlayerStage(i) == PLAYERSTAGE_ON)
+		{
+			auto& temp = ParamMgr::getInstance()->getPlayerInfo(i, UserData::getInstance()->getPlayerCurLv(i));
+			hp += temp.hp;
+			dp += temp.dp;
+			dp += WeaponControl::getInstance()->getEquipWenpon(i).def;
+		}	
 	}
 
 	_topHpAtlas->setString(String::createWithFormat("%d", hp)->getCString());
@@ -1857,6 +1896,7 @@ void MainLayer::getCurOnlineTime()
 			int sec = atoi(vectorNumString[4].c_str());
 
 			_curTime = hour * 60 * 60 + min * 60 + sec;
+			//_curOnlineBoxTime = day * 24 * 60 * 60 + hour * 60 * 60 + min * 60 + sec;
 			_getOnlineTime = true;
 		}
 	});
@@ -2074,6 +2114,13 @@ void MainLayer::touchAddBtn(Ref * btn, Widget::TouchEventType type)
 	}
 }
 
+void MainLayer::popBuyCry()
+{
+	auto layer = StoreLayer2::create();
+	this->addChild(layer, MainLayer_Z::POP_Z);
+	layer->jumpToPage(3);
+}
+
 void MainLayer::updataDayAndTimeGiftBtn()
 {
 	/*auto giftcurname = "store_daylimit_gift.png";
@@ -2156,6 +2203,32 @@ void MainLayer::initCommondActivity(int curday)
 	updataGiftBtns();
 }
 
+void MainLayer::initGuoqingActivity(int curday)
+{
+	_commondActivityBtn = GameButton::create("store_icon_jrjl.png", "", "", Widget::TextureResType::PLIST);
+	_rightBtnsNode->addChild(_commondActivityBtn);
+	_commondActivityBtn->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+		if (type != Widget::TouchEventType::ENDED)
+		{
+			return;
+		}
+
+		if (_curMenuIdx == -1 || _curMenuIdx == MenuItem_E::MapItem)
+		{
+			auto pLayer = GuoqingLayer::create();
+			this->addChild(pLayer, POP_Z);
+		}
+	});
+	_arrrRightBnts.push_back(_commondActivityBtn);
+	updataGiftBtns();
+}
+
+void MainLayer::popPurchaseLayer(std::string itemid, bool dirbuy)
+{
+	auto layer = PurchaseLayer::create(itemid, "", this, dirbuy);
+	this->addChild(layer, MainLayer_Z::POP_Z);
+}
+
 void MainLayer::clickAction(int click)
 {
 	bool opentimeneed = true;
@@ -2186,7 +2259,7 @@ void MainLayer::clickAction(int click)
 		_countdownNum[0]->setVisible(false);
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::BOX_LAYER_SEAT_COUNT; i++)
 	{
 		auto stage = UserData::getInstance()->getBoxLayerStage(i);
 		if (stage == 2)
@@ -2206,6 +2279,7 @@ void MainLayer::clickAction(int click)
 	if (_getOnlineTime)
 	{
 		_curTime++;
+		//_curOnlineBoxTime++;
 		if (checkCanFreeGetBox())
 		{
 			freegetneed = true;
@@ -2290,6 +2364,11 @@ void MainLayer::offlineClickAction(float dt)
 	
 }
 
+void MainLayer::timeMgrClick(float dt)
+{
+	TimeMgr::getInstane()->updataTime(dt);
+}
+
 
 void MainLayer::removeBoxTimeNode()
 {
@@ -2362,49 +2441,132 @@ bool PlayersLayer::init()
 	_playerScoreView->setClippingEnabled(true);
 
 	Vec2 pos[] = { Vec2(165.f, 800.f + offy), Vec2(480.f, 800.f + offy), Vec2(165.f, 390.f + offy/2.f), Vec2(480.f, 390.f + offy/2.f) ,Vec2(165.f, 150.f)};
-	Vec2 playerPageOnePos[] = { Vec2(165.f,1370.f), Vec2(480.f, 1370.f), Vec2(165.f,970.f), Vec2(480.f, 970.f) ,Vec2(165.f, 570.f) };
+	Vec2 playerPageOnePos[] = { Vec2(165.f,1370.f), Vec2(480.f, 1370.f), Vec2(165.f,920.f), Vec2(480.f, 920.f) ,Vec2(165.f, 520.f) };
 	
 	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
-		auto node = GameCSLoader::createNode(String::createWithFormat("csb/player_%d.csb", i)->getCString());
-		_playerScoreView->addChild(node);
-		node->setPosition(playerPageOnePos[i]);
-		_arrPlayers.pushBack(node);
-		_arrStartPos[i] = node->getPosition();
-		_arrStartPosInScreen[i] = node->convertToWorldSpaceAR(Vec2(0.f, 0.f));
+		auto playerrootnode = Node::create();
+		auto node = CSLoader::createNode(String::createWithFormat("csb/player_%d.csb", i)->getCString());
+		playerrootnode->addChild(node);	
+		playerrootnode->setPosition(playerPageOnePos[i]);
+		_playerScoreView->addChild(playerrootnode);
+		_arrStartPos[i] = playerrootnode->getPosition();
+		_arrStartPosInScreen[i] = playerrootnode->convertToWorldSpaceAR(Vec2(0.f, 0.f));
+
+		_arrEquipBtns[i] = static_cast<Button*>(node->getChildByName("equipbtn"));
+		_arrEquipBtns[i]->addTouchEventListener(CC_CALLBACK_2(PlayersLayer::menuOnPlayerEquip, this));
+		_arrEquipBtns[i]->setUserData((void*)i);
 
 		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(trueIdx[i]);
 		auto _pArmtr = GameArmtr::createRole(pArmInfo);
-		node->addChild(_pArmtr);
-		_pArmtr->setPosition(Vec2(-80.f, -110.f));
+		playerrootnode->addChild(_pArmtr, 2);
+		_pArmtr->setPosition(Vec2(-80.f, -110.f) + node->getPosition());
 		_pArmtr->play(ArmtrName::ROLE_IDLE);
 		_playerArm[i] = _pArmtr;
-//		_pArmtr->setScale(0.8f);
 
-		_vectorPlayerNode.push_back(node);
+		_arrPlayerNode[i] = node;
+		_rootPlayerNode[i] = playerrootnode;
+
+		if (PlayerMgr::getInstance()->getPlayerStage(i) == PLAYERSTAGE_LOCK)
+		{
+			_arrLockPlayerNode[i] = CSLoader::createNode(String::createWithFormat("csb/player_%d_buy.csb", i)->getCString());
+			auto buybtn = static_cast<Button*>(_arrLockPlayerNode[i]->getChildByName("equipbtn"));
+			buybtn->addTouchEventListener(CC_CALLBACK_2(PlayersLayer::menuOnPlayerBuy, this));
+			buybtn->setUserData((void*)i);
+			playerrootnode->addChild(_arrLockPlayerNode[i]);
+			//_arrLockPlayerNode[2 * i]->setPosition(playerPageOnePos[i]);
+			node->setVisible(false);
+		}
+		else
+		{
+			_arrLockPlayerNode[i] = nullptr;
+		}
+	
+		
 
 		auto layout = ui::Layout::create();
-		auto tempnode = GameCSLoader::createNode(String::createWithFormat("csb/player_%d.csb", i)->getCString());
+		auto tempnode = CSLoader::createNode(String::createWithFormat("csb/player_%d.csb", i)->getCString());
 		auto wenpon = tempnode->getChildByName("wenpon_node");
 		wenpon->setPosition(Vec2(298.f, -45.f));
 		layout->addChild(tempnode);
+		tempnode->setPosition(_arrStartPosInScreen[0] + Vec2(0.f, 100.f));
+		_scrollPlayersPageView->addPage(layout);
+		_arrPlayerNode2[i] = tempnode;
+
+		static_cast<Button*>(tempnode->getChildByName("equipbtn"))->setVisible(false);
 
 		auto pArmInfo2 = ParamMgr::getInstance()->getRoleArmtrInfo(trueIdx[i]);
 		auto _pArmtr2 = GameArmtr::createRole(pArmInfo2);
-		tempnode->addChild(_pArmtr2);
-		_pArmtr2->setPosition(Vec2(-80.f, -110.f));
+		layout->addChild(_pArmtr2, 2);
+		_pArmtr2->setPosition(Vec2(-80.f, -110.f) + tempnode->getPosition());
 		_pArmtr2->play(ArmtrName::ROLE_IDLE);
 		_playerArm2[i] = _pArmtr2;
-		tempnode->setPosition(_arrStartPosInScreen[0] + Vec2(0.f, 100.f));
-		_scrollPlayersPageView->addPage(layout);
-		_vectorPlayerNode.push_back(tempnode);
+		
+
+		if (PlayerMgr::getInstance()->getPlayerStage(i) == PLAYERSTAGE_LOCK)
+		{
+			_arrLockPlayerNode2[i] = CSLoader::createNode(String::createWithFormat("csb/player_%d_buy.csb", i)->getCString());
+			auto buybtn = static_cast<Button*>(_arrLockPlayerNode2[i]->getChildByName("equipbtn"));
+			buybtn->addTouchEventListener(CC_CALLBACK_2(PlayersLayer::menuOnPlayerBuy, this));
+			buybtn->setUserData((void*)i);
+			layout->addChild(_arrLockPlayerNode2[i]);
+			_arrLockPlayerNode2[i]->setPosition(_arrStartPosInScreen[0] + Vec2(0.f, 100.f));
+			tempnode->setVisible(false);
+
+
+		}
+		else
+		{
+			_arrLockPlayerNode2[i] = nullptr;
+		}
+
+		
+		
 	}
 
 	updataInfo();
 
 	this->setName("playerlayer");
 	WeaponControl::getInstance()->addWeaponListener(this, CC_CALLBACK_3(PlayersLayer::equipCallBack, this));
+	PlayerMgr::getInstance()->addPlayerStageChangeObserver(CC_CALLBACK_2(PlayersLayer::playerOnOffChangeCB, this));
+
+	updateEquipStage();
+
 	return true;
+}
+
+void PlayersLayer::updateEquipStage()
+{
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	{
+		updateEquipStage(i);
+	}
+}
+
+void PlayersLayer::updateEquipStage(int idx)
+{
+	auto stage = PlayerMgr::getInstance()->getPlayerStage(idx);
+	switch (stage)
+	{
+	case PLAYERSTAGE_ON:
+		_arrEquipBtns[idx]->loadTextures("main_player_off_0.png", "main_player_off_1.png", "", Widget::TextureResType::PLIST);
+		static_cast<Sprite*>(_arrEquipBtns[idx]->getChildByName("des"))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("main_text_ljxx.png"));
+		break;
+	case PLAYERSTAGE_OFF:
+		_arrEquipBtns[idx]->loadTextures("main_playeron_0.png", "main_playeron_1.png", "", Widget::TextureResType::PLIST);
+		static_cast<Sprite*>(_arrEquipBtns[idx]->getChildByName("des"))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("main_text_ljcz.png"));
+		break;
+	case PLAYERSTAGE_LOCK:
+		_arrPlayerNode[idx]->setVisible(false);
+		if (_arrLockPlayerNode[idx])
+		{
+			_arrLockPlayerNode[idx]->setVisible(true);
+		}
+		break;
+	default:
+		break;
+	}
+			
 }
 
 void PlayersLayer::updataInfo()
@@ -2424,8 +2586,8 @@ void PlayersLayer::updataInfo()
 
 void PlayersLayer::updataPlayerInfo(int i)
 {
-	auto temp = _vectorPlayerNode[2 * i];
-	auto temp2 = _vectorPlayerNode[2 * i + 1];
+	auto temp = _arrPlayerNode[i];
+	auto temp2 = _arrPlayerNode2[i];
 
 	auto wenponnode = temp->getChildByName("wenpon_node");
 	auto wenponnode2 = temp2->getChildByName("wenpon_node");
@@ -2540,8 +2702,8 @@ void PlayersLayer::updataPlayerInfo(int i)
 void PlayersLayer::showWenponInfo(int playerid, int wenponid)
 {
 	int i = playerid;
-	auto temp = _vectorPlayerNode[2 * i];
-	auto temp2 = _vectorPlayerNode[2 * i + 1];
+	auto temp = _arrPlayerNode[i];
+	auto temp2 = _arrPlayerNode2[i];
 
 	auto wenponnode = temp->getChildByName("wenpon_node");
 	auto wenponnode2 = temp2->getChildByName("wenpon_node");
@@ -2582,7 +2744,7 @@ void PlayersLayer::showWenponInfo(int playerid, int wenponid)
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 	}
-	else if (i == 1)
+	else if (i == 1 || i == 4)
 	{
 		((ui::TextAtlas*)(temp->getChildByName("player_hp")))->setString(String::createWithFormat("%d", info.hp)->getCString());
 		((ui::TextAtlas*)(temp->getChildByName("player_defens")))->setString(String::createWithFormat("%d", info.dp)->getCString());
@@ -2676,17 +2838,64 @@ void PlayersLayer::equipCallBack(int i, int skillid, int action)
 	}
 }
 
+void PlayersLayer::playerOnOffChangeCB(int playeridx, int action)
+{
+	updateEquipStage(playeridx);
+	MainLayer::getCurMainLayer()->updataTopInfo();
+	if (action == 2)
+	{
+		int idx = playeridx;
+		if (_arrLockPlayerNode[idx])
+		{
+			_arrLockPlayerNode[idx]->setVisible(false);
+			_arrPlayerNode[idx]->setVisible(true);
+		}
+
+		if (_arrLockPlayerNode2[idx])
+		{
+			_arrLockPlayerNode2[idx]->setVisible(false);
+			_arrPlayerNode2[idx]->setVisible(true);
+		}
+
+		updataPlayerInfo(playeridx);
+	}
+}
+
+void PlayersLayer::menuOnPlayerEquip(Ref* ref, Widget::TouchEventType type)
+{
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		int idx = int(((Node*)ref)->getUserData());
+		PlayerMgr::getInstance()->switchStage(idx);
+	}
+}
+
+void PlayersLayer::menuOnPlayerBuy(Ref * ref, Widget::TouchEventType type)
+{
+	if (type == Widget::TouchEventType::ENDED)
+	{
+		int idx = int(((Node*)ref)->getUserData());
+		if (idx == 4)
+		{
+			MainLayer::getCurMainLayer()->popPurchaseLayer(StoreAssetMgr::ITEMID_GOOD_PLAYER_4, true);
+		}
+	}
+}
+
 void PlayersLayer::resetPos()
 {
 	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
-		_arrPlayers.at(i)->setPosition(_arrStartPos[i]);
-		auto wenpon = _arrPlayers.at(i)->getChildByName("wenpon_node");
+		_rootPlayerNode[i]->setPosition(_arrStartPos[i]);
+		auto wenpon = _arrPlayerNode[i]->getChildByName("wenpon_node");
 		wenpon->setPosition(Vec2(-2.f, -230.f));
-		_arrPlayers.at(i)->setVisible(true);
+
+		_rootPlayerNode[i]->setVisible(true);
+		
 		_scrollPlayersPageView->setVisible(false);
 	}
 	_scrollPlayersPageView->setCurPageIndex(0);
+	_playerScoreView->setTouchEnabled(true);
 }
 
 
@@ -2698,18 +2907,18 @@ void PlayersLayer::showChangeToOtherLayer(float dur)
 	//auto actionchange = Sequence::createWithTwoActions(DelayTime::create(0.3f), CallFunc::create([=]() {
 		for (int i = 1; i < ParamData::ROLE_COUNT; i++)
 		{
-			auto temp = _arrPlayers.at(i)->getPosition() - _arrStartPos[0];
-			auto action = MoveBy::create(dur, temp * 3.f);
-			_arrPlayers.at(i)->runAction(Sequence::create(action, Hide::create(), nullptr));
+			auto temp = _rootPlayerNode[i]->getPosition() - _arrStartPos[0];
+			auto action = MoveBy::create(dur, temp * 4.f);
+			_rootPlayerNode[i]->runAction(Sequence::create(action, Hide::create(), nullptr));
 		}
-		_arrPlayers.at(0)->setPosition(_arrStartPos[0]);
+		_rootPlayerNode[0]->setPosition(_arrStartPos[0]);
 		auto action = MoveTo::create(dur / 2.f, _arrStartPos[0] + Vec2(0.f, 100.f));
-		_arrPlayers.at(0)->runAction(Sequence::create(action, DelayTime::create(dur / 2.f), Hide::create(), CallFunc::create([this]() {
+		_rootPlayerNode[0]->runAction(Sequence::create(action, DelayTime::create(dur / 2.f), Hide::create(), CallFunc::create([this]() {
 			_scrollPlayersPageView->setCurPageIndex(0);
 			_scrollPlayersPageView->setVisible(true);
 		}), nullptr));
 
-		auto wenpon = _arrPlayers.at(0)->getChildByName("wenpon_node");
+		auto wenpon = _arrPlayerNode[0]->getChildByName("wenpon_node");
 		wenpon->setPosition(Vec2(-2.f, -230.f));
 
 		auto actionright = EaseSineOut::create(MoveBy::create(dur / 2.f, Vec2(300.f, 0.f)));
@@ -2723,10 +2932,9 @@ void PlayersLayer::showChangeToOtherLayer(float dur)
 
 void PlayersLayer::showChangeBackTo(float dur, int idx)
 {
-	auto wenpon = _arrPlayers.at(idx)->getChildByName("wenpon_node");
+	auto wenpon = _arrPlayerNode[idx]->getChildByName("wenpon_node");
 	wenpon->setPosition(_wenPonNodePos);
 
-	//auto actionright = EaseSineIn::create(MoveBy::create(dur / 2.f, Vec2(-300.f, 0.f)));
 	auto actionright =MoveBy::create(dur / 2.f, Vec2(-300.f, 0.f));
 	auto actionup = EaseSineOut::create(MoveBy::create(dur / 2.f, Vec2(0.f, -185.f)));
 	wenpon->runAction(Sequence::createWithTwoActions(actionup, actionright));
@@ -2735,21 +2943,21 @@ void PlayersLayer::showChangeBackTo(float dur, int idx)
 	{
 		if (idx == i)
 		{
-			_arrPlayers.at(idx)->setPosition(_arrStartPos[0] + Vec2(0.f, 100.f));
+			_rootPlayerNode[i]->setPosition(_arrStartPos[0] + Vec2(0.f, 100.f));
 		}
 		else
 		{
-			auto wenpon = _arrPlayers.at(i)->getChildByName("wenpon_node");
+			auto wenpon = _arrPlayerNode[i]->getChildByName("wenpon_node");
 			wenpon->setPosition(_wenPonNodeStartPos);
 
 			auto temp = _arrStartPos[i] - _arrStartPos[idx];
-			auto pos = _arrStartPos[idx] + 3 * temp;
-			_arrPlayers.at(i)->setPosition(pos);
+			auto pos = _arrStartPos[idx] + 4 * temp;
+			_rootPlayerNode[i]->setPosition(pos);
 		}
 
 		auto action =MoveTo::create(dur / 2.f, _arrStartPos[i]);
-		_arrPlayers.at(i)->runAction(Sequence::createWithTwoActions(DelayTime::create(dur/2.f), action));
-		_arrPlayers.at(i)->setVisible(true);
+		_rootPlayerNode[i]->runAction(Sequence::createWithTwoActions(DelayTime::create(dur/2.f), action));
+		_rootPlayerNode[i]->setVisible(true);
 	}
 	_scrollPlayersPageView->setVisible(false);
 	_scrollPlayersPageView->setCurPageIndex(0);
@@ -2761,9 +2969,9 @@ void PlayersLayer::showChangeBackTo(float dur, int idx)
 void PlayersLayer::setScoreShow(bool show)
 {
 	_scrollPlayersPageView->setVisible(show);
-	for (auto temp : _arrPlayers)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
-		temp->setVisible(!show);
+		_arrPlayerNode[i]->setVisible(!show);
 	}
 }
 
@@ -3500,7 +3708,7 @@ void EquipLayer::showUpdataWeapon()
 					MagPieMgr::getInstance()->addFinishedMagPieGoalNum(MagPieMgr::_MagPieTaskNameIdx::WEAPON, 1);
 				}
 
-				UserData::getInstance()->saveUserData();
+				
 
 				freshenUpadtaLayer();
 
@@ -3509,7 +3717,9 @@ void EquipLayer::showUpdataWeapon()
 				
 				MainLayer::getCurMainLayer()->getCurPlayersLayer()->showWenponInfo(_idx, _arrWeaponid[_selectIdx]);
 
-				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYWENPONUP);
+				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYWENPONUP, 1, false);
+
+				UserData::getInstance()->saveUserData();
 			}
 			else
 			{
@@ -4023,7 +4233,7 @@ bool BagLayer::init()
 			}
 		}
 	}
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 	{
 		auto itemid = BagItemControl::getInstace()->getEquipItemsByIdx(i);
 		if (itemid != -1)
@@ -4122,7 +4332,7 @@ bool BagLayer::init()
 		}
 	});*/
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 	{
 		_arrArrows[i] = (Sprite*)_rootLayer->getChildByName(String::createWithFormat("arrow_%d", i)->getCString());
 		_arrArrows[i]->setVisible(false);
@@ -4145,7 +4355,7 @@ void BagLayer::onEnter()
 	Layer::onEnter();
 	auto offy = VisibleRect::top().y - 960.f;
 	auto trueoffy = (offy * 0.5f);
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 	{
 		auto posNode = _rootLayer->getChildByName(String::createWithFormat("equip_%d", i)->getCString());
 		_equipRectInWorld[i].origin = posNode->getPosition() + Vec2(-45.f, -45.f + trueoffy);
@@ -4174,7 +4384,7 @@ void BagLayer::onEnter()
 		}
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 	{
 		auto &temp = _vectorEquipPlayerItems[i];
 		if (_flagEquip[i] == 1)
@@ -4232,7 +4442,7 @@ bool BagLayer::onTouchBegan(Touch * touch, Event * unusedEvent)
 			if(BagItemControl::getInstace()->checkItemType(_vectorPlayerItems[_curpageidx][_touchItemsIdx].itemid) == 0)
 			//if (_vectorPlayerItems[_curpageidx][_touchItemsIdx].itemid >= 1000)
 			{
-				for (int i = 0; i < 4; i++)
+				for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 				{
 					_arrArrows[i]->setVisible(true);
 				}
@@ -4274,7 +4484,7 @@ bool BagLayer::onTouchBegan(Touch * touch, Event * unusedEvent)
 			if(BagItemControl::getInstace()->checkItemType(_vectorEquipPlayerItems[_touchItemsIdx - g_onepagetnum].itemid) == 0)
 			//if (_vectorEquipPlayerItems[_touchItemsIdx - g_onepagetnum].itemid >= 1000)
 			{
-				for (int i = 0; i < 4; i++)
+				for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 				{
 					_arrArrows[i]->setVisible(true);
 				}
@@ -4341,7 +4551,7 @@ void BagLayer::onTouchEnded(Touch * touch, Event * unusedEvent)
 {
 	if (_touchItemsIdx < g_onepagetnum && _touchItemsIdx >=0)
 	{
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 		{
 			_arrArrows[i]->setVisible(false);
 		}
@@ -4398,7 +4608,7 @@ void BagLayer::onTouchEnded(Touch * touch, Event * unusedEvent)
 	}
 	else if (_touchItemsIdx >= g_onepagetnum)
 	{
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 		{
 			_arrArrows[i]->setVisible(false);
 		}
@@ -5250,7 +5460,24 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 			updataDayAndTimeGiftBtn();
 		}
 
-		if (!UserData::getInstance()->getIsGotDailyReward(6))
+		//activity
+		int srcDay = JRTime::getDayInYear(2016, 6, 12);
+		int startday = JRTime::compareTheDay(2016, srcDay, 2016, JRTime::getDayInYear(2016, 10, 1));
+		int curactivitydayidx = onlineDay - startday;
+
+		if (curactivitydayidx >= 0 && curactivitydayidx < 7)
+		{
+			if (!GameMap::getCurGameMap()->isInFight())//not in fight
+			{
+				auto pLayer = DailyRewardLayer::create(2, onlineDay);
+				this->addChild(pLayer, POP_Z);
+			}
+			else
+			{
+				_isNeedActivityReward = true;
+			}
+		}
+		else if (!UserData::getInstance()->getIsGotDailyReward(6))
 		{
 			if (!GameMap::getCurGameMap()->isInFight())//not in fight
 			{
@@ -5536,29 +5763,32 @@ void MainLayer::onCheckCodeCallback(HttpClient * client, HttpResponse * response
 
 	if (checkRet == 200)
 	{
-		if (codeType >= 1 && codeType < 4 || 5 == codeType || 6 == codeType)
+		if (codeType >= ExchangeType_E::EXCHANGE_LV_1 && codeType < ExchangeType_E::EXCHANGE_COUNT)
 		{
-			if (UserData::getInstance()->getIsExchange(codeType-1))
+			if (codeType != ExchangeType_E::EXCHANGE_DIAMOND)
 			{
-				GameUtils::toastTip(3);
+				if (UserData::getInstance()->getIsExchange(codeType - 1))
+				{
+					GameUtils::toastTip(3);
+				}
+				else
+				{
+					std::vector<PopItemInfo_T> arrItems;
+					CrushUtil::getExchangeReward(codeType, arrItems);
+					auto pPop = PopRewardLayer::create(arrItems, 2);
+					this->addChild(pPop, 100);
+
+					UserData::getInstance()->setIsExchange(codeType - 1, true);
+					UserData::getInstance()->saveUserData(true);
+				}
 			}
-			else
+			else if (ExchangeType_E::EXCHANGE_DIAMOND == codeType)
 			{
 				std::vector<PopItemInfo_T> arrItems;
 				CrushUtil::getExchangeReward(codeType, arrItems);
 				auto pPop = PopRewardLayer::create(arrItems, 2);
 				this->addChild(pPop, 100);
-
-				UserData::getInstance()->setIsExchange(codeType - 1, true);
-				UserData::getInstance()->saveUserData(true);
 			}
-		}
-		else if (4 == codeType)
-		{
-			std::vector<PopItemInfo_T> arrItems;
-			CrushUtil::getExchangeReward(codeType, arrItems);
-			auto pPop = PopRewardLayer::create(arrItems, 2);
-			this->addChild(pPop, 100);
 		}
 	}
 	else

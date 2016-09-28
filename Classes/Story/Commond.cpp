@@ -50,7 +50,7 @@ void PlayerSayCommond::execute()
 	text2->setColor(Color3B(0xc9, 0xa1, 0x53));
 	text2->setTextAreaSize(Size(600.f, 100.f));
 	
-	if (_playeridx >= 0 && _playeridx <= 3)
+	if (_playeridx >= 0 && _playeridx <= 4)
 	{
 		text2->setString(string("      ") + _sayContext);
 

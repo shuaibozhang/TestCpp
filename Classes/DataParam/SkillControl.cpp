@@ -223,7 +223,6 @@ SkillControl_T & SkillControl::getPlayerSkillInfo(int skillid)
 			}
 		}
 	}
-
 	CCASSERT(0, "canot find skill in this player");
 }
 

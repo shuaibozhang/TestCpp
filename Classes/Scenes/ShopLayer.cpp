@@ -27,6 +27,7 @@
 #include "platBridge/cocos2dx_analyze.h"
 #include "MagPieMgr.h"
 #include "DayActiveMgr.h"
+#include "Player.h"
 
 using namespace cocos2d;
 
@@ -213,9 +214,11 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 				_vectorSellISkillsSp.push_back(temp);
 			}
 
+			removeUnequipPlayerSkill();
+
 			for (int i = 0; i < 4; i++)
 			{
-				_vectorSellItems.push_back(shopinfo[shopidx]._skillsconfig[i]);
+				_vectorSellItems.push_back(_vectorSellISkillsSp[i]);
 			}
 		}
 		else
@@ -388,7 +391,8 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 
 	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
-		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(i);
+		int roleId = Player::getInstance()->getRoleIdByPosIndex(i);
+		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(roleId);
 		auto _pArmtr = GameArmtr::createRole(pArmInfo);
 		_rootLayer->addChild(_pArmtr);
 		_pArmtr->setPosition(posarr[i]);
@@ -396,8 +400,8 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 
 		_playerAni[i] = _pArmtr;
 
-		auto& wenpon = WeaponControl::getInstance()->getEquipWenpon(i);
-		CrushUtil::changeWeapon(_pArmtr, i, wenpon.id);
+		auto& wenpon = WeaponControl::getInstance()->getEquipWenpon(roleId);
+		CrushUtil::changeWeapon(_pArmtr, roleId, wenpon.id);
 	}
 
 	/*_btnChangePageR = GameButton::create("jiantou_0.png", "", "", Widget::TextureResType::PLIST);
@@ -494,7 +498,6 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 		ScaleTo::create(1.f, 0.98f), ScaleTo::create(1.f, 1.0f)
 		));
 	role->runAction(actionscale);
-	removeUnequipPlayerSkill();
 	updataSkillSp();
 
 	return true;
@@ -1121,7 +1124,7 @@ bool ItemsShop::onTouchBegan(Touch * touch, Event * unusedEvent)
 			auto info = SkillControl::getInstance()->getPlayerSkillInfo(itemid);
 			for (int i = 0; i < 4; i++)
 			{
-				if (i == info.owner)
+				if (Player::getInstance()->getRoleIdByPosIndex(i) == info.owner)
 				{
 					_playerAni[i]->play("win", -1, 1);
 				}
@@ -1137,7 +1140,7 @@ bool ItemsShop::onTouchBegan(Touch * touch, Event * unusedEvent)
 
 			for (int i = 0; i < 4; i++)
 			{
-				if (i == owner)
+				if (Player::getInstance()->getRoleIdByPosIndex(i) == owner)
 				{
 					_playerAni[i]->play("win", -1, 1);
 				}
@@ -1520,702 +1523,6 @@ void ItemsShop::hideItemInfo()
 	}
 }
 
-bool StoreLayer::init()
-{
-
-	_lastTimeState[0] = -1;
-	_lastTimeState[1] = -1;
-
-	_lastListIdx = -1;
-
-	Layer::init();
-
-	ArmatureDataManager::getInstance()->addArmatureFileInfo("effect/texteffect.ExportJson");
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/storeui.plist");
-
-	auto _touchOneByOneListener = EventListenerTouchOneByOne::create();
-	_touchOneByOneListener->setSwallowTouches(true);
-	_touchOneByOneListener->onTouchBegan = [](cocos2d::Touch*, cocos2d::Event*) {return true; };
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(_touchOneByOneListener, this);
-
-	auto off = VisibleRect::top().y - 960.f;
-
-	_root = GameCSLoader::createNode("csb/storelayer.csb");
-	this->addChild(_root);
-
-
-	static_cast<ui::ImageView*>(_root->getChildByName("mainbg"))->setContentSize(Size(640.f, VisibleRect::top().y));
-	_root->getChildByName("titlebg")->setPositionY(VisibleRect::top().y - 70.f);
-
-	for (int i = 0; i < 3; i++)
-	{
-		auto list = _root->getChildByName(String::createWithFormat("list_%d", i)->getCString());
-		list->setPositionY(VisibleRect::top().y - 180.f);
-		list->setContentSize(Size(640.f, 600.f + off));
-		_listview[i] = (ListView*)list;
-	}
-	
-
-	_hour_0 = static_cast<TextAtlas*>(_root->getChildByName("countdown_0")->getChildByName("hour"));
-	_hour_1 = static_cast<TextAtlas*>(_root->getChildByName("countdown_1")->getChildByName("hour"));
-
-	_min_0 = static_cast<TextAtlas*>(_root->getChildByName("countdown_0")->getChildByName("min"));
-	_min_1 = static_cast<TextAtlas*>(_root->getChildByName("countdown_1")->getChildByName("min"));
-
-	_timedanwei[0] = static_cast<Sprite*>(_root->getChildByName("countdown_0")->getChildByName("text_xs_31"));
-	_timedanwei[1] = static_cast<Sprite*>(_root->getChildByName("countdown_0")->getChildByName("text_fz_32"));
-	_timedanwei[2] = static_cast<Sprite*>(_root->getChildByName("countdown_1")->getChildByName("text_xs_31"));
-	_timedanwei[3] = static_cast<Sprite*>(_root->getChildByName("countdown_1")->getChildByName("text_fz_32"));
-
-	_texttouch_0 = static_cast<Sprite*>(_root->getChildByName("touch_0"));
-	_texttouch_1 = static_cast<Sprite*>(_root->getChildByName("touch_1"));
-
-	_timeNode0 = _root->getChildByName("countdown_0");
-	_timeNode1 = _root->getChildByName("countdown_1");
-
-	_ani0 = Armature::create("texteffect");
-	_ani0->getAnimation()->play("text_0");
-	this->addChild(_ani0);
-	_ani0->setPosition(_texttouch_0->getPosition());
-	_ani0->getAnimation()->setSpeedScale(0.6f);
-	
-	_ani1 = Armature::create("texteffect");
-	_ani1->getAnimation()->play("text_1");
-	this->addChild(_ani1);
-	_ani1->setPosition(_texttouch_1->getPosition());
-	_ani1->getAnimation()->setSpeedScale(0.6f);
-
-	auto actionlight = RepeatForever::create(RotateBy::create(10.f, 360.f));
-
-	auto light0 = _root->getChildByName("box_bg_2_22");
-	auto light1 = _root->getChildByName("box_bg_2_23");
-	light0-> runAction(actionlight);
-	light1->runAction(actionlight->clone());
-
-	light0->setVisible(false);
-	light1->setVisible(false);
-
-	auto action = Sequence::createWithTwoActions(DelayTime::create(1.f), CallFunc::create([=]() {		
-		click();
-	}));
-
-	this->runAction(RepeatForever::create(action));
-
-	static_cast<Button*>(_root->getChildByName("touchget_0"))->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
-		if (type == Widget::TouchEventType::ENDED)
-		{
-			auto main = MainLayer::getCurMainLayer();
-			auto node0 = MainLayer::getCurMainLayer()->getTimeNode(0);
-			if (node0->getDur() > 0)
-			{
-				return;
-			}
-
-			int lv[] = {0,6,11,21,31,41};
-			int goldstart[] = { 50, 80, 120, 200, 400, 1000 };
-			int goldadd[] = {6, 8, 6, 10, 40, 25};
-
-			int playerlv = 0;
-			for (int i = 0; i < 4; i++)
-			{
-				int curlv = UserData::getInstance()->getPlayerCurLv(i);
-				if (curlv > playerlv)
-				{
-					playerlv = curlv;
-				}
-			}
-
-			int idx = 0;
-			for (int i = 3; i >= 0; i--)
-			{
-				if (playerlv>= lv[i])
-				{
-					idx = i;
-				}
-			}
-
-			int rewardgold = goldstart[idx] + (playerlv - lv[idx])*goldadd[idx];
-			showLBoxReward(rewardgold);
-			node0->setDur(3 * 60 * 60);
-
-		}
-	});
-
-	static_cast<Button*>(_root->getChildByName("touchget_1"))->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
-		if (type == Widget::TouchEventType::ENDED)
-		{
-			auto main = MainLayer::getCurMainLayer();
-			auto node1 = MainLayer::getCurMainLayer()->getTimeNode(1);
-			if (node1->getDur() > 0)
-			{
-				return;
-			}
-
-			int lv[] = { 0,6,11,21,31,41 };
-
-			int playerlv = 0;
-			for (int i = 0; i < 4; i++)
-			{
-				int curlv = UserData::getInstance()->getPlayerCurLv(i);
-				if (curlv > playerlv)
-				{
-					playerlv = curlv;
-				}
-			}
-
-			int idx = 0;
-			for (int i = 3; i >= 0; i--)
-			{
-				if (playerlv >= lv[i])
-				{
-					idx = i;
-				}
-			}
-
-			
-			showRBoxReward(idx);	
-			node1->setDur(12 * 60 * 60);
-
-		}
-	});
-
-	auto btncancle = static_cast<Button*>(_root->getChildByName("btn_cancle"));
-	btncancle->setPositionY(VisibleRect::top().y - 110.f);
-	btncancle->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
-		if (type == Widget::TouchEventType::ENDED)
-		{
-			MainLayer::getCurMainLayer()->enterMainLayer();
-			this->removeFromParent();
-		}
-	});
-
-	auto titlebg = _root->getChildByName("titlebg");
-	for (int i = 0; i < 3; i++)
-	{
-		_btnList[i] = static_cast<Button*>(titlebg->getChildByName(String::createWithFormat("btn_%d", i)->getCString()));
-		//_btnList[i]->setUserData((void*)(i));
-		_spriteBtnName[i] = static_cast<Sprite*>(titlebg->getChildByName(String::createWithFormat("text_%d", i)->getCString()));
-		_btnList[i]->addTouchEventListener([=](Ref* btn, Widget::TouchEventType type) {
-			if (type == Widget::TouchEventType::ENDED)
-			{
-				//auto idx = (int)(((Node*)(btn))->getUserData());
-				switchList(i);
-			}
-		});
-	}
-
-	click();
-
-	switchList(0);
-	updateListSuit(0);
-	for (int i = 0; i < 4; i++)
-	{
-		auto btn = static_cast<Button*>(_listview[0]->getChildByName(String::createWithFormat("root_%d", i)->getCString())->getChildByName("btn_buy"));
-		btn->setUserData((void*)(&g_list_item_0[i]));
-		btn->addTouchEventListener(CC_CALLBACK_2(StoreLayer::buttonTouchCallback, this));
-	}
-
-	if (_listview[0]->getChildByName("root_4"))
-	{
-		auto btn = static_cast<Button*>(_listview[0]->getChildByName(String::createWithFormat("root_%d", 4)->getCString())->getChildByName("btn_buy"));
-		btn->setUserData((void*)(&g_list_item_0[4]));
-		btn->addTouchEventListener(CC_CALLBACK_2(StoreLayer::buttonTouchCallback, this));
-	}
-
-
-	for (int i = 0; i < 7; i++)
-	{
-		auto btn = static_cast<Button*>(_listview[1]->getChildByName(String::createWithFormat("root_%d", i)->getCString())->getChildByName("btn_buy"));
-		btn->setUserData((void*)(&g_list_item_1[i]));
-		btn->addTouchEventListener(CC_CALLBACK_2(StoreLayer::buttonTouchCallback, this));
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		auto btn = static_cast<Button*>(_listview[2]->getChildByName(String::createWithFormat("root_%d", i)->getCString())->getChildByName("btn_buy"));
-		btn->setUserData((void*)(&g_list_item_2[i]));
-		btn->addTouchEventListener(CC_CALLBACK_2(StoreLayer::buttonTouchCallback, this));
-	}
-
-	//upDataWenponSuit(3);
-	return true;
-}
-
-void StoreLayer::switchTimeShow(int idx, bool showtime)
-{
-	if (idx == 0)
-	{
-		_texttouch_0->setVisible(!showtime);
-		_timeNode0->setVisible(showtime);
-		_ani0->setVisible(!showtime);
-
-		auto light0 = _root->getChildByName("box_bg_2_22");
-		light0->setVisible(!showtime);
-	}
-	else if (idx == 1)
-	{
-		_texttouch_1->setVisible(!showtime);
-		_timeNode1->setVisible(showtime);
-		_ani1->setVisible(!showtime);
-
-		auto light1 = _root->getChildByName("box_bg_2_23");		
-		light1->setVisible(!showtime);
-	}
-}
-
-void StoreLayer::updateTimePic(int idx, int hour)
-{
-	int state = hour > 0 ? 1 : 0;
-
-	if (_lastTimeState[idx] == state)
-	{
-		return;
-	}
-
-	if (idx == 0)
-	{
-		if (hour >0)
-		{
-			_timedanwei[0]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_xs.png"));
-			_timedanwei[1]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_fz.png"));
-			_lastTimeState[idx] = 1;
-		}
-		else
-		{
-			_timedanwei[1]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_m.png"));
-			_timedanwei[0]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_fz.png"));
-			_lastTimeState[idx] = 0;
-		}
-	}
-	else
-	{
-		if (hour > 0)
-		{
-			_timedanwei[2]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_xs.png"));
-			_timedanwei[3]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_fz.png"));
-			_lastTimeState[idx] = 1;
-		}
-		else
-		{
-			_timedanwei[3]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_m.png"));
-			_timedanwei[2]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("text_fz.png"));
-			_lastTimeState[idx] = 0;
-		}
-	}
-}
-
-void StoreLayer::click()
-{
-	auto main = MainLayer::getCurMainLayer();
-	auto node0 = MainLayer::getCurMainLayer()->getTimeNode(0);
-	auto node1 = MainLayer::getCurMainLayer()->getTimeNode(1);
-
-	auto time0 = node0->getDur();
-	auto time1 = node1->getDur();
-
-	if (time0 < 0)
-	{
-		switchTimeShow(0, false);
-	}
-	else
-	{
-		int hour = time0 / 3600;
-		int min = time0 % 3600 / 60;
-		int sec = time0 % (60);
-
-		updateTimePic(0, hour);
-		switchTimeShow(0, true);
-		if (_lastTimeState[0] == 1)
-		{
-			_hour_0->setString(String::createWithFormat("%02d", hour)->getCString());
-			_min_0->setString(String::createWithFormat("%02d", min)->getCString());
-		}
-		else
-		{
-			_hour_0->setString(String::createWithFormat("%02d", min)->getCString());
-			_min_0->setString(String::createWithFormat("%02d", sec)->getCString());
-		}
-	}
-
-
-	if (time1 < 0)
-	{
-		switchTimeShow(1, false);
-	}
-	else
-	{
-		int hour = time1 / 3600;
-		int min = time1 % 3600 / 60;
-		int sec = time1 % (60);
-
-		updateTimePic(1, hour);
-		switchTimeShow(1, true);
-
-		if (_lastTimeState[1] == 1)
-		{
-			_hour_1->setString(String::createWithFormat("%02d", hour)->getCString());
-			_min_1->setString(String::createWithFormat("%02d", min)->getCString());
-		}
-		else
-		{
-			_hour_1->setString(String::createWithFormat("%02d", min)->getCString());
-			_min_1->setString(String::createWithFormat("%02d", sec)->getCString());
-		}
-	}
-}
-
-void StoreLayer::switchList(int idx)
-{
-	if (_lastListIdx == idx)
-	{
-		return;
-	}
-
-	_lastListIdx = idx;
-
-	for (int i = 0; i < 3; i++)
-	{
-		if (i == idx)
-		{
-			_listview[i]->setVisible(true);
-			_btnList[i]->loadTextures("store_titlebg_1.png", "", "", Widget::TextureResType::PLIST);
-			_spriteBtnName[i]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(g_btntextname[i * 2 + 1]));
-		}
-		else
-		{
-			_listview[i]->setVisible(false);
-			_btnList[i]->loadTextures("store_titlebg_0.png", "", "", Widget::TextureResType::PLIST);
-			_spriteBtnName[i]->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(g_btntextname[i * 2]));
-		}
-	}
-}
-
-void StoreLayer::updateListSuit(int idx)
-{
-	auto root = _listview[0]->getChildByName("root_4");
-	
-	if (!root)
-	{
-		return;
-	}
-
-	const char* name[4] = { "lsj_jian_%02d.png","cbd_dun_%02d.png","lqc_biao_%02d.png","sqy_hua_%02d.png" };
-	ImageView* item[4] = { 0 };
-	for (int i = 0; i < 4; i++)
-	{
-		item[i] = static_cast<ImageView*>(root->getChildByName(String::createWithFormat("item_%d", i)->getCString()));
-	}
-
-	auto title = static_cast<Sprite*>(root->getChildByName("store_text_title_0.png"));
-
-	if (checkAllWenponLv(9))
-	{
-		root->removeFromParent();
-	}
-
-	if (checkAllWenponLv(7))
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			
-			item[i]->loadTexture(String::createWithFormat(name[i], 10)->getCString(),Widget::TextureResType::PLIST);
-		}
-		g_list_item_0[4] = StoreAssetMgr::ITEMID_GOOD_WENPONPACK_4;
-		_wenponlistidx = 4;
-	}
-	else if (checkAllWenponLv(5))
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			item[i]->loadTexture(String::createWithFormat(name[i], 8)->getCString(), Widget::TextureResType::PLIST);
-		}
-		g_list_item_0[4] = StoreAssetMgr::ITEMID_GOOD_WENPONPACK_3;
-		_wenponlistidx = 3;
-	}
-	else if (checkAllWenponLv(3))
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			item[i]->loadTexture(String::createWithFormat(name[i], 6)->getCString(), Widget::TextureResType::PLIST);
-		}
-		g_list_item_0[4] = StoreAssetMgr::ITEMID_GOOD_WENPONPACK_2;
-		_wenponlistidx = 2;
-	}
-	else if(checkAllWenponLv(1))
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			item[i]->loadTexture(String::createWithFormat(name[i], 4)->getCString(), Widget::TextureResType::PLIST);
-		}
-		g_list_item_0[4] = StoreAssetMgr::ITEMID_GOOD_WENPONPACK_1;
-		_wenponlistidx = 1;
-	}
-	else
-	{
-		g_list_item_0[4] = StoreAssetMgr::ITEMID_GOOD_WENPONPACK_0;
-		_wenponlistidx = 0;
-	}
-}
-
-bool StoreLayer::checkAllWenponLv(int wenponlv)
-{
-	int startid = 500;
-	for (int i = 0; i < 4; i++)
-	{
-		auto isunlock = WeaponControl::getInstance()->isWeaponUnLock(startid + 10 * i + wenponlv);
-		auto isinbag = BagItemControl::getInstace()->isInBag(startid + 10 * i + wenponlv);
-		if (isunlock == false && isinbag == false)
-		{
-			return false;
-		}
-	}
-	return true;
-}
-
-void StoreLayer::buttonTouchCallback(Ref * btn, ui::Widget::TouchEventType type)
-{
-	if (type != Widget::TouchEventType::ENDED)
-	{
-		return;
-	}
-	auto name = *((std::string*)(((Node*)(btn))->getUserData()));
-
-	auto layer = PurchaseLayer::create(name, "", this, true);
-	this->addChild(layer);
-}
-
-void StoreLayer::showLBoxReward(int gold)
-{
-	std::vector<PopItemInfo_T> arrItems;
-	PopItemInfo_T tmp;
-	tmp.itemId = ParamData::GOLD_ITEM_ID;
-	tmp.itemCount = gold;
-
-	arrItems.push_back(tmp);
-
-	auto pPop = PopRewardLayer::create(arrItems);
-	this->addChild(pPop, 100);
-}
-
-void StoreLayer::showRBoxReward(int idx)
-{
-	int itemid[][3][2] = {
-		{
-			{ 1000, 3 },{ 1001, 3 },{ 1008, 3 }
-		},
-		{
-			{ 1000, 5 },{ 1001, 6 },{ 1008, 5 }
-		},
-		{
-			{ 1002, 3 },{ 1003, 4 },{ 1009, 3 }
-		},
-		{
-			{ 1002, 5 },{ 1003, 6 },{ 1010, 3 }
-		},
-		{
-			{ 1005, 3 },{ 1006, 4 },{ 1011, 3 }
-		},
-		{
-			{ 1005, 3 },{ 1006, 4 },{ 1012, 3 }
-		},
-	};
-	std::vector<PopItemInfo_T> arrItems;
-
-	for (int i = 0; i < 3; i++)
-	{
-		PopItemInfo_T tmp;
-		tmp.itemId = itemid[idx][i][0];
-		tmp.itemCount = itemid[idx][i][1];
-
-		arrItems.push_back(tmp);
-	}
-
-	auto pPop = PopRewardLayer::create(arrItems);
-	this->addChild(pPop, 100);
-}
-
-void StoreLayer::menuBuyCallback(std::string itemid, bool succeed)
-{
-	if (succeed)
-	{
-		updateListSuit(0);
-
-		if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_ITEMPACK_0) == 0 || itemid.compare(StoreAssetMgr::ITEMID_GOOD_ITEMPACK_1) == 0 || itemid.compare(StoreAssetMgr::ITEMID_GOOD_ITEMPACK_2) == 0)
-		{
-			cocos2dx_plat::showToast(ResMgr::getInstance()->getString("pop_toast_0")->getCString());
-		}
-		else
-		{
-			showNewGet();
-		}
-		
-	}
-}
-
-void StoreLayer::upDataWenponSuit(int idx)
-{
-	bool needchange = true;
-	std::string wenponname[4] = { "lsj_jian_%02d.png", "cbd_dun_%02d.png", "lqc_biao_%02d.png", "sqy_hua_%02d.png" };
-
-	for (int i = 0; i < 4; i++)
-	{
-		if (WeaponControl::getInstance()->isWeaponUnLock(500 + i * 10 + g_wenponidx[idx]))
-		{
-
-		}
-		else
-		{
-			needchange = false;
-			break;
-		}
-	}
-
-	if (needchange)
-	{
-		static_cast<ImageView*>(_listview[0]->getChildByName("root_4")->getChildByName("item_0"))->loadTexture(String::createWithFormat(wenponname[0].c_str(), g_wenponidx[idx])->getCString(), Widget::TextureResType::PLIST);
-		static_cast<ImageView*>(_listview[0]->getChildByName("root_4")->getChildByName("item_0"))->loadTexture(String::createWithFormat(wenponname[1].c_str(), g_wenponidx[idx])->getCString(), Widget::TextureResType::PLIST);
-		static_cast<ImageView*>(_listview[0]->getChildByName("root_4")->getChildByName("item_0"))->loadTexture(String::createWithFormat(wenponname[2].c_str(), g_wenponidx[idx])->getCString(), Widget::TextureResType::PLIST);
-		static_cast<ImageView*>(_listview[0]->getChildByName("root_4")->getChildByName("item_0"))->loadTexture(String::createWithFormat(wenponname[3].c_str(), g_wenponidx[idx])->getCString(), Widget::TextureResType::PLIST);
-	}
-	else
-	{
-		idx = idx--;
-		
-		if (idx < 0)
-		{
-			return;
-		}
-
-		upDataWenponSuit(idx);
-	}
-
-}
-
-void StoreLayer::showNewGet()
-{
-	int cur = BagItemControl::getInstace()->getNeedShowItemOne();
-	if (cur != -1)
-	{
-		auto layer = LayerColor::create(Color4B(0, 0, 0, 188), 640.f, VisibleRect::top().y);
-		this->addChild(layer, 5);
-
-		auto textbg = Sprite::createWithSpriteFrameName("mainui_wenpontext_bg.png");
-		layer->addChild(textbg);
-		textbg->setPosition(Vec2(320.f, VisibleRect::top().y / 2));
-		textbg->setScale(0.7f);
-
-		auto effectsp = Sprite::createWithSpriteFrameName("effect_com_light.png");
-		layer->addChild(effectsp);
-		effectsp->setPosition(Vec2(320.f, VisibleRect::top().y / 2.f + 180.f));
-		auto actionrotate = RepeatForever::create(RotateBy::create(5.f, -360.f));
-		effectsp->runAction(actionrotate);
-
-		int playeridx = 0;
-		std::string name;
-		std::string get;
-		std::string itemname;
-
-		std::string title;
-		if (BagItemControl::getInstace()->checkItemType(cur) == 1)
-		{
-			playeridx = SkillControl::getInstance()->getSkillOwnerBySkillid(cur);
-			get = ResMgr::getInstance()->getString("getnewskill")->getCString();
-			title = ResMgr::getInstance()->getString("getnewskilltitle")->getCString();
-		}
-		else
-		{
-			//warming 500 is the start id of wenponid
-			playeridx = (cur - 500) / 10;
-			get = ResMgr::getInstance()->getString("getneww")->getCString();
-			title = ResMgr::getInstance()->getString("getnewwtitle")->getCString();
-		}
-
-		name = ResMgr::getInstance()->getString(String::createWithFormat("player_%d", playeridx)->getCString())->getCString();
-
-		ComInfo_T temp;
-		ParamMgr::getInstance()->getComGameItemInfo(cur, temp);
-
-		itemname = temp.name;
-
-		auto richtextCur = RichText::create();
-		auto temp0 = RichElementText::create(0, Color3B(145, 80, 39), 255, name, "", 24);
-		auto temp1 = RichElementText::create(0, Color3B(), 255, get, "", 24);
-		auto temp2 = RichElementText::create(0, Color3B(145, 80, 39), 255, itemname, "", 24);
-
-		richtextCur->pushBackElement(temp0);
-		richtextCur->pushBackElement(temp1);
-		richtextCur->pushBackElement(temp2);
-
-		richtextCur->setPosition(Vec2(320.f, VisibleRect::top().y / 2 - 15.f));
-		layer->addChild(richtextCur);
-
-		auto texttitle = Text::create();
-		layer->addChild(texttitle);
-		texttitle->setString(title);
-		texttitle->setFontSize(30);
-		texttitle->setPosition(Vec2(320.f, VisibleRect::top().y / 2 + 45.f));
-		texttitle->setTextColor(Color4B(129, 77, 0, 255));
-
-		auto sprite = Sprite::createWithSpriteFrameName(temp.picname);
-		layer->addChild(sprite);
-		sprite->setPosition(Vec2(320.f, VisibleRect::top().y / 2.f + 180.f));
-
-		auto listener = EventListenerTouchOneByOne::create();
-		listener->setSwallowTouches(true);
-		listener->onTouchBegan = [=](Touch * touch, Event * unusedEvent) {
-			int nextidx = BagItemControl::getInstace()->getNeedShowItemOne();
-			if (nextidx != -1)
-			{
-				ComInfo_T tempnext;
-				ParamMgr::getInstance()->getComGameItemInfo(nextidx, tempnext);
-				sprite->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(tempnext.picname));
-
-				int playeridx = 0;
-				std::string name;
-				std::string get;
-				std::string itemname;
-				std::string title;
-				if (BagItemControl::getInstace()->checkItemType(nextidx) == 1)
-				{
-					playeridx = SkillControl::getInstance()->getSkillOwnerBySkillid(nextidx);
-					get = ResMgr::getInstance()->getString("getnewskill")->getCString();
-					title = ResMgr::getInstance()->getString("getnewskilltitle")->getCString();
-				}
-				else
-				{
-					//warming 500 is the start id of wenponid
-					playeridx = (nextidx - 500) / 10;
-					get = ResMgr::getInstance()->getString("getneww")->getCString();
-					title = ResMgr::getInstance()->getString("getnewwtitle")->getCString();
-				}
-
-				name = ResMgr::getInstance()->getString(String::createWithFormat("player_%d", playeridx)->getCString())->getCString();
-				texttitle->setString(title);
-
-				itemname = tempnext.name;
-
-				auto temp0 = RichElementText::create(0, Color3B(145, 80, 39), 255, name, "", 24);
-				auto temp1 = RichElementText::create(0, Color3B(), 255, get, "", 24);
-				auto temp2 = RichElementText::create(0, Color3B(145, 80, 39), 255, itemname, "", 24);
-
-				richtextCur->removeElement(2);
-				richtextCur->removeElement(1);
-
-				richtextCur->pushBackElement(temp0);
-				richtextCur->pushBackElement(temp1);
-				richtextCur->pushBackElement(temp2);
-
-				richtextCur->removeElement(0);
-			}
-			else
-			{
-				layer->removeFromParent();
-			}
-
-			return true;
-		};
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, layer);
-	}
-}
 
 bool StoreLayer2::init()
 {
@@ -2604,7 +1911,7 @@ void StoreLayer2::menuOnPageOneBtns(Ref * ref, Widget::TouchEventType type)
 			enough = true;
 			UserData::getInstance()->giveCrystal(-info.price);
 
-			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYZUANSHI);
+			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYZUANSHI, 1, false);
 		}
 		else
 		{
@@ -2615,7 +1922,7 @@ void StoreLayer2::menuOnPageOneBtns(Ref * ref, Widget::TouchEventType type)
 	if (enough)
 	{
 		UserData::getInstance()->setStorePageStage(btnidx, 0);
-		DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYITEMS);
+		
 		/*	auto type = BagItemControl::getInstace()->checkItemType(info.itemid);
 			if (type == 3)
 			{
@@ -2633,15 +1940,14 @@ void StoreLayer2::menuOnPageOneBtns(Ref * ref, Widget::TouchEventType type)
 					BagItemControl::getInstace()->addBagItem(info.itemid);
 				}
 			}*/
+		DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYITEMS, 1, false);
 
 		auto layer = PopRewardLayer::create(info.itemid, info.num);
 		this->addChild(layer, 10);
 		//layer->showRewardTitle(0);
 		auto analyItemid = string("hotstore_") + String::createWithFormat("%d", info.itemid)->getCString();
 		cocos2dx_analyze::buy(analyItemid.c_str(), 1, 0);
-		MagPieMgr::getInstance()->addFinishedMagPieGoalNum(MagPieMgr::_MagPieTaskNameIdx::SHOPING, 1);
-
-		UserData::getInstance()->saveUserData();
+		MagPieMgr::getInstance()->addFinishedMagPieGoalNum(MagPieMgr::_MagPieTaskNameIdx::SHOPING, 1);		
 
 		if (UserData::getInstance()->getStorePageStage(btnidx) > 0)
 		{
@@ -2816,9 +2122,9 @@ void StoreLayer2::freshenItems(bool changids)
 	auto& items = ParamMgr::getInstance()->getStorePageOneItems();
 	auto& config = ParamMgr::getInstance()->getStoreOneConfig();
 	
-	std::vector<int> arrPlayerWenponId[4];
+	std::vector<int> arrPlayerWenponId[ParamData::ROLE_COUNT];
 	
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		WeaponControl::getInstance()->getPlayerUnlockWenponIds(i, arrPlayerWenponId[i]);
 	}
@@ -2841,16 +2147,16 @@ void StoreLayer2::freshenItems(bool changids)
 
 		if (changids || _storeItemCurIdx[i] < WeaponControl::s_weaponStartIdx)
 		{
-			if (i >= 1 && i <= 4)
+			if (i >= 1 && i <= 5)
 			{
 				int selectidx = ToolsUtil::getRandomInt(0, ((int)arrPlayerWenponId[i - 1].size() - 1));
 				int wenponid = arrPlayerWenponId[i - 1].at(selectidx);
 				UserData::getInstance()->setStorePageItemid(i, wenponid);
 				_storeItemCurIdx[i] = wenponid;
 			}
-			else if (i == 5 || i == 6)
+			else if (i == 6)
 			{
-				int playerid = ToolsUtil::getRandomInt(0, 3);
+				int playerid = ToolsUtil::getRandomInt(0, ParamData::ROLE_COUNT - 1);
 				int wenponid = arrPlayerWenponId[playerid].back();
 				UserData::getInstance()->setStorePageItemid(i, wenponid);
 				_storeItemCurIdx[i] = wenponid;
@@ -3258,8 +2564,8 @@ void StoreLayer2::showItemInfo(int itemid, int btnidx)
 //std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_TIMEGIFT, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_2, StoreAssetMgr::ITEMID_GOOD_DAYGIFT };
 //Button* g_bntGift[4] = { 0 };
 
-std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, StoreAssetMgr::ITEMID_GOOD_DAYGIFT };
-Button* g_bntGift[3] = { 0 };
+std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, StoreAssetMgr::ITEMID_GOOD_DAYGIFT,StoreAssetMgr::ITEMID_GOOD_PLAYER_4 };
+Button* g_bntGift[4] = { 0 };
 
 bool GiftLayer::init()
 {
@@ -3299,7 +2605,7 @@ bool GiftLayer::init()
 	auto list = static_cast<ListView*>(_root->getChildByName("ListView_1"));
 	list->setPositionY(list->getPositionY() + offy);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		auto keyStr = String::createWithFormat("btn_%d", i)->getCString();
 
@@ -3310,6 +2616,19 @@ bool GiftLayer::init()
 		g_bntGift[i] = btnbuy;
 
 		_giftNodes.pushBack(btnbuy);
+
+		if (i == 3)
+		{
+			auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(4);
+			auto _pArmtr = GameArmtr::createRole(pArmInfo);
+			_pArmtr->play(ArmtrName::ROLE_IDLE);
+			auto& wenpon = WeaponControl::getInstance()->getEquipWenpon(4);
+			CrushUtil::changeWeapon(_pArmtr, 4, wenpon.id);
+
+			btnbuy->addChild(_pArmtr);
+			_pArmtr->setPosition(Vec2(95.f, 8.f));
+			//_pArmtr->setScale(0.8f);
+		}
 	}
 	/*for (int i = 0; i < 3; i++)
 	{
@@ -3347,7 +2666,7 @@ void GiftLayer::updateBtns()
 			}
 		}
 	}*/
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (_giftNodes.at(i)->getParent() != nullptr)
 		{
@@ -3361,19 +2680,24 @@ void GiftLayer::updateBtns()
 		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(idx));
 	}
 #else
-	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0) == 0)
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, false) == 0)
 	{
 		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(0));
 	}
 
-	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1) == 0 && UserData::getInstance()->getIsBossPass(32) == 1)
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, false) == 0 && UserData::getInstance()->getIsBossPass(32) == 1)
 	{
 		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(1));
 	}
 #endif
 	
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_PLAYER_4) == 0)
+	{
+		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(3));
+	}
 
 	_root->getChildByName("ListView_1")->addChild(_giftNodes.at(2));
+	
 }
 
 

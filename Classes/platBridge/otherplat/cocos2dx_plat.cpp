@@ -62,11 +62,12 @@ std::string cocos2dx_plat::getonlineTime( void )
 	auto sec = JRTime::getCurSecInMin();
 //	static char a[50];
 	char a[50] = {0};
-	sprintf(a, "%d-%d-%d-%d-%d", yera, day, hour, min, sec);
+	sprintf(a, "%d-%d-%d-%d-%d", yera, day + 11, hour, min, sec);
 
 	string ret(a);
 
 	return ret;
+	//return "error";
 }
 
 

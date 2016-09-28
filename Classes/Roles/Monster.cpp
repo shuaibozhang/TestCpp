@@ -24,6 +24,9 @@
 #include "Defines.h"
 #include "FightUtil.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+static int s_monsterCount = 0;
+#endif
 
 Monster::Monster()
 	:_isDead(false),
@@ -37,7 +40,9 @@ Monster::Monster()
 	_pDialog(nullptr),
 	_isBoxChange(false)
 {
-//	memset((void *)_arrWeakInfo, 0, sizeof(_arrWeakInfo));
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	s_monsterCount++;
+#endif
 }
 
 Monster::~Monster()
@@ -50,6 +55,13 @@ Monster::~Monster()
 	{
 		GameLayer::getInstance()->setBossHp(0.f, 0.f);
 	}
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	s_monsterCount--;
+	if (0 == s_monsterCount)
+	{
+		int a=0;
+	}
+#endif
 }
 
 Monster * Monster::create(int id, int posIndex)
@@ -147,7 +159,7 @@ bool Monster::init(int id, int posIndex)
 		}
 		else
 		{
-			pShadow->setScaleX(fScale / 0.2f);
+			pShadow->setScaleX(fScale * _pMonsterInfo->designSize);
 		}
 		pShadow->setOpacity(255 * 0.8f);
 
@@ -163,23 +175,26 @@ bool Monster::doRound()
 {
 	if (!_isDead)
 	{
-		_curRound--;
-		_pRound->setCurRound(_curRound);
-
-		if (0 == _curRound)
+		if (!this->isDrug())
 		{
-			bool bRet = true;
-			auto pCurAttInfo = _pMonsterInfo->arrAttInfo.at(_curAttIndex);
-			int attAnimId = this->getAnimId(pCurAttInfo.attId);
+			_curRound--;
+			_pRound->setCurRound(_curRound);
 
-			if (-2 == attAnimId)
+			if (0 == _curRound)
 			{
-				bRet = false;
+				bool bRet = true;
+				auto pCurAttInfo = _pMonsterInfo->arrAttInfo.at(_curAttIndex);
+				int attAnimId = this->getAnimId(pCurAttInfo.attId);
+
+				if (-2 == attAnimId)
+				{
+					bRet = false;
+				}
+
+				this->startAtt();
+
+				return bRet;
 			}
-
-			this->startAtt();
-
-			return bRet;
 		}
 	}
 
@@ -195,6 +210,12 @@ void Monster::startAtt()
 bool Monster::doHurtByRole(float damage, int attribute, int round, float attrParam)
 {
 	GameLayer::getInstance()->addCombo();
+
+	if (Player::getInstance()->getAttBuff() > 0.f)
+	{
+		damage *= Player::getInstance()->getAttBuff();
+	}
+
 	return doHurt(damage, attribute, round, attrParam);
 }
 
@@ -224,7 +245,8 @@ bool Monster::doHurt(float damage, int attribute, int round, float attrParam)
 			FightLayer::getInstance()->showFightTips(tipType, pDefAttrbtInfo->defId, this->getPosition());
 		}
 
-		if (AttAttrbt_E::ATT_NORMAL != attribute && 0 != round)// && 0.f != pDefAttrbtInfo->hurt
+		if (AttAttrbt_E::ATT_NORMAL != attribute && 0 != round && AttAttrbt_E::ATT_ABSORB_HP != attribute
+			&& !(nullptr != pDefAttrbtInfo && AttAttrbt_E::ATT_DRUG == attribute))// && 0.f != pDefAttrbtInfo->hurt
 		{
 			bool isFound = false;
 			for (int i = 0; i < _arrWeakInfo.size(); i++)
@@ -259,6 +281,12 @@ bool Monster::doHurt(float damage, int attribute, int round, float attrParam)
 
 				_arrWeakInfo.push_back(weakInfo);
 			}
+		}
+
+		if (-101.f == attrParam && (AttAttrbt_E::ATT_NORMAL == attribute || AttAttrbt_E::ATT_ABSORB_HP == attribute))
+		{
+			float *pDamage = (float *)(round);
+			*pDamage = MIN(factDamage, _hp);
 		}
 
 		if (AttAttrbt_E::ATT_NORMAL != attribute)
@@ -299,7 +327,10 @@ bool Monster::doHurt(float damage, int attribute, int round, float attrParam)
 			hpBar->runAction(actionbar);
 		}
 
-		FightLayer::getInstance()->showValueChange(1, -factDamage, this->getPosition());
+		if (AttAttrbt_E::ATT_DRUG != attribute)
+		{
+			FightLayer::getInstance()->showValueChange(1, -factDamage, this->getPosition());
+		}
 
 		
 		if (1 == _pMonsterInfo->type)
@@ -781,6 +812,20 @@ bool Monster::isAttNear(int attId)
 	int tmp = attId / 100;
 
 	return (0 == tmp || 3 == tmp);
+}
+
+bool Monster::isDrug()
+{
+	for (int i = _arrWeakInfo.size() - 1; i >= 0; i--)
+	{
+		MonsterWeakInfo_T *pInfo = &(_arrWeakInfo.at(i));
+		
+		if (AttAttrbt_E::ATT_DRUG == pInfo->attribute && pInfo->curRound > 0)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 int Monster::getAnimId(int attId)

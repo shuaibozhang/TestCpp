@@ -7,7 +7,7 @@
             <key>wuqi/cbd_dun_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{71,489},{70,86}}</string>
+                <string>{{393,393},{70,86}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,11 +20,11 @@
             <key>wuqi/cbd_dun_10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{384,495},{53,78}}</string>
+                <string>{{293,451},{53,78}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{53,78}}</string>
                 <key>sourceSize</key>
@@ -33,7 +33,7 @@
             <key>wuqi/cbd_dun_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{143,481},{66,94}}</string>
+                <string>{{465,393},{66,94}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>wuqi/cbd_dun_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{413,155},{66,94}}</string>
+                <string>{{465,260},{66,94}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>wuqi/cbd_dun_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{177,579},{63,91}}</string>
+                <string>{{413,328},{63,91}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,11 +72,11 @@
             <key>wuqi/cbd_dun_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{309,228},{56,98}}</string>
+                <string>{{293,393},{56,98}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{56,98}}</string>
                 <key>sourceSize</key>
@@ -85,7 +85,7 @@
             <key>wuqi/cbd_dun_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{121,577},{54,75}}</string>
+                <string>{{761,227},{54,75}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>wuqi/cbd_dun_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{65,577},{54,75}}</string>
+                <string>{{761,150},{54,75}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>wuqi/cbd_dun_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{270,575},{52,77}}</string>
+                <string>{{709,361},{52,77}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,11 +124,11 @@
             <key>wuqi/cbd_dun_9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{321,417},{59,80}}</string>
+                <string>{{561,267},{59,80}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{59,80}}</string>
                 <key>sourceSize</key>
@@ -137,7 +137,7 @@
             <key>wuqi/cbd_wuqi_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{203,353},{111,65}}</string>
+                <string>{{694,128},{111,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +150,7 @@
             <key>wuqi/cbd_wuqi_10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,548},{104,61}}</string>
+                <string>{{2,394},{104,61}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -163,7 +163,7 @@
             <key>wuqi/cbd_wuqi_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{71,367},{120,65}}</string>
+                <string>{{119,234},{120,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,11 +176,11 @@
             <key>wuqi/cbd_wuqi_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{127,234},{125,63}}</string>
+                <string>{{324,147},{125,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{125,63}}</string>
                 <key>sourceSize</key>
@@ -189,11 +189,11 @@
             <key>wuqi/cbd_wuqi_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,237},{128,57}}</string>
+                <string>{{451,201},{128,57}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{128,57}}</string>
                 <key>sourceSize</key>
@@ -202,11 +202,11 @@
             <key>wuqi/cbd_wuqi_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{192,234},{117,63}}</string>
+                <string>{{293,277},{117,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{117,63}}</string>
                 <key>sourceSize</key>
@@ -215,7 +215,7 @@
             <key>wuqi/cbd_wuqi_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{257,229},{103,50}}</string>
+                <string>{{65,394},{103,50}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -228,7 +228,7 @@
             <key>wuqi/cbd_wuqi_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{211,466},{111,56}}</string>
+                <string>{{117,393},{111,56}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -241,11 +241,11 @@
             <key>wuqi/cbd_wuqi_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{340,74},{122,71}}</string>
+                <string>{{324,74},{122,71}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{122,71}}</string>
                 <key>sourceSize</key>
@@ -254,11 +254,11 @@
             <key>wuqi/cbd_wuqi_9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{138,361},{118,63}}</string>
+                <string>{{293,212},{118,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{118,63}}</string>
                 <key>sourceSize</key>
@@ -267,11 +267,11 @@
             <key>wuqi/lqc_wuqi_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{437,594},{48,49}}</string>
+                <string>{{412,277},{48,49}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{48,49}}</string>
                 <key>sourceSize</key>
@@ -280,7 +280,7 @@
             <key>wuqi/lqc_wuqi_10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{439,540},{52,52}}</string>
+                <string>{{763,360},{52,52}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -293,7 +293,7 @@
             <key>wuqi/lqc_wuqi_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{324,568},{61,55}}</string>
+                <string>{{594,72},{61,55}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -306,7 +306,7 @@
             <key>wuqi/lqc_wuqi_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{317,499},{65,67}}</string>
+                <string>{{694,241},{65,67}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -319,7 +319,7 @@
             <key>wuqi/lqc_wuqi_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{367,223},{89,87}}</string>
+                <string>{{547,328},{89,87}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -332,11 +332,11 @@
             <key>wuqi/lqc_wuqi_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{446,368},{69,62}}</string>
+                <string>{{638,349},{69,62}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{69,62}}</string>
                 <key>sourceSize</key>
@@ -345,11 +345,11 @@
             <key>wuqi/lqc_wuqi_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{270,424},{49,50}}</string>
+                <string>{{709,310},{49,50}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{49,50}}</string>
                 <key>sourceSize</key>
@@ -358,7 +358,7 @@
             <key>wuqi/lqc_wuqi_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{458,223},{51,51}}</string>
+                <string>{{240,354},{51,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -371,7 +371,7 @@
             <key>wuqi/lqc_wuqi_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{458,276},{51,49}}</string>
+                <string>{{240,407},{51,49}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -384,7 +384,7 @@
             <key>wuqi/lqc_wuqi_9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{381,575},{54,54}}</string>
+                <string>{{761,304},{54,54}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -397,11 +397,11 @@
             <key>wuqi/lsj_wuqi_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,394},{152,67}}</string>
+                <string>{{615,2},{152,67}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{152,67}}</string>
                 <key>sourceSize</key>
@@ -475,11 +475,11 @@
             <key>wuqi/lsj_wuqi_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,75},{152,68}}</string>
+                <string>{{461,2},{152,68}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{152,68}}</string>
                 <key>sourceSize</key>
@@ -488,7 +488,7 @@
             <key>wuqi/lsj_wuqi_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{272,75},{151,66}}</string>
+                <string>{{202,75},{151,66}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -524,14 +524,144 @@
                 <key>sourceSize</key>
                 <string>{154,68}</string>
             </dict>
-            <key>wuqi/sqy_wuqi_1.png</key>
+            <key>wuqi/qyl_wuqi_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{446,327},{63,39}}</string>
+                <string>{{293,342},{118,49}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{118,49}}</string>
+                <key>sourceSize</key>
+                <string>{118,49}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_10.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{651,71},{116,55}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{116,55}}</string>
+                <key>sourceSize</key>
+                <string>{116,55}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{451,135},{128,64}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{128,64}}</string>
+                <key>sourceSize</key>
+                <string>{128,64}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{581,135},{130,55}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{130,55}}</string>
+                <key>sourceSize</key>
+                <string>{130,55}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{186,234},{124,51}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{124,51}}</string>
+                <key>sourceSize</key>
+                <string>{124,51}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{68,237},{128,49}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{128,49}}</string>
+                <key>sourceSize</key>
+                <string>{128,49}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_6.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{239,228},{124,52}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{124,52}}</string>
+                <key>sourceSize</key>
+                <string>{124,52}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_7.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{270,75},{133,52}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{133,52}}</string>
+                <key>sourceSize</key>
+                <string>{133,52}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_8.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{461,72},{131,61}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{131,61}}</string>
+                <key>sourceSize</key>
+                <string>{131,61}</string>
+            </dict>
+            <key>wuqi/qyl_wuqi_9.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{638,135},{122,54}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{122,54}}</string>
+                <key>sourceSize</key>
+                <string>{122,54}</string>
+            </dict>
+            <key>wuqi/sqy_wuqi_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{506,328},{63,39}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{63,39}}</string>
                 <key>sourceSize</key>
@@ -540,7 +670,7 @@
             <key>wuqi/sqy_wuqi_10.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{270,334},{88,49}}</string>
+                <string>{{643,259},{88,49}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -553,11 +683,11 @@
             <key>wuqi/sqy_wuqi_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{382,400},{62,46}}</string>
+                <string>{{769,86},{62,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{62,46}}</string>
                 <key>sourceSize</key>
@@ -566,11 +696,11 @@
             <key>wuqi/sqy_wuqi_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{382,448},{61,45}}</string>
+                <string>{{708,440},{61,45}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{61,45}}</string>
                 <key>sourceSize</key>
@@ -579,7 +709,7 @@
             <key>wuqi/sqy_wuqi_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{439,495},{70,43}}</string>
+                <string>{{175,458},{70,43}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -592,7 +722,7 @@
             <key>wuqi/sqy_wuqi_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{382,312},{86,62}}</string>
+                <string>{{594,417},{86,62}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -605,7 +735,7 @@
             <key>wuqi/sqy_wuqi_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{321,328},{87,59}}</string>
+                <string>{{533,417},{87,59}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -618,11 +748,11 @@
             <key>wuqi/sqy_wuqi_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{413,90},{96,63}}</string>
+                <string>{{175,360},{96,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{96,63}}</string>
                 <key>sourceSize</key>
@@ -631,7 +761,7 @@
             <key>wuqi/sqy_wuqi_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{269,476},{82,46}}</string>
+                <string>{{769,2},{82,46}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -644,7 +774,7 @@
             <key>wuqi/sqy_wuqi_9.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{461,2},{86,48}}</string>
+                <string>{{658,413},{86,48}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -662,9 +792,9 @@
             <key>realTextureFileName</key>
             <string>zhuangbei0.pvr.ccz</string>
             <key>size</key>
-            <string>{511,654}</string>
+            <string>{817,506}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a6da77e253dc4120d41b05c08fb48495$</string>
+            <string>$TexturePacker:SmartUpdate:90ad28df40523c8f5797a8221a12f946$</string>
             <key>textureFileName</key>
             <string>zhuangbei0.pvr.ccz</string>
         </dict>

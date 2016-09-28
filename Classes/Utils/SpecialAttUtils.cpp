@@ -223,7 +223,7 @@ void SpecialAttUtils::openBox(int count)
 int SpecialAttUtils::createStoneState()
 {
 	int ret = -1;
-	int randomValue = ToolsUtil::getRandomInt(0, 3);
+	int randomValue = ToolsUtil::getRandomInt(0, ParamData::FIGHT_ROLE_COUNT-1);
 
 	int startId = randomValue;
 

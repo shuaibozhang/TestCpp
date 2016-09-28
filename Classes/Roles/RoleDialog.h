@@ -13,12 +13,12 @@ public:
 	RoleDialog();
 	virtual ~RoleDialog();
 
-	static RoleDialog *create(const std::string & talkId, int roleId, int contentType = 0);
+	static RoleDialog *create(const std::string & talkId, int rolePosIndex, int contentType = 0);
 
-	virtual bool init(const std::string & talkId, int roleId, int contentType);
+	virtual bool init(const std::string & talkId, int rolePosIndex, int contentType);
 	virtual void update(float dt);
 protected:
-	int _roleId;
+	int _rolePosIndex;
 };
 
 #endif

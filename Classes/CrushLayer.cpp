@@ -657,10 +657,12 @@ bool CrushLayer::doCrush()
 				{
 					if (2 == _arrCrushArrInfo[arrIndex].crushType)
 					{
+						this->countingEle(_arrEleIcon[i][j]->getEleId(), -1);
 						_arrEleIcon[i][j]->doAddLv(0, 3);
 					}
 					else
 					{
+						this->countingEle(_arrEleIcon[i][j]->getEleId(), -1);
 						int eleLv = (4 == _arrCrushArrInfo[arrIndex].crushCount) ? 1 : 2;
 						_arrEleIcon[i][j]->doAddLv(0, eleLv);
 					}
@@ -757,7 +759,7 @@ bool CrushLayer::doCrush()
 						GameUtils::playEffect("xiaochu_sqy.ogg");
 						break;
 					case RoleId_E::ROLE_ID_QYL:
-//						GameUtils::playEffect("xiaochu_sqy.ogg");
+						GameUtils::playEffect("xiaochu_qyl.ogg");
 						break;
 					}
 				}

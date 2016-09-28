@@ -16,7 +16,7 @@ BoxDataMgr::BoxDataMgr()
 int BoxDataMgr::getItemId(int categoryIdx, int itemIdx)
 {
 	int ret = 0;
-	int randomIdx = ToolsUtil::getRandomInt(0, 3);
+	int randomIdx = ToolsUtil::getRandomInt(0, ParamData::ROLE_COUNT-1);
 
 	switch (categoryIdx)
 	{
@@ -141,32 +141,6 @@ int BoxDataMgr::getBoxGoldCount(int boxIdx, int boxLv, int countType)
 
 	return ret;
 }
-/*
-int BoxDataMgr::getBoxDescChipCount(int boxIdx, int boxLv)
-{
-	int ret = 0;
-	auto pBoxInfo = ParamMgr::getInstance()->getBoxDetailInfo(boxIdx);
-	
-	for (int i = 0; i < 4; i++)
-	{
-		auto pCathInfo = &(pBoxInfo->arrCatgInfo[i]);
-		ret += (pCathInfo->arrGiveCount[boxLv] * pCathInfo->giveTypeCount);
-	}
-	return ret;
-}
-
-int BoxDataMgr::getBoxDescRareChipCount(int boxIdx, int boxLv)
-{
-	int ret = 0;
-	auto pBoxInfo = ParamMgr::getInstance()->getBoxDetailInfo(boxIdx);
-
-	for (int i = 2; i < 4; i++)
-	{
-		auto pCathInfo = &(pBoxInfo->arrCatgInfo[i]);
-		ret += (pCathInfo->arrGiveCount[boxLv] * pCathInfo->giveTypeCount);
-	}
-	return ret;
-}*/
 
 int BoxDataMgr::getBoxChipCount(int boxIdx, int boxLv, int chipType, int countType)
 {
@@ -242,7 +216,7 @@ int BoxDataMgr::getCurGetBoxLv(int sceneId)
 
 bool BoxDataMgr::isBoxInBagFull()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::BOX_LAYER_SEAT_COUNT; i++)
 	{
 		auto& info = UserData::getInstance()->getBoxLayerConfig(i);
 		

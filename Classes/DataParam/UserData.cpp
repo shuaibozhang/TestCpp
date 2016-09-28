@@ -102,10 +102,12 @@ const char* KEY_POP_BOSSGUIDE = "key_pop_bossguide";
 const char* KEY_PAY_RMB = "key_pay_rmb";
 
 const char* KEY_ACTIVITY_REWARDGET = "key_activity_%s_rewardget_%d";
-const char* g_activityKeys[] = { "moonactivity" };
-const int g_activityRewardsNum[] = {4};
+const char* g_activityKeys[] = { "moonactivity","guoqingactivity" };
+const int g_activityRewardsNum[] = {4, 4};
 
 const char* KEY_PLAYERSTATE_ISON = "key_player_ison_%d";
+
+const char* KEY_PAY_RMB_GUOQING = "key_pay_rem_guoqing";
 
 UserData::UserData()
 {
@@ -330,6 +332,7 @@ bool UserData::loadUserData()
 	_userInfo._tiliBuyTimes = getIntFromDBForKey(KEY_TILI_BUY_TIMES, 3);
 	_userInfoBak._tiliBuyTimes = _userInfo._tiliBuyTimes;
 
+	USERDATA_LOAD_INT(_userInfo._payrmbGuoqing, _userInfoBak._payrmbGuoqing, KEY_PAY_RMB_GUOQING, 0);
 	USERDATA_LOAD_INT(_userInfo._popBossGuide, _userInfoBak._popBossGuide, KEY_POP_BOSSGUIDE, 1);
 	USERDATA_LOAD_INT(_userInfo._firstPlayDayInYear, _userInfoBak._firstPlayDayInYear, KEY_FIRSTPLAY_DAYINYEAR, 0);
 
@@ -695,10 +698,10 @@ bool UserData::saveUserData(bool close)
 
 	for (int i = 0; i < sizeof(_userInfo._dungeonTimes) / sizeof(_userInfo._dungeonTimes[0]); i++)
 	{
-		setIntFromDBForKey(String::createWithFormat(KEY_DUNGEON_TIMES, i)->getCString(), _userInfo._dungeonTimes[i]);
-		_userInfoBak._dungeonTimes[i] = _userInfo._dungeonTimes[i];
+		USERDATA_SAVE_INT(_userInfo._dungeonTimes[i], _userInfoBak._dungeonTimes[i], String::createWithFormat(KEY_DUNGEON_TIMES, i)->getCString());
 	}
 
+	USERDATA_SAVE_INT(_userInfo._payrmbGuoqing, _userInfoBak._payrmbGuoqing, KEY_PAY_RMB_GUOQING);
 	USERDATA_SAVE_INT(_userInfo._popBossGuide, _userInfoBak._popBossGuide, KEY_POP_BOSSGUIDE);
 	USERDATA_SAVE_INT(_userInfo._firstPlayDayInYear, _userInfoBak._firstPlayDayInYear, KEY_FIRSTPLAY_DAYINYEAR);
 
@@ -740,11 +743,9 @@ bool UserData::saveUserData(bool close)
 	USERDATA_SAVE_INT(_userInfo._payRmb, _userInfoBak._payRmb, KEY_PAY_RMB);
 
 	for (int i = 0; i < 3; i++)
-	{
-		
+	{		
 		auto strKey = __String::createWithFormat(KEY_WEEK_WEAPONPART_REWARD_IDX, i);
-		USERDATA_SAVE_INT(_userInfo._arrWeekWenponPartIdx[i], _userInfoBak._arrWeekWenponPartIdx[i], strKey->getCString());
-		
+		USERDATA_SAVE_INT(_userInfo._arrWeekWenponPartIdx[i], _userInfoBak._arrWeekWenponPartIdx[i], strKey->getCString());		
 	}
 
 	for (int i = 0; i < 3; i++)
@@ -840,8 +841,7 @@ bool UserData::saveUserData(bool close)
 	if (close && GLLocalStorage::getIsInitialized() == 1)
 	{
 		GLLocalStorage::glLocalStorageFree();
-	}
-	
+	}	
 
 	return true;
 }

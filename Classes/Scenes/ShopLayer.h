@@ -99,58 +99,9 @@ private:
 
 	GameArmtr* _playerAni[ParamData::FIGHT_ROLE_COUNT];
 	std::vector<int> _vectorSellISkillsSp;
-	//std::vector<int> _vectorSellIWenponsSp;
 	Node* _sellSpriteNode[4];
 };
 
-class StoreLayer : public Layer
-{
-public:
-	CREATE_FUNC(StoreLayer);
-	bool init();
-	void switchTimeShow(int idx, bool showtime);
-	void updateTimePic(int idx, int hour);
-	void click();
-
-	void switchList(int idx);
-	void updateListSuit(int idx);
-	bool checkAllWenponLv(int wenponlv);
-
-	void buttonTouchCallback(Ref* btn, ui::Widget::TouchEventType type);
-
-	void showLBoxReward(int gold);
-	void showRBoxReward(int idx);
-
-	void menuBuyCallback(std::string itemid, bool succeed);
-	void showNewGet();
-
-	void upDataWenponSuit(int idx);
-private:
-	Node* _root;
-	TextAtlas* _hour_0;
-	TextAtlas* _min_0;
-	TextAtlas* _hour_1;
-	TextAtlas* _min_1;
-	Sprite* _texttouch_0;
-	Sprite* _texttouch_1;
-	Node* _timeNode0;
-	Node* _timeNode1;
-	
-	cocostudio::Armature* _ani0;
-	cocostudio::Armature* _ani1;
-
-	Sprite* _timedanwei[4];
-	/*0 : hour is0 1: hour  > 0*/
-	int _lastTimeState[2];
-
-	int _curListIdx;
-	Button* _btnList[3];
-	Sprite* _spriteBtnName[3];
-	ui::ListView* _listview[3];
-	int _lastListIdx;
-
-	int _wenponlistidx;
-};
 
 class TimeCountDownNode;
 class StoreLayer2 : public Layer

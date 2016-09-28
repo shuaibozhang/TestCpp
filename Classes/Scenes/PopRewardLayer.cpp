@@ -9,6 +9,7 @@
 #include "MagPieMgr.h"
 #include "GameLayer.h"
 #include "DayActiveMgr.h"
+#include "Armtr/GameArmtr.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -94,6 +95,22 @@ PopRewardLayer *PopRewardLayer::openBox(int boxId, int boxLv, int param1)
 
 	return pRet;
 
+}
+
+PopRewardLayer * PopRewardLayer::createRoleReward(int roleId)
+{
+	PopRewardLayer *pRet = new PopRewardLayer();
+	if (pRet && pRet->initRoleReward(roleId))
+	{
+		pRet->autorelease();
+	}
+	else
+	{
+		CC_SAFE_DELETE(pRet);
+		pRet = NULL;
+	}
+
+	return pRet;
 }
 
 
@@ -255,7 +272,7 @@ bool PopRewardLayer::initOpenBox(int boxId, int boxLv, int param1)
 
 		if (boxId == 2)
 		{
-			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYOPENGOLDBOX);
+			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYOPENGOLDBOX, 1, false);
 		}
 
 		_boxId = boxId;
@@ -313,6 +330,46 @@ bool PopRewardLayer::initOpenBox(int boxId, int boxLv, int param1)
 
 		this->giveItemToUser();
 		
+		auto listener = EventListenerTouchOneByOne::create();
+		listener->setSwallowTouches(true);
+
+		listener->onTouchBegan = CC_CALLBACK_2(PopRewardLayer::onTouchBegan, this);
+		listener->onTouchEnded = CC_CALLBACK_2(PopRewardLayer::onTouchEnded, this);//[=](cocos2d::Touch *touch, cocos2d::Event *unused_event) {this->removeFromParent(); };
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, layer);
+
+		bRet = true;
+	} while (0);
+
+	return bRet;
+}
+
+bool PopRewardLayer::initRoleReward(int roleId)
+{
+	bool bRet = false;
+
+	do
+	{
+		CC_BREAK_IF(!CCLayer::init());
+
+		auto layer = LayerColor::create(Color4B(0, 0, 0, 188), 640.f, VisibleRect::top().y);
+		this->addChild(layer);
+
+		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(RoleId_E::ROLE_ID_LSJ + roleId);
+		auto pRole = GameArmtr::createRole(pArmInfo);
+		pRole->play(ArmtrName::ROLE_IDLE);
+
+		pRole->setPosition(VisibleRect::center() - Vec2(0, 80.f));
+		this->addChild(pRole);
+
+		_topItemPosY = VisibleRect::center().y;
+
+		float posY = (VisibleRect::top().y - _topItemPosY) / 2 + _topItemPosY;
+		auto pRoleName = Sprite::createWithSpriteFrameName("mainui_name_4.png");
+		pRoleName->setPosition(Vec2(VisibleRect::center().x, posY - 60.f));
+		this->addChild(pRoleName);
+
+		this->showRewardTitle(_titleType);		
+
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
 

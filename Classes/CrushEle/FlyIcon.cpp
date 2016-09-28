@@ -49,7 +49,7 @@ bool FlyIcon::init(int iconId, int iconLv)
 		_iconId = iconId;
 		_iconLv = iconLv;
 
-		if (_iconId <= EleIconId_E::ELE_ID_SUPER)
+		if (_iconId < EleIconId_E::ELE_ID_SUPER)
 		{
 			int roleId = Player::getInstance()->getRoleIdByPosIndex(_iconId);
 			int resId = GameResId_E::RES_FLY_ICON_START + roleId * 3 + _iconLv;

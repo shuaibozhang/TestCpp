@@ -1,13 +1,14 @@
 #include "PlayerMgr.h"
 #include "UserData.h"
 #include "../StoreBridge/StoreAssets.h"
-
+#include "../Scenes/PopRewardLayer.h"
+#include "../Scenes/MainScene.h"
 
 PlayerMgr* PlayerMgr::_inStance = nullptr;
 
 PlayerMgr * PlayerMgr::getInstance()
 {
-	if (_inStance)
+	if (_inStance == nullptr)
 	{
 		_inStance = new PlayerMgr();
 	}
@@ -49,9 +50,8 @@ void PlayerMgr::unEquipPlayer(int idx)
 }
 
 void PlayerMgr::unLockPlayer(int idx)
-{
-	auto laststage = getPlayerStage(idx);
-	
+{	
+	UserData::getInstance()->setPlayerCurLv(idx, UserData::getInstance()->getPlayerCurLv(1));
 	UserData::getInstance()->setPlayerIsOn(idx, 0);
 	UserData::getInstance()->saveUserData();
 
@@ -60,6 +60,30 @@ void PlayerMgr::unLockPlayer(int idx)
 		temp(idx, 2);
 	}
 	
+	auto layer = PopRewardLayer::createRoleReward(4);
+	MainLayer::getCurMainLayer()->addChild(layer, MainLayer_Z::POP_REWARD_Z);
+
+}
+
+PlayerStage_E PlayerMgr::switchStage(int idx)
+{
+	auto stage = getPlayerStage(idx);
+	if (stage == PLAYERSTAGE_LOCK)
+	{
+		
+	}
+	else if(stage == PLAYERSTAGE_ON)
+	{
+		unEquipPlayer(idx);
+		stage = PLAYERSTAGE_OFF;
+	}
+	else if (stage == PLAYERSTAGE_OFF)
+	{
+		equipPlayer(idx);
+		stage = PLAYERSTAGE_ON;
+	}
+
+	return stage;
 }
 
 
@@ -113,4 +137,47 @@ bool PlayerMgr::canEquipNewPlayer()
 	}
 
 	return curnum >= ParamData::FIGHT_ROLE_COUNT ? false : true;
+}
+
+int PlayerMgr::getEquipCount()
+{
+	int count = 0;
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	{
+		if (getPlayerStage(i) != PLAYERSTAGE_LOCK)
+		{
+			if (UserData::getInstance()->getPlayerIsOn(i) != 0)
+			{
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
+void PlayerMgr::fixPlayer()
+{
+	int curEquCount = getEquipCount();
+	for (int i = 0; i < ParamData::ROLE_COUNT && curEquCount != ParamData::FIGHT_ROLE_COUNT; i++)
+	{
+		if (getPlayerStage(i) != PLAYERSTAGE_LOCK)
+		{
+			if (curEquCount < ParamData::FIGHT_ROLE_COUNT)
+			{
+				if (UserData::getInstance()->getPlayerIsOn(i) == 0)
+				{
+					UserData::getInstance()->setPlayerIsOn(i, 1);
+					curEquCount++;
+				}
+			}
+			else if (curEquCount > ParamData::FIGHT_ROLE_COUNT)
+			{
+				if (UserData::getInstance()->getPlayerIsOn(i) != 0)
+				{
+					UserData::getInstance()->setPlayerIsOn(i, 0);
+					curEquCount--;
+				}
+			}
+		}
+	}
 }

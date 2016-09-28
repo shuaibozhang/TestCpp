@@ -125,7 +125,7 @@ bool BoxLayer::init()
 
 			if (UserData::getInstance()->getBoxLayerStage(4) == 2)
 			{
-				if (!node1->_getOnlineTime)
+				if (!node1->isGetOnlineTime())
 				{
 					GameUtils::toastTip("box_net_err");
 					return;
@@ -174,7 +174,7 @@ bool BoxLayer::init()
 	static_cast<ImageView*>(root->getChildByName("Image_44"))->setContentSize(Size(640.f, VisibleRect::top().y - 100.f));
 	static_cast<ImageView*>(root->getChildByName("Image_1"))->setContentSize(Size(531.f, VisibleRect::top().y - 165.f));
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::BOX_LAYER_SEAT_COUNT; i++)
 	{
 		auto& configbox = UserData::getInstance()->getBoxLayerConfig(i);
 		if (configbox.boxidx != -1)
@@ -298,7 +298,7 @@ void BoxLayer::getFreeBox()
 			getReward(7, BoxDataMgr::getInstance()->getCurGetBoxLv(), 2);
 			UserData::getInstance()->setTiliRewardTimes(_freeGetTimeIdx, 1);
 
-			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYGETTILI);
+			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYGETTILI, 1, false);
 
 			UserData::getInstance()->saveUserData();
 		}
@@ -319,7 +319,7 @@ void BoxLayer::updateBoxOpen()
 	_unLockingTime = nullptr;
 	_unLockingCost = nullptr;
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::BOX_LAYER_SEAT_COUNT; i++)
 	{
 		auto stage = UserData::getInstance()->getBoxLayerStage(i);
 		if (_boxGameBtn[i])
@@ -455,7 +455,7 @@ void BoxLayer::showBoxInfo(int idx)
 
 			_curtimenode = MainLayer::getCurMainLayer()->getBoxTimeNode();
 
-			if (needguide == false && _curtimenode->_getOnlineTime == false)
+			if (needguide == false && _curtimenode->isGetOnlineTime() == false)
 			{
 				GameUtils::toastTip("box_net_err");
 				return;
@@ -826,7 +826,7 @@ void BoxLayer::clik()
 			_unLockingTime->setString(timestring->getCString());
 		}
 		
-		if (_unLockingCost && UserData::getInstance()->getIsBoxUnlock() != -1 && _curtimenode->_getOnlineTime)
+		if (_unLockingCost && UserData::getInstance()->getIsBoxUnlock() != -1 && _curtimenode->isGetOnlineTime())
 		{
 			auto timecur = _curtimenode->getDur();
 			auto& boxconfig = UserData::getInstance()->getBoxLayerConfig(UserData::getInstance()->getIsBoxUnlock());
@@ -834,7 +834,7 @@ void BoxLayer::clik()
 			//_unLockingCost->setString(String::createWithFormat("%d", BoxDataMgr::getInstance()->getBoxOpenCost(UserData::getInstance()->getIsBoxUnlock(), timecur))->getCString());
 		}
 
-		if (_getcost && _selectPopBoxIdx != -1 && _selectPopBoxIdx == UserData::getInstance()->getIsBoxUnlock() && _curtimenode->_getOnlineTime)
+		if (_getcost && _selectPopBoxIdx != -1 && _selectPopBoxIdx == UserData::getInstance()->getIsBoxUnlock() && _curtimenode->isGetOnlineTime())
 		{
 			auto timecur = _curtimenode->getDur();
 			auto& boxconfig = UserData::getInstance()->getBoxLayerConfig(_selectPopBoxIdx);
@@ -1090,7 +1090,7 @@ void TiliRewardLayer::menuOnOpenBox(Ref *, Widget::TouchEventType type)
 
 	if (UserData::getInstance()->getBoxLayerStage(4) == 2)
 	{
-		if (!node1->_getOnlineTime)
+		if (!node1->isGetOnlineTime())
 		{
 			GameUtils::toastTip("box_net_err");
 			return;
@@ -1132,7 +1132,7 @@ void TiliRewardLayer::menuOnGetTili(Ref * btn, Widget::TouchEventType type)
 {
 	if (type == Widget::TouchEventType::ENDED)
 	{
-		if (_tiliTimeNode->_getOnlineTime)
+		if (_tiliTimeNode->isGetOnlineTime())
 		{
 			int idx = int(static_cast<Node*>(btn)->getUserData());
 			int curtimeidx = -1;

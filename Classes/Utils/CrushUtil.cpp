@@ -594,7 +594,7 @@ Vec2 CrushUtil::getRoleOffsetPos(int roleId)
 		posY = 24.f;
 		break;
 	case 3:
-		posX = -70.f;
+		posX = -74.f;//-70.f;
 		posY = -2.f;
 		break;
 	default:
@@ -708,10 +708,10 @@ float CrushUtil::getDamageN(int maxLv)
 
 void CrushUtil::changeWeapon(GameArmtr * pArm, int roleId, int weaponId)
 {
-	string arrBoneName[ParamData::ROLE_COUNT] = { "Layer28", "Layer32" , "Layer54" , "Layer26" };//, "Layer54" };
+	string arrBoneName[ParamData::ROLE_COUNT] = { "Layer28", "Layer32" , "Layer54" , "Layer26", "Layer37" };
 	__String *arrWeaponName[ParamData::ROLE_COUNT][10] = { 0 };
 	__String *arrDefName[10] = { 0 };
-	int arrWeaponStartIndex[ParamData::ROLE_COUNT] = { 500, 510, 520, 530};//, 520};
+	int arrWeaponStartIndex[ParamData::ROLE_COUNT] = { 500, 510, 520, 530, 540};
 	int weaponLv = weaponId - arrWeaponStartIndex[roleId];
 
 	for (int i = 0; i < 10; i++)
@@ -732,20 +732,12 @@ void CrushUtil::changeWeapon(GameArmtr * pArm, int roleId, int weaponId)
 		strName = __String::createWithFormat("wuqi/sqy_wuqi_%d.png", tmp + 1);
 		arrWeaponName[RoleId_E::ROLE_ID_SQY][i] = strName;
 
-//		strName = __String::createWithFormat("wuqi/lqc_wuqi_%d.png", tmp + 1);
-//		arrWeaponName[RoleId_E::ROLE_ID_QYL][i] = strName;
+		strName = __String::createWithFormat("wuqi/qyl_wuqi_%d.png", tmp + 1);
+		arrWeaponName[RoleId_E::ROLE_ID_QYL][i] = strName;
 	}
-	const char* weaponName[] = {
-		"wuqi/lsj_wuqi_%d.png",
-		"wuqi/cbd_wuqi_%d.png",
-		"wuqi/lqc_wuqi_%d.png",
-		"wuqi/sqy_wuqi_%d.png",
-		"wuqi/sqy_wuqi_%d.png",
-	};
-	//debug newplayer
-	auto truename = String::createWithFormat(weaponName[(weaponId - 500) / 10], (weaponId - 500) % 10 + 1);
-	Skin *skin = Skin::createWithSpriteFrameName(truename->getCString());
-	//Skin *skin = Skin::createWithSpriteFrameName(arrWeaponName[roleId][weaponLv]->getCString());
+	
+	
+	Skin *skin = Skin::createWithSpriteFrameName(arrWeaponName[roleId][weaponLv]->getCString());
 	pArm->getArmtr()->getBone(arrBoneName[roleId])->addDisplay(skin, 0);
 	pArm->getArmtr()->getBone(arrBoneName[roleId])->changeDisplayWithIndex(0, true);
 
@@ -1133,40 +1125,52 @@ void CrushUtil::getExchangeReward(int codeId, std::vector<PopItemInfo_T>& arrRew
 	{ 20, 3, 3, 3, 5 },
 	{ 100 },
 	{10, 3, 2},
-	{ 10, 3, 2 }
+	{ 10, 3, 2 },
+	{ 5, 3, 3 },
+	{ 5, 3, 3 }
 	};
 	int arrId[][5] = { { -102, 1014, 1000, 1001, 1015 },
 	{ -102, 1014, 1004, 1015, 1513 },
 	{ -102, 1014, 1011, 1015, 1536 },
 	{ -101 },
 	{-101, 1004, 1011},
-	{ -101, 1004, 1011 }
+	{ -101, 1004, 1011 },
+	{ -102, 1014, 1015 },
+	{ -102, 1004, 1011 }
 	};
 
 	arrItemCount = &arrCount[codeId - 1][0];
 	arrItemId = &arrId[codeId - 1][0];
 
-	if (1 == codeId)
+	if (ExchangeType_E::EXCHANGE_LV_1 == codeId)
 	{
 		arrSize = 5;
 	}
-	else if (2 == codeId)
+	else if (ExchangeType_E::EXCHANGE_LV_2 == codeId)
 	{
 		arrSize = 5;
 	}
-	else if (3 == codeId)
+	else if (ExchangeType_E::EXCHANGE_LV_3 == codeId)
 	{
 		arrSize = 5;
 	}
-	else if (4 == codeId)
+	else if (ExchangeType_E::EXCHANGE_DIAMOND == codeId)
 	{
 		arrSize = 1;
 	}
-	else if (5 == codeId)
+	else if (ExchangeType_E::EXCHANGE_MAGPIE == codeId)
 	{
 		arrSize = 3;
 	}
-	else if (6 == codeId)
+	else if (ExchangeType_E::EXCHANGE_NEW_VER == codeId)
+	{
+		arrSize = 3;
+	}
+	else if (ExchangeType_E::EXCHANGE_FOLLOW == codeId)
+	{
+		arrSize = 3;
+	}
+	else if (ExchangeType_E::EXCHANGE_GUOQING == codeId)
 	{
 		arrSize = 3;
 	}
@@ -1320,7 +1324,7 @@ void CrushUtil::giveUserItem(int itemId, int itemCount, int itemLv, bool isNeedS
 	if (isNeedSave)
 	{
 		BagItemControl::getInstace()->saveItemConfig();
-		UserData::getInstance()->saveUserData();
+		//UserData::getInstance()->saveUserData();
 	}
 }
 

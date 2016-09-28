@@ -24,11 +24,17 @@ public:
 	void unEquipPlayer(int idx);
 	void unLockPlayer(int idx);
 
+	PlayerStage_E switchStage(int idx);
+
 	PlayerStage_E getPlayerStage(int playeridx);
 
 	void addPlayerStageChangeObserver(ccPlayerCallback changeCallback);
 
 	bool canEquipNewPlayer();
+
+	int getEquipCount();
+
+	void fixPlayer();
 private:
 	std::vector<ccPlayerCallback> _arrPlayerStageChangeObserver;
 	static PlayerMgr* _inStance;

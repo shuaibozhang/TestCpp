@@ -9,6 +9,7 @@
 #include "MainScene.h"
 #include "DayActiveMgr.h"
 #include "NewMapOpenMgr.h"
+#include "ParamData.h"
 
 extern const char* g_iconbgname[];
 
@@ -138,7 +139,7 @@ bool BGLLayer::init()
 				return;
 			}
 			this->removeFromParent();
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 			{
 				MainLayer::getCurMainLayer()->updataEquipLayer(i);
 			}
@@ -259,7 +260,7 @@ bool BGLLayer::init()
 		if (type == ui::PageView::EventType::TURNING)
 		{
 			_curpageidx = pageview->getCurPageIndex();
-			for (int idxpage = 0; idxpage < 4; idxpage++)
+			for (int idxpage = 0; idxpage < ParamData::ROLE_COUNT; idxpage++)
 			{
 				if (idxpage == _curpageidx)
 				{
@@ -274,7 +275,7 @@ bool BGLLayer::init()
 		}
 	});
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto layout = ui::Layout::create();	
 		pageview->addPage(layout);
@@ -350,7 +351,7 @@ bool BGLLayer::init()
 		_pagetTips[i] = Sprite::createWithSpriteFrameName("mainui_pagemark_0.png");
 		roonode->addChild(_pagetTips[i]);
 
-		_pagetTips[i]->setPosition(Vec2(45.f * (i - 1.5f) + 320.f, 20.f));
+		_pagetTips[i]->setPosition(Vec2(45.f * (i - 2.0f) + 320.f, 20.f));
 
 		
 	}
@@ -766,17 +767,17 @@ void BGLLayer::getReward(float exp)
 		return;
 	}
 
-	DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYUSEBGL);
+	DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYUSEBGL, 1, false);
 
-	int getitemsnum[4] = { 0 };
+	int getitemsnum[ParamData::ROLE_COUNT] = { 0 };
 
 	for (int i = 0; i < getnum; i++)
 	{
-		int idx = ToolsUtil::getRandomInt(0, 3);
+		int idx = ToolsUtil::getRandomInt(0, ParamData::ROLE_COUNT - 1);
 		getitemsnum[idx]++;
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		if (getitemsnum[i] > 0)
 		{

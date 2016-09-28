@@ -121,6 +121,7 @@ public:
 
 	void clickAction(int click);
 	void offlineClickAction(float dt);
+	void timeMgrClick(float dt);
 
 //	void onGetTopDataCallback(HttpClient* client, HttpResponse* response);
 //	void onGetSelfInfoCallback(HttpClient* client, HttpResponse* response);
@@ -142,6 +143,7 @@ public:
 
 	CC_SYNTHESIZE(int, _settleRankState, SettleRankState);//0:no data Or aleady get the reward;1:getting settle rank data;2:need show settle rank; 3.need get settle
 	CC_SYNTHESIZE(int, _curTime, CurTime);
+	//CC_SYNTHESIZE(int, _curOnlineBoxTime, CurOnlineBoxTime);
 	CC_SYNTHESIZE(bool, _getOnlineTime, IsGetOnlineTime);
 	Node** getLightArr() { return _lightArr; }
 	Node* getLeftMenus() { return _leftBtnsNode; }
@@ -158,7 +160,7 @@ public:
 	void updataGiftBtns();
 	void updataDayActivityBtn();
 	void touchAddBtn(Ref* btn, Widget::TouchEventType type);
-
+	void popBuyCry();
 	void updataDayAndTimeGiftBtn();
 
 	/*
@@ -175,6 +177,9 @@ public:
 	void popBossGuide();
 
 	void initCommondActivity(int curday);
+	void initGuoqingActivity(int curday);
+
+	void popPurchaseLayer(std::string itemid, bool dirbuy = false);
 private:
 	EventListenerCustom* _backToForegroundlistener;
 
@@ -241,6 +246,7 @@ private:
 	cocos2d::ui::Text* _achCountText;
 	bool _isNeedDaily;
 	bool _isNeedWeekReward;
+	bool _isNeedActivityReward;
 	Armature* _rewardBtnani;
 	Node* _lightArr[4];
 
@@ -421,11 +427,18 @@ public:
 
 	static PlayersLayer* createPlayerLayer();
 	bool init();
+	void updateEquipStage();
+	void updateEquipStage(int idx);
 	void updataInfo();
 	void updataPlayerInfo(int idx);
 	void showWenponInfo(int playerid, int wenponid);
 
 	void equipCallBack(int playeridx, int skillid, int action);
+	/*o is unequip, 1 is equip 2 is addNew*/
+	void playerOnOffChangeCB(int playeridx, int action);
+
+	void menuOnPlayerEquip(Ref*, Widget::TouchEventType);
+	void menuOnPlayerBuy(Ref*, Widget::TouchEventType);
 
 	void resetPos();
 	void showChangeToOtherLayer(float dur);
@@ -436,15 +449,23 @@ public:
 	 GameArmtr* getPlayerArm2(int idx) { return _playerArm2[idx]; }
 private:
 	glui::GLPageView* _scrollPlayersPageView;
-	cocos2d::Vector<Node*> _arrPlayers;
 	cocos2d::Vec2 _arrStartPos[ParamData::ROLE_COUNT];
 	cocos2d::Vec2 _arrStartPosInScreen[ParamData::ROLE_COUNT];
 	cocos2d::Vec2 _wenPonNodePos;
 	cocos2d::Vec2 _wenPonNodeStartPos;
-	std::vector<cocos2d::Node*> _vectorPlayerNode;
+	
 	GameArmtr* _playerArm[ParamData::ROLE_COUNT];
 	GameArmtr* _playerArm2[ParamData::ROLE_COUNT];
 	ui::ScrollView* _playerScoreView;
+	ui::Button* _arrEquipBtns[ParamData::ROLE_COUNT];
+
+	cocos2d::Node* _arrLockPlayerNode[ParamData::ROLE_COUNT];
+	cocos2d::Node* _arrPlayerNode[ParamData::ROLE_COUNT];
+
+	cocos2d::Node* _arrLockPlayerNode2[ParamData::ROLE_COUNT];
+	cocos2d::Node* _arrPlayerNode2[ParamData::ROLE_COUNT];
+
+	cocos2d::Node* _rootPlayerNode[ParamData::ROLE_COUNT];
 };
 
 class PageSelecter : public cocos2d::Node

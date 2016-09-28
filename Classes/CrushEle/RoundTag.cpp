@@ -108,6 +108,10 @@ bool RoundTag::init(int tagType, int roundCount, int paramId)
 			{
 				_pBg = Sprite::createWithSpriteFrameName("tag_confuse.png");
 			}
+			else if (_paramId == AttAttrbt_E::ATT_DRUG)
+			{
+				_pBg = Sprite::createWithSpriteFrameName("tag_stay.png");
+			}
 		}
 		else if (3 == _tagType)
 		{
@@ -135,6 +139,10 @@ bool RoundTag::init(int tagType, int roundCount, int paramId)
 			else if (_paramId == 3)
 			{
 				_pBg = Sprite::createWithSpriteFrameName("tag_def.png");
+			}
+			else if (_paramId == 4)
+			{
+				_pBg = Sprite::createWithSpriteFrameName("tag_att_buff.png");
 			}
 		}
 

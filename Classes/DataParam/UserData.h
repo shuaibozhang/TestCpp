@@ -377,6 +377,10 @@ public:
 	int getPayRmb() { return _userInfo._payRmb; }
 	void setPayRmb(int num) { _userInfo._payRmb = num; }
 
+	void addPayRmbGuoqing(int num) { _userInfo._payrmbGuoqing += num; }
+	int getPayRmbGuoqing() { return _userInfo._payrmbGuoqing; }
+	void setPayRmbGuoqing(int num) { _userInfo._payrmbGuoqing = num; }
+
 	int getPlayerIsOn(int playeridx) { return _userInfo._arrPlayersIsOn[playeridx]; }
 	void setPlayerIsOn(int playeridx, int ison) {_userInfo._arrPlayersIsOn[playeridx] = ison;}
 private:
@@ -449,7 +453,7 @@ private:
 		int _weeklyScore;
 		int _lastSettleDay;
 		int _lastLoginDay;
-		int _exchangeState[6];	//0.not exchange
+		int _exchangeState[ExchangeType_E::EXCHANGE_COUNT];	//0.not exchange
 		UserAchieveInfo_T _arrAchieveInfo[ParamData::ACHIEVE_TOTAL_COUNT];
 		UserMagPieInfo_T _arrUserMagPieInfo[ParamData::MagPie_TOTAL_TASKS_NUM];
 		int _endlessCount;
@@ -504,6 +508,8 @@ private:
 		int _payRmb;
 		int _arrPlayersIsOn[ParamData::ROLE_COUNT];
 		std::map<std::string, int> _activityMap;
+
+		int _payrmbGuoqing;
 	}UserDataInfo_T;
 
 	UserDataInfo_T _userInfo;

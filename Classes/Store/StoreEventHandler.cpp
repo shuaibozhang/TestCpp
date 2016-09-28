@@ -77,20 +77,28 @@ void StoreEventHandler::itemPurchased(string& itemId)
 	if (idx != -1)
 	{
 		auto& vector = StoreAssetMgr::getInstance()->getItemVector();
-		UserData::getInstance()->giveItem(vector[idx].itmid, 1);
 
 		if (vector[idx].paytype == PAYTYPE_CRYSTAL)
 		{
-			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYZUANSHI);
+			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYZUANSHI, 1, false);
 		}
+
+		UserData::getInstance()->giveItem(vector[idx].itmid, 1);
 	}
 	else
 	{
 		idx = StoreAssetMgr::getInstance()->getPackIdx(itemId);
 		if (idx != -1)
 		{
+
 			auto& vector = StoreAssetMgr::getInstance()->getPackVector();
 			auto& vector2 = vector[idx]._items;
+
+			if (vector[idx].paytype == PAYTYPE_CRYSTAL)
+			{
+				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYZUANSHI, 1, false);
+			}
+
 			for (auto& temp : vector2)
 			{
 				UserData::getInstance()->giveItem(temp.itemid, temp.num, false);
@@ -98,10 +106,7 @@ void StoreEventHandler::itemPurchased(string& itemId)
 			UserData::getInstance()->giveItem(itemId, 1, false);
 			UserData::getInstance()->freeDB();
 
-			if (vector[idx].paytype == PAYTYPE_CRYSTAL)
-			{
-				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYBUYZUANSHI);
-			}
+			
 		}
 	}
 	
@@ -181,6 +186,7 @@ void StoreEventHandler::marketPurchase(string& itemId)
 	}
 
 	UserData::getInstance()->addPayRmb(curPayRmbNum);
+	UserData::getInstance()->addPayRmbGuoqing(curPayRmbNum);
 
 	int idx = StoreAssetMgr::getInstance()->getSingleIdx(itemId);
 	if (idx != -1)

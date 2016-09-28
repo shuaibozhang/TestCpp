@@ -84,6 +84,8 @@ public:
 	
 	int getCurNum(std::string key);
 	int getCurNumByNameAndIdx(std::string name, int idx);
+	int getTargetNumByNameAndIdx(std::string name, int idx);
+
 	const ActivityConfigStruct_T& getActivityConfig(std::string key, int idx);
 	int checkCanGetReward(std::string activitykey, int idx);
 	void getReward(std::string activitykey, int idx);
@@ -97,6 +99,7 @@ private:
 
 public:
 	static char* ACTIVITY_NAME_MIDAUTUMAN;
+	static char* ACTIVITY_NAME_GUOQING;
 	static CommondActivityMagr* _instance;
 };
 #endif

@@ -42,6 +42,28 @@ private:
 
 };
 
+
+class GuoqingLayer : public LayerColor
+{
+public:
+	GuoqingLayer();
+
+	~GuoqingLayer();
+
+	CREATE_FUNC(GuoqingLayer);
+
+	virtual bool init();
+
+	void updateBtns();
+private:
+	Node *_pRoot;
+	ui::Button* _arrBtns[4];
+	ui::Text* _arrOffNumText[4];
+	ui::Text* _arrDesNumText[4];
+	Sprite* _arrIcondes[4];
+	Sprite* _arrIconnum[4];
+};
+
 #endif // !__MagPieLayer_H__
 
 

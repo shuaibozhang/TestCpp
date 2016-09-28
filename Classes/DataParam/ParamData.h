@@ -99,6 +99,9 @@ typedef enum _AttAttrbt
 	ATT_NORMAL = 3,
 	ATT_NARROW,
 	ATT_CONFUSE,
+	ATT_DRUG,
+//	ATT_ABSORB_DP_HP,
+	ATT_ABSORB_HP,
 	//keep it
 	ATT_COUNT
 }AttAttrbt_E;
@@ -174,6 +177,8 @@ public:
 
 	static const int ROLE_COUNT = 5;
 	static const int FIGHT_ROLE_COUNT = 4;
+	static const int EQUIP_ITEM_MAX_COUNT = 4;
+	static const int BOX_LAYER_SEAT_COUNT = 4;
 
 	static const int SKILL_COUNT = 12 * ROLE_COUNT;
 	static const int WENPON_COUNT = 10 * ROLE_COUNT;
@@ -344,6 +349,7 @@ typedef struct _MonsterInfo_T
 	int mAttRCount;
 	float runPro;
 	float fScale;
+	float designSize;
 	std::string animName;
 	std::vector<MonsterAttInfo_T> arrAttInfo;
 	std::vector<DefAttrbt_T> arrDefInfo;
@@ -399,11 +405,11 @@ typedef struct _Skill
 	std::string name;
 	std::string des;
 	int starNum;
-	int attribute;	//ice fire thunder heal
+	int attribute;	//ice fire thunder 
 //	int classtype;	//value type
 	int price;
 	int paytype;
-	int mark;	//
+	int mark;	//1.damage 2.add hp 3. add dp 4.narrow 5.confuse 6.shield 7.clean 8. add lv 9.relive 10.clean all 11.absorb 12.drug 13.add att 14.dp att
 	float normalVal[3];
 	float enhanceVal[3];
 	/*add by zhou*/
@@ -752,5 +758,22 @@ typedef struct _HotStoreWenpon_T
 	int price;
 	int pricetype;
 }HotStoreWenpon_T;
+
+
+typedef enum _ExchangeType_E
+{
+	EXCHANGE_LV_1 = 1,
+	EXCHANGE_LV_2,
+	EXCHANGE_LV_3,
+	EXCHANGE_DIAMOND,
+	EXCHANGE_MAGPIE,
+	EXCHANGE_NEW_VER,
+	EXCHANGE_FOLLOW,
+	EXCHANGE_GUOQING,
+	//keep it
+	EXCHANGE_TMP,
+	EXCHANGE_COUNT = EXCHANGE_TMP - 1
+}ExchangeType_E;
+
 
 #endif

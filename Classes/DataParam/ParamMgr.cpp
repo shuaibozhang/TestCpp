@@ -76,6 +76,12 @@ void ParamMgr::loadRoleArmtrInfo()
 	info->strDragonBoneName = "sqy";
 	info->strArmtrName = "sqy";
 	_arrRoleArmtrInfo.push_back(info);
+
+	info = new DragonBoneInfo_T();
+	info->strPathName = "roles/qyl";
+	info->strDragonBoneName = "qyl";
+	info->strArmtrName = "qyl";
+	_arrRoleArmtrInfo.push_back(info);
 }
 
 
@@ -102,7 +108,7 @@ void ParamMgr::loadWeakInfo()
 	{2, 0, 2, 2, EleWeakType::ICE, true, false, false, false, 1, "ice_state"},
 	{3, 101, 3, 1, EleWeakType::STONE, false, true, false, true, 0, ""}};
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < sizeof(arrInfo)/sizeof(arrInfo[0]); i++)
 	{
 		auto info = new EleWeakInfo_T();
 		*info = arrInfo[i];
@@ -166,6 +172,7 @@ void ParamMgr::loadMonsterInfo()
 		info->animName = item["aniname"].GetString();
 		info->name = item["name"].GetString();
 		info->fScale = item["zoom"].GetDouble();
+		info->designSize = item["designSize"].GetDouble();
 
 		info->designType = item["design_type"].GetInt();
 		info->mAttRCount = item["m_att_r"].GetInt();
@@ -335,6 +342,7 @@ void ParamMgr::loadStageInfo()
 		for (int j = 0; j < boxnnum; j++)
 		{
 			int boxcurid = arrboxids[j].GetInt();
+			CCASSERT(boxcurid < 4, "boxiderr");
 			float p = arrboxp[j].GetDouble();
 			info->arrBoxChance[boxcurid] = p;
 		}
@@ -862,6 +870,7 @@ const Skill_T * ParamMgr::getSkillByIdEx(int idx)
 		if (_vectorSkills[i].id == idx)
 		{
 			pRet = &(_vectorSkills[i]);
+			break;
 		}
 	}
 
@@ -938,11 +947,6 @@ void ParamMgr::loadSkillsConfig()
 		temp.paytype = item["price_type"].GetInt();
 		temp.price = item["price"].GetInt();
 		temp.icon = item["icon"].GetString();
-		//debug newplayer
-		if (i >= 46)
-		{
-			temp.icon = "sicon_rongguang.png";
-		}
 		temp.mark = item["mark"].GetInt();
 		temp.starNum = item["starNum"].GetInt();
 		temp.isHurtAll = item["range"].GetBool();

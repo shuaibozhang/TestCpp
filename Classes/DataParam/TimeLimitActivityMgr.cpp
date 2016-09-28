@@ -7,6 +7,8 @@
 #include "UserData.h"
 #include "DayActiveMgr.h"
 #include "AchieveMgr.h"
+#include "../StoreBridge/StoreAssets.h"
+#include "PlayerMgr.h"
 
 TimeLimitActivityMgr* TimeLimitActivityMgr::s_instance = nullptr;
 
@@ -144,10 +146,10 @@ void TimeLimitActivityMgr::getRewardByIdx(std::string activitname,int idx)
 				int num = info.itemNums[i];
 				if (id >= 1500)
 				{
-					int wenponnums[] = { 0,0,0,0 };
-					for (int j = 0; j < 4; j++)
+					int wenponnums[ParamData::ROLE_COUNT] = {0};
+					for (int j = 0; j < ParamData::ROLE_COUNT; j++)
 					{
-						if (j == 3)
+						if (j == ParamData::ROLE_COUNT - 1)
 						{
 							wenponnums[j] = num;
 						}
@@ -258,6 +260,8 @@ void TimeLimitActivityMgr::resetOnlineTimeReward()
 
 CommondActivityMagr* CommondActivityMagr::_instance = nullptr;
 char* CommondActivityMagr::ACTIVITY_NAME_MIDAUTUMAN = "moonactivity";
+char* CommondActivityMagr::ACTIVITY_NAME_GUOQING = "guoqingactivity";
+
 CommondActivityMagr* CommondActivityMagr::getInstance()
 {
 	if (_instance == nullptr)
@@ -279,7 +283,9 @@ void CommondActivityMagr::intiAndShowActivitys(int curday)
 	_isInited = true;
 
 	std::map<std::string, std::function<void(int)>> initCallMap;
-	initCallMap.insert(std::pair<std::string, std::function<void(int)> >(ACTIVITY_NAME_MIDAUTUMAN, std::bind(&MainLayer::initCommondActivity, MainLayer::getCurMainLayer(), std::placeholders::_1)));
+	//initCallMap.insert(std::pair<std::string, std::function<void(int)> >(ACTIVITY_NAME_MIDAUTUMAN, std::bind(&MainLayer::initCommondActivity, MainLayer::getCurMainLayer(), std::placeholders::_1)));
+	initCallMap.insert(std::pair<std::string, std::function<void(int)> >(ACTIVITY_NAME_GUOQING, std::bind(&MainLayer::initGuoqingActivity, MainLayer::getCurMainLayer(), std::placeholders::_1)));
+
 	for (auto& tempconfig : _mapActivitys)
 	{
 		std::vector<std::string> tempTime;
@@ -314,51 +320,101 @@ void CommondActivityMagr::loadConfigFormFile()
 	{
 		return;
 	}
-	rapidjson::Document _jsonBezierDoc;
-	auto contentStr = FileUtils::getInstance()->getDataFromFile("activitys/MidAutumn.b");
-	ToolsUtil::unbtea(contentStr);
-	std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
+	/*{
+		rapidjson::Document _jsonBezierDoc;
+		auto contentStr = FileUtils::getInstance()->getDataFromFile("activitys/MidAutumn.b");
+		ToolsUtil::unbtea(contentStr);
+		std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
 
-	_jsonBezierDoc.Parse<0>(load_str.c_str());
-	if (_jsonBezierDoc.HasParseError())
-	{
-		CCLOG("JSonItemsError%s\n", _jsonBezierDoc.GetParseError());
-	}
-
-	CommandActivityStuct_T* commadnActivityStruct = new CommandActivityStuct_T();
-
-	commadnActivityStruct->storekey = _jsonBezierDoc["storekey"].GetString();
-	commadnActivityStruct->activityname = _jsonBezierDoc["activityname"].GetString();
-	commadnActivityStruct->activitydes = _jsonBezierDoc["activitydes"].GetString();
-	commadnActivityStruct->startday = _jsonBezierDoc["startday"].GetString();
-	commadnActivityStruct->activitytype = _jsonBezierDoc["activitytype"].GetString();
-	commadnActivityStruct->isRepeat = _jsonBezierDoc["isRepeat"].GetBool();
-	commadnActivityStruct->longtime = _jsonBezierDoc["longtime"].GetInt();
-	commadnActivityStruct->haveInit = false;
-
-	int count = _jsonBezierDoc["activitys"].Capacity();
-	rapidjson::Value& activitysArray = _jsonBezierDoc["activitys"];
-	for (int i = 0; i < count; i++)
-	{
-		auto pActivityConfigStruct_T = new ActivityConfigStruct_T();
-		rapidjson::Value& singleActivity = activitysArray[i];
-
-		pActivityConfigStruct_T->name = singleActivity["name"].GetString();
-		pActivityConfigStruct_T->des = singleActivity["des"].GetString();
-		pActivityConfigStruct_T->key = singleActivity["key"].GetString();
-		pActivityConfigStruct_T->num = singleActivity["num"].GetInt();
-
-		rapidjson::Value& rewards = singleActivity["reward"];
-		rapidjson::Value& rewardcount = singleActivity["rewardcount"];
-		for (int n = 0; n < rewards.Capacity(); n++)
+		_jsonBezierDoc.Parse<0>(load_str.c_str());
+		if (_jsonBezierDoc.HasParseError())
 		{
-			pActivityConfigStruct_T->arrRewardItemid.push_back(rewards[n].GetInt());
-			pActivityConfigStruct_T->arrRewardCount.push_back(rewardcount[n].GetInt());
+			CCLOG("JSonItemsError%s\n", _jsonBezierDoc.GetParseError());
 		}
-		commadnActivityStruct->arrActivitys.push_back(pActivityConfigStruct_T);
-	}
 
-	_mapActivitys.insert(std::pair<std::string, CommandActivityStuct_T*>(commadnActivityStruct->storekey, commadnActivityStruct));
+		CommandActivityStuct_T* commadnActivityStruct = new CommandActivityStuct_T();
+
+		commadnActivityStruct->storekey = _jsonBezierDoc["storekey"].GetString();
+		commadnActivityStruct->activityname = _jsonBezierDoc["activityname"].GetString();
+		commadnActivityStruct->activitydes = _jsonBezierDoc["activitydes"].GetString();
+		commadnActivityStruct->startday = _jsonBezierDoc["startday"].GetString();
+		commadnActivityStruct->activitytype = _jsonBezierDoc["activitytype"].GetString();
+		commadnActivityStruct->isRepeat = _jsonBezierDoc["isRepeat"].GetBool();
+		commadnActivityStruct->longtime = _jsonBezierDoc["longtime"].GetInt();
+		commadnActivityStruct->haveInit = false;
+
+		int count = _jsonBezierDoc["activitys"].Capacity();
+		rapidjson::Value& activitysArray = _jsonBezierDoc["activitys"];
+		for (int i = 0; i < count; i++)
+		{
+			auto pActivityConfigStruct_T = new ActivityConfigStruct_T();
+			rapidjson::Value& singleActivity = activitysArray[i];
+
+			pActivityConfigStruct_T->name = singleActivity["name"].GetString();
+			pActivityConfigStruct_T->des = singleActivity["des"].GetString();
+			pActivityConfigStruct_T->key = singleActivity["key"].GetString();
+			pActivityConfigStruct_T->num = singleActivity["num"].GetInt();
+
+			rapidjson::Value& rewards = singleActivity["reward"];
+			rapidjson::Value& rewardcount = singleActivity["rewardcount"];
+			for (int n = 0; n < rewards.Capacity(); n++)
+			{
+				pActivityConfigStruct_T->arrRewardItemid.push_back(rewards[n].GetInt());
+				pActivityConfigStruct_T->arrRewardCount.push_back(rewardcount[n].GetInt());
+			}
+			commadnActivityStruct->arrActivitys.push_back(pActivityConfigStruct_T);
+		}
+
+		_mapActivitys.insert(std::pair<std::string, CommandActivityStuct_T*>(commadnActivityStruct->storekey, commadnActivityStruct));
+	}*/
+
+	{
+		rapidjson::Document _jsonBezierDoc;
+		auto contentStr = FileUtils::getInstance()->getDataFromFile("activitys/Guoqing.b");
+		ToolsUtil::unbtea(contentStr);
+		std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
+
+		_jsonBezierDoc.Parse<0>(load_str.c_str());
+		if (_jsonBezierDoc.HasParseError())
+		{
+			CCLOG("JSonItemsError%s\n", _jsonBezierDoc.GetParseError());
+		}
+
+		CommandActivityStuct_T* commadnActivityStruct = new CommandActivityStuct_T();
+
+		commadnActivityStruct->storekey = _jsonBezierDoc["storekey"].GetString();
+		commadnActivityStruct->activityname = _jsonBezierDoc["activityname"].GetString();
+		commadnActivityStruct->activitydes = _jsonBezierDoc["activitydes"].GetString();
+		commadnActivityStruct->startday = _jsonBezierDoc["startday"].GetString();
+		commadnActivityStruct->activitytype = _jsonBezierDoc["activitytype"].GetString();
+		commadnActivityStruct->isRepeat = _jsonBezierDoc["isRepeat"].GetBool();
+		commadnActivityStruct->longtime = _jsonBezierDoc["longtime"].GetInt();
+		commadnActivityStruct->haveInit = false;
+
+		int count = _jsonBezierDoc["activitys"].Capacity();
+		rapidjson::Value& activitysArray = _jsonBezierDoc["activitys"];
+		for (int i = 0; i < count; i++)
+		{
+			auto pActivityConfigStruct_T = new ActivityConfigStruct_T();
+			rapidjson::Value& singleActivity = activitysArray[i];
+
+			pActivityConfigStruct_T->name = singleActivity["name"].GetString();
+			pActivityConfigStruct_T->des = singleActivity["des"].GetString();
+			pActivityConfigStruct_T->key = singleActivity["key"].GetString();
+			pActivityConfigStruct_T->num = singleActivity["num"].GetInt();
+
+			rapidjson::Value& rewards = singleActivity["reward"];
+			rapidjson::Value& rewardcount = singleActivity["rewardcount"];
+			for (int n = 0; n < rewards.Capacity(); n++)
+			{
+				pActivityConfigStruct_T->arrRewardItemid.push_back(rewards[n].GetInt());
+				pActivityConfigStruct_T->arrRewardCount.push_back(rewardcount[n].GetInt());
+			}
+			commadnActivityStruct->arrActivitys.push_back(pActivityConfigStruct_T);
+		}
+
+		_mapActivitys.insert(std::pair<std::string, CommandActivityStuct_T*>(commadnActivityStruct->storekey, commadnActivityStruct));
+	}
 
 	_isloadConfig = true;
 }
@@ -382,6 +438,10 @@ int CommondActivityMagr::getCurNum(std::string key)
 	else if (key.compare("pass_mission") == 0)
 	{
 			
+	}
+	else if (key.compare("payrmb_guoqing") == 0)
+	{
+		num = UserData::getInstance()->getPayRmbGuoqing();
 	}
 	return num;
 }
@@ -410,6 +470,12 @@ int CommondActivityMagr::getCurNumByNameAndIdx(std::string name, int idx)
 	}
 
 	return getCurNum(getkey);
+}
+
+int CommondActivityMagr::getTargetNumByNameAndIdx(std::string name, int idx)
+{
+	auto& config = _mapActivitys.at(name)->arrActivitys[idx];
+	return (*config).num;
 }
 
 const ActivityConfigStruct_T & CommondActivityMagr::getActivityConfig(std::string key, int idx)
@@ -471,12 +537,25 @@ void CommondActivityMagr::getReward(std::string activitykey, int idx)
 	{
 		int id = (((info->arrActivitys).at(idx))->arrRewardItemid)[i];
 		int num = (((info->arrActivitys).at(idx))->arrRewardCount)[i];
-		if (id >= 1500)
+		if (id == 10000)
 		{
-			int wenponnums[] = { 0,0,0,0 };
-			for (int j = 0; j < 4; j++)
+			if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_PLAYER_4, false) == 0)
 			{
-				if (j == 3)
+				UserData::getInstance()->giveItem(StoreAssetMgr::ITEMID_GOOD_PLAYER_4, 1, false);
+				PlayerMgr::getInstance()->unLockPlayer(4);
+			}
+			else
+			{
+				GameUtils::toastTip("role_have_buy");
+			}
+			
+		}
+		else if (id >= 1500)
+		{
+			int wenponnums[ParamData::ROLE_COUNT] = {0};
+			for (int j = 0; j < ParamData::ROLE_COUNT; j++)
+			{
+				if (j == ParamData::ROLE_COUNT - 1)
 				{
 					wenponnums[j] = num;
 				}

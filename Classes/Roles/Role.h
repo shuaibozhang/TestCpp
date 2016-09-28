@@ -41,6 +41,9 @@ public:
 	void startTalk(const std::string &talkId, int contentType = 0);	//0.xml 1.text
 	void stopTalk();
 
+	void playBuffAttAnim();
+	void stopBuffAttAnim();
+
 	virtual void changeWeapon(int weaponId) = 0;
 
 	bool isAttFinish();
@@ -56,6 +59,7 @@ public:
 
 	CC_SYNTHESIZE_READONLY(int, _roleId, RoleId);
 	CC_SYNTHESIZE_READONLY(bool, _isCurAttFinish, IsCurAttFinish);
+	CC_SYNTHESIZE(int, _rolePosIndex, RolePosIndex);
 protected:
 	virtual void initAttData() = 0;
 	virtual void initAttSkillData() = 0;
@@ -77,7 +81,8 @@ protected:
 	RoleCurAttInfo_T _curAttInfo;
 	Skill_T _norAttInfo; 
 	const PlayerInfo_T *_pRoleData;
-	RoleDialog *_pRoleDialog;
+	RoleDialog *_pRoleDialog; 
+	GameArmtr *_pBuffAtt;
 };
 
 #endif

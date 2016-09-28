@@ -18,6 +18,7 @@
 #include "DataParam/WeaponControl.h"
 #include "../Scenes/PopRewardLayer.h"
 #include "Player.h"
+#include "PlayerMgr.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -664,7 +665,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	{
 		std::vector<PopItemInfo_T> arrItems;
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			int curid = 503 + 10 * i;
 			int type = WeaponControl::getInstance()->getWenponType(3);
@@ -692,7 +693,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		auto layer = PopRewardLayer::create(arrItems);
 		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			MainLayer::getCurMainLayer()->updataEquipLayer(i);
 		}
@@ -702,7 +703,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1) == 0)
 	{
 		std::vector<PopItemInfo_T> arrItems;
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			int curid = 506 + 10 * i;
 			int type = WeaponControl::getInstance()->getWenponType(6);
@@ -730,7 +731,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		auto layer = PopRewardLayer::create(arrItems);
 		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			MainLayer::getCurMainLayer()->updataEquipLayer(i);
 		}
@@ -741,7 +742,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	{
 		std::vector<PopItemInfo_T> arrItems;
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			int curid = 508 + 10 * i;
 			int type = WeaponControl::getInstance()->getWenponType(8);
@@ -771,7 +772,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		auto layer = PopRewardLayer::create(arrItems);
 		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			MainLayer::getCurMainLayer()->updataEquipLayer(i);
 		}
@@ -782,7 +783,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	{
 		std::vector<PopItemInfo_T> arrItems;
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			int curid = 507 + 10 * i;
 			int type = WeaponControl::getInstance()->getWenponType(7);
@@ -812,7 +813,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		auto layer = PopRewardLayer::create(arrItems);
 		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			MainLayer::getCurMainLayer()->updataEquipLayer(i);
 		}
@@ -823,7 +824,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	{
 		std::vector<PopItemInfo_T> arrItems;
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			int curid = 504 + 10 * i;
 			int type = WeaponControl::getInstance()->getWenponType(4);
@@ -853,7 +854,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		auto layer = PopRewardLayer::create(arrItems);
 		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 		{
 			MainLayer::getCurMainLayer()->updataEquipLayer(i);
 		}
@@ -884,12 +885,17 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	{
 		Player::getInstance()->reliveCB(true);
 	}
-
-	if (dynamic_cast<StoreLayer*>(m_pFather))
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_PLAYER_4) == 0)
 	{
-		dynamic_cast<StoreLayer*>(m_pFather)->menuBuyCallback(itemId, true);
+		PlayerMgr::getInstance()->unLockPlayer(4);
 	}
-	else if (dynamic_cast<GiftLayer*>(m_pFather))
+
+// 	if (dynamic_cast<StoreLayer*>(m_pFather))
+// 	{
+// 		dynamic_cast<StoreLayer*>(m_pFather)->menuBuyCallback(itemId, true);
+// 	}
+// 	else 
+	if (nullptr != dynamic_cast<GiftLayer*>(m_pFather))
 	{
 		dynamic_cast<GiftLayer*>(m_pFather)->updateBtns();
 	}

@@ -359,5 +359,10 @@
 
 	<key>guide_pop_boss</key>
 	<string>主子，别忘了挑战精英关卡，听说有宝箱掉落！</string>
+	
+	<key>role_equip_info</key>
+	<string>主子，上场人数必须是4人</string>
+	<key>role_have_buy</key>
+	<string>你已经拥有该人物</string>
 </dict>
 </plist>

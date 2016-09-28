@@ -24,10 +24,12 @@ public:
 	static const std::string ROLE_STATE_ADD_DEF;
 	static const std::string ROLE_STATE_ADD_HP;
 	static const std::string ROLE_STATE_CLEAN;
-	static const std::string ROLE_STATE_STRONG;
+	static const std::string ROLE_STATE_ADD_LV;
 	static const std::string ROLE_STATE_RELIVE;
 	static const std::string ROLE_STATE_NARROW;
-	static const std::string ROLE_STATE_CONFUSE;
+	static const std::string ROLE_STATE_CONFUSE; 
+	static const std::string ROLE_STATE_ABSORB_HP;
+	static const std::string ROLE_STATE_ADD_ATT;
 
 	static const std::string MONSTER_IDLE;
 	static const std::string MONSTER_HURT;

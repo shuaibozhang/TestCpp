@@ -76,7 +76,7 @@ void RoleCbd::initAttData()
 		if (info.arrLvCount[1] > 0 || info.arrLvCount[2] > 0)
 		{
 			skillFlag = 0;
-			if (1 == _roleId && Player::getInstance()->getCurDef() < Player::getInstance()->getTotalDef())
+			if (RoleId_E::ROLE_ID_CBD == _roleId && Player::getInstance()->getCurDp() < Player::getInstance()->getTotalDp())
 			{
 				skillFlag = 2;
 			}
@@ -93,7 +93,7 @@ void RoleCbd::initAttData()
 		_curAttInfo.skillId = -1;
 		_curAttInfo.pSkillInfo = &_norAttInfo;
 
-		if (Player::getInstance()->getCurDef() < Player::getInstance()->getTotalDef())
+		if (Player::getInstance()->getCurDp() < Player::getInstance()->getTotalDp())
 		{
 			_norAttInfo.mark = 0;
 		}
@@ -306,9 +306,9 @@ void RoleCbd::doAttPer()
 		GameUtils::playEffect("cbd_att.ogg");
 		break;
 	case 0:
-		Player::getInstance()->addDef(_curAttInfo.skillParam1);
+		Player::getInstance()->addDp(_curAttInfo.skillParam1);
 		//		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim);
-		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _roleId, info.crushCount - 2);
+		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _rolePosIndex, info.crushCount - 2);
 		GameUtils::playEffect("cbd_fangyu.ogg");
 		break;
 	case 1:
@@ -338,8 +338,8 @@ void RoleCbd::doAttPer()
 		}
 		break;
 	case 3:
-		Player::getInstance()->addDef(&_curAttInfo);
-		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _roleId, info.crushCount - 2);
+		Player::getInstance()->addDp(&_curAttInfo);
+		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _rolePosIndex, info.crushCount - 2);
 		if (_curAttInfo.skillParam2 > 0)
 		{
 			Player::getInstance()->addRecover(1, _curAttInfo.skillParam2, _curAttInfo.skillParam3);
@@ -347,7 +347,7 @@ void RoleCbd::doAttPer()
 		GameUtils::playEffect("cbd_fangyu.ogg");
 		break;
 	case 6:
-		Player::getInstance()->addDef(&_curAttInfo);
+		Player::getInstance()->addDp(&_curAttInfo);
 		Player::getInstance()->getShield(&_curAttInfo);
 		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim);
 		GameUtils::playEffect("cbd_jysg.ogg");
@@ -361,8 +361,8 @@ bool RoleCbd::isCanAtt()
 	if (Role::isCanAtt())
 	{
 		auto arrMonster = FightLayer::getInstance()->getCurArrMonster();
-		if ((Player::getInstance()->getCurDef() < Player::getInstance()->getTotalDef() && !arrMonster->empty())
-			|| (Player::getInstance()->getCurDef() >= Player::getInstance()->getTotalDef()))
+		if ((Player::getInstance()->getCurDp() < Player::getInstance()->getTotalDp() && !arrMonster->empty())
+			|| (Player::getInstance()->getCurDp() >= Player::getInstance()->getTotalDp()))
 		{
 			bRet = true;
 		}

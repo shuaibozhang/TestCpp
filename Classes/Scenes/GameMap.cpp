@@ -487,11 +487,11 @@ void GameMap::showResault(bool win, int exp, int gold, float* arr4)
 		{
 			if (win)
 			{
-				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYPASS);
+				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYPASS, 1, false);
 
 				if (WordMap::getInstance()->checkIsBoss(WordMap::getInstance()->getCurPosIdx()) && UserData::getInstance()->getIsBossPass(WordMap::getInstance()->getCurPosIdx()) == 1)
 				{
-					DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYSPBOSS);
+					DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYSPBOSS, 1, false);
 					if (WordMap::getInstance()->getCurPosIdx() == 68)
 					{
 						NewMapOpenMgr::getInstance()->tryGet(MapOpenType::PASS68);
@@ -526,7 +526,7 @@ void GameMap::showResault(bool win, int exp, int gold, float* arr4)
 			if (win)
 			{
 				GameUtils::playEffect("shengli.ogg", false);
-				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYDUNGEON);
+				DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYDUNGEON, 1, false);
 			}
 			else
 			{
@@ -728,7 +728,7 @@ void GameMap::showResaultNumInfo(bool win, int exp, int gold, float* arr4)
 			}
 		}
 
-		UserData::getInstance()->saveUserData();
+		//UserData::getInstance()->saveUserData();
 
 		float time = 0.f;
 		for (int i = 1; i < 7; i++)
@@ -820,7 +820,7 @@ void GameMap::showResaultNumInfo(bool win, int exp, int gold, float* arr4)
 	scoreNodeCSB->runAction(actionshowadd);
 
 	UserData::getInstance()->giveGold(gold);
-	UserData::getInstance()->saveUserData(true);
+	//UserData::getInstance()->saveUserData(true);
 
 	auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->setSwallowTouches(true);
@@ -1142,7 +1142,11 @@ void GameMap::menuOnScoreFailed(Ref * btn, Widget::TouchEventType type)
 	if (type == Widget::TouchEventType::ENDED)
 	{
 		int tag = static_cast<Node*>(btn)->getTag();
-		if (tag == 4)
+
+		/*auto layer = GiftLayer::create();
+		MainLayer::getCurMainLayer()->addChild(layer, MainLayer_Z::POP_Z);*/
+
+		/*if (tag == 4)
 		{
 			if (MainLayer::getCurMainLayer()->checkTimeLimitGift() != -1)
 			{
@@ -1160,7 +1164,7 @@ void GameMap::menuOnScoreFailed(Ref * btn, Widget::TouchEventType type)
 		else if (tag == 6)
 		{
 			MainLayer::getCurMainLayer()->popBuyItemOrLayer(1);
-		}
+		}*/
 	}
 }
 
@@ -2862,7 +2866,7 @@ void WordMap::tryBackToLastPos()
 			GameMap::getCurGameMap()->setAutoMove(false);
 
 			endMove();
-			int idxlast = 0;
+			int idxlast = atoi(_vertorNode[0]->getName().c_str());
 			for (int i = _vertorNode.size() - 1; i >=0 ;  i--)
 			{	
 				auto tempidx = atoi(_vertorNode[i]->getName().c_str());	

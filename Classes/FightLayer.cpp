@@ -77,7 +77,7 @@ bool FightLayer::init()
 
 	float moveTime = 0.5f;
 	float bufferTime = 0.2f;
-	Player::getInstance()->placeRole(Vec2(ParamData::ROLE_START_POS_X/2, ParamData::ROLE_START_POS_Y));
+//	Player::getInstance()->placeRole(Vec2(ParamData::ROLE_START_POS_X/2, ParamData::ROLE_START_POS_Y));
 	Player::getInstance()->moveToOutsidePos(_curPlayerPosId, ParamData::POS_X_INTERVAL, moveTime, bufferTime);
 
 //	pPlayer->playIdle();
@@ -318,9 +318,9 @@ bool FightLayer::createFloorMonster(int floorIndex)
 #if (1 == CC_ENABLE_DEBUG_MONSTER_ANIM)
 	//debug monster anim
 	
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 9; i++)
 	{
-		auto newMonster = Monster::create(52, 0);
+		auto newMonster = Monster::create(10+i, 0);
 
 		newMonster->setWaveCount(1);
 		this->addChild(newMonster, -1);
@@ -670,7 +670,7 @@ void FightLayer::enterNewFloor()
 			int totalFloor = UserData::getInstance()->getTotalFloor();
 			UserData::getInstance()->setTotalFloor(totalFloor+1);
 
-			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYTA);
+			DayActivityMgr::getInstance()->addTimes(DayActivityTppe::DAYTA, 1, false);
 			if (totalFloor >= 100 - 1)
 			{
 				NewMapOpenMgr::getInstance()->tryGet(MapOpenType::TA200, false);

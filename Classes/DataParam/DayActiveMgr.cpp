@@ -40,10 +40,18 @@ DayActivityMgr::~DayActivityMgr()
 
 void DayActivityMgr::addTimes(DayActivityTppe type, int num)
 {
+	this->addTimes(type, num, true);
+}
+
+void DayActivityMgr::addTimes(DayActivityTppe type, int num, bool save)
+{
 	(*_activityInfoMap[type]) += num;
 
-	UserData::getInstance()->saveUserData();
-
+	if (save)
+	{
+		UserData::getInstance()->saveUserData();
+	}
+	
 	MainLayer::getCurMainLayer()->updataDayActivityBtn();
 }
 

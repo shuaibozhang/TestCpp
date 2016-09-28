@@ -9,7 +9,7 @@ USING_NS_CC;
 using namespace ui;
 
 RoleDialog::RoleDialog()
-	:_roleId(-1)
+	:_rolePosIndex(-1)
 {
 }
 
@@ -17,11 +17,11 @@ RoleDialog::~RoleDialog()
 {
 }
 
-RoleDialog * RoleDialog::create(const std::string & talkId, int roleId, int contentType)
+RoleDialog * RoleDialog::create(const std::string & talkId, int rolePosIndex, int contentType)
 {
 	auto *pRet = new RoleDialog();
 
-	if (nullptr != pRet && pRet->init(talkId, roleId, contentType))
+	if (nullptr != pRet && pRet->init(talkId, rolePosIndex, contentType))
 	{
 		pRet->autorelease();
 	}
@@ -33,7 +33,7 @@ RoleDialog * RoleDialog::create(const std::string & talkId, int roleId, int cont
 	return pRet;
 }
 
-bool RoleDialog::init(const std::string & talkId, int roleId, int contentType)
+bool RoleDialog::init(const std::string & talkId, int rolePosIndex, int contentType)
 {
 	bool bRet = false;
 
@@ -41,7 +41,7 @@ bool RoleDialog::init(const std::string & talkId, int roleId, int contentType)
 	{
 		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/guideUi.plist");
 
-		_roleId = roleId;
+		_rolePosIndex = rolePosIndex;
 		
 		float lblWidth = 300.f;
 		float lblHeight = 50.f;
@@ -51,7 +51,7 @@ bool RoleDialog::init(const std::string & talkId, int roleId, int contentType)
 		auto pBg = Scale9Sprite::createWithSpriteFrameName("guide_role_dialog_bg.png");
 		pBg->setPreferredSize(Size(bgWidth, bgHeight));
 		this->addChild(pBg);
-		if (-1 == _roleId)
+		if (-1 == _rolePosIndex)
 		{
 			pBg->setFlippedX(true);
 		}
@@ -82,13 +82,13 @@ bool RoleDialog::init(const std::string & talkId, int roleId, int contentType)
 
 void RoleDialog::update(float dt)
 {
-	if (-1 != _roleId)
+	if (-1 != _rolePosIndex)
 	{
-		auto pRole = Player::getInstance()->getRole(_roleId);
+		Vec2 rolePos = Player::getInstance()->getCurRolePos(_rolePosIndex);//Player::getInstance()->getRole(_rolePosIndex);
 
-		Vec2 newPos = pRole->getPosition() + Vec2(190.f, 150.f);
+		Vec2 newPos = rolePos + Vec2(190.f, 150.f);
 
-		if (2 == _roleId)
+		if (2 == _rolePosIndex)
 		{
 			newPos += Vec2(0.f, 30.f);
 		}

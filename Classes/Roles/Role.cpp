@@ -14,7 +14,8 @@
 
 Role::Role()
 	:_isCurAttFinish(true),
-	_pRoleDialog(nullptr)
+	_pRoleDialog(nullptr),
+	_pBuffAtt(nullptr)
 {
 	memset((void *)&_curAttInfo, 0, sizeof(_curAttInfo));
 }
@@ -46,6 +47,7 @@ bool Role::init(int id)
 	do 
 	{
 		_roleId = id;
+		_rolePosIndex = Player::getInstance()->getPosIndexByRoleId(_roleId);
 		_pRoleData = Player::getInstance()->getRoleInfo(_roleId);
 
 		auto pArmInfo = ParamMgr::getInstance()->getRoleArmtrInfo(_roleId);
@@ -57,12 +59,12 @@ bool Role::init(int id)
 		_pArmtr->getArmtr()->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_0(Role::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
 
 		_norAttInfo.id = -1;
-		_norAttInfo.attribute = 3;
+		_norAttInfo.attribute = AttAttrbt_E::ATT_NORMAL;
 		_norAttInfo.mark = -1;
 		_norAttInfo.isHurtAll = false;
 		_norAttInfo.roleAnim = ArmtrName::ROLE_NOR_ATT;
 
-		this->scheduleUpdate();
+//		this->scheduleUpdate();
 		bRet = true;
 	} while (false);
 
@@ -244,7 +246,7 @@ void Role::throwDart()
 	{
 		return;
 	}
-	if (2 == _roleId)
+	if (RoleId_E::ROLE_ID_LQC == _roleId)
 	{
 		Vec2 startPos = this->getPosition() + Vec2(20.f, 140.f);//this->convertToWorldSpaceAR(Vec2(20.f, 140.f));
 
@@ -262,7 +264,7 @@ void Role::throwDart()
 		auto pDart = dynamic_cast<GameArmtr *>(GameResPool::getInstance()->getResById(GameResId_E::RES_FB));//GameArmtr::createDart();
 		FightLayer::getInstance()->addChild(pDart);
 
-		if (3 == _curAttInfo.pSkillInfo->attribute)
+		if (AttAttrbt_E::ATT_NORMAL == _curAttInfo.pSkillInfo->attribute)
 		{
 			auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(2);
 			int weaponIndex = weaponInfo.id - 520;
@@ -287,7 +289,7 @@ void Role::endThrowDart()
 	{
 		return;
 	}
-	if (2 == _roleId)
+	if (RoleId_E::ROLE_ID_LQC == _roleId)
 	{
 		if (_curAttInfo.pSkillInfo->skillAnim == "")
 		{
@@ -365,7 +367,7 @@ void Role::playAnim(const std::string & animName)
 
 void Role::playEndDefAnim()
 {
-	if (1 == _roleId)
+	if (RoleId_E::ROLE_ID_CBD == _roleId || RoleId_E::ROLE_ID_QYL == _roleId)
 	{
 		auto pos = CrushUtil::getRolePos(_roleId, FightLayer::getInstance()->getCurPlayerPosId());
 		float moveDur = 0.2f;
@@ -392,7 +394,7 @@ void Role::startTalk(const std::string & talkId, int contentType)
 {
 	if (nullptr == _pRoleDialog)
 	{
-		_pRoleDialog = RoleDialog::create(talkId, _roleId, contentType);
+		_pRoleDialog = RoleDialog::create(talkId, _rolePosIndex, contentType);
 		FightLayer::getInstance()->addChild(_pRoleDialog);
 	}
 }
@@ -406,10 +408,30 @@ void Role::stopTalk()
 	}
 }
 
+void Role::playBuffAttAnim()
+{
+	if (nullptr == _pBuffAtt)
+	{
+		_pBuffAtt = dynamic_cast<GameArmtr *>(GameResPool::getInstance()->getResById(GameResId_E::RES_BUFF));//GameArmtr::createBuff(animName);
+		this->addChild(_pBuffAtt);
+		_pBuffAtt->play(ArmtrName::ROLE_STATE_ADD_ATT);
+	}
+}
+
+void Role::stopBuffAttAnim()
+{
+	if (nullptr != _pBuffAtt)
+	{
+		GameResPool::getInstance()->recycleRes(_pBuffAtt);
+		_pBuffAtt->removeFromParentAndCleanup(false);
+		_pBuffAtt = nullptr;
+	}
+}
+
 
 void Role::playStartDefAnim()
 {
-	if (1 == _roleId)
+	if (RoleId_E::ROLE_ID_CBD == _roleId || RoleId_E::ROLE_ID_QYL == _roleId)
 	{
 		auto desPos = CrushUtil::getRoleDefPos(FightLayer::getInstance()->getCurPlayerPosId());//CrushUtil::getRoleFrontPos(FightLayer::getInstance()->getCurPlayerPosId());
 		auto pos = CrushUtil::getRolePos(_roleId, FightLayer::getInstance()->getCurPlayerPosId());
@@ -438,13 +460,13 @@ void Role::animationEvent(cocostudio::Armature * armature, cocostudio::MovementE
 		}
 
 		string subMoveId = movementID.substr(0, 6);
-		if (movementID == ArmtrName::ROLE_NOR_ATT && 2 != _roleId)
+		if (movementID == ArmtrName::ROLE_NOR_ATT && RoleId_E::ROLE_ID_LQC != _roleId)
 		{
 			this->endAttAnim();
 // 			_attInfoQueue.pop();
 // 			_isCurAttFinish = true;
 		}
-		else if (0 == _roleId)
+		else if (RoleId_E::ROLE_ID_LSJ == _roleId)
 		{
 //			if (movementID == "attack02" || movementID == "attack03" || movementID == "attack05")
 			if (movementID == "attack02")
@@ -456,7 +478,7 @@ void Role::animationEvent(cocostudio::Armature * armature, cocostudio::MovementE
 				this->playIdle();
 			}
 		}
-		else if (1 == _roleId)
+		else if (RoleId_E::ROLE_ID_CBD == _roleId)
 		{
 //			if (movementID == "attack07" || movementID == "attack08" || movementID == "attack02")
 			if (movementID == "attack08" || movementID == "attack02" || movementID == "attack04")
@@ -472,14 +494,14 @@ void Role::animationEvent(cocostudio::Armature * armature, cocostudio::MovementE
 				this->playIdle();
 			}
 		}
-		else if (2 == _roleId)
+		else if (RoleId_E::ROLE_ID_LQC == _roleId)
 		{
 			if (subMoveId == "attack")
 			{
 				this->playIdle();
 			}
 		}
-		else if (3 == _roleId)
+		else if (RoleId_E::ROLE_ID_SQY == _roleId)
 		{
 			if (movementID == "attack01")
 			{
@@ -494,6 +516,21 @@ void Role::animationEvent(cocostudio::Armature * armature, cocostudio::MovementE
 				this->playIdle();
 			}
 		}
+		else if (RoleId_E::ROLE_ID_QYL == _roleId)
+		{
+			if (movementID == "attack03")
+			{
+				this->endAttAnim();
+			}
+			else if (subMoveId == "attack")
+			{
+				this->playIdle();
+			}
+			else if (movementID == "def")
+			{
+				this->playIdle();
+			}
+		}
 	}
 }
 
@@ -503,7 +540,7 @@ void Role::onFrameEvent(cocostudio::Bone * bone, const std::string & evt, int or
 	if (evt == ArmtrName::ROLE_EVT_HURT)
 	{
 //		this->playSkillAnim();
-		if (2 == _roleId)
+		if (RoleId_E::ROLE_ID_LQC == _roleId)
 		{
 			this->throwDart();
 		}
@@ -514,7 +551,7 @@ void Role::onFrameEvent(cocostudio::Bone * bone, const std::string & evt, int or
 	}
 	else if (evt == ArmtrName::ROLE_EVT_SKILL)
 	{
-		if (2 == _roleId)
+		if (RoleId_E::ROLE_ID_LQC == _roleId)
 		{
 			this->throwDart();
 		}

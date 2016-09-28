@@ -9,6 +9,8 @@
 #include "../Story/StoryMgr.h"
 #include "UserData.h"
 #include "platBridge/cocos2dx_analyze.h"
+#include "Defines.h"
+#include "PlayerMgr.h"
 
 StartScene::StartScene()
 {
@@ -34,6 +36,12 @@ Scene * StartScene::scene()
 bool StartScene::init()
 {
 	Layer::init();
+
+#ifdef  USING_TIME_MGR
+	TimeMgr::getInstane();
+#endif
+	
+	PlayerMgr::getInstance()->fixPlayer();
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);

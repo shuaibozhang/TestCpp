@@ -36,6 +36,8 @@ public:
 	~DayActivityMgr();
 
 	void addTimes(DayActivityTppe type, int num = 1);
+	void addTimes(DayActivityTppe type, int num,bool save);
+
 	int getAllActivityScore();
 	int getActivityScore(DayActivityTppe type);
 	int getActivityTimes(DayActivityTppe type);

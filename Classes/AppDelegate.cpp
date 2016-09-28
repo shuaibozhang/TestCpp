@@ -12,6 +12,8 @@
 #include "Scenes/StartScene.h"
 #include "GameUtils.h"
 #include "AchieveMgr.h"
+#include "Defines.h"
+#include "../platBridge/cocos2dx_plat.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 //#include<vld.h>
 #endif
@@ -164,6 +166,37 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		UserData::getInstance()->saveUserData(false);
 	}
 
+	/*qyl init*/
+	if (UserData::getInstance()->getItemBalance("itemid_good_weapon_540") == 0)
+	{
+		UserData::getInstance()->giveItem("itemid_good_weapon_540", 1, false);
+		//qyl
+		UserData::getInstance()->giveItem("itemid_good_skill_46", 1, false);
+		UserData::getInstance()->giveItem("itemid_good_skill_54", 1, false);
+		//qyl
+		UserData::getInstance()->setSkillEquip(4, 46, true, false);
+		UserData::getInstance()->setSkillEquip(4, 54, true, false);
+
+		UserData::getInstance()->setWeaponEquip(540, true);
+		UserData::getInstance()->setWeaponLv(40, 1);
+		UserData::getInstance()->saveUserData(false);
+	}
+
+
+#if 0//(CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	UserData::getInstance()->giveItem("item_good_player_4", 1, false);
+	UserData::getInstance()->giveItem("itemid_good_skill_49", 1, false);
+	UserData::getInstance()->giveItem("itemid_good_skill_50", 1, false);
+	UserData::getInstance()->giveItem("itemid_good_skill_53", 1, false);
+	UserData::getInstance()->giveItem("itemid_good_skill_46", 1, false);
+	UserData::getInstance()->giveItem("itemid_good_skill_54", 1, false);
+	for (int i = 0; i < 10; i++)
+	{
+		auto strItem = __String::createWithFormat("itemid_good_weapon_%d", 540 + i);
+		UserData::getInstance()->giveItem(strItem->getCString(), 1, false);
+	}
+#endif
+
 	if (VisibleRect::getVisibleRect().getMaxY() > (580.f*2))
 	{
 		ParamData::FIGHT_BG_HEIGHT = 580.f;
@@ -216,6 +249,15 @@ void AppDelegate::applicationWillEnterForeground() {
 	{
 		NetDataMgr::getInstance()->updateRole(CC_CALLBACK_2(MainLayer::onUpdateSelfInfoCallback, MainLayer::getCurMainLayer()));
 	}
+
+#ifdef  USING_TIME_MGR
+	if (TimeMgr::getInstane())
+	{
+		cocos2dx_plat::showToast("from background");
+		TimeMgr::getInstane()->fixTime();
+	}
+#endif
+	
 	// if you use SimpleAudioEngine, it must resume here
 #if GAME_AUDIO_TARGET_API == GAME_AUDIO_API_OLD
 	CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();

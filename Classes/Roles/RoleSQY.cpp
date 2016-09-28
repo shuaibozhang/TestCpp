@@ -249,7 +249,7 @@ void RoleSqy::doAttPer()
 	{
 	case -1:
 		Player::getInstance()->addHp(_curAttInfo.skillParam1);
-		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _roleId, info.crushCount - 2);
+		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _rolePosIndex, info.crushCount - 2);
 		GameUtils::playEffect("sqy_xue.ogg");
 		break;
 	case 2:
@@ -264,18 +264,18 @@ void RoleSqy::doAttPer()
 		}
 		else
 		{
-			Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _roleId, info.crushCount - 2);
+			Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _rolePosIndex, info.crushCount - 2);
 		}
 		GameUtils::playEffect("sqy_jiaxue.ogg");
 		break;
 	case 7:
 		Player::getInstance()->addHp(_curAttInfo.skillParam1);
-		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _roleId, info.crushCount - 2);
+		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _rolePosIndex, info.crushCount - 2);
 		GameUtils::playEffect("sqy_jinghua.ogg");
 		break;
 	case 8:
 		Player::getInstance()->addHp(_curAttInfo.skillParam1);
-		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _roleId, info.crushCount - 2);
+		Player::getInstance()->playStateAnim(_curAttInfo.pSkillInfo->buffAnim, _rolePosIndex, info.crushCount - 2);
 		GameUtils::playEffect("sqy_zengfu.ogg");
 		break;
 	case 9:

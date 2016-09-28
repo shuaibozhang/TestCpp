@@ -40,4 +40,6 @@
 #define CC_ENABLE_CHECK_SIGN 1
 #endif
 
+#define USING_TIME_MGR
+
 #endif

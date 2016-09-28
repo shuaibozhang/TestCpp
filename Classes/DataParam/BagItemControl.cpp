@@ -216,7 +216,6 @@ void BagItemControl::init()
 	}
 	
 	int idx = 0;
-	// bei bao zhuangbei d wuping
 	for (auto&config : _bagEquipConfig)
 	{
 		config = UserData::getInstance()->getEquipConfig(idx);
@@ -339,7 +338,7 @@ void BagItemControl::saveItemConfig()
 		}
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 	{
 		UserData::getInstance()->setEquipConfig(i, _bagEquipConfig[i]);
 	}
@@ -350,7 +349,7 @@ void BagItemControl::saveItemConfig()
 void BagItemControl::autoEquipItems()
 {
 	bool isBagHasItem = true;
-	for (int i = 0; i < 4 && isBagHasItem; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT && isBagHasItem; i++)
 	{
 		const auto& temp = _bagEquipConfig[i];
 

@@ -194,10 +194,10 @@ void WeaponControl::addNewWeapon(int skillid)
 	{
 		temp.second(idx / 10, skillid, 2);
 	}
+
+	AchieveMgr::getInstance()->addAchieveCount(AchieveMgr::_AchieveIdx::WEAPON, 1, false);
 	
 	UserData::getInstance()->saveUserData();
-
-	AchieveMgr::getInstance()->addAchieveCount(AchieveMgr::_AchieveIdx::WEAPON, 1);
 }
 
 bool WeaponControl::isWeaponUnLock(int skillid)

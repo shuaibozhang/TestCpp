@@ -140,15 +140,15 @@ Node * GameResPool::createRes(int resId)
 	case RES_FLY_ICON_START + 9:
 	case RES_FLY_ICON_START + 10:
 	case RES_FLY_ICON_START + 11:
+	case RES_FLY_ICON_START + 12:
 	case RES_FLY_ICON_START + 13:
 	case RES_FLY_ICON_START + 14:
-	case RES_FLY_ICON_START + 15:
 	{
 		std::string arrName[] = {"dao.png", "dao_2.png", "dao_3.png" ,
 		"dun.png", "dun_2.png", "dun_3.png",
 		"feibiao.png", "feibiao_2.png", "feibiao_3.png",
 		"aixin.png", "aixin_2.png", "aixin_3.png",
-			"aixin.png", "aixin_2.png", "aixin_3.png",};
+		"zhang.png", "zhang_2.png", "zhang_3.png",};
 
 		__String *strFileName = String::createWithFormat("anniutubiao/%s", arrName[resId - RES_FLY_ICON_START].c_str());;
 

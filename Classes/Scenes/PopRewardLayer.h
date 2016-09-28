@@ -28,9 +28,11 @@ public:
 	static PopRewardLayer *create(int itemId, int itemCount, int titleType = 0);//0.nor 1.settle reward 2.exchange 
 	static PopRewardLayer *create(const std::vector<PopItemInfo_T> &arrItems, int titleType = 0);//0.nor 1.settle reward 2.exchange 
 	static PopRewardLayer *openBox(int boxId, int boxLv, int param1 = 0);	//1. 2.tili count 6 3.no tili	4.need resume
+	static PopRewardLayer *createRoleReward(int roleId);
 
 	bool init(const std::vector<PopItemInfo_T> &arrItems, int titleType, bool isNeedOpen);
 	bool initOpenBox(int boxId, int boxLv, int param1);
+	bool initRoleReward(int roleId);
 	
 	virtual void onEnter(void);
 	virtual void update(float delta);

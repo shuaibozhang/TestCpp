@@ -77,13 +77,27 @@
                   "kY": 0.0
                 }
               ]
+            },
+            {
+              "name": "anniutubiao/zhangs_1.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
             }
           ]
         },
         {
           "name": "Layer2",
           "parent": "",
-          "dI": 7,
+          "dI": 9,
           "x": 0.0,
           "y": 0.0,
           "z": 7,
@@ -210,6 +224,34 @@
             },
             {
               "name": "anniutubiao/dunz1.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhangz1.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhangz.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -565,6 +607,62 @@
                   "kY": 0.0
                 }
               ]
+            },
+            {
+              "name": "anniutubiao/zhang_2.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhang_3.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhang.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhangs_1.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
             }
           ]
         },
@@ -765,6 +863,62 @@
                   "kY": 0.0
                 }
               ]
+            },
+            {
+              "name": "anniutubiao/zhang_2.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhang_3.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhang.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "anniutubiao/zhangs_1.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
             }
           ]
         }
@@ -798,7 +952,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -813,7 +967,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -834,7 +988,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 18,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -855,7 +1009,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -876,7 +1030,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -891,7 +1045,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -912,7 +1066,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 18,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -933,7 +1087,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -965,7 +1119,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -980,7 +1134,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1001,7 +1155,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 18,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1043,7 +1197,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1058,7 +1212,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1079,7 +1233,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 18,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1111,7 +1265,7 @@
         },
         {
           "name": "touch_3_3",
-          "dr": 35,
+          "dr": 36,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -1216,7 +1370,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1231,7 +1385,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1252,7 +1406,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1273,7 +1427,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1294,7 +1448,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1309,7 +1463,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1330,7 +1484,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1351,7 +1505,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1362,7 +1516,7 @@
         },
         {
           "name": "touch_0_2",
-          "dr": 35,
+          "dr": 36,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -1383,7 +1537,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1398,7 +1552,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1419,7 +1573,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1440,7 +1594,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1467,7 +1621,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1482,7 +1636,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1503,7 +1657,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1524,7 +1678,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1562,7 +1716,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1577,7 +1731,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1598,7 +1752,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1619,7 +1773,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1646,7 +1800,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1661,7 +1815,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1682,7 +1836,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1703,7 +1857,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1804,7 +1958,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1825,7 +1979,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1840,7 +1994,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1861,7 +2015,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1882,7 +2036,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1909,7 +2063,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -1924,7 +2078,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1945,7 +2099,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1966,7 +2120,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -1983,7 +2137,7 @@
         },
         {
           "name": "touch_1_1",
-          "dr": 35,
+          "dr": 36,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -2004,7 +2158,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2019,7 +2173,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2040,7 +2194,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2061,7 +2215,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2088,7 +2242,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2103,7 +2257,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2124,7 +2278,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2145,7 +2299,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2183,7 +2337,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2198,7 +2352,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2219,7 +2373,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2240,7 +2394,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2267,7 +2421,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2282,7 +2436,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2303,7 +2457,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2324,7 +2478,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2341,7 +2495,7 @@
         },
         {
           "name": "touch_1_3",
-          "dr": 35,
+          "dr": 36,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -2425,7 +2579,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2446,7 +2600,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2461,7 +2615,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2482,7 +2636,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2503,7 +2657,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2530,7 +2684,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2545,7 +2699,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2566,7 +2720,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2587,7 +2741,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2604,7 +2758,7 @@
         },
         {
           "name": "touch_2_1",
-          "dr": 35,
+          "dr": 36,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -2625,7 +2779,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2640,7 +2794,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2661,7 +2815,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2682,7 +2836,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2709,7 +2863,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2724,7 +2878,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2745,7 +2899,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2766,7 +2920,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2783,7 +2937,7 @@
         },
         {
           "name": "touch_2_2",
-          "dr": 35,
+          "dr": 36,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -2804,7 +2958,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2819,7 +2973,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2840,7 +2994,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2861,7 +3015,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2888,7 +3042,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -2903,7 +3057,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2924,7 +3078,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -2945,7 +3099,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3067,7 +3221,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -3082,7 +3236,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3103,7 +3257,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3124,7 +3278,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3151,7 +3305,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -3166,7 +3320,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3187,7 +3341,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 17,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3208,7 +3362,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 35,
-                  "twE": 0,
+                  "twE": 1,
                   "tweenFrame": true,
                   "color": {
                     "a": 255,
@@ -3541,7 +3695,7 @@
         },
         {
           "name": "idle_3_2",
-          "dr": 0,
+          "dr": 1,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -3594,7 +3748,7 @@
         },
         {
           "name": "idle_3_3",
-          "dr": 70,
+          "dr": 71,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -3879,7 +4033,7 @@
         },
         {
           "name": "idle_0_3",
-          "dr": 70,
+          "dr": 71,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -4058,7 +4212,7 @@
         },
         {
           "name": "idle_1_1",
-          "dr": 0,
+          "dr": 1,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -4111,7 +4265,7 @@
         },
         {
           "name": "idle_1_2",
-          "dr": 0,
+          "dr": 1,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -4343,7 +4497,7 @@
         },
         {
           "name": "idle_2_1",
-          "dr": 0,
+          "dr": 1,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -4449,7 +4603,7 @@
         },
         {
           "name": "idle_2_3",
-          "dr": 70,
+          "dr": 71,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -4628,7 +4782,7 @@
         },
         {
           "name": "idle_4_1",
-          "dr": 70,
+          "dr": 71,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -5019,7 +5173,7 @@
         },
         {
           "name": "miss_0_3",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -5243,7 +5397,7 @@
         },
         {
           "name": "miss_0_2",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -5467,7 +5621,7 @@
         },
         {
           "name": "miss_1_1",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -5691,7 +5845,7 @@
         },
         {
           "name": "miss_1_2",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -5915,7 +6069,7 @@
         },
         {
           "name": "miss_1_3",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -6139,7 +6293,7 @@
         },
         {
           "name": "miss_2_1",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -6363,7 +6517,7 @@
         },
         {
           "name": "miss_2_2",
-          "dr": 40,
+          "dr": 41,
           "lp": false,
           "to": 0,
           "drTW": 0,
@@ -8820,6 +8974,1839 @@
               ]
             }
           ]
+        },
+        {
+          "name": "touch_5_1",
+          "dr": 36,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 245,
+                    "g": 198,
+                    "b": 236
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.13392854,
+                  "cY": 1.13392854,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 18,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 250,
+                    "g": 177,
+                    "b": 231
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 245,
+                    "g": 198,
+                    "b": 236
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.13392854,
+                  "cY": 1.13392854,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 18,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 250,
+                    "g": 177,
+                    "b": 231
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "touch_5_2",
+          "dr": 36,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 245,
+                    "g": 198,
+                    "b": 236
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.13392854,
+                  "cY": 1.13392854,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 18,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 250,
+                    "g": 177,
+                    "b": 231
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 245,
+                    "g": 198,
+                    "b": 236
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.13392854,
+                  "cY": 1.13392854,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 18,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 250,
+                    "g": 177,
+                    "b": 231
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "touch_5_3",
+          "dr": 36,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer17_Copy18_Copy19",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": 9.5652179718017578,
+                  "y": -3.4782619476318359,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer17_Copy18",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": -10.869566917419434,
+                  "y": 15.217391967773438,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer17_Copy20",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": -6.0869560241699219,
+                  "y": -17.391304016113281,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer17",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": 5.2173919677734375,
+                  "y": -3.4782619476318359,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 247,
+                    "g": 223,
+                    "b": 245
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.09090912,
+                  "cY": 1.09090912,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 17,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 228,
+                    "g": 237,
+                    "b": 174
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 247,
+                    "g": 223,
+                    "b": 245
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.09090912,
+                  "cY": 1.09090912,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 17,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 228,
+                    "g": 237,
+                    "b": 174
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 1,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "idle_5_1",
+          "dr": 1,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "idle_5_3",
+          "dr": 71,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer17_Copy18_Copy19",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": 9.5652179718017578,
+                  "y": -3.4782619476318359,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer17_Copy18",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": -10.869566917419434,
+                  "y": 15.217391967773438,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer17_Copy20",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": -6.0869560241699219,
+                  "y": -17.391304016113281,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer17",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": 5.2173919677734375,
+                  "y": -3.4782619476318359,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 1
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.05,
+                  "cY": 1.05,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 1
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 70,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "idle_5_2",
+          "dr": 1,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "miss_5_1",
+          "dr": 41,
+          "lp": false,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer2",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 15,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 20,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 190,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.2,
+                  "cY": 1.2,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 40,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 26,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 19,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -997,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 26,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 15,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -997,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "miss_5_2",
+          "dr": 41,
+          "lp": false,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer2",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 15,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 20,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 190,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.2,
+                  "cY": 1.2,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 40,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 22,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 17,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -997,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 22,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 13,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -997,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "miss_5_3",
+          "dr": 41,
+          "lp": false,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer2",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 15,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 20,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 190,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 10,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.2,
+                  "cY": 1.2,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 40,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 22,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 18,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -997,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8_Copy1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 22,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 14,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -997,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "shihua_5",
+          "dr": 1,
+          "lp": false,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer1",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 4,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "shihua_touch_5",
+          "dr": 36,
+          "lp": true,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.3,
+                  "cY": 1.3,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 223,
+                    "g": 244,
+                    "b": 247
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.09090912,
+                  "cY": 1.09090912,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 17,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 35,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 255,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "shihua_miss_5",
+          "dr": 41,
+          "lp": false,
+          "to": 0,
+          "drTW": 0,
+          "twE": 0,
+          "sc": 1.0,
+          "mov_bone_data": [
+            {
+              "name": "Layer2",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 9,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 15,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 9,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 20,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 190,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 9,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.2,
+                  "cY": 1.2,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 40,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer8",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 0,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 26,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 20,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 33,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "color": {
+                    "a": 0,
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                  },
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": -986,
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 34,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -9019,8 +11006,8 @@
     },
     {
       "name": "anniutubiao/aixinz2",
-      "width": 0.0,
-      "height": 0.0,
+      "width": 76.0,
+      "height": 70.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
@@ -9029,6 +11016,54 @@
       "name": "anniutubiao/dunz1",
       "width": 80.0,
       "height": 80.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "anniutubiao/zhangs_1",
+      "width": 76.0,
+      "height": 73.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "anniutubiao/zhangz1",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "anniutubiao/zhangz",
+      "width": 76.0,
+      "height": 73.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "anniutubiao/zhang_2",
+      "width": 81.0,
+      "height": 81.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "anniutubiao/zhang_3",
+      "width": 117.0,
+      "height": 110.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "anniutubiao/zhang",
+      "width": 76.0,
+      "height": 73.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""

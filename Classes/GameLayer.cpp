@@ -33,6 +33,7 @@
 #include "../StoreBridge/StoreAssets.h"
 #include "Store/PurchaseLayer.h"
 #include "Scenes/DungeonLayer.h"
+#include "PlayerMgr.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -268,10 +269,11 @@ void GameLayer::update(float delta)
 
 	if (_isNeedUpdateExp && _isExpNodeShow)
 	{
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 		{
-			int curlv = UserData::getInstance()->getPlayerCurLv(i);
-			const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(i, curlv);
+			int roleId = Player::getInstance()->getRoleIdByPosIndex(i);
+			int curlv = UserData::getInstance()->getPlayerCurLv(roleId);
+			const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(roleId, curlv);
 
 			float prerect = ((ui::LoadingBar*)(_aniNode[i]->getChildByName("bar")))->getPercent();
 
@@ -317,8 +319,9 @@ void GameLayer::startFight()
 			{
 				int roleLv = UserData::getInstance()->getPlayerCurLv(i);
 				auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(i);
+				auto roleState = PlayerMgr::getInstance()->getPlayerStage(i);
 
-				if (roleLv > 0 || (weaponInfo.id - i * 10 - 500) > 0)
+				if (roleLv > 0 || (weaponInfo.id - i * 10 - 500) > 0 || (i == RoleId_E::ROLE_ID_QYL && roleState != PlayerStage_E::PLAYERSTAGE_LOCK))
 				{
 					UserData::getInstance()->setIsNeedGuide(false);
 					_isGuiding = false;
@@ -562,7 +565,7 @@ void GameLayer::switchInfoDisPlay(bool show)
 
 void GameLayer::updateEquipItems()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
 	{
 		auto idx = BagItemControl::getInstace()->getEquipItemsByIdx(i);
 		if (idx != -1)
@@ -659,7 +662,7 @@ void GameLayer::itemsCallback(cocos2d::Ref* pSender, Widget::TouchEventType type
 			break;
 		case 1:
 			//add def
-			Player::getInstance()->addDef(config.value);
+			Player::getInstance()->addDp(config.value);
 			Player::getInstance()->playStateAnim(ArmtrName::ROLE_STATE_ADD_DEF);
 			this->playItemEffect("lvsegq", actPos);
 			break;
@@ -667,7 +670,7 @@ void GameLayer::itemsCallback(cocos2d::Ref* pSender, Widget::TouchEventType type
 			//add hp and def
 			Player::getInstance()->addHp(config.value);
 			Player::getInstance()->playStateAnim(ArmtrName::ROLE_STATE_ADD_HP);
-			Player::getInstance()->addDef(config.value);
+			Player::getInstance()->addDp(config.value);
 			Player::getInstance()->playStateAnim(ArmtrName::ROLE_STATE_ADD_DEF);
 			this->playItemEffect("zisegq", actPos);
 			break;
@@ -945,6 +948,7 @@ void GameLayer::showExpAdd(int exp0, int exp1, int exp2, int exp3)
 	showUpdateAni(1, exp1);
 	showUpdateAni(2, exp2);
 	showUpdateAni(3, exp3);
+	UserData::getInstance()->saveUserData();
 }
 
 
@@ -1010,20 +1014,20 @@ void GameLayer::removeUpdateNode()
 }
 
 
-void GameLayer::showUpdateAni(int idx, float exp)
+void GameLayer::showUpdateAni(int posidx, float exp)
 {
 	_isNeedUpdateExp = true;
-	int i = idx;
+	int roleid = Player::getInstance()->getRoleIdByPosIndex(posidx);
 	int expbak = exp;
-	auto nodebar = _aniNode[i]->getChildByName("bar");
+	auto nodebar = _aniNode[posidx]->getChildByName("bar");
 	
 	static int actionCount = 1;
 
 	float time = 4.f;
-	int curlv = UserData::getInstance()->getPlayerCurLv(i);
-	const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(i, curlv);
-	float percent = UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp;
-	float needexp = info.exp - UserData::getInstance()->getPlayerCurExp(i);
+	int curlv = UserData::getInstance()->getPlayerCurLv(roleid);
+	const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(roleid, curlv);
+	float percent = UserData::getInstance()->getPlayerCurExp(roleid) * 100.f / info.exp;
+	float needexp = info.exp - UserData::getInstance()->getPlayerCurExp(roleid);
 	float Curneedexp = needexp;
 
 	int lvup = 0;
@@ -1031,7 +1035,7 @@ void GameLayer::showUpdateAni(int idx, float exp)
 	{
 		lvup++;
 		exp = exp - Curneedexp;
-		Curneedexp = ParamMgr::getInstance()->getPlayerInfo(i, curlv+lvup).exp;
+		Curneedexp = ParamMgr::getInstance()->getPlayerInfo(roleid, curlv+lvup).exp;
 	}
 
 	float time0 = 0.f;
@@ -1039,7 +1043,7 @@ void GameLayer::showUpdateAni(int idx, float exp)
 
 	if (curlv >= ParamMgr::getInstance()->getPlayerMaxLv())
 	{
-		_aniNode[i]->setVisible(false);
+		_aniNode[posidx]->setVisible(false);
 	}
 	else if (lvup == 0.f)
 	{
@@ -1049,7 +1053,7 @@ void GameLayer::showUpdateAni(int idx, float exp)
 		nodebar->runAction(Sequence::createWithTwoActions(actionstart, CallFunc::create([=]() {
 			//UserData::getInstance()->addPlayerCurExp(i, exp);
 			//UserData::getInstance()->saveUserData();
-			((ui::TextAtlas*)(_aniNode[i]->getChildByName("expnum")))->setString(String::createWithFormat("%d", (int)(needexp-exp))->getCString());
+			((ui::TextAtlas*)(_aniNode[posidx]->getChildByName("expnum")))->setString(String::createWithFormat("%d", (int)(needexp-exp))->getCString());
 			_isNeedUpdateExp = false; })));
 	}
 	else if(lvup == 1)
@@ -1060,12 +1064,12 @@ void GameLayer::showUpdateAni(int idx, float exp)
 		auto actionstart = GLProgressTo::create(time0, percent + time0 / time * 100.f);
 		auto actionend = GLProgressFromTo::create(timeend, 0, timeend / time * 100.f);
 		nodebar->runAction(Sequence::create(actionstart, CallFunc::create([=]() {
-				showAttributeAdd(i, curlv, curlv + lvup);
+				showAttributeAdd(posidx, curlv, curlv + lvup);
 				//UserData::getInstance()->addPlayerCurExp(i, needexp);
 			}), actionend,CallFunc::create([=]() {
 				//UserData::getInstance()->addPlayerCurExp(i, exp);
 				//UserData::getInstance()->saveUserData();
-				((ui::TextAtlas*)(_aniNode[i]->getChildByName("expnum")))->setString(String::createWithFormat("%d", (int)(Curneedexp - exp))->getCString());
+				((ui::TextAtlas*)(_aniNode[posidx]->getChildByName("expnum")))->setString(String::createWithFormat("%d", (int)(Curneedexp - exp))->getCString());
 				_isNeedUpdateExp = false; 
 			}), nullptr));
 	}
@@ -1080,24 +1084,24 @@ void GameLayer::showUpdateAni(int idx, float exp)
 
 		auto actiondur = Repeat::create(Sequence::createWithTwoActions(actionall, CallFunc::create([=]() {
 			actionCount++;
-			showAttributeAdd(i, curlv + actionCount -1, curlv + actionCount);
-			const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(i, curlv + actionCount);
+			showAttributeAdd(posidx, curlv + actionCount -1, curlv + actionCount);
+			const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(roleid, curlv + actionCount);
 			//UserData::getInstance()->addPlayerCurExp(i, info.exp);
 		})), lvup - 1);
 
 		nodebar->runAction(Sequence::create(actionstart, CallFunc::create([=]() {
-			showAttributeAdd(i, curlv, curlv + 1);
+			showAttributeAdd(posidx, curlv, curlv + 1);
 			//UserData::getInstance()->addPlayerCurExp(i, needexp);
 		}),actiondur, actionend, CallFunc::create([=]() {
 			//UserData::getInstance()->addPlayerCurExp(i, exp);
 			//UserData::getInstance()->saveUserData();
 
-			((ui::TextAtlas*)(_aniNode[i]->getChildByName("expnum")))->setString(String::createWithFormat("%d", (int)(Curneedexp - exp))->getCString());
+			((ui::TextAtlas*)(_aniNode[posidx]->getChildByName("expnum")))->setString(String::createWithFormat("%d", (int)(Curneedexp - exp))->getCString());
 			_isNeedUpdateExp = false;
 		}), nullptr));
 	}
 
-	if (UserData::getInstance()->addPlayerCurExp(i, expbak))
+	if (UserData::getInstance()->addPlayerCurExp(roleid, expbak))
 	{
 		int maxLv = 0;
 		for (int i = 0; i < ParamData::ROLE_COUNT; i++)
@@ -1110,11 +1114,11 @@ void GameLayer::showUpdateAni(int idx, float exp)
 		cocos2dx_analyze::setUserLevel(strLv->getCString());
 	}
 
-	UserData::getInstance()->saveUserData();
+	//UserData::getInstance()->saveUserData();
 
 	auto timeall = time0 + timeend + ((lvup - 1)*time > 0 ? (lvup - 1)*time : 0);
 	auto actiontext = GLTextNumTo::create(timeall, 0, expbak, "/%d");
-	((ui::TextAtlas*)(_aniNode[i]->getChildByName("expadd")))->runAction(actiontext);
+	((ui::TextAtlas*)(_aniNode[posidx]->getChildByName("expadd")))->runAction(actiontext);
 }
 
 void GameLayer::showLvUpLight(int idx)
@@ -1165,16 +1169,18 @@ void GameLayer::showAttributeAdd(int idx, int curlv, int tarlv)
 	int offdp = info2.dp - info.dp;
 	int offatt = 0;
 	offatt = info2.attack - info.attack;
-	if (idx == 2)
+
+	int roleid = Player::getInstance()->getRoleIdByPosIndex(idx);
+	if (roleid == 2)
 	{
 		spatt->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mainui_shuxinicon_2.png"));	
 	}
-	else if (idx == 3)
+	else if (roleid == 3)
 	{
 		spatt->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mainui_shuxinicon_10.png"));
 		offatt = info2.hpadd - info.hpadd;
 	}
-	else if (idx == 1)
+	else if (roleid == 1 || roleid == 4)
 	{
 		spatt->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("mainui_shuxinicon_0.png"));
 		offatt = info2.attack - info.attack;

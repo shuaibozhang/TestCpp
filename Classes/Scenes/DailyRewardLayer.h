@@ -18,9 +18,22 @@ public:
 
 	static DailyRewardLayer *getInstance(void);
 
-	static DailyRewardLayer *create(bool isWeekReward = false);
+	/*
+	*@param type = 0:is defult daily, 
+	type = 1: is repeat week reward,
+	type = 2: is guoqing activity reward
+	*/
+	static DailyRewardLayer *create(int type, int onlineday);
 
+	static DailyRewardLayer *create(bool isweek = false);
 	bool init(bool isWeekReward);
+
+	/*
+	*@param type = 0:is defult daily,
+	type = 1: is repeat week reward,
+	type = 2: is guoqing activity reward
+	*/
+	bool init(int type, int onlineday);
 
 	bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unused_event);
@@ -31,6 +44,7 @@ private:
 	static DailyRewardLayer *s_pInstance;
 	int _curDayIdx;
 	Node *_pRoot;
+	int _rewardType;
 };
 
 #endif

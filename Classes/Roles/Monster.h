@@ -83,6 +83,7 @@ private:
 	void doEndAtt();
 
 	bool isAttNear(int attId);
+	bool isDrug();
 
 	int getAnimId(int attId);
 

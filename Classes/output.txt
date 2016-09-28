@@ -26,6 +26,7 @@
 ../../Classes/DataParam/NewMapOpenMgr.cpp\
 ../../Classes/DataParam/ParamData.cpp\
 ../../Classes/DataParam/ParamMgr.cpp\
+../../Classes/DataParam/PlayerMgr.cpp\
 ../../Classes/DataParam/SkillControl.cpp\
 ../../Classes/DataParam/TimeLimitActivityMgr.cpp\
 ../../Classes/DataParam/UserData.cpp\
@@ -85,6 +86,7 @@
 ../../Classes/Roles/RoleDialog.cpp\
 ../../Classes/Roles/RoleLQC.cpp\
 ../../Classes/Roles/RoleLSJ.cpp\
+../../Classes/Roles/RoleQYL.cpp\
 ../../Classes/Roles/RoleSQY.cpp\
 ../../Classes/Scenes/AchieveLayer.cpp\
 ../../Classes/Scenes/AnncLayer.cpp\
@@ -119,6 +121,7 @@
 ../../Classes/Story/Commond.cpp\
 ../../Classes/Story/StoryMgr.cpp\
 ../../Classes/Utils/CrushUtil.cpp\
+../../Classes/Utils/FightUtil.cpp\
 ../../Classes/Utils/GameUtils.cpp\
 ../../Classes/Utils/SpecialAttUtils.cpp\
 ../../Classes/Widgets/GameButton.cpp\

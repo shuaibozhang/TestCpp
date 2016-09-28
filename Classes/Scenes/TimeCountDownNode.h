@@ -32,16 +32,16 @@ public:
 	void reActive() { _active = true; }
 	inline int getDur() { return _timedur; }
 	std::function<void(void)> _timeGetCallBack;
-	bool _getOnlineTime;
+	bool isGetOnlineTime();
 
 	int getCurOnlineTime() { return _curOnlineTime; };
 	//int getCurTime();
 	bool _getOnlineErr;
+	void fixTime();
 private:
 	int _type;
-	void fixTime();
 	void resetStartTime();
-
+	bool _getOnlineTime;
 	int _idx;
 	void threadGetTime();
 	void threadFixTime();
@@ -56,6 +56,36 @@ private:
 	bool _active;
 
 	EventListenerCustom* _backToForegroundlistener;
+};
+
+typedef std::function<void()> ccGetTimeCallBack;
+class TimeMgr
+{
+public:
+	~TimeMgr();
+	static TimeMgr* getInstane();
+	void init();
+	//void addGetCB(ccGetTimeCallBack cb);
+	void addTimeNode(TimeCountDownNode* cb);
+	void removeTimeNode(TimeCountDownNode* cb);
+	void updataTime(float dt);
+
+	bool isGetOnlineTime() { return _getOnlineTime; }
+	int getTime() { return _curOnlineTime; }
+	void fixTime();
+
+private:
+	
+	void threadFixTime();
+
+	int _curOnlineTime;
+	static TimeMgr* _instance;
+	TimeMgr();
+	EventListenerCustom* _backToForegroundlistener;
+	bool _getOnlineTime;
+	bool _getOnlineErr;
+	std::vector<TimeCountDownNode*> _arrTimeNodes;
+	bool _isFixing;
 };
 
 #endif

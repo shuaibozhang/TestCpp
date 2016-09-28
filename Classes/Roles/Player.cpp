@@ -19,6 +19,8 @@
 #include "GameUtils.h"
 #include "JRCommon.h"
 #include "Defines.h"
+#include "RoleQYL.h"
+#include "PlayerMgr.h"
 
 
 Player *Player::s_pInstance = nullptr;
@@ -73,44 +75,6 @@ bool Player::init()
 	{
 		this->updateRoleId();
 
-		for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
-		{
-			Role *pRole = nullptr;
-			switch (_arrRoleId[i])			
-			{
-			case RoleId_E::ROLE_ID_LSJ:
-				pRole = RoleLsj::create(0);
-				break;
-			case RoleId_E::ROLE_ID_CBD:
-				pRole = RoleCbd::create(1);
-				break;
-			case RoleId_E::ROLE_ID_LQC:
-				pRole = RoleLqc::create(2);
-				break;
-			case RoleId_E::ROLE_ID_SQY:
-				pRole = RoleSqy::create(3);
-				break;
-			case RoleId_E::ROLE_ID_QYL:
-				pRole = RoleLqc::create(2);
-				break;
-			}
-			_arrRoles.push_back(pRole);
-		}
-
-		FightLayer::getInstance()->addChild(_arrRoles[2]);
-		FightLayer::getInstance()->addChild(_arrRoles[0]);
-		FightLayer::getInstance()->addChild(_arrRoles[3]);
-		FightLayer::getInstance()->addChild(_arrRoles[1]);
-
-		for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
-		{
-			int roleId = _arrRoleId[i];//_arrRoles[i]->getRoleId();
-			auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(roleId);
-			_arrRoles[i]->changeWeapon(weaponInfo.id);
-		}
-
-		this->initFightData();
-
 		bRet = true;
 	} while (false);
 
@@ -122,6 +86,7 @@ void Player::initFightData()
 {
 	memset(_arrRoleSkillId, -1, sizeof(_arrRoleSkillId));
 	_totalHp = 0.f;
+	_totalDp = 0.f;
 	_totalDef = 0.f;
 #if (0 == CC_ENABLE_NEW_PARAM)
 	_baseLv = 1000;
@@ -136,7 +101,7 @@ void Player::initFightData()
 		_baseLv = MIN(_baseLv, roleLv);
 #endif
 		_totalHp += _arrRoleInfo[i].hp;
-		_totalDef += _arrRoleInfo[i].dp;
+		_totalDp += _arrRoleInfo[i].dp;
 
 		auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(roleId);
 		auto attInfo = UserData::getInstance()->getWeaponAttack(weaponInfo.id-500);
@@ -145,6 +110,8 @@ void Player::initFightData()
 		_arrRoleInfo[i].hpadd += attInfo.hpAdd;//weaponInfo.hpadd;
 		_arrRoleInfo[i].dpadd += attInfo.dpAdd;//weaponInfo.dpadd;
 		_arrRoleInfo[i].def += attInfo.def;//weaponInfo.def;
+
+		_totalDef += _arrRoleInfo[i].def;
 
 		auto &equSkillInfo = SkillControl::getInstance()->getPlayerSkillContralByPlayerId(roleId);
 		for (int j = 0; j < equSkillInfo.size(); j++)
@@ -170,18 +137,18 @@ void Player::initFightData()
 #endif
 
 	_curHp = _totalHp;
-	_curDef = _totalDef;
+	_curDp = _totalDp;
 	_isDead = false;
 	_isWaitRelive = false;
 	_reliveTimes = 0;
 
-	GameLayer::getInstance()->setDef(_curDef, _curDef * 100.f / _totalDef);
+	GameLayer::getInstance()->setDef(_curDp, _curDp * 100.f / _totalDp);
 	GameLayer::getInstance()->setHp(_curHp, _curHp * 100.f / _totalHp);
 }
 
 void Player::resetFightData()
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < sizeof(_arrRecoverInfo) / sizeof(_arrRecoverInfo[0]); i++)
 	{
 		if (nullptr != _arrRecoverInfo[i].pTag)
 		{
@@ -196,12 +163,14 @@ void Player::resetFightData()
 		_pArmtrShield->removeFromParent();
 		_pArmtrShield = nullptr;
 	}
+
+	this->stopBuffAttAnim();
 }
 
 void Player::resetBarData()
 {
 	_totalHp = 0.f;
-	_totalDef = 0.f;
+	_totalDp = 0.f;
 	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
 		int roleId = _arrRoleId[i];
@@ -209,26 +178,106 @@ void Player::resetBarData()
 		_arrRoleInfo[i] = ParamMgr::getInstance()->getPlayerInfo(roleId, roleLv);
 
 		_totalHp += _arrRoleInfo[i].hp;
-		_totalDef += _arrRoleInfo[i].dp;
+		_totalDp += _arrRoleInfo[i].dp;
 
 		//		_arrRoles[i]->resetFightData();
 	}
 	_curHp = _totalHp;
-	_curDef = _totalDef;
+	_curDp = _totalDp;
 
-	GameLayer::getInstance()->setDef(_curDef, _curDef * 100.f / _totalDef);
+	GameLayer::getInstance()->setDef(_curDp, _curDp * 100.f / _totalDp);
 	GameLayer::getInstance()->setHp(_curHp, _curHp * 100.f / _totalHp);
 }
 
 void Player::updateRoleId()
 {
-	/*test*/
-	int arrTmp[] = { 2, 1, 0, 3 };
-//	int arrTmp[] = { 0, 1, 2, 3 };
+	int vacantPosIndex = -1;
+	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
+	{
+		auto roleState = PlayerMgr::getInstance()->getPlayerStage(i);
+
+		if (i < 4)
+		{
+			if (roleState == PlayerStage_E::PLAYERSTAGE_ON)
+			{
+				_arrRoleId[i] = i;
+			}
+			else
+			{
+				vacantPosIndex = i;
+			}
+		}
+		else if (4 == i)
+		{
+			if (roleState == PlayerStage_E::PLAYERSTAGE_ON)
+			{
+				_arrRoleId[vacantPosIndex] = i;
+			}
+		}
+	}
+
+
+	std::vector<Role *> arrNewRole;
 	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 	{
-		_arrRoleId[i] = arrTmp[i];
+		Role *pRole = nullptr;
+
+		for (int j = 0; j < _arrRoles.size(); j++)
+		{
+			if (_arrRoleId[i] == _arrRoles[j]->getRoleId())
+			{
+				pRole = _arrRoles[j];
+				break;
+			}
+		}
+
+		if (nullptr == pRole)
+		{
+			pRole = this->createRole(_arrRoleId[i]);
+		}
+
+		pRole->retain();
+		arrNewRole.push_back(pRole);
 	}
+	
+	for (int i = _arrRoles.size() - 1; i >= 0; i--)
+	{
+		Role *pRole = _arrRoles.at(i);
+
+		_arrRoles.pop_back();
+		pRole->removeFromParent();
+	}
+
+	_arrRoles = arrNewRole;
+	
+	FightLayer::getInstance()->setPosition(Vec2::ZERO);
+	FightLayer::getInstance()->addChild(_arrRoles[2]);
+	FightLayer::getInstance()->addChild(_arrRoles[0]);
+	FightLayer::getInstance()->addChild(_arrRoles[3]);
+	FightLayer::getInstance()->addChild(_arrRoles[1]);
+
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
+	{
+		Role *pRole = _arrRoles.at(i);
+		pRole->scheduleUpdate();
+		pRole->release();
+	}
+
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
+	{
+		int roleId = _arrRoleId[i];//_arrRoles[i]->getRoleId();
+		auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(roleId);
+		_arrRoles[i]->changeWeapon(weaponInfo.id);
+	}
+
+	this->initFightData();
+
+	this->placeRole(Vec2(ParamData::ROLE_START_POS_X / 2, ParamData::ROLE_START_POS_Y));
+
+	float moveTime = 0.5f;
+	float bufferTime = 0.2f;
+	//	Player::getInstance()->placeRole(Vec2(ParamData::ROLE_START_POS_X/2, ParamData::ROLE_START_POS_Y));
+	Player::getInstance()->moveToOutsidePos(-1, ParamData::POS_X_INTERVAL, moveTime, bufferTime);
 }
 
 
@@ -438,9 +487,9 @@ void Player::doHurtByMonster(int attribute, float damage, int monsterLv)
 		}
 		return;
 	}
-	else if (_curDef > 0.f)// || (6 == _arrRecoverInfo[3].param1 && _arrRecoverInfo[3].round>0))
+	else if (_curDp > 0.f)// || (6 == _arrRecoverInfo[3].param1 && _arrRecoverInfo[3].round>0))
 	{
-		float armorValue = _arrRoleInfo[1].def;
+		float armorValue = _totalDef;// _arrRoleInfo[1].def;
 #if (1 == CC_ENABLE_NEW_PARAM)
 		actDamage = MAX(damage  - armorValue, 5);
 #else
@@ -448,11 +497,11 @@ void Player::doHurtByMonster(int attribute, float damage, int monsterLv)
 		actDamage = damage * 1.f / (1.f + valueN * armorValue);
 #endif
 
-		if (_curDef == _totalDef && damage > 0.f)
+		if (_curDp == _totalDp && damage > 0.f)
 		{
 			GameLayer::getInstance()->getDefBarArmtr()->setVisible(false);
 		}
-		_curDef -= damage;
+		_curDp -= damage;
 		_curHp -= actDamage;
 	}
 	else
@@ -463,7 +512,14 @@ void Player::doHurtByMonster(int attribute, float damage, int monsterLv)
 	if (_isDefing)
 	{
 		_arrRoles[1]->playDefAnim();
-		_arrRoles[1]->playHitAnim("hit1");
+		if (RoleId_E::ROLE_ID_CBD == _arrRoleId[1])
+		{
+			_arrRoles[1]->playHitAnim("hit1");
+		}
+		else if (RoleId_E::ROLE_ID_QYL == _arrRoleId[1])
+		{
+			_arrRoles[1]->playHitAnim("hit4");
+		}
 	}
 	else
 	{
@@ -481,10 +537,10 @@ void Player::doHurtByMonster(int attribute, float damage, int monsterLv)
 	}
 
 	_curHp = (_curHp < 0.f) ? 0.f : _curHp;
-	_curDef = (_curDef < 0.f) ? 0.f : _curDef;
+	_curDp = (_curDp < 0.f) ? 0.f : _curDp;
 
 	FightLayer::getInstance()->showValueChange(0, -actDamage, _arrRoles[0]->getPosition());
-	GameLayer::getInstance()->setDef(_curDef, _curDef * 100.f / _totalDef);
+	GameLayer::getInstance()->setDef(_curDp, _curDp * 100.f / _totalDp);
 	GameLayer::getInstance()->setHp(_curHp, _curHp * 100.f / _totalHp);
 	
 	if (_curHp <= 0.f)
@@ -493,11 +549,11 @@ void Player::doHurtByMonster(int attribute, float damage, int monsterLv)
 	}
 }
 
-void Player::addDef(const RoleCurAttInfo_T * pAttInfo)
+void Player::addDp(const RoleCurAttInfo_T * pAttInfo)
 {
 //	float addValue = pAttInfo->skillParam1;
 	
-	this->addDef(pAttInfo->skillParam1);
+	this->addDp(pAttInfo->skillParam1);
 
 // 	if (3 == pAttInfo->pSkillInfo->mark)
 // 	{
@@ -508,20 +564,26 @@ void Player::addDef(const RoleCurAttInfo_T * pAttInfo)
 // 	}
 }
 
-void Player::addDef(float value)
+void Player::addDp(float value)
 {
-	if (_curDef < _totalDef && (_curDef+value) >= _totalDef)
+	if (_curDp < _totalDp && (_curDp+value) >= _totalDp)
 	{
 		GameLayer::getInstance()->getDefBarArmtr()->setVisible(true);
 	}
-	_curDef += value;
-	if (_curDef > _totalDef)
+	else if (_curDp >= _totalDp && (_curDp + value) < _totalDp)
 	{
-		_curDef = _totalDef;
+		GameLayer::getInstance()->getDefBarArmtr()->setVisible(false);
 	}
-	GameLayer::getInstance()->playBarIconAnim(1);
-	FightLayer::getInstance()->showValueChange(2, value, _arrRoles[1]->getPosition());
-	GameLayer::getInstance()->setDef(_curDef, _curDef * 100.f / _totalDef);
+
+	_curDp += value;
+	_curDp = MIN(_totalDp, MAX(0, _curDp));
+
+	if (value > 0)
+	{
+		GameLayer::getInstance()->playBarIconAnim(1);
+		FightLayer::getInstance()->showValueChange(2, value, _arrRoles[1]->getPosition());
+	}
+	GameLayer::getInstance()->setDef(_curDp, _curDp * 100.f / _totalDp);
 }
 
 void Player::addHp(const RoleCurAttInfo_T * pAttInfo)
@@ -531,7 +593,7 @@ void Player::addHp(const RoleCurAttInfo_T * pAttInfo)
 	this->addHp(addValue);
 }
 
-void Player::addHp(float value)
+void Player::addHp(float value, int rolePosIndex)
 {
 	_curHp += value;
 	if (_curHp > _totalHp)
@@ -540,7 +602,7 @@ void Player::addHp(float value)
 	}
 
 	GameLayer::getInstance()->playBarIconAnim(0);
-	FightLayer::getInstance()->showValueChange(0, value, _arrRoles[3]->getPosition());
+	FightLayer::getInstance()->showValueChange(0, value, _arrRoles[rolePosIndex]->getPosition());
 	GameLayer::getInstance()->setHp(_curHp, _curHp * 100.f / _totalHp);
 }
 
@@ -763,6 +825,11 @@ void Player::addRecover(int type, int round, float param)
 	_arrRecoverInfo[type].pTag->setCurRound(_arrRecoverInfo[type].round);
 }
 
+void Player::addAttBuff(int round, float param)
+{
+	this->addRecover(4, round, param);
+}
+
 void Player::playStateAnim(const string &animName, int startIndex, int count)
 {
 	if (animName != "")
@@ -836,11 +903,20 @@ void Player::doRecover()
 
 	if (nullptr != _arrRecoverInfo[1].pTag)
 	{
-		this->addDef(_arrRecoverInfo[1].param2);
+		this->addDp(_arrRecoverInfo[1].param2);
 		this->playStateAnim(ArmtrName::ROLE_STATE_ADD_DEF, 1, 1);
 
 		if (this->reduceBuffRound(1))
 		{
+			isBuffEnd = true;
+		}
+	}
+
+	if (nullptr != _arrRecoverInfo[4].pTag)
+	{
+		if (this->reduceBuffRound(4))
+		{
+			this->stopBuffAttAnim();
 			isBuffEnd = true;
 		}
 	}
@@ -859,13 +935,13 @@ void Player::doRelive(int reliveType)
 		this->reduceBuffRound(2);
 
 		this->addHp(_totalHp * 0.5f);
-		this->addDef(_totalDef * 0.5f);
+		this->addDp(_totalDp * 0.5f);
 		this->playStateAnim("buff_10");
 	}
 	else if (1 == reliveType)
 	{
 		this->addHp(_totalHp);
-		this->addDef(_totalDef);
+		this->addDp(_totalDp);
 		this->doClean(2, -1, 1);
 
 		this->playStateAnim("buff_10");
@@ -923,7 +999,7 @@ void Player::playIdle()
 
 void Player::doStartDef()
 {
-	if (_curDef > 0.f && nullptr == _pArmtrShield)
+	if (_curDp > 0.f && nullptr == _pArmtrShield)
 	{
 		_isDefing = true;
 		_arrRoles[1]->playStartDefAnim();
@@ -941,27 +1017,43 @@ void Player::doEndDef()
 
 void Player::changeWeapon(int roleId, int weaponId)
 {
-	_arrRoles[roleId]->changeWeapon(weaponId);
+	int posIndex = this->getPosIndexByRoleId(roleId);
+	if (-1 != posIndex)
+	{
+		_arrRoles[posIndex]->changeWeapon(weaponId);
+	}
 }
 
 const PlayerInfo_T * Player::getRoleInfo(int roleId)
 {
-	return &(_arrRoleInfo[roleId]);
+	const PlayerInfo_T *ret = nullptr;
+	int posIndex = this->getPosIndexByRoleId(roleId);
+	if (-1 != posIndex)
+	{
+		ret = &(_arrRoleInfo[posIndex]);
+	}
+	return ret;
 }
 
 int Player::getRoleSkillId(int roleId, int skillFlag)
 {
-	return _arrRoleSkillId[roleId][skillFlag];
+	int ret = -1;
+	int posIndex = this->getPosIndexByRoleId(roleId);
+	if (-1 != posIndex)
+	{
+		ret = _arrRoleSkillId[posIndex][skillFlag];
+	}
+	return ret;
 }
 
-Vec2 Player::getCurRolePos(int roleId)
+Vec2 Player::getCurRolePos(int roleIndex)
 {
-	return _arrRoles[roleId]->getPosition();
+	return _arrRoles[roleIndex]->getPosition();
 }
 
-Role * Player::getRole(int roleId)
+Role * Player::getRole(int roleIndex)
 {
-	return _arrRoles[roleId];
+	return _arrRoles[roleIndex];
 }
 
 void Player::reliveCB(bool isSuccess)
@@ -990,6 +1082,48 @@ int Player::getRoleIdByPosIndex(int posIndex)
 
 //	CC_ASSERT(posIndex < _arrRoles.size(), "Player::getRoleIdByPosIndex");
 	return ret;
+}
+
+int Player::getPosIndexByRoleId(int roleId)
+{
+	int ret = -1;
+	for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
+	{
+		if (roleId == _arrRoleId[i])
+		{
+			ret = i;
+			break;
+		}
+	}
+
+	return ret;
+}
+
+float Player::getAttBuff()
+{
+	if (nullptr != _arrRecoverInfo[4].pTag && _arrRecoverInfo[4].round > 0)
+	{
+		return _arrRecoverInfo[4].param2;
+	}
+	return 0.0f;
+}
+
+void Player::playBuffAttAnim()
+{
+	for (int i = 0; i < _arrRoles.size(); i++)
+	{
+		Role *pRole = _arrRoles.at(i);
+		pRole->playBuffAttAnim();
+	}
+}
+
+void Player::stopBuffAttAnim()
+{
+	for (int i = 0; i < _arrRoles.size(); i++)
+	{
+		Role *pRole = _arrRoles.at(i);
+		pRole->stopBuffAttAnim();
+	}
 }
 
 void Player::updateBuffTagPos()
@@ -1023,6 +1157,11 @@ void Player::updateBuffTagPos()
 	{
 		_arrRecoverInfo[1].pTag->setPosition(posX2, posY2);
 	}
+
+	if (nullptr != _arrRecoverInfo[4].pTag)
+	{
+		_arrRecoverInfo[4].pTag->setPosition(200.f, ParamData::ROLE_START_POS_Y + 200.f);
+	}
 }
 
 bool Player::reduceBuffRound(int buffIndex)
@@ -1055,6 +1194,30 @@ bool Player::reduceBuffRound(int buffIndex)
 	}
 
 	return bRet;
+}
+
+Role * Player::createRole(int roleId)
+{
+	Role *pRole = nullptr;
+	switch (roleId)
+	{
+	case RoleId_E::ROLE_ID_LSJ:
+		pRole = RoleLsj::create(0);
+		break;
+	case RoleId_E::ROLE_ID_CBD:
+		pRole = RoleCbd::create(1);
+		break;
+	case RoleId_E::ROLE_ID_LQC:
+		pRole = RoleLqc::create(2);
+		break;
+	case RoleId_E::ROLE_ID_SQY:
+		pRole = RoleSqy::create(3);
+		break;
+	case RoleId_E::ROLE_ID_QYL:
+		pRole = RoleQyl::create(4);
+		break;
+	}
+	return pRole;
 }
 
 void Player::playLinkAnim(Vec2 srcPos, Vec2 desPos)

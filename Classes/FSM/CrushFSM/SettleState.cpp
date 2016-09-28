@@ -54,7 +54,7 @@ void SettleState::enter(CrushLayer * pOwner)
 		cocos2dx_analyze::finishLevel(strLv->getCString());
 		if (1 != GameLayer::getInstance()->getFightType() && 3 != GameLayer::getInstance()->getFightType())
 		{
-			AchieveMgr::getInstance()->addAchieveCount(AchieveMgr::_AchieveIdx::STAGE, 1);
+			AchieveMgr::getInstance()->addAchieveCount(AchieveMgr::_AchieveIdx::STAGE, 1, false);
 			MagPieMgr::getInstance()->addFinishedMagPieGoalNum(MagPieMgr::_MagPieTaskNameIdx::STAGE, 1);
 		}		
 	}
@@ -113,7 +113,7 @@ void SettleState::enter(CrushLayer * pOwner)
 		auto arrCount = CrushLayer::getInstance()->getCrushEleCount();
 		float arrPer[4] = { 0 };
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 		{
 			arrPer[i] = arrCount[i] * 1.f / (arrCount[0]+arrCount[1]+arrCount[2]+arrCount[3]);
 		}
@@ -127,7 +127,7 @@ void SettleState::enter(CrushLayer * pOwner)
 		auto arrCount = CrushLayer::getInstance()->getCrushEleCount();
 		float arrPer[4] = { 0 };
 
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < ParamData::FIGHT_ROLE_COUNT; i++)
 		{
 			arrPer[i] = arrCount[i] * 1.f / (arrCount[0] + arrCount[1] + arrCount[2] + arrCount[3]);
 		}

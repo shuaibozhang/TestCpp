@@ -67,12 +67,12 @@
   }, 
   "4": {
     "id": 4, 
-    "name": "Ocr_05", 
+    "name": "snake", 
     "info": [
       {
         "role_act": "attack0", 
         "act_id": 0, 
-        "music_id": "attack3.ogg", 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
         "skill_act": ""
       }
@@ -120,19 +120,12 @@
   }, 
   "7": {
     "id": 7, 
-    "name": "tree_01", 
+    "name": "fire", 
     "info": [
       {
-        "role_act": "attack0", 
-        "act_id": 0, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": ""
-      }, 
-      {
-        "role_act": "attack0", 
-        "act_id": 1, 
-        "music_id": "attack2.ogg", 
+        "role_act": "attack100", 
+        "act_id": 100, 
+        "music_id": "attack4.ogg", 
         "buff_act": "", 
         "skill_act": ""
       }
@@ -194,55 +187,34 @@
   }, 
   "10": {
     "id": 10, 
-    "name": "snake", 
+    "name": "fushou", 
     "info": [
       {
         "role_act": "attack0", 
         "act_id": 0, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": ""
-      }, 
-      {
-        "role_act": "attack1", 
-        "act_id": 1, 
         "music_id": "attack6.ogg", 
         "buff_act": "", 
-        "skill_act": "m_skill_17"
+        "skill_act": ""
       }, 
       {
         "role_act": "attack1", 
         "act_id": 7, 
         "music_id": "attack6.ogg", 
         "buff_act": "", 
-        "skill_act": "m_skill_17"
+        "skill_act": ""
       }
     ]
   }, 
   "11": {
     "id": 11, 
-    "name": "snake", 
+    "name": "jsbing", 
     "info": [
       {
         "role_act": "attack0", 
         "act_id": 0, 
-        "music_id": "attack2.ogg", 
+        "music_id": "attack3.ogg", 
         "buff_act": "", 
         "skill_act": ""
-      }, 
-      {
-        "role_act": "attack1", 
-        "act_id": 1, 
-        "music_id": "attack6.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_17"
-      }, 
-      {
-        "role_act": "attack1", 
-        "act_id": 7, 
-        "music_id": "attack6.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_17"
       }
     ]
   }, 
@@ -275,54 +247,99 @@
   }, 
   "13": {
     "id": 13, 
-    "name": "fire", 
+    "name": "nubing", 
     "info": [
       {
         "role_act": "attack100", 
         "act_id": 100, 
-        "music_id": "attack4.ogg", 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
         "skill_act": ""
       }, 
       {
         "role_act": "attack101", 
         "act_id": 106, 
-        "music_id": "attack1.ogg", 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
-        "skill_act": "m_skill_11"
-      }, 
-      {
-        "role_act": "attack101", 
-        "act_id": 101, 
-        "music_id": "attack1.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_11"
+        "skill_act": ""
       }
     ]
   }, 
   "14": {
     "id": 14, 
-    "name": "fire", 
+    "name": "nubing", 
     "info": [
       {
         "role_act": "attack100", 
         "act_id": 100, 
-        "music_id": "attack4.ogg", 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
         "skill_act": ""
       }, 
       {
         "role_act": "attack101", 
-        "act_id": 101, 
-        "music_id": "attack1.ogg", 
+        "act_id": 106, 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
-        "skill_act": "m_skill_11"
+        "skill_act": ""
       }
     ]
   }, 
   "15": {
     "id": 15, 
-    "name": "xingling1", 
+    "name": "kjbing", 
+    "info": [
+      {
+        "role_act": "attack0", 
+        "act_id": 0, 
+        "music_id": "attack6.ogg", 
+        "buff_act": "", 
+        "skill_act": ""
+      }
+    ]
+  }, 
+  "16": {
+    "id": 16, 
+    "name": "sheshou", 
+    "info": [
+      {
+        "role_act": "attack100", 
+        "act_id": 100, 
+        "music_id": "attack2.ogg", 
+        "buff_act": "", 
+        "skill_act": ""
+      }
+    ]
+  }, 
+  "17": {
+    "id": 17, 
+    "name": "sheshou", 
+    "info": [
+      {
+        "role_act": "attack100", 
+        "act_id": 100, 
+        "music_id": "attack2.ogg", 
+        "buff_act": "", 
+        "skill_act": ""
+      }
+    ]
+  }, 
+  "18": {
+    "id": 18, 
+    "name": "wushi", 
+    "info": [
+      {
+        "role_act": "attack100", 
+        "act_id": 100, 
+        "music_id": "attack2.ogg", 
+        "buff_act": "", 
+        "skill_act": ""
+      }
+    ]
+  }, 
+  "19": {
+    "id": 19, 
+    "name": "dunbing", 
     "info": [
       {
         "role_act": "attack0", 
@@ -330,149 +347,6 @@
         "music_id": "attack3.ogg", 
         "buff_act": "", 
         "skill_act": ""
-      }, 
-      {
-        "role_act": "attack7", 
-        "act_id": 7, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_26"
-      }, 
-      {
-        "role_act": "attack5", 
-        "act_id": 5, 
-        "music_id": "attack1.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_27"
-      }, 
-      {
-        "role_act": "attack201", 
-        "act_id": 201, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "buff_7", 
-        "skill_act": "m_skill_28"
-      }
-    ]
-  }, 
-  "16": {
-    "id": 16, 
-    "name": "longwu01", 
-    "info": [
-      {
-        "role_act": "attack100", 
-        "act_id": 100, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": ""
-      }, 
-      {
-        "role_act": "attack107", 
-        "act_id": 107, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_5"
-      }, 
-      {
-        "role_act": "attack201", 
-        "act_id": 201, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "buff_1", 
-        "skill_act": "m_skill_6"
-      }, 
-      {
-        "role_act": "attack107", 
-        "act_id": 101, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_5"
-      }
-    ]
-  }, 
-  "17": {
-    "id": 17, 
-    "name": "longwu01", 
-    "info": [
-      {
-        "role_act": "attack100", 
-        "act_id": 100, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": ""
-      }, 
-      {
-        "role_act": "attack107", 
-        "act_id": 107, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_5"
-      }, 
-      {
-        "role_act": "attack201", 
-        "act_id": 201, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "buff_1", 
-        "skill_act": "m_skill_6"
-      }, 
-      {
-        "role_act": "attack107", 
-        "act_id": 101, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_5"
-      }
-    ]
-  }, 
-  "18": {
-    "id": 18, 
-    "name": "longwu01", 
-    "info": [
-      {
-        "role_act": "attack100", 
-        "act_id": 100, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": ""
-      }, 
-      {
-        "role_act": "attack107", 
-        "act_id": 107, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_5"
-      }, 
-      {
-        "role_act": "attack201", 
-        "act_id": 201, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "buff_1", 
-        "skill_act": "m_skill_6"
-      }, 
-      {
-        "role_act": "attack107", 
-        "act_id": 101, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_5"
-      }
-    ]
-  }, 
-  "19": {
-    "id": 19, 
-    "name": "longwu02", 
-    "info": [
-      {
-        "role_act": "attack0", 
-        "act_id": 0, 
-        "music_id": "attack2.ogg", 
-        "buff_act": "", 
-        "skill_act": ""
-      }, 
-      {
-        "role_act": "attack7", 
-        "act_id": 7, 
-        "music_id": "attack6.ogg", 
-        "buff_act": "", 
-        "skill_act": "m_skill_2"
       }
     ]
   }, 
@@ -512,28 +386,35 @@
   }, 
   "21": {
     "id": 21, 
-    "name": "longwu02", 
+    "name": "longwu01", 
     "info": [
       {
-        "role_act": "attack0", 
-        "act_id": 0, 
+        "role_act": "attack100", 
+        "act_id": 100, 
         "music_id": "attack2.ogg", 
         "buff_act": "", 
         "skill_act": ""
       }, 
       {
-        "role_act": "attack7", 
-        "act_id": 7, 
-        "music_id": "attack6.ogg", 
+        "role_act": "attack107", 
+        "act_id": 107, 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
-        "skill_act": "m_skill_2"
+        "skill_act": "m_skill_5"
       }, 
       {
-        "role_act": "attack7", 
-        "act_id": 2, 
-        "music_id": "attack6.ogg", 
+        "role_act": "attack201", 
+        "act_id": 201, 
+        "music_id": "attack2.ogg", 
+        "buff_act": "buff_1", 
+        "skill_act": "m_skill_6"
+      }, 
+      {
+        "role_act": "attack107", 
+        "act_id": 101, 
+        "music_id": "attack2.ogg", 
         "buff_act": "", 
-        "skill_act": "m_skill_2"
+        "skill_act": "m_skill_5"
       }
     ]
   }, 
