@@ -1064,53 +1064,53 @@ void CrushUtil::getSettleReward(int rankIdx, std::vector<PopItemInfo_T>& arrRewa
 
 	if (1 == rankIdx)
 	{
-		times = 10;
+		times = 4;
 		BoxDataMgr::getInstance()->getBoxReward(6, boxLv, arrReward);
 	}
 	else if (2 == rankIdx)
 	{
-		times = 6;
+		times = 3;
 		BoxDataMgr::getInstance()->getBoxReward(6, boxLv, arrReward);
 	}
 	else if (3 == rankIdx)
 	{
-		times = 5;
+		times = 2;
 		BoxDataMgr::getInstance()->getBoxReward(6, boxLv, arrReward);
 	}
 	else if (rankIdx <= 20)
 	{
-		times = 8;
+		times = 3;
 		BoxDataMgr::getInstance()->getBoxReward(5, boxLv, arrReward);
 	}
 	else if (rankIdx <= 50)
 	{
-		times = 6;
+		times = 2;
 		BoxDataMgr::getInstance()->getBoxReward(5, boxLv, arrReward);
 	}
 	else if (rankIdx <= 100)
 	{
-		times = 5;
+		times = 1;
 		BoxDataMgr::getInstance()->getBoxReward(5, boxLv, arrReward);
 	}
 	else if (rankIdx <= 200)
 	{
-		times = 8;
+		times = 1;
 		BoxDataMgr::getInstance()->getBoxReward(4, boxLv, arrReward);
 	}
 	else if (rankIdx <= 500)
 	{
-		times = 5;
-		BoxDataMgr::getInstance()->getBoxReward(4, boxLv, arrReward);
+		times = 1;
+		BoxDataMgr::getInstance()->getBoxReward(3, boxLv, arrReward);
 	}
 	else if (rankIdx <= 1000)
 	{
 		times = 1;
-		BoxDataMgr::getInstance()->getBoxReward(4, boxLv, arrReward);
+		BoxDataMgr::getInstance()->getBoxReward(2, boxLv, arrReward);
 	}
 
-	for (auto item : arrReward)
+	for (int i = 0; i < arrReward.size(); i++)
 	{
-		item.itemCount *= times;
+		arrReward.at(i).itemCount *= times;
 	}
 }
 

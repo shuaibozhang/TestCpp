@@ -46,6 +46,8 @@ public:
 	int getEquipSkillByPlayer(int playerIndex, int flagMask); //flag 0.nor 1.super 2.def
 
 	int _arrSkillId[ParamData::SKILL_COUNT];
+
+	bool checkHaveLockSuperSkill();
 private:
 	SkillControl();
 	static SkillControl* _instance;

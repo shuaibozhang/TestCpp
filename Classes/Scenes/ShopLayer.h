@@ -176,5 +176,6 @@ public:
 private:
 	Node* _root;
 	Vector<Node*> _giftNodes;
+	ui::ListView* _listview;
 };
 #endif

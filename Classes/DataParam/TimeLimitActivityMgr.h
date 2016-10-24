@@ -44,7 +44,7 @@ private:
 	static TimeLimitActivityMgr* s_instance;
 	vector<TimeLimitActivityInfo> _arrActivitys;
 public:
-	static char* s_CurActivityName;
+	static const char* s_CurActivityName;
 	bool _isInited;
 };
 
@@ -98,8 +98,32 @@ private:
 	bool _isInited;
 
 public:
-	static char* ACTIVITY_NAME_MIDAUTUMAN;
-	static char* ACTIVITY_NAME_GUOQING;
+	static const char* ACTIVITY_NAME_MIDAUTUMAN;
+	static const char* ACTIVITY_NAME_GUOQING;
 	static CommondActivityMagr* _instance;
+};
+
+
+class VipMgr
+{
+public:
+	~VipMgr();
+	static VipMgr* getInstance();
+	void initVip(int dayFromStart);
+	bool haveBuyVip();
+	bool haveGetCryReward();
+
+	void getReward();
+
+	void resetDayRewardGet();
+
+	void buyVipSucceedCB();
+
+	int getLeftDays();
+private:
+	VipMgr();
+	static VipMgr* _instance;
+	int _curDayFromStart;
+	bool _haveInit;
 };
 #endif

@@ -49,3 +49,4 @@ bool _AttactInfo::operator==(const _AttactInfo & other)
 
 	return true;
 }
+

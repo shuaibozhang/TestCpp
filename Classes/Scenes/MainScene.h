@@ -178,8 +178,20 @@ public:
 
 	void initCommondActivity(int curday);
 	void initGuoqingActivity(int curday);
+	void initVipBtn();
 
 	void popPurchaseLayer(std::string itemid, bool dirbuy = false);
+
+	/*
+	*@return
+	*0 is firstgift and supergift have not buy
+	*1 is firstgift have buy but supergift have not buy
+	*2 is firstgift have not but but supergift have buy
+	*3 is firstgift and supergift have buy
+	*/
+	int getCurGiftStage();
+
+	CC_SYNTHESIZE(TimeCountDownNode*, _giftTimeNode, GiftTimeNode);
 private:
 	EventListenerCustom* _backToForegroundlistener;
 
@@ -236,6 +248,7 @@ private:
 	GameButton* _rewardBtn;
 	GameButton* _bglBtn;
 	GameButton* _giftBtn;
+	GameButton* _superGiftBtn;
 	GameButton* _dayAcitvityBtn;
 	ui::TextAtlas* _countdownNum[1];
 	TimeCountDownNode* _countdownNode[2];
@@ -257,6 +270,8 @@ private:
 	std::vector<Node*> _arrrRightBnts;
 	
 	Node* _pTiliMaxIcon;
+
+	//TimeCountDownNode* _giftTimeNode;
 };
 
 
@@ -278,6 +293,7 @@ public:
 	void touchBegan(Vec2 pos);
 
 	void updataWenponDes(int posidx);
+	void updataWenponDes();
 
 	void equipCallBack(int playeridx, int skillid, int action);	//action:0.delete 1.euqip 2.unlock
 
@@ -430,7 +446,7 @@ public:
 	void updateEquipStage();
 	void updateEquipStage(int idx);
 	void updataInfo();
-	void updataPlayerInfo(int idx);
+	void updataPlayerInfo(int idx, int wenponidx = -1);
 	void showWenponInfo(int playerid, int wenponid);
 
 	void equipCallBack(int playeridx, int skillid, int action);

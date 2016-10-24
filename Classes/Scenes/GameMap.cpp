@@ -944,6 +944,21 @@ void GameMap::prepareMap(int idx)
 		_prepareCount = 1;
 		_pngQueue.push("mapsnew/map_4.pvr.ccz");
 	}
+	else if (idx == 5)
+	{
+		_prepareCount = 1;
+		_pngQueue.push("mapsnew/map_5.pvr.ccz");
+	}
+	else if (idx == 6)
+	{
+		_prepareCount = 1;
+		_pngQueue.push("mapsnew/map_6.pvr.ccz");
+	}
+	else if (idx == 7)
+	{
+		_prepareCount = 1;
+		_pngQueue.push("mapsnew/map_7.pvr.ccz");
+	}
 	
 	preLoadMapRes();
 }
@@ -990,6 +1005,21 @@ void GameMap::freeUnusedMap(int idx)
 	{		
 		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_4.plist");
 		Director::getInstance()->getTextureCache()->removeTextureForKey("mapsnew/map_4.pvr.ccz");
+	}
+	else if (idx == 5)
+	{
+		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_5.plist");
+		Director::getInstance()->getTextureCache()->removeTextureForKey("mapsnew/map_5.pvr.ccz");
+	}
+	else if (idx == 6)
+	{
+		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_6.plist");
+		Director::getInstance()->getTextureCache()->removeTextureForKey("mapsnew/map_6.pvr.ccz");
+	}
+	else if (idx == 7)
+	{
+		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_7.plist");
+		Director::getInstance()->getTextureCache()->removeTextureForKey("mapsnew/map_7.pvr.ccz");
 	}
 }
 
@@ -1038,6 +1068,30 @@ void GameMap::initMoveLayer()
 		_curMapLayer3Off = 1360.f;
 		_curMapLayer1Off = 1000.f;
 	}
+	else if (_idx == 5)
+	{
+		_curMapLayer2Off = 1400.f;
+		_curMapLayer3Off = 990.f;
+		_curMapLayer1Off = 1000.f;
+	}
+	else if (_idx == 6)
+	{
+		_curMapLayer2Off = 1550.f;
+		_curMapLayer3Off = 1408.f;
+		_curMapLayer1Off = 1210.f;
+
+		_moveFactor[0] = 0.2f;
+		_moveFactor[1] = 0.8f;
+		_moveFactor[2] = 1.f;
+		_moveFactor[3] = 1.f;
+		_moveFactor[4] = 1.2f;
+	}
+	else if (_idx == 7)
+	{
+		_curMapLayer2Off = 1150.f;
+		_curMapLayer3Off = 1408.f;
+		_curMapLayer1Off = 902.f;
+	}
 	
 
 	_needMoveMapLayer.clear();
@@ -1053,7 +1107,7 @@ void GameMap::initMoveLayer()
 		//if (idx != std::string::npos)
 		if(temp !=nullptr)
 		{
-			temp->setLocalZOrder(i);
+			//temp->setLocalZOrder(i);
 			_needMoveMapLayer.pushBack(temp);
 		}
 	}
@@ -1936,6 +1990,8 @@ void WordMap::loadMapConfig()
 			const rapidjson::Value& arry = item["sceneid"];
 
 			_arrGuaiQiaMapidx[i] = arry[0].GetDouble();
+			//debug zsb
+			//_arrGuaiQiaMapidx[i] = 7;
 		}
 	}
 }
@@ -2373,6 +2429,8 @@ void WordMap::unShowTargetInfo()
 
 int WordMap::getSceneId(int pos)
 {
+	//debug zsb
+	//return 5;
 	return _arrGuaiQiaMapidx[pos]; 
 }
 

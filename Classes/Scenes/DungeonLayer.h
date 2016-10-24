@@ -34,6 +34,8 @@ public:
 	void updateShowBtn();
 private:
 	Node* _mainRoot;
+	int _totalTimes;
+	int _freeTimes;
 };
 
 

@@ -7,11 +7,11 @@
             <key>store_close_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{905,1604},{57,72}}</string>
+                <string>{{709,323},{57,72}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{57,72}}</string>
                 <key>sourceSize</key>
@@ -20,11 +20,11 @@
             <key>store_close_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{905,1530},{57,72}}</string>
+                <string>{{709,264},{57,72}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{57,72}}</string>
                 <key>sourceSize</key>
@@ -33,11 +33,11 @@
             <key>store_daygift_bg.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,709},{487,705}}</string>
+                <string>{{2,491},{487,705}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{487,705}}</string>
                 <key>sourceSize</key>
@@ -46,11 +46,24 @@
             <key>store_des_gift.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{809,1230},{298,160}}</string>
+                <string>{{523,1142},{298,160}}</string>
                 <key>offset</key>
                 <string>{1,1}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{2,0},{298,160}}</string>
+                <key>sourceSize</key>
+                <string>{300,162}</string>
+            </dict>
+            <key>store_first2_des.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{523,980},{298,160}}</string>
+                <key>offset</key>
+                <string>{1,1}</string>
+                <key>rotated</key>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{2,0},{298,160}}</string>
                 <key>sourceSize</key>
@@ -59,11 +72,11 @@
             <key>store_gift_bg.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{491,2},{487,705}}</string>
+                <string>{{2,2},{487,705}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{487,705}}</string>
                 <key>sourceSize</key>
@@ -72,7 +85,7 @@
             <key>store_role_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1416},{405,467}}</string>
+                <string>{{320,1403},{405,467}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,11 +98,11 @@
             <key>store_role_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{491,709},{421,519}}</string>
+                <string>{{2,980},{421,519}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{421,519}}</string>
                 <key>sourceSize</key>
@@ -98,7 +111,7 @@
             <key>store_role_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{491,1230},{316,505}}</string>
+                <string>{{2,1403},{316,505}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -108,10 +121,23 @@
                 <key>sourceSize</key>
                 <string>{316,505}</string>
             </dict>
+            <key>store_supergift_des.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{709,2},{260,98}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{260,98}}</string>
+                <key>sourceSize</key>
+                <string>{260,98}</string>
+            </dict>
             <key>store_text_jlyj.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{914,709},{180,51}}</string>
+                <string>{{709,413},{180,51}}</string>
                 <key>offset</key>
                 <string>{-1,-1}</string>
                 <key>rotated</key>
@@ -124,7 +150,7 @@
             <key>store_text_jx.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1823},{61,29}}</string>
+                <string>{{709,382},{61,29}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +163,7 @@
             <key>store_text_ljgm.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{914,1071},{122,33}}</string>
+                <string>{{783,332},{122,33}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +176,7 @@
             <key>store_text_wq.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{811,1710},{66,37}}</string>
+                <string>{{783,264},{66,37}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -163,7 +189,7 @@
             <key>store_text_xglb.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{862,1530},{149,41}}</string>
+                <string>{{762,636},{149,41}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +202,7 @@
             <key>store_text_xslb.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{471,1737},{338,115}}</string>
+                <string>{{320,1810},{338,115}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -189,7 +215,7 @@
             <key>store_text_xysj.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{914,891},{178,51}}</string>
+                <string>{{709,595},{178,51}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -202,7 +228,7 @@
             <key>store_text_xyyy.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{809,1530},{178,51}}</string>
+                <string>{{762,456},{178,51}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -219,7 +245,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{487,705}}</string>
                 <key>sourceSize</key>
@@ -233,9 +259,9 @@
             <key>realTextureFileName</key>
             <string>storepayui.pvr.ccz</string>
             <key>size</key>
-            <string>{980,1854}</string>
+            <string>{823,1927}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:4657fc48b2491bb2a958566cb99eede7$</string>
+            <string>$TexturePacker:SmartUpdate:c8e6b25b159fa2b6db36761c05926e71$</string>
             <key>textureFileName</key>
             <string>storepayui.pvr.ccz</string>
         </dict>

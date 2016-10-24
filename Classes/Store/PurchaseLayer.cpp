@@ -19,6 +19,12 @@
 #include "../Scenes/PopRewardLayer.h"
 #include "Player.h"
 #include "PlayerMgr.h"
+#include "GameLayer.h"
+#include "../GLCommon/Utils/ToolsUtil.h"
+#include "../DataParam/SkillControl.h"
+#include "../DataParam/TimeLimitActivityMgr.h"
+#include "../Scenes/VipInfoLayer.h"
+#include "../Scenes/BGLLayer.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -111,7 +117,12 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	Node* paynode = nullptr;
 	if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
 	{
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		paynode = GameCSLoader::createNode("storeassets/firstbuygiift_mm.csb");
+#else
 		paynode = GameCSLoader::createNode("storeassets/firstbuygiift.csb");
+#endif
+		
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -126,10 +137,18 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		paynode->addChild(pArmtr);
 		pArmtr->getAnimation()->play("libao_1");
 		pArmtr->setPosition(Vec2(-88.f, -132.f));
+
+		auto lab = static_cast<TextAtlas*>(paynode->getChildByName("time"));
+		lab->setVisible(false);
 	}
-	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_DAYGIFT) == 0)
+	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2) == 0)
 	{
-		paynode = GameCSLoader::createNode("storeassets/daybuygiift.csb");
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		paynode = GameCSLoader::createNode("storeassets/firstbuygiift_mm.csb");
+#else
+		paynode = GameCSLoader::createNode("storeassets/firstbuygiift.csb");
+#endif
+
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
@@ -139,13 +158,53 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
 		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
 
+		static_cast<Sprite*>(paynode->getChildByName("store_des_gift_2"))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("store_first2_des.png"));
+
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("effect/libao.ExportJson");
 		auto pArmtr = Armature::create("libao");
 		paynode->addChild(pArmtr);
 		pArmtr->getAnimation()->play("libao_1");
-		pArmtr->setPosition(paynode->getChildByName("wup_itembg_2_5")->getPosition());
+		pArmtr->setPosition(Vec2(-88.f, -132.f));
 
 		auto lab = static_cast<TextAtlas*>(paynode->getChildByName("time"));
+		auto actiontime = Sequence::createWithTwoActions(CallFunc::create([=]() {
+		
+			int time = MainLayer::getCurMainLayer()->getGiftTimeNode()->getDur();
+			//time = 24 * 60 * 60 - time;
+			int curhour = time / 3600;
+			int curmin = time % 3600 / 60;
+			int cursec = time %  60;
+			lab->setString(String::createWithFormat("%02d.%02d.%02d", curhour, curmin, cursec)->getCString());
+		
+		}), DelayTime::create(1.f));
+
+		paynode->runAction(RepeatForever::create(actiontime));
+	}
+	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_DAYGIFT) == 0)
+	{
+
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		paynode = GameCSLoader::createNode("storeassets/daybuygiift_mm.csb");
+#else
+		paynode = GameCSLoader::createNode("storeassets/daybuygiift.csb");
+#endif
+		
+		this->addChild(paynode);
+		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
+
+		_btnBuy = static_cast<GameButton*>(paynode->getChildByName("btn_buy"));
+		_btnBuy->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonBuyCallback, this));
+
+		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
+		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
+
+		/*ArmatureDataManager::getInstance()->addArmatureFileInfo("effect/libao.ExportJson");
+		auto pArmtr = Armature::create("libao");
+		paynode->addChild(pArmtr);
+		pArmtr->getAnimation()->play("libao_1");
+		pArmtr->setPosition(paynode->getChildByName("wup_itembg_2_5")->getPosition());*/
+
+		/*auto lab = static_cast<TextAtlas*>(paynode->getChildByName("time"));
 		auto actiontime = Sequence::createWithTwoActions(CallFunc::create([=]() {
 			if (MainLayer::getCurMainLayer()->getIsGetOnlineTime())
 			{
@@ -158,7 +217,7 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 			}
 		}), DelayTime::create(1.f));
 
-		paynode->runAction(RepeatForever::create(actiontime));
+		paynode->runAction(RepeatForever::create(actiontime));*/
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_TIMEGIFT) == 0)
 	{
@@ -358,7 +417,70 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
 		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
 	}
+	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0) == 0)
+	{
+		paynode = GameCSLoader::createNode("storeassets/wenpongift_mm.csb");
+		this->addChild(paynode);
+		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
 
+		_btnBuy = static_cast<GameButton*>(paynode->getChildByName("btn_buy"));
+		_btnBuy->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonBuyCallback, this));
+
+		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
+		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
+	}
+	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1) == 0)
+	{
+		paynode = GameCSLoader::createNode("storeassets/wenpongift2_mm.csb");
+		this->addChild(paynode);
+		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
+
+		_btnBuy = static_cast<GameButton*>(paynode->getChildByName("btn_buy"));
+		_btnBuy->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonBuyCallback, this));
+
+		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
+		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
+	}
+	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_SUPERSKILL) == 0)
+	{
+		paynode = GameCSLoader::createNode("storeassets/superskillgiift_mm.csb");
+		this->addChild(paynode);
+		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
+
+		_btnBuy = static_cast<GameButton*>(paynode->getChildByName("btn_buy"));
+		_btnBuy->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonBuyCallback, this));
+
+		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
+		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
+		
+	}
+	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT) == 0)
+	{
+		paynode = GameCSLoader::createNode("storeassets/supergift.csb");
+		this->addChild(paynode);
+		paynode->setPosition(Vec2(350.f, VisibleRect::top().y / 2));
+
+		_btnBuy = static_cast<GameButton*>(paynode->getChildByName("btn_buy"));
+		_btnBuy->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonBuyCallback, this));
+
+		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
+		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
+
+		auto lab = static_cast<TextAtlas*>(paynode->getChildByName("time"));
+		auto actiontime = Sequence::createWithTwoActions(CallFunc::create([=]() {
+			
+				int time = MainLayer::getCurMainLayer()->getGiftTimeNode()->getDur();
+				//time = 24 * 60 * 60 - time;
+				int curhour = time / 3600;
+				int curmin = time % 3600 / 60;
+				int cursec = time % 60;
+				lab->setString(String::createWithFormat("%02d.%02d.%02d", curhour, curmin, cursec)->getCString());
+			
+		}), DelayTime::create(1.f));
+
+		paynode->runAction(RepeatForever::create(actiontime));
+
+	}
 
 	if (paynode)
 	{
@@ -640,6 +762,21 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		BagItemControl::getInstace()->addBagItem(1013);*/
 
 		std::vector<PopItemInfo_T> arrItems;
+
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		PopItemInfo_T temp;
+		temp.itemId = 1014;
+		temp.itemCount = 1;
+		arrItems.push_back(temp);
+
+		temp.itemId = 1007;
+		temp.itemCount = 1;
+		arrItems.push_back(temp);
+
+		temp.itemId = 1013;
+		temp.itemCount = 1;
+		arrItems.push_back(temp);
+#else
 		PopItemInfo_T temp;
 		temp.itemId = 1014;
 		temp.itemCount = 4;
@@ -652,9 +789,16 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		temp.itemId = 1013;
 		temp.itemCount = 4;
 		arrItems.push_back(temp);
+#endif
+		
 
 		auto layer = PopRewardLayer::create(arrItems);
 		MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
+
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		BagItemControl::getInstace()->autoEquipInFight();
+		GameLayer::getInstance()->updateEquipItems();
+#endif
 
 		//BagItemControl::getInstace()->saveItemConfig();
 		UserData::getInstance()->setCurDayGiftTimes(1);
@@ -863,6 +1007,14 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	}
 	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
 	{
+#if CC_PAY_SDK == PAY_SDK_MIGU
+		BagItemControl::getInstace()->addBagItem(1004);
+		BagItemControl::getInstace()->addBagItem(1004);
+
+		BagItemControl::getInstace()->addBagItem(14);
+		BagItemControl::getInstace()->saveItemConfig();
+		UserData::getInstance()->giveTili(5);
+#else
 		BagItemControl::getInstace()->addBagItem(1004);
 		BagItemControl::getInstace()->addBagItem(1004);
 		BagItemControl::getInstace()->addBagItem(1004);
@@ -872,10 +1024,10 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		BagItemControl::getInstace()->addBagItem(14);
 		BagItemControl::getInstace()->saveItemConfig();
 		UserData::getInstance()->giveTili(20);
-		UserData::getInstance()->saveUserData();
-
+#endif
 		MainLayer::getCurMainLayer()->firstGiftBuyCallBack();
 		GameUtils::toastTip("buy_succeed");
+		UserData::getInstance()->saveUserData();
 
 		MainLayer::getCurMainLayer()->showNewGetItem();
 	}
@@ -888,6 +1040,56 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_PLAYER_4) == 0)
 	{
 		PlayerMgr::getInstance()->unLockPlayer(4);
+	}
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_SUPERSKILL) == 0)
+	{
+		int superskillid[7] = {7,14,28,31,44,45,53};
+		std::vector<int> lockSkillIds;
+		for each (int skill in superskillid)
+		{
+			if (SkillControl::getInstance()->isSkillLock(skill) == true)
+			{
+				lockSkillIds.push_back(skill);
+			}
+		}
+		if (lockSkillIds.size() > 0)
+		{
+			int buyidx = ToolsUtil::getRandomInt(0, lockSkillIds.size() - 1);
+			auto layer = PopRewardLayer::create(lockSkillIds[buyidx], 1);
+			MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
+
+			layer->addSkillDes(lockSkillIds[buyidx]);
+		}
+		
+	}
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_VIP) == 0)
+	{
+		VipMgr::getInstance()->buyVipSucceedCB();
+		if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_PLAYER_4, false) == 0)
+		{
+			UserData::getInstance()->giveItem(StoreAssetMgr::ITEMID_GOOD_PLAYER_4, 1, false);
+			PlayerMgr::getInstance()->unLockPlayer(4);
+		}
+
+		if (dynamic_cast<VipInfoLayer*>(m_pFather))
+		{
+			dynamic_cast<VipInfoLayer*>(m_pFather)->updateInfo();
+		}
+	}
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_BGLJINHUA) == 0)
+	{
+		UserData::getInstance()->setHaveJinhuaBGL(1);
+		static_cast<BGLLayer*>(m_pFather)->updateLvInfo();
+		static_cast<BGLLayer*>(m_pFather)->hidePopBuyLayer();
+	}
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT) == 0)
+	{
+		MainLayer::getCurMainLayer()->firstGiftBuyCallBack();
+		UserData::getInstance()->giveCrystal(320);
+		UserData::getInstance()->giveGold(30000);
+		//UserData::getInstance()->saveUserData();
+		auto layer = PopRewardLayer::openBox(6, BoxDataMgr::getInstance()->getCurGetBoxLv());//create(arrReward);
+		MainLayer::getCurMainLayer()->addChild(layer, MainLayer_Z::POP_REWARD_Z);
 	}
 
 // 	if (dynamic_cast<StoreLayer*>(m_pFather))

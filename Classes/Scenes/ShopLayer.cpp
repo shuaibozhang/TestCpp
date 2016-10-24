@@ -28,6 +28,7 @@
 #include "MagPieMgr.h"
 #include "DayActiveMgr.h"
 #include "Player.h"
+#include "Defines.h"
 
 using namespace cocos2d;
 
@@ -1537,9 +1538,16 @@ bool StoreLayer2::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 	_curTagIdx = 0;
+	Node* root = nullptr;
 
-	auto root = GameCSLoader::createNode("csb/newstoreui.csb");
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	root = GameCSLoader::createNode("csb/newstoreui_mm.csb");
 	this->addChild(root);
+	
+#else
+	root = GameCSLoader::createNode("csb/newstoreui.csb");
+	this->addChild(root);
+#endif
 
 	auto actionshow = EaseSineOut::create(MoveTo::create(0.3f, Vec2(0.f, 0.f)));
 	root->setPositionY(-VisibleRect::top().y + 120.f);
@@ -2564,13 +2572,19 @@ void StoreLayer2::showItemInfo(int itemid, int btnidx)
 //std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_TIMEGIFT, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_1, StoreAssetMgr::ITEMID_GOOD_TIMEGIFT_2, StoreAssetMgr::ITEMID_GOOD_DAYGIFT };
 //Button* g_bntGift[4] = { 0 };
 
-std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, StoreAssetMgr::ITEMID_GOOD_DAYGIFT,StoreAssetMgr::ITEMID_GOOD_PLAYER_4 };
-Button* g_bntGift[4] = { 0 };
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+const int g_GiftBtnNums = 5;
+#else
+const int g_GiftBtnNums = 4;
+#endif
+
+std::string g_giftItemids[] = { StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, StoreAssetMgr::ITEMID_GOOD_DAYGIFT,StoreAssetMgr::ITEMID_GOOD_PLAYER_4, StoreAssetMgr::ITEMID_GOOD_SUPERSKILL };
+Button* g_bntGift[g_GiftBtnNums] = { 0 };
 
 bool GiftLayer::init()
 {
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/storeui.plist");
-
+	_listview = nullptr;
 	Layer::init();
 
 	auto listener = EventListenerTouchOneByOne::create();
@@ -2578,8 +2592,12 @@ bool GiftLayer::init()
 	listener->onTouchBegan = [this](Touch*, Event*) { return true; };
 	listener->onTouchEnded = [this](Touch*, Event*) {};
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	_root = CSLoader::createNode("csb/storelayernew_mm.csb");
+#else
 	_root = CSLoader::createNode("csb/storelayernew.csb");
+#endif
+	
 	this->addChild(_root);
 
 	auto actionshow = EaseSineOut::create(MoveTo::create(0.3f, Vec2(0.f, 0.f)));
@@ -2604,8 +2622,8 @@ bool GiftLayer::init()
 
 	auto list = static_cast<ListView*>(_root->getChildByName("ListView_1"));
 	list->setPositionY(list->getPositionY() + offy);
-
-	for (int i = 0; i < 4; i++)
+	_listview = list;
+	for (int i = 0; i < g_GiftBtnNums; i++)
 	{
 		auto keyStr = String::createWithFormat("btn_%d", i)->getCString();
 
@@ -2648,8 +2666,20 @@ void GiftLayer::menuOnBuy(Ref* ref, Widget::TouchEventType type)
 	if (type == Widget::TouchEventType::ENDED)
 	{
 		int idx =(int)((Node*)(ref))->getUserData();
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		bool needDialog = true;
+		if (idx == 3)
+		{
+			needDialog = false;
+		}
+		auto layer = PurchaseLayer::create(g_giftItemids[idx], "", this, !needDialog);
+		this->addChild(layer);
+#else
 		auto layer = PurchaseLayer::create(g_giftItemids[idx], "", this, true);
 		this->addChild(layer);
+
+#endif
+		
 	}
 }
 
@@ -2666,13 +2696,23 @@ void GiftLayer::updateBtns()
 			}
 		}
 	}*/
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < g_GiftBtnNums; i++)
 	{
 		if (_giftNodes.at(i)->getParent() != nullptr)
 		{
-			_giftNodes.at(i)->removeFromParent();
+			_listview->removeChild(_giftNodes.at(i));
+			//_giftNodes.at(i)->removeFromParent();
 		}	
 	}
+
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	if (SkillControl::getInstance()->checkHaveLockSuperSkill() == true)
+	{
+		_listview->addChild(_giftNodes.at(4));
+	}
+#endif
+
+
 #if 0
 	int idx = getShoulddShowGiftIdx();
 	if (idx != -1)
@@ -2682,21 +2722,23 @@ void GiftLayer::updateBtns()
 #else
 	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0, false) == 0)
 	{
-		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(0));
+		_listview->addChild(_giftNodes.at(0));
 	}
 
 	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1, false) == 0 && UserData::getInstance()->getIsBossPass(32) == 1)
 	{
-		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(1));
+		_listview->addChild(_giftNodes.at(1));
 	}
 #endif
 	
+	_listview->addChild(_giftNodes.at(2));
+
 	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_PLAYER_4) == 0)
 	{
-		_root->getChildByName("ListView_1")->addChild(_giftNodes.at(3));
+		_listview->addChild(_giftNodes.at(3));
 	}
 
-	_root->getChildByName("ListView_1")->addChild(_giftNodes.at(2));
+	
 	
 }
 

@@ -11,7 +11,13 @@ enum TimeTypeEnum
 	TIME_SHOPHOTREFRESH = 2,
 	TIME_OPENBOXCOUNTDOWN = 3,
 	TIME_ONLINEREWARD = 4,
-	TIME_TIMENODENUM = 5
+	TIME_GIFTCHANGE = 5,
+	TIME_TIMENODENUM = 6
+};
+
+enum TimeCountTimes
+{
+	TIME_GIFT_CHANGE = 20,
 };
 
 class TimeCountDownNode : public Node

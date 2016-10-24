@@ -8,7 +8,8 @@
 #include "PopRewardLayer.h"
 #include "UserData.h"
 #include "EditNickLayer.h"
-
+#include "../DataParam/TimeLimitActivityMgr.h"
+#include "../Defines.h"
 
 /***************************RankTableDataSrc*********************************************/
 
@@ -172,7 +173,7 @@ EndlessMainLayer * EndlessMainLayer::getInstance()
 	return s_pInstance;
 }
 
-EndlessMainLayer::EndlessMainLayer()
+EndlessMainLayer::EndlessMainLayer():_freeTimes(1)
 {
 	s_pInstance = this;
 //	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ui/rankui.plist");
@@ -192,12 +193,22 @@ bool EndlessMainLayer::init()
 	listener->onTouchBegan = [this](Touch*, Event*) { return true; };
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
+	if (VipMgr::getInstance()->haveBuyVip())
+	{
+		_freeTimes = 3;
+	}
+
 	auto actionshow = EaseSineOut::create(MoveTo::create(0.3f, Vec2(0.f, 0.f)));
 	this->setPositionY(-VisibleRect::top().y + 100.f);
 	this->runAction(actionshow);
 
 	float offsetY = (VisibleRect::top().y - 960.f) / 2.f;
-	auto pRoot = GameCSLoader::createNode("csb/rankui_main.csb");
+
+	std::string csbpath = "csb/rankui_main.csb";
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	csbpath = "csb/rankui_main_migu.csb";
+#endif
+	auto pRoot = GameCSLoader::createNode(csbpath);
 	this->addChild(pRoot);
 	pRoot->setPositionY(offsetY);
 
@@ -262,7 +273,12 @@ bool EndlessMainLayer::init()
 			listener->onTouchBegan = [this](Touch*, Event*) { return true; };
 			pLayer->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, pLayer);
 
-			auto pRoot = GameCSLoader::createNode("csb/rankui_rule_layer.csb");
+			std::string csbpath = "csb/rankui_rule_layer.csb";
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+			csbpath = "csb/rankui_rule_migu.csb";
+#endif
+
+			auto pRoot = GameCSLoader::createNode(csbpath);
 			pLayer->addChild(pRoot);
 			pRoot->setPositionY((VisibleRect::top().y - 960.f) / 2.f);
 
@@ -395,10 +411,29 @@ void EndlessMainLayer::updateSelfInfoUI(void)
 	auto strImage = __String::createWithFormat("rank_head_%d.png", roleId);
 	_pSelfHead->loadTexture(strImage->getCString(), TextureResType::PLIST);
 
-	if (0 == UserData::getInstance()->getEndlessCount())
+	if (UserData::getInstance()->getEndlessCount() < _freeTimes)
 	{
 		_pCost0->setVisible(true);
 		_pCost1->setVisible(false);
+
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		Node* textNode[3];
+		textNode[0] = _pCost0->getChildByName("1ci");
+		textNode[1] = _pCost0->getChildByName("2ci");
+		textNode[2] = _pCost0->getChildByName("3ci");
+
+		for (int n = 0; n < 3; n++)
+		{
+			if (_freeTimes - UserData::getInstance()->getEndlessCount() - 1 == n)
+			{
+				textNode[n]->setVisible(true);
+			}
+			else
+			{
+				textNode[n]->setVisible(false);
+			}
+		}
+#endif
 	}
 	else
 	{
@@ -416,7 +451,15 @@ int EndlessMainLayer::getEndlessCost()
 	int ret = 0;
 	int endlessCount = UserData::getInstance()->getEndlessCount();
 
-	ret = 10 * endlessCount;
+	if (endlessCount < _freeTimes)
+	{
+
+	}
+	else
+	{
+		ret = 10 * (endlessCount - _freeTimes + 1);
+	}
+	
 
 	return ret;
 }

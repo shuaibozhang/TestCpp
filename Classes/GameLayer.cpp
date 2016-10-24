@@ -34,6 +34,7 @@
 #include "Store/PurchaseLayer.h"
 #include "Scenes/DungeonLayer.h"
 #include "PlayerMgr.h"
+#include "Defines.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -141,6 +142,35 @@ bool GameLayer::init()
 	_bottomUiNodeR = Node::create();
 	this->addChild(_bottomUiNodeR, EntityZ_E::E_Z_UI);
 	_bottomUiNodeR->setPosition(_bottomUiNode->getPosition());
+
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	auto btnbuyhp = Button::create("uiext/vip_btn_hpgift.png");
+	_bottomUiNodeR->addChild(btnbuyhp);
+	btnbuyhp->setPosition(Vec2(315.f, 615.f));
+	btnbuyhp->setScale(0.8f);
+	btnbuyhp->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+		if (type == Widget::TouchEventType::ENDED)
+		{
+			if (!GameMap::getCurGameMap()->isInFight()
+				|| nullptr == CrushLayer::getInstance()
+				|| !CrushLayer::getInstance()->isVisible()
+				|| CrushLayer::getInstance()->getShieldLayer()->isVisible()
+				|| !CrushLayer::getInstance()->getStateMac()->isInState(WaitTouchState::getInstance())
+				|| 3 == _fightType)
+			{
+				return;
+			}
+
+			if (_isGuiding)
+			{
+				GameUtils::toastTip("guide_unable_item");
+				return;
+			}
+
+			MainLayer::getCurMainLayer()->popPurchaseLayer(StoreAssetMgr::ITEMID_GOOD_DAYGIFT);
+		}
+	});
+#endif
 
 	_pPlayerDefBar = static_cast<LoadingBar*>(_bottomUiNode->getChildByName("bar_def"));
 //	_pPlayerDefBar->setScale9Enabled(true);

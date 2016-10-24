@@ -158,6 +158,11 @@ public:
 	const AttactInfo_T& getWeaponAttack(int idx) { return _userInfo._wenponCurAttack[idx]; }
 	void setWeaponAttack(int idx, const AttactInfo_T& lv) { _userInfo._wenponCurAttack[idx] = lv; }
 
+	const AttactInfo_T& getWeaponExtAtt(int idx) { return _userInfo._wenponExternAtt[idx]; }
+	void setWeaponExtAtt(int idx, const AttactInfo_T& att) { _userInfo._wenponExternAtt[idx] = att; }
+
+	AttactInfo_T getTrueWeaponAttack(int idx);
+
 	int getWeaponParts(int idx) { return _userInfo._wenponPartNum[idx]; }
 	void setWeaponPartsNum(int idx, int num) { _userInfo._wenponPartNum[idx] = num; }
 	void addWeaponPartsNum(int wenpartsid, int numchange) { _userInfo._wenponPartNum[wenpartsid - 1500] += numchange; }
@@ -383,6 +388,18 @@ public:
 
 	int getPlayerIsOn(int playeridx) { return _userInfo._arrPlayersIsOn[playeridx]; }
 	void setPlayerIsOn(int playeridx, int ison) {_userInfo._arrPlayersIsOn[playeridx] = ison;}
+
+	int getVipTargetDay() { return _userInfo._vipTargetDay; }
+	void setVipTargetDay(int day) { _userInfo._vipTargetDay = day; }
+
+	int getVipDayRewardCrystal() { return _userInfo._vipRewardCrystal; }
+	void setVipDayRewardCrystal(int stage) {_userInfo._vipRewardCrystal = stage; }
+
+	int getMainSceneGiftIdx() { return _userInfo._curMainSceneShowGiftIdx; }
+	void setMainSceneGiftIdx(int curIdx) { _userInfo._curMainSceneShowGiftIdx = curIdx; }
+
+	int getHaveJinhuaBGL() { return _userInfo._haveJinhuaBGL; }
+	void setHaveJinhuaBGL(int haveJinhua) { _userInfo._haveJinhuaBGL = haveJinhua; }
 private:
 	int getIntFromDBForKey(std::string key, int defult);
 	std::string getStringFromDBForKey(std::string key);
@@ -445,6 +462,8 @@ private:
 		int _storePageOneItemStage[9];
 
 		AttactInfo_T _wenponCurAttack[ParamData::WENPON_COUNT];
+		AttactInfo_T _wenponExternAtt[ParamData::WENPON_COUNT];
+
 		int _tili;
 		std::string _account;
 		std::string _nickName;
@@ -510,6 +529,14 @@ private:
 		std::map<std::string, int> _activityMap;
 
 		int _payrmbGuoqing;
+
+		int _vipTargetDay;
+		int _vipRewardCrystal;
+
+		/*0 is stand gift, 1 is sp time gift*/
+		int _curMainSceneShowGiftIdx;
+
+		int _haveJinhuaBGL;
 	}UserDataInfo_T;
 
 	UserDataInfo_T _userInfo;

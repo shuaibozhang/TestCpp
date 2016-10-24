@@ -253,7 +253,6 @@ void AppDelegate::applicationWillEnterForeground() {
 #ifdef  USING_TIME_MGR
 	if (TimeMgr::getInstane())
 	{
-		cocos2dx_plat::showToast("from background");
 		TimeMgr::getInstane()->fixTime();
 	}
 #endif

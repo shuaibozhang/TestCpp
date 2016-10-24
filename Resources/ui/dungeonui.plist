@@ -7,11 +7,11 @@
             <key>dungeon_btn_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{373,104},{154,56}}</string>
+                <string>{{104,200},{154,56}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{154,56}}</string>
                 <key>sourceSize</key>
@@ -20,7 +20,7 @@
             <key>dungeon_btn_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,46},{154,56}}</string>
+                <string>{{104,142},{154,56}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,11 +33,11 @@
             <key>dungeon_des_bg.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{98,2},{298,42}}</string>
+                <string>{{2,98},{298,42}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{298,42}}</string>
                 <key>sourceSize</key>
@@ -50,7 +50,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{344,37}}</string>
                 <key>sourceSize</key>
@@ -59,11 +59,11 @@
             <key>dungeon_destext_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{41,2},{336,36}}</string>
+                <string>{{2,41},{336,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{336,36}}</string>
                 <key>sourceSize</key>
@@ -72,11 +72,11 @@
             <key>dungeon_destext_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{79,2},{336,17}}</string>
+                <string>{{2,79},{336,17}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{336,17}}</string>
                 <key>sourceSize</key>
@@ -85,7 +85,7 @@
             <key>dungeon_icon_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{142,211},{115,86}}</string>
+                <string>{{98,423},{115,86}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>dungeon_icon_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{142,85},{124,79}}</string>
+                <string>{{46,297},{124,79}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>dungeon_icon_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{376,317},{94,83}}</string>
+                <string>{{2,426},{94,83}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,7 +124,7 @@
             <key>dungeon_icon_bg.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,348},{60,63}}</string>
+                <string>{{337,125},{60,63}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +137,7 @@
             <key>dungeon_icon_bg2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{431,262},{54,53}}</string>
+                <string>{{348,2},{54,53}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +150,7 @@
             <key>dungeon_icon_effect_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{431,184},{66,76}}</string>
+                <string>{{336,219},{66,76}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -163,7 +163,7 @@
             <key>dungeon_icon_effect_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{243,139},{66,68}}</string>
+                <string>{{235,441},{66,68}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>dungeon_icon_effect_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{67,340},{68,78}}</string>
+                <string>{{232,323},{68,78}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -189,11 +189,11 @@
             <key>dungeon_icon_effect_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{431,70},{72,70}}</string>
+                <string>{{328,297},{72,70}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{72,70}}</string>
                 <key>sourceSize</key>
@@ -202,11 +202,11 @@
             <key>dungeon_icon_effect_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{299,334},{72,74}}</string>
+                <string>{{260,214},{72,74}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{2,2},{72,74}}</string>
                 <key>sourceSize</key>
@@ -215,7 +215,7 @@
             <key>dungeon_icon_player_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,334},{72,74}}</string>
+                <string>{{30,142},{72,74}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -228,7 +228,7 @@
             <key>dungeon_icon_player_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{147,337},{70,76}}</string>
+                <string>{{312,369},{70,76}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -241,7 +241,7 @@
             <key>dungeon_icon_player_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{259,209},{62,66}}</string>
+                <string>{{340,57},{62,66}}</string>
                 <key>offset</key>
                 <string>{-1,1}</string>
                 <key>rotated</key>
@@ -254,11 +254,11 @@
             <key>dungeon_icon_player_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{432,2},{68,66}}</string>
+                <string>{{303,441},{68,66}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{5,3},{68,66}}</string>
                 <key>sourceSize</key>
@@ -267,7 +267,7 @@
             <key>dungeon_icon_player_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{142,2},{81,81}}</string>
+                <string>{{127,293},{81,81}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -280,11 +280,11 @@
             <key>dungeon_opentext_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,24},{205,20}}</string>
+                <string>{{24,219},{205,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{205,20}}</string>
                 <key>sourceSize</key>
@@ -293,11 +293,11 @@
             <key>dungeon_opentext_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,2},{205,20}}</string>
+                <string>{{2,219},{205,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{205,20}}</string>
                 <key>sourceSize</key>
@@ -306,7 +306,7 @@
             <key>dungeon_opentext_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{259,277},{93,20}}</string>
+                <string>{{159,258},{93,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -319,7 +319,7 @@
             <key>dungeon_text_bs.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{381,46},{48,29}}</string>
+                <string>{{46,218},{48,29}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -332,11 +332,11 @@
             <key>dungeon_text_fb.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{431,144},{70,38}}</string>
+                <string>{{260,142},{70,38}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{11,6},{70,38}}</string>
                 <key>sourceSize</key>
@@ -345,7 +345,7 @@
             <key>dungeon_text_freetime.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{223,104},{104,18}}</string>
+                <string>{{215,393},{104,18}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -358,7 +358,7 @@
             <key>dungeon_text_time0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{354,288},{44,20}}</string>
+                <string>{{279,393},{44,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -371,11 +371,11 @@
             <key>dungeon_text_time1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{323,237},{44,20}}</string>
+                <string>{{257,393},{44,20}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{2,3},{44,20}}</string>
                 <key>sourceSize</key>
@@ -384,11 +384,11 @@
             <key>dungeon_text_time2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{323,215},{44,20}}</string>
+                <string>{{235,393},{44,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{3,3},{44,20}}</string>
                 <key>sourceSize</key>
@@ -397,11 +397,11 @@
             <key>dungeon_text_time3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{381,77},{44,20}}</string>
+                <string>{{210,323},{44,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{3,3},{44,20}}</string>
                 <key>sourceSize</key>
@@ -410,11 +410,11 @@
             <key>dungeon_text_time4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{324,193},{44,20}}</string>
+                <string>{{193,376},{44,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{3,3},{44,20}}</string>
                 <key>sourceSize</key>
@@ -423,11 +423,37 @@
             <key>dungeon_text_time5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{324,171},{44,20}}</string>
+                <string>{{171,376},{44,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,3},{44,20}}</string>
+                <key>sourceSize</key>
+                <string>{50,26}</string>
+            </dict>
+            <key>dungeon_text_time6.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{149,376},{44,20}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,3},{44,20}}</string>
+                <key>sourceSize</key>
+                <string>{50,26}</string>
+            </dict>
+            <key>dungeon_text_time7.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{127,376},{44,20}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{3,3},{44,20}}</string>
                 <key>sourceSize</key>
@@ -436,7 +462,7 @@
             <key>dungeon_text_tz.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{311,139},{60,30}}</string>
+                <string>{{337,187},{60,30}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -449,11 +475,11 @@
             <key>dungeon_text_tz2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{354,260},{75,26}}</string>
+                <string>{{2,142},{75,26}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{75,26}}</string>
                 <key>sourceSize</key>
@@ -462,7 +488,7 @@
             <key>dungeon_title_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{259,104},{111,33}}</string>
+                <string>{{215,288},{111,33}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -475,7 +501,7 @@
             <key>dungeon_title_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{211,299},{111,33}}</string>
+                <string>{{46,258},{111,33}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -488,11 +514,11 @@
             <key>dungeon_title_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{98,302},{111,33}}</string>
+                <string>{{302,98},{111,33}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{111,33}}</string>
                 <key>sourceSize</key>
@@ -506,9 +532,9 @@
             <key>realTextureFileName</key>
             <string>dungeonui.pvr.ccz</string>
             <key>size</key>
-            <string>{503,410}</string>
+            <string>{404,511}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:35bc41eb6780243684374fbeb7e64971$</string>
+            <string>$TexturePacker:SmartUpdate:9eb8a808d8322c16f888ef02d2743757$</string>
             <key>textureFileName</key>
             <string>dungeonui.pvr.ccz</string>
         </dict>

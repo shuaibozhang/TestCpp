@@ -5,6 +5,7 @@
 #include "GLCommon/Utils/ToolsUtil.h"
 #include "UserData.h"
 #include "GameUtils.h"
+#include "Defines.h"
 
 USING_NS_CC;
 
@@ -52,6 +53,7 @@ const char* StoreAssetMgr::ITEMID_GOOD_STOREBOX_2 = "item_good_storebox_2";
 
 const char* StoreAssetMgr::ITEMID_GOOD_REFRESH_STORE = "item_good_refresh_store";
 const char* StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT = "item_good_firstgift";
+const char* StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2 = "item_good_firstgift_2";
 
 const char* StoreAssetMgr::ITEMID_GOOD_REGETTILI = "item_good_regettili";
 const char* StoreAssetMgr::ITEMID_GOOD_BUYTILI = "item_good_buytili";
@@ -69,6 +71,12 @@ const char* StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_0 = "item_good_wpgift0";
 const char* StoreAssetMgr::ITEMID_GOOD_UNLIMTWENPONGIFT_1 = "item_good_wpgift1";
 
 const char* StoreAssetMgr::ITEMID_GOOD_PLAYER_4 = "item_good_player_4";
+
+const char* StoreAssetMgr::ITEMID_GOOD_VIP = "item_good_vip";
+const char* StoreAssetMgr::ITEMID_GOOD_SUPERSKILL = "item_good_superskill";
+
+const char* StoreAssetMgr::ITEMID_GOOD_SUPERGIFT = "item_good_supergift";
+const char* StoreAssetMgr::ITEMID_GOOD_BGLJINHUA = "item_good_bgljinhua";
 
 StoreAssetMgr::StoreAssetMgr()
 {
@@ -109,18 +117,30 @@ void StoreAssetMgr::initStoreAsset()
 		StoreItem_T temp = { String::createWithFormat("itemid_good_weapon_%d", tempskill.id)->getCString() , tempskill.paytype, tempskill.price };
 		addSingleItem(temp);
 	}
+
+	//StoreItem_T temp = { "item_good_bgljinhua", PAYTYPE_GOLD, 100000 };
+	//addSingleItem(temp);
 }
 
 void StoreAssetMgr::loadStoreAssets()
 {
 	rapidjson::Document _jsonBezierDoc;
-	
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	auto contentStr = FileUtils::getInstance()->getDataFromFile("storeassets/storemm.b");
+
+	ToolsUtil::unbtea(contentStr);
+
+	std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
+	_jsonBezierDoc.Parse<0>((char*)(load_str.c_str()));
+#else
 	auto contentStr = FileUtils::getInstance()->getDataFromFile("storeassets/store.b");
 
 	ToolsUtil::unbtea(contentStr);
 
 	std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
 	_jsonBezierDoc.Parse<0>((char*)(load_str.c_str()));
+#endif
+	
 
 	//std::string contentStr = FileUtils::getInstance()->getStringFromFile("storeassets/store.json");
 	//_jsonBezierDoc.Parse<0>(contentStr.c_str());

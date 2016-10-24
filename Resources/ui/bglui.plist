@@ -4,10 +4,88 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>bagua_btn_jh_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{609,368},{182,56}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,2},{182,56}}</string>
+                <key>sourceSize</key>
+                <string>{194,60}</string>
+            </dict>
+            <key>bagua_btn_jh_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{551,358},{182,56}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,2},{182,56}}</string>
+                <key>sourceSize</key>
+                <string>{194,60}</string>
+            </dict>
+            <key>bagua_btn_jh_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{540,657},{182,56}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,2},{182,56}}</string>
+                <key>sourceSize</key>
+                <string>{194,60}</string>
+            </dict>
+            <key>bagua_btn_ljjh_0.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{474,657},{182,64}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,1},{182,64}}</string>
+                <key>sourceSize</key>
+                <string>{194,66}</string>
+            </dict>
+            <key>bagua_btn_ljjh_1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{691,186},{182,64}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,1},{182,64}}</string>
+                <key>sourceSize</key>
+                <string>{194,66}</string>
+            </dict>
+            <key>bagua_btn_ljjh_2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{691,2},{182,64}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,1},{182,64}}</string>
+                <key>sourceSize</key>
+                <string>{194,66}</string>
+            </dict>
             <key>bagua_des.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{644,2},{547,297}}</string>
+                <string>{{2,358},{547,297}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +98,7 @@
             <key>bagua_text_bgl.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1916,147},{91,34}}</string>
+                <string>{{598,697},{91,34}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -30,10 +108,23 @@
                 <key>sourceSize</key>
                 <string>{91,34}</string>
             </dict>
+            <key>bagua_text_jh.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{706,370},{159,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{159,37}}</string>
+                <key>sourceSize</key>
+                <string>{159,37}</string>
+            </dict>
             <key>baguan_btn_all_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1916,2},{143,51}}</string>
+                <string>{{698,846},{143,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +137,7 @@
             <key>baguan_btn_all_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1863,100},{143,51}}</string>
+                <string>{{698,701},{143,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,11 +150,11 @@
             <key>baguan_btn_all_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1704,261},{143,51}}</string>
+                <string>{{645,846},{143,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{6,2},{143,51}}</string>
                 <key>sourceSize</key>
@@ -72,7 +163,7 @@
             <key>baguan_btn_allin_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1810,116},{143,51}}</string>
+                <string>{{645,701},{143,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +176,7 @@
             <key>baguan_btn_allin_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1757,116},{143,51}}</string>
+                <string>{{653,556},{143,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +189,7 @@
             <key>baguan_btn_allin_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1704,116},{143,51}}</string>
+                <string>{{600,552},{143,51}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +202,7 @@
             <key>baguan_btn_shuoming.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1848,2},{47,96}}</string>
+                <string>{{551,542},{47,96}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,11 +215,11 @@
             <key>baguan_btn_up_0.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1665,59},{181,55}}</string>
+                <string>{{588,841},{181,55}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{181,55}}</string>
                 <key>sourceSize</key>
@@ -137,11 +228,11 @@
             <key>baguan_btn_up_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1665,2},{181,55}}</string>
+                <string>{{531,841},{181,55}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{181,55}}</string>
                 <key>sourceSize</key>
@@ -150,11 +241,11 @@
             <key>baguan_btn_up_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{644,301},{181,55}}</string>
+                <string>{{474,841},{181,55}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{181,55}}</string>
                 <key>sourceSize</key>
@@ -163,7 +254,7 @@
             <key>baguan_goldbg.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1665,116},{184,37}}</string>
+                <string>{{667,370},{184,37}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -176,7 +267,7 @@
             <key>baguan_icon_del.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1827,314},{34,38}}</string>
+                <string>{{598,790},{34,38}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -189,11 +280,11 @@
             <key>baguan_lvbg.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{827,301},{364,45}}</string>
+                <string>{{644,2},{364,45}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{364,45}}</string>
                 <key>sourceSize</key>
@@ -215,7 +306,7 @@
             <key>baguan_mainicon.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1193,2},{470,344}}</string>
+                <string>{{2,657},{470,344}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -228,11 +319,11 @@
             <key>baguan_text_lv.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1804,314},{42,21}}</string>
+                <string>{{706,670},{42,21}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{42,21}}</string>
                 <key>sourceSize</key>
@@ -241,11 +332,11 @@
             <key>bgguan_text_sjrl.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1665,314},{137,29}}</string>
+                <string>{{706,531},{137,29}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{137,29}}</string>
                 <key>sourceSize</key>
@@ -259,9 +350,9 @@
             <key>realTextureFileName</key>
             <string>bglui.pvr.ccz</string>
             <key>size</key>
-            <string>{1969,358}</string>
+            <string>{757,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:96ca65e976f1bdac2451227f3a33dcc3$</string>
+            <string>$TexturePacker:SmartUpdate:1fbc4c81bde56520b06c7f6dee4850b2$</string>
             <key>textureFileName</key>
             <string>bglui.pvr.ccz</string>
         </dict>

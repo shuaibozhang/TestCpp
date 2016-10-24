@@ -109,6 +109,15 @@ const char* KEY_PLAYERSTATE_ISON = "key_player_ison_%d";
 
 const char* KEY_PAY_RMB_GUOQING = "key_pay_rem_guoqing";
 
+const char* KEY_VIP_TARGETDAY = "key_vip_targetday";
+const char* KEY_VIP_REWARD_CRYSTAL = "key_vip_reward_crystal";
+
+const char* KEY_MAINSCENE_GIFT_IDX = "key_mainscene_gift_idx";
+
+const char* KEY_HAVE_JINHUA_BGL = "key_havejinhua_bgl";
+
+const char* KEY_EXT_ATT = "key_extern_att_%d";
+
 UserData::UserData()
 {
 
@@ -289,6 +298,32 @@ bool UserData::loadUserData()
 
 		_userInfoBak._wenponCurAttack[i] = _userInfo._wenponCurAttack[i];
 
+		auto valueExt = getStringFromDBForKey(String::createWithFormat(KEY_EXT_ATT, i)->getCString());
+		if (valueExt.compare("") != 0)
+		{
+			std::vector<std::string> out;
+			ToolsUtil::split(valueExt, "-", out);
+			AttactInfo_T temp;
+			temp.attack = atoi(out[0].c_str());
+			temp.def = atoi(out[1].c_str());
+			temp.dpAdd = atoi(out[2].c_str());
+			temp.hpAdd = atoi(out[3].c_str());
+
+			_userInfo._wenponExternAtt[i] = temp;
+		}
+		else
+		{
+			//auto& att = ParamMgr::getInstance()->getWeaponVector();
+			AttactInfo_T temp;
+			temp.attack = 0;
+			temp.def = 0;
+			temp.dpAdd = 0;
+			temp.hpAdd = 0;
+
+			_userInfo._wenponExternAtt[i] = temp;
+		}
+		_userInfoBak._wenponExternAtt[i] = _userInfo._wenponExternAtt[i];
+
 		_userInfo._wenponPartNum[i] = getIntFromDBForKey(String::createWithFormat(KEY_PARTS_NUM, i)->getCString(), 0);
 		_userInfoBak._wenponPartNum[i] = _userInfo._wenponPartNum[i];
 	}
@@ -332,6 +367,10 @@ bool UserData::loadUserData()
 	_userInfo._tiliBuyTimes = getIntFromDBForKey(KEY_TILI_BUY_TIMES, 3);
 	_userInfoBak._tiliBuyTimes = _userInfo._tiliBuyTimes;
 
+	USERDATA_LOAD_INT(_userInfo._haveJinhuaBGL, _userInfoBak._haveJinhuaBGL, KEY_HAVE_JINHUA_BGL, 0);
+
+	USERDATA_LOAD_INT(_userInfo._curMainSceneShowGiftIdx, _userInfoBak._curMainSceneShowGiftIdx, KEY_MAINSCENE_GIFT_IDX, 0);
+
 	USERDATA_LOAD_INT(_userInfo._payrmbGuoqing, _userInfoBak._payrmbGuoqing, KEY_PAY_RMB_GUOQING, 0);
 	USERDATA_LOAD_INT(_userInfo._popBossGuide, _userInfoBak._popBossGuide, KEY_POP_BOSSGUIDE, 1);
 	USERDATA_LOAD_INT(_userInfo._firstPlayDayInYear, _userInfoBak._firstPlayDayInYear, KEY_FIRSTPLAY_DAYINYEAR, 0);
@@ -374,6 +413,9 @@ bool UserData::loadUserData()
 	USERDATA_LOAD_INT(_userInfo._bossStagesRebornPayIdx, _userInfoBak._bossStagesRebornPayIdx, KEY_BOSSSTAGES_REBORNIDX, 0);
 
 	USERDATA_LOAD_INT(_userInfo._payRmb, _userInfoBak._payRmb, KEY_PAY_RMB, 0);
+
+	USERDATA_LOAD_INT(_userInfo._vipTargetDay, _userInfoBak._vipTargetDay, KEY_VIP_TARGETDAY, 0);
+	USERDATA_LOAD_INT(_userInfo._vipRewardCrystal, _userInfoBak._vipRewardCrystal, KEY_VIP_REWARD_CRYSTAL, 0);
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -453,7 +495,7 @@ bool UserData::loadUserData()
 
 		USERDATA_LOAD_INT(_userInfo._isBoxGet[i], _userInfoBak._isBoxGet[i], strKey->getCString(), 0);
 	}
-
+	CCASSERT((sizeof(g_activityKeys) / sizeof(g_activityKeys[0])) == (sizeof(g_activityRewardsNum) / sizeof(g_activityRewardsNum[0])), "g_activityKeys size != g_activityRewardsNum size");
 	for (int i = 0; i < sizeof(g_activityKeys) / sizeof(g_activityKeys[0]); i ++)
 	{
 		for (int j = 0; j < g_activityRewardsNum[i]; j++)
@@ -612,11 +654,19 @@ bool UserData::saveUserData(bool close)
 			_userInfoBak._wenponCurAttack[i] = _userInfo._wenponCurAttack[i];
 		}
 
+		if ((_userInfoBak._wenponExternAtt[i] == _userInfo._wenponExternAtt[i]) == false)
+		{
+			auto value = String::createWithFormat("%d-%d-%d-%d", _userInfo._wenponExternAtt[i].attack, _userInfo._wenponExternAtt[i].def, _userInfo._wenponExternAtt[i].dpAdd, _userInfo._wenponExternAtt[i].hpAdd);
+			setStringFromDBForKey(String::createWithFormat(KEY_EXT_ATT, i)->getCString(), value->getCString());
+			_userInfoBak._wenponExternAtt[i] = _userInfo._wenponExternAtt[i];
+		}
+
 		if (_userInfoBak._wenponPartNum[i] != _userInfo._wenponPartNum[i])
 		{
 			setIntFromDBForKey(String::createWithFormat(KEY_PARTS_NUM, i)->getCString(), _userInfo._wenponPartNum[i]);
 			_userInfoBak._wenponPartNum[i] = _userInfo._wenponPartNum[i];
 		}
+		
 		
 	}
 
@@ -701,6 +751,10 @@ bool UserData::saveUserData(bool close)
 		USERDATA_SAVE_INT(_userInfo._dungeonTimes[i], _userInfoBak._dungeonTimes[i], String::createWithFormat(KEY_DUNGEON_TIMES, i)->getCString());
 	}
 
+	USERDATA_SAVE_INT(_userInfo._haveJinhuaBGL, _userInfoBak._haveJinhuaBGL, KEY_HAVE_JINHUA_BGL);
+
+	USERDATA_SAVE_INT(_userInfo._curMainSceneShowGiftIdx, _userInfoBak._curMainSceneShowGiftIdx, KEY_MAINSCENE_GIFT_IDX);
+
 	USERDATA_SAVE_INT(_userInfo._payrmbGuoqing, _userInfoBak._payrmbGuoqing, KEY_PAY_RMB_GUOQING);
 	USERDATA_SAVE_INT(_userInfo._popBossGuide, _userInfoBak._popBossGuide, KEY_POP_BOSSGUIDE);
 	USERDATA_SAVE_INT(_userInfo._firstPlayDayInYear, _userInfoBak._firstPlayDayInYear, KEY_FIRSTPLAY_DAYINYEAR);
@@ -741,6 +795,9 @@ bool UserData::saveUserData(bool close)
 	USERDATA_SAVE_INT(_userInfo._bossStagesRebornPayIdx, _userInfoBak._bossStagesRebornPayIdx, KEY_BOSSSTAGES_REBORNIDX);
 	
 	USERDATA_SAVE_INT(_userInfo._payRmb, _userInfoBak._payRmb, KEY_PAY_RMB);
+
+	USERDATA_SAVE_INT(_userInfo._vipTargetDay, _userInfoBak._vipTargetDay, KEY_VIP_TARGETDAY);
+	USERDATA_SAVE_INT(_userInfo._vipRewardCrystal, _userInfoBak._vipRewardCrystal, KEY_VIP_REWARD_CRYSTAL);
 
 	for (int i = 0; i < 3; i++)
 	{		
@@ -1096,6 +1153,19 @@ bool UserData::addBoxConfig(int config, int lv)
 
 	CCLOG("box is full");
 	return false;
+}
+
+AttactInfo_T UserData::getTrueWeaponAttack(int idx)
+{
+	auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(idx);
+	auto&  extAttInfo = UserData::getInstance()->getWeaponExtAtt(idx);
+
+	 AttactInfo_T temp;
+	 temp.attack = weaponinfo.attack + extAttInfo.attack;
+	 temp.def = weaponinfo.def + extAttInfo.def;
+	 temp.dpAdd = weaponinfo.dpAdd + extAttInfo.dpAdd;
+	 temp.hpAdd = weaponinfo.hpAdd + extAttInfo.hpAdd;
+	 return temp;
 }
 
 void UserData::giveTili(int num)

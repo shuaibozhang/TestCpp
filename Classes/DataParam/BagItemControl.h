@@ -37,6 +37,8 @@ public:
 	void saveItemConfig();
 
 	void autoEquipItems();
+	void autoEquipInFight();
+	int getItemsType(int itemid);
 
 	int getEquipItemsByIdx(int idx) { return _bagEquipConfig[idx]; }
 

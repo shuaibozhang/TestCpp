@@ -49,7 +49,7 @@ CountdownReward g_arrTeacher[] = {
 	
 };
 
-char* TimeLimitActivityMgr::s_CurActivityName = "teacherReward";
+const char* TimeLimitActivityMgr::s_CurActivityName = "teacherReward";
 
 TimeLimitActivityMgr::TimeLimitActivityMgr():_isInited(false)
 {
@@ -259,8 +259,8 @@ void TimeLimitActivityMgr::resetOnlineTimeReward()
 }
 
 CommondActivityMagr* CommondActivityMagr::_instance = nullptr;
-char* CommondActivityMagr::ACTIVITY_NAME_MIDAUTUMAN = "moonactivity";
-char* CommondActivityMagr::ACTIVITY_NAME_GUOQING = "guoqingactivity";
+const char* CommondActivityMagr::ACTIVITY_NAME_MIDAUTUMAN = "moonactivity";
+const char* CommondActivityMagr::ACTIVITY_NAME_GUOQING = "guoqingactivity";
 
 CommondActivityMagr* CommondActivityMagr::getInstance()
 {
@@ -368,7 +368,7 @@ void CommondActivityMagr::loadConfigFormFile()
 		_mapActivitys.insert(std::pair<std::string, CommandActivityStuct_T*>(commadnActivityStruct->storekey, commadnActivityStruct));
 	}*/
 
-	{
+	/*{
 		rapidjson::Document _jsonBezierDoc;
 		auto contentStr = FileUtils::getInstance()->getDataFromFile("activitys/Guoqing.b");
 		ToolsUtil::unbtea(contentStr);
@@ -414,7 +414,7 @@ void CommondActivityMagr::loadConfigFormFile()
 		}
 
 		_mapActivitys.insert(std::pair<std::string, CommandActivityStuct_T*>(commadnActivityStruct->storekey, commadnActivityStruct));
-	}
+	}*/
 
 	_isloadConfig = true;
 }
@@ -622,4 +622,98 @@ void CommondActivityMagr::resetReward()
 			
 		}
 	}
+}
+
+VipMgr* VipMgr::_instance = nullptr;
+
+VipMgr::VipMgr():_haveInit(false),
+_curDayFromStart(0)
+{
+}
+
+VipMgr::~VipMgr()
+{
+}
+
+VipMgr * VipMgr::getInstance()
+{
+	if (_instance == nullptr)
+	{
+		_instance = new VipMgr();
+	}
+	return _instance;
+}
+
+void VipMgr::initVip(int dayFromStart)
+{
+	if (_haveInit)
+	{
+		return;
+	}
+	_haveInit = true;
+	_curDayFromStart = dayFromStart;
+	MainLayer::getCurMainLayer()->initVipBtn();
+}
+
+bool VipMgr::haveBuyVip()
+{
+	bool invip = false;
+	int targetday = UserData::getInstance()->getVipTargetDay();
+	if (_curDayFromStart < targetday && targetday != 0)
+	{
+		invip = true;
+	}
+	return invip;
+}
+
+bool VipMgr::haveGetCryReward()
+{
+	return UserData::getInstance()->getVipDayRewardCrystal() == 0 ? false : true;
+}
+
+void VipMgr::getReward()
+{
+	if (haveBuyVip() && !haveGetCryReward())
+	{
+		UserData::getInstance()->setVipDayRewardCrystal(1);
+		std::vector<PopItemInfo_T> arrItems;
+
+		PopItemInfo_T curiteminfo;
+		curiteminfo.itemCount = 30;
+		curiteminfo.itemId = ParamData::CRYSTAL_ITEM_ID;
+		arrItems.push_back(curiteminfo);
+
+		auto layer = PopRewardLayer::create(arrItems);
+		MainLayer::getCurMainLayer()->addChild(layer, MainLayer_Z::POP_REWARD_Z);
+	}
+}
+
+void VipMgr::resetDayRewardGet()
+{
+	UserData::getInstance()->setVipDayRewardCrystal(0);
+}
+
+void VipMgr::buyVipSucceedCB()
+{
+	if (haveBuyVip() == false)
+	{
+		UserData::getInstance()->setVipTargetDay(_curDayFromStart + 30);
+	}
+	else
+	{
+		UserData::getInstance()->setVipTargetDay(UserData::getInstance()->getVipTargetDay() + 30);
+	}
+
+	UserData::getInstance()->saveUserData();
+}
+
+int VipMgr::getLeftDays()
+{
+	int targetday = UserData::getInstance()->getVipTargetDay();
+	if (_curDayFromStart <= targetday)
+	{
+		return targetday - _curDayFromStart;
+	}
+
+	return 0;
 }

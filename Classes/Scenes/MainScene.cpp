@@ -47,13 +47,14 @@
 #include "Role.h"
 #include "PlayerMgr.h"
 #include "Defines.h"
+#include "VipInfoLayer.h"
 
 USING_NS_CC;
 using namespace glui;
 using namespace ui;
 
 static int trueIdx[] = { 0,1,2,3,4};
-
+static bool g_bShowPopGift = false;
 cocos2d::Scene * MainLayer::scene()
 {
 	auto scene = Scene::create();
@@ -115,7 +116,9 @@ MainLayer::MainLayer():_mainMenu(nullptr),
 	_pTiliMaxIcon(nullptr),
 	_commondActivityBtn(nullptr),
 	_isNeedActivityReward(false),
-	_curTime(0)
+	_curTime(0),
+	_giftTimeNode(nullptr),
+	_superGiftBtn(nullptr)
 {
 	memset(_arrMenuItems, 0, sizeof(_arrMenuItems));
 	memset(_lightArr, 0, sizeof(_lightArr));
@@ -291,8 +294,7 @@ bool MainLayer::init()
 #ifdef USING_TIME_MGR
 	this->schedule(CC_CALLBACK_1(MainLayer::timeMgrClick, this), 1, CC_REPEAT_FOREVER, 0, "timeMgrClickAction");
 #endif
-	/*float arr[4] = { 0.25,0.25,0.25,0.25 };
-	GameMap::getCurGameMap()->showResault(true, 100000, 100, arr);*/
+	
 
 	return true;
 }
@@ -821,6 +823,9 @@ void MainLayer::initTimeCounrdown()
 	_countdownNode[0] = nullptr;
 	_countdownNode[1]->startCountDown();
 
+	_giftTimeNode = TimeCountDownNode::createWithNode(TimeCountTimes::TIME_GIFT_CHANGE, TimeTypeEnum::TIME_GIFTCHANGE);
+	this->addChild(_giftTimeNode);
+	_giftTimeNode->startCountDown();
 	//auto giftoffy = 0.f;
 
 	/*auto giftcurname = "store_daylimit_gift.png";
@@ -927,7 +932,12 @@ void MainLayer::initTimeCounrdown()
 		{
 			if (_curMenuIdx == -1 || _curMenuIdx == MenuItem_E::MapItem)
 			{
+#if (CC_PLATFORM_WIN32 == CC_TARGET_PLATFORM)
+				if (true)
+#else
 				if (UserData::getInstance()->getIsBossPass(5) > 0)
+#endif
+				
 				{
 					auto pLayer = DungeonLayer::create();
 					this->addChild(pLayer, POP_Z);
@@ -1126,12 +1136,20 @@ void MainLayer::initTimeCounrdown()
 		});
 		_arrrRightBnts.push_back(_allGift);
 
-		if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
+		int curGiftStage = getCurGiftStage();
+
+		if (curGiftStage ==  0 || curGiftStage == 2)
 		{
 			//
 			_offyRight -= 100.f;
+			int curGiftIdx = UserData::getInstance()->getMainSceneGiftIdx();
 
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+			_giftBtn = GameButton::create("migu_btn_supergift.png", "", "", Widget::TextureResType::PLIST);
+#else			
 			_giftBtn = GameButton::create("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+#endif
+			
 			_rightBtnsNode->addChild(_giftBtn, MAPUI_POP);
 			_giftBtn->setName("firstgift");
 			_giftBtn->setPosition(pos + Vec2(0.f, _offyRight));
@@ -1141,8 +1159,25 @@ void MainLayer::initTimeCounrdown()
 				{
 					if (_curMenuIdx == -1 || _curMenuIdx == MenuItem_E::MapItem)
 					{
-						auto layer = PurchaseLayer::create(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT, "", this);
-						this->addChild(layer, MainLayer_Z::POP_Z);
+						int curGiftStage = getCurGiftStage();
+						if (curGiftStage == 0 || curGiftStage == 2)
+						{
+							if (UserData::getInstance()->getMainSceneGiftIdx() == 0)
+							{
+								auto layer = PurchaseLayer::create(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT, "", this);
+								this->addChild(layer, MainLayer_Z::POP_Z);
+							}
+							else
+							{
+								auto layer = PurchaseLayer::create(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2, "", this);
+								this->addChild(layer, MainLayer_Z::POP_Z);
+							}
+						}
+						else if (curGiftStage == 1)
+						{
+							auto layer = PurchaseLayer::create(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT, "", this);
+							this->addChild(layer, MainLayer_Z::POP_Z);
+						}
 					}
 				}
 			});
@@ -1156,9 +1191,26 @@ void MainLayer::initTimeCounrdown()
 
 			_arrrRightBnts.push_back(_giftBtn);
 		}
-		else
+		else if(curGiftStage == 1)
 		{
+			_giftBtn = GameButton::create("store_supergift.png", "", "", Widget::TextureResType::PLIST);
 
+			_rightBtnsNode->addChild(_giftBtn, MAPUI_POP);
+			_giftBtn->setName("firstgift");
+			_giftBtn->setPosition(pos + Vec2(0.f, _offyRight));
+
+			_giftBtn->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+				if (type == Widget::TouchEventType::ENDED)
+				{
+					if (_curMenuIdx == -1 || _curMenuIdx == MenuItem_E::MapItem)
+					{
+						auto layer = PurchaseLayer::create(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT, "", this);
+						this->addChild(layer, MainLayer_Z::POP_Z);
+					}
+				}
+			});
+
+			_arrrRightBnts.push_back(_giftBtn);
 		}
 
 		_offyRight -= 100.f;
@@ -1952,6 +2004,9 @@ void MainLayer::firstGiftBuyCallBack()
 		gift->setVisible(false);
 	}
 
+	_giftTimeNode->setDur(TimeCountTimes::TIME_GIFT_CHANGE);
+	UserData::getInstance()->setMainSceneGiftIdx(0);
+	//UserData::getInstance()->saveUserData();
 	/*auto light = _lightArr[2];
 	light->setVisible(false);
 	light->stopAllActions();*/
@@ -2017,7 +2072,7 @@ int MainLayer::checkTimeLimitGift()
 
 void MainLayer::updataGiftBtns()
 {
-	int idx = checkBuyGiftType();
+	//int idx = checkBuyGiftType();
 	/*if (idx == -1)
 	{
 		_daylimitGift->setVisible(false);
@@ -2223,10 +2278,75 @@ void MainLayer::initGuoqingActivity(int curday)
 	updataGiftBtns();
 }
 
+void MainLayer::initVipBtn()
+{
+	auto vipbtn = GameButton::create("uiext/vip_icon_yk.png", "", "", Widget::TextureResType::LOCAL);
+	_rightBtnsNode->addChild(vipbtn);
+	vipbtn->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+		if (type != Widget::TouchEventType::ENDED)
+		{
+			return;
+		}
+
+		if (_curMenuIdx == -1 || _curMenuIdx == MenuItem_E::MapItem)
+		{
+			auto pLayer = VipInfoLayer::create();
+			this->addChild(pLayer, POP_Z);
+		}
+	});
+	_arrrRightBnts.push_back(vipbtn);
+	updataGiftBtns();
+}
+
 void MainLayer::popPurchaseLayer(std::string itemid, bool dirbuy)
 {
 	auto layer = PurchaseLayer::create(itemid, "", this, dirbuy);
 	this->addChild(layer, MainLayer_Z::POP_Z);
+}
+
+int MainLayer::getCurGiftStage()
+{
+	int curstage = 0;
+	int firstGiftStage = 0;
+	int superGiftStage = 0;
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT, false) == 0 && UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2, false) == 0)
+	{
+		firstGiftStage = 0;
+	}
+	else
+	{
+		firstGiftStage = 1;
+	}
+
+	if (UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT, false) == 0)
+	{
+		superGiftStage = 0;
+	}
+	else
+	{
+		superGiftStage = 1;
+	}
+
+	UserData::getInstance()->freeDB();
+
+	if (superGiftStage == 0 && firstGiftStage == 0)
+	{
+		curstage = 0;
+	}
+	else if (superGiftStage == 1 && firstGiftStage == 0)
+	{
+		curstage = 2;
+	}
+	else if (superGiftStage == 0 && firstGiftStage == 1)
+	{
+		curstage = 1;
+	}
+	else if (superGiftStage == 1 && firstGiftStage == 1)
+	{
+		curstage = 3;
+	}
+
+	return curstage;
 }
 
 void MainLayer::clickAction(int click)
@@ -2302,6 +2422,55 @@ void MainLayer::clickAction(int click)
 		}
 		_boxCountBg->setVisible(false);
 	}
+
+	/* change cur gift type*/
+	if (_giftBtn)
+	{
+		int giftdur = _giftTimeNode->getDur();
+		if (giftdur <= 0)
+		{
+			int curGiftIdx = UserData::getInstance()->getMainSceneGiftIdx();
+			int nextGiftIdx = curGiftIdx == 0 ? 1 : 0;
+			UserData::getInstance()->setMainSceneGiftIdx(nextGiftIdx);
+
+			_giftTimeNode->setDur(TimeCountTimes::TIME_GIFT_CHANGE);
+			int stageGift = getCurGiftStage();
+
+			if (stageGift == 0 || stageGift == 2)
+			{
+				if (nextGiftIdx == 0)
+				{
+					_giftBtn->loadTextures("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+
+				}
+				else if (nextGiftIdx == 1)
+				{
+					_giftBtn->loadTextures("store_icon_firstbuy_2.png", "", "", Widget::TextureResType::PLIST);
+				}
+			}
+			else if(stageGift == 1)
+			{
+				if (nextGiftIdx == 1)
+				{
+					_giftBtn->loadTextures("store_supergift.png", "", "", Widget::TextureResType::PLIST);
+					_giftBtn->setVisible(true);
+				}
+				else
+				{
+					_giftBtn->setVisible(false);
+				}
+			}
+			
+			/*chang show gift btn*/
+		}
+		else
+		{
+			if (UserData::getInstance()->getMainSceneGiftIdx() == 1)
+			{
+				/*chang time Label*/
+			}
+		}
+	}	
 }
 
 void MainLayer::offlineClickAction(float dt)
@@ -2584,7 +2753,7 @@ void PlayersLayer::updataInfo()
 	NewMapOpenMgr::getInstance()->popGet();	
 }
 
-void PlayersLayer::updataPlayerInfo(int i)
+void PlayersLayer::updataPlayerInfo(int i, int wpidx)
 {
 	auto temp = _arrPlayerNode[i];
 	auto temp2 = _arrPlayerNode2[i];
@@ -2594,10 +2763,30 @@ void PlayersLayer::updataPlayerInfo(int i)
 
 	int lv = UserData::getInstance()->getPlayerCurLv(i);
 	const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(i, lv);
-	auto& wenpon = WeaponControl::getInstance()->getEquipWenpon(i);
-	int posidx = WeaponControl::getInstance()->getEquipPosIdx(i);
-	auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(i * 10 + posidx);
+
+	Weapon_T wenpon;
+	int posidx = 0;
+	if (wpidx == -1)
+	{
+		wenpon = WeaponControl::getInstance()->getEquipWenpon(i);
+		posidx = WeaponControl::getInstance()->getEquipPosIdx(i);
+		
+	}
+	else
+	{
+		wenpon = ParamMgr::getInstance()->getWeaponByID(wpidx);
+		posidx = WeaponControl::getInstance()->getPosIdxByWeaponId(wpidx);
+	}
 	
+	auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(i * 10 + posidx);
+	auto&  extAttInfo = UserData::getInstance()->getWeaponExtAtt(i * 10 + posidx);
+	
+	AttactInfo_T trueAtt;
+	trueAtt.attack = weaponinfo.attack + extAttInfo.attack;
+	trueAtt.def = weaponinfo.def + extAttInfo.def;
+	trueAtt.dpAdd = weaponinfo.dpAdd + extAttInfo.dpAdd;
+	trueAtt.hpAdd = weaponinfo.hpAdd + extAttInfo.hpAdd;
+
 	CrushUtil::changeWeapon(_playerArm[i], trueIdx[i], wenpon.id);
 	CrushUtil::changeWeapon(_playerArm2[i], trueIdx[i], wenpon.id);
 
@@ -2614,7 +2803,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(temp->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(wenponnode->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.attack)->getCString());
-		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + weaponinfo.attack)->getCString());
+		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + trueAtt.attack)->getCString());
 		((ui::LoadingBar*)(temp->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 
@@ -2623,7 +2812,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp2->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(temp2->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.attack)->getCString());
-		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + weaponinfo.attack)->getCString());
+		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + trueAtt.attack)->getCString());
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 	}
@@ -2634,7 +2823,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(temp->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(wenponnode->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.attack)->getCString());
-		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + weaponinfo.attack)->getCString());
+		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + trueAtt.attack)->getCString());
 		((ui::LoadingBar*)(temp->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 
@@ -2643,19 +2832,19 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp2->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(temp2->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.attack)->getCString());
-		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + weaponinfo.attack)->getCString());
+		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + trueAtt.attack)->getCString());
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 
 		((ui::TextAtlas*)(wenponnode->getChildByName("defens_cur")))->setString(String::createWithFormat("%d", info.def)->getCString());
-		((ui::TextAtlas*)(wenponnode->getChildByName("defens_next")))->setString(String::createWithFormat("%d", info.def + weaponinfo.def)->getCString());
+		((ui::TextAtlas*)(wenponnode->getChildByName("defens_next")))->setString(String::createWithFormat("%d", info.def + trueAtt.def)->getCString());
 		((ui::TextAtlas*)(wenponnode->getChildByName("hpadd_cur")))->setString(String::createWithFormat("%d", info.dpadd)->getCString());
-		((ui::TextAtlas*)(wenponnode->getChildByName("hpadd_next")))->setString(String::createWithFormat("%d", info.dpadd + weaponinfo.dpAdd)->getCString());
+		((ui::TextAtlas*)(wenponnode->getChildByName("hpadd_next")))->setString(String::createWithFormat("%d", info.dpadd + trueAtt.dpAdd)->getCString());
 
 		((ui::TextAtlas*)(wenponnode2->getChildByName("defens_cur")))->setString(String::createWithFormat("%d", info.dpadd)->getCString());
-		((ui::TextAtlas*)(wenponnode2->getChildByName("defens_next")))->setString(String::createWithFormat("%d", info.def + weaponinfo.def)->getCString());
+		((ui::TextAtlas*)(wenponnode2->getChildByName("defens_next")))->setString(String::createWithFormat("%d", info.def + trueAtt.def)->getCString());
 		((ui::TextAtlas*)(wenponnode2->getChildByName("hpadd_cur")))->setString(String::createWithFormat("%d", info.dpadd)->getCString());
-		((ui::TextAtlas*)(wenponnode2->getChildByName("hpadd_next")))->setString(String::createWithFormat("%d", info.dpadd + weaponinfo.dpAdd)->getCString());
+		((ui::TextAtlas*)(wenponnode2->getChildByName("hpadd_next")))->setString(String::createWithFormat("%d", info.dpadd + trueAtt.dpAdd)->getCString());
 	}
 	else if (i == 2)
 	{
@@ -2664,7 +2853,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(temp->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(wenponnode->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.attack)->getCString());
-		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + weaponinfo.attack)->getCString());
+		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + trueAtt.attack)->getCString());
 		((ui::LoadingBar*)(temp->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 
@@ -2673,7 +2862,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp2->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(temp2->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.attack)->getCString());
-		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + weaponinfo.attack)->getCString());
+		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.attack + trueAtt.attack)->getCString());
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 	}
@@ -2684,7 +2873,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(temp->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(wenponnode->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.hpadd)->getCString());
-		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.hpadd + weaponinfo.hpAdd)->getCString());
+		((ui::TextAtlas*)(wenponnode->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.hpadd + trueAtt.hpAdd)->getCString());
 		((ui::LoadingBar*)(temp->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 
@@ -2693,7 +2882,7 @@ void PlayersLayer::updataPlayerInfo(int i)
 		((ui::TextAtlas*)(temp2->getChildByName("text_lv")))->setString(String::createWithFormat("%d", lv)->getCString());
 		((ui::TextAtlas*)(temp2->getChildByName("player_nextexp")))->setString(String::createWithFormat("%d", info.exp - UserData::getInstance()->getPlayerCurExp(i))->getCString());
 		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_cur")))->setString(String::createWithFormat("%d", info.hpadd)->getCString());
-		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.hpadd + weaponinfo.hpAdd)->getCString());
+		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.hpadd + trueAtt.hpAdd)->getCString());
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
 	}
@@ -2701,7 +2890,8 @@ void PlayersLayer::updataPlayerInfo(int i)
 
 void PlayersLayer::showWenponInfo(int playerid, int wenponid)
 {
-	int i = playerid;
+	updataPlayerInfo(playerid, wenponid);
+	/*int i = playerid;
 	auto temp = _arrPlayerNode[i];
 	auto temp2 = _arrPlayerNode2[i];
 
@@ -2813,7 +3003,7 @@ void PlayersLayer::showWenponInfo(int playerid, int wenponid)
 		((ui::TextAtlas*)(wenponnode2->getChildByName("attack_next")))->setString(String::createWithFormat("%d", info.hpadd + weaponinfo.hpAdd)->getCString());
 		((ui::LoadingBar*)(temp2->getChildByName("expbar")))->setPercent(UserData::getInstance()->getPlayerCurExp(i) * 100.f / info.exp);
 		((Sprite*)(wenponnode2->getChildByName("weapon")))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(wenpon.picname));
-	}
+	}*/
 }
 
 void PlayersLayer::equipCallBack(int i, int skillid, int action)
@@ -3273,8 +3463,8 @@ void EquipLayer::touchBegan(Vec2 pos)
 
 			_textWenponLv->setPositionX(_textTitle->getPositionX() + _textTitle->getContentSize().width + 10.f);
 
-			auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(_idx * 10 + touchidx);
-
+			//auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(_idx * 10 + touchidx);
+			auto  weaponinfo = UserData::getInstance()->getTrueWeaponAttack(_idx * 10 + touchidx);
 			_selectMark->setLocalZOrder(3);
 			_selectMark->setVisible(true);
 			_selectMark->setPosition(_arrPos[touchidx]);
@@ -3341,9 +3531,19 @@ void EquipLayer::touchBegan(Vec2 pos)
 	}
 }
 
+void EquipLayer::updataWenponDes()
+{
+	if (_selectIdx ==  -1)
+	{
+		return;
+	}
+	updataWenponDes(_selectIdx);
+}
+
 void EquipLayer::updataWenponDes(int posidx)
 {
-	auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(_idx * 10 + posidx);
+	//auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(_idx * 10 + posidx);
+	auto  weaponinfo = UserData::getInstance()->getTrueWeaponAttack(_idx * 10 + posidx);
 	if (_idx == 1)
 	{
 		((ui::TextAtlas*)(_attackNode[0]->getChildByName("attack_next")))->setString(String::createWithFormat("%d", weaponinfo.attack)->getCString());
@@ -3475,7 +3675,7 @@ void EquipLayer::freshenUpadtaLayer()
 	int weaponInfo[4];
 	int weaponMinInfo[4];
 	int weaponMaxInfo[4];
-	auto& curInfo = UserData::getInstance()->getWeaponAttack(_idx * 10 + _selectIdx);
+	auto& curInfo = UserData::getInstance()->getTrueWeaponAttack(_idx * 10 + _selectIdx);
 
 	weaponInfo[0] = curInfo.attack;
 	weaponInfo[1] = curInfo.def;
@@ -5428,7 +5628,10 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 	int lastSettleDay = UserData::getInstance()->getLastSettleDay();
 
 	CommondActivityMagr::getInstance()->intiAndShowActivitys(onlineDay);
-
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	VipMgr::getInstance()->initVip(onlineDay);
+#endif
+	
 	//debug zsb
 	if (onlineDay != lastLoginDay)
 	//if (true)
@@ -5440,7 +5643,9 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 
 		DayActivityMgr::getInstance()->resetTimes();
 		TimeLimitActivityMgr::getInstance()->resetOnlineTimeReward();
-		
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		VipMgr::getInstance()->resetDayRewardGet();
+#endif
 		for (int i = 0; i < 3; i ++)
 		{
 			UserData::getInstance()->setDungeonTime(i, 0);
@@ -5512,6 +5717,16 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 
 		CommondActivityMagr::getInstance()->resetReward();
 	}
+	else
+	{
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+		if (UserData::getInstance()->isNeedGuide() == false && GameMap::getCurGameMap()->isInFight() == false && UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0 && g_bShowPopGift == false)
+		{
+			MainLayer::getCurMainLayer()->popPurchaseLayer(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT);
+			g_bShowPopGift = true;
+		}		
+#endif
+	}
 
 	UserData::getInstance()->setLastLoginDay(onlineDay);
 	MagPieMgr::getInstance()->setDayIdx(onlineDay - MagPieMgr::MAGPIE_START_DAY);
@@ -5523,6 +5738,7 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 	if (!JRTime::isTheSameWeek(onlineDay, lastLoginDay))
 	{
 		UserData::getInstance()->setWeeklyScore(0);
+		NetDataMgr::getInstance()->updateRole(CC_CALLBACK_2(MainLayer::onUpdateSelfInfoCallback, this));
 	}
 
 	if (0 == lastSettleDay)
@@ -5763,7 +5979,7 @@ void MainLayer::onCheckCodeCallback(HttpClient * client, HttpResponse * response
 
 	if (checkRet == 200)
 	{
-		if (codeType >= ExchangeType_E::EXCHANGE_LV_1 && codeType < ExchangeType_E::EXCHANGE_COUNT)
+		if (codeType >= ExchangeType_E::EXCHANGE_LV_1 && codeType <= ExchangeType_E::EXCHANGE_COUNT)
 		{
 			if (codeType != ExchangeType_E::EXCHANGE_DIAMOND)
 			{
@@ -5804,6 +6020,7 @@ void MainLayer::updataEquipLayer(int playeridx)
 		_arrEquipLayer[playeridx]->updateWenponInfo(i);
 	}
 	_arrEquipLayer[playeridx]->updateWUPBtn();
+	_arrEquipLayer[playeridx]->updataWenponDes();
 }
 
 bool MainLayer::checkGuide()

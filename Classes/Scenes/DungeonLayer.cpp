@@ -4,14 +4,17 @@
 #include "GameMap.h"
 #include "NetDataMgr.h"
 #include "Player.h"
+#include "../DataParam/TimeLimitActivityMgr.h"
+#include "../Defines.h"
 
 DungeonInfo_T _arrDungeonInfo[3] = {
-	{ DUNGEON_GOLD ,{ 1,0,1,0,1,0,1 },{ 0,0,0,0,0,5,10,15 } },
-	{ DUNGEON_EXP ,{ 0,1,0,1,0,1,1 },{ 0,0,0,0,0,10,20,30 } },
-	{ DUNGEON_WENPON ,{ 0,0,0,0,0,0,1 },{0, 0,0,0,0,20,30,40 } },
+	{ DUNGEON_GOLD ,{ 1,0,1,0,1,0,1 },{ 5,10,15 } },
+	{ DUNGEON_EXP ,{ 0,1,0,1,0,1,1 },{10,20,30 } },
+	{ DUNGEON_WENPON ,{ 0,0,0,0,0,0,1 },{20,30,40 } },
 };
 
-DungeonLayer::DungeonLayer()
+DungeonLayer::DungeonLayer() :_totalTimes(8),
+_freeTimes(5)
 {
 }
 
@@ -24,6 +27,12 @@ bool DungeonLayer::init()
 	int curDayInWeek = NetDataMgr::getInstance()->getOnlineDayInWeek() - 1;
 
 	Layer::init();
+	if (VipMgr::getInstance()->haveBuyVip())
+	{
+		_totalTimes += 2;
+		_freeTimes += 2;
+	}
+	
 
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(true);
@@ -58,16 +67,18 @@ bool DungeonLayer::init()
 
 		auto timeSprite = static_cast<ImageView*>(node->getChildByName("time"));
 		int curtime = UserData::getInstance()->getDungeonTime(i);
-		int havetime = 5 - curtime >= 0 ? 5 - curtime : 0;
+		int havetime = _freeTimes - curtime >= 0 ? _freeTimes - curtime : 0;
 		havetime = havetime * _arrDungeonInfo[i]._weekStage[curDayInWeek];
 		timeSprite->loadTexture(String::createWithFormat("dungeon_text_time%d.png", havetime)->getCString(),Widget::TextureResType::PLIST);
 
 		auto costSprite = static_cast<Sprite*>(node->getChildByName("des"));
-		if (curtime >= 5 && curtime < 8)
+		if (curtime >= _freeTimes && curtime < _totalTimes)
 		{
 			auto des = static_cast<Sprite*>(node->getChildByName("des"));
+			int priceidx = curtime - _freeTimes;
+			priceidx = priceidx >= 3 ? 2 : priceidx;
 
-			auto cost = ui::TextAtlas::create(String::createWithFormat("%d", _arrDungeonInfo[i]._timesCost[curtime])->getCString(), "fonts/dungeon_font_costnum.png", 17.f, 25.f, ".");
+			auto cost = ui::TextAtlas::create(String::createWithFormat("%d", _arrDungeonInfo[i]._timesCost[priceidx])->getCString(), "fonts/dungeon_font_costnum.png", 17.f, 25.f, ".");
 			node->addChild(cost, 3);
 			cost->setPosition(des->getPosition() + Vec2(40.f, 0.f));
 
@@ -101,7 +112,15 @@ void DungeonLayer::menuOnGo(Ref *ref, Widget::TouchEventType type)
 	}
 
 	int times = UserData::getInstance()->getDungeonTime(idx);
-	int cost = _arrDungeonInfo[idx]._timesCost[times];
+	int cost = 0;
+
+	if (times >= _freeTimes)
+	{
+		int priceidx = times - _freeTimes;
+		priceidx = priceidx >= 3 ? 2 : priceidx;
+		cost = _arrDungeonInfo[idx]._timesCost[priceidx];
+	}
+
 	if (UserData::getInstance()->getCrystalNum() >= cost)
 	{
 		UserData::getInstance()->giveCrystal(-cost);
@@ -130,7 +149,7 @@ void DungeonLayer::updateShowBtn()
 		auto node = _mainRoot->getChildByName(String::createWithFormat("node_%d", i)->getCString());
 		auto btngo = static_cast<Button*>(node->getChildByName("btn_go"));
 
-		if (UserData::getInstance()->getDungeonTime(i) >=8 || _arrDungeonInfo[i]._weekStage[curDayInWeek] == 0)
+		if (UserData::getInstance()->getDungeonTime(i) >=_totalTimes || _arrDungeonInfo[i]._weekStage[curDayInWeek] == 0)
 		{
 			btngo->setEnabled(false);
 		}

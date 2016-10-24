@@ -92,8 +92,9 @@ bool NewMapOpenMgr::tryGet(MapOpenType type, bool needpop)
 			const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(0, lv);
 			int posidx = WeaponControl::getInstance()->getEquipPosIdx(0);
 			auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(0 * 10 + posidx);
+			auto&  weaponExt = UserData::getInstance()->getWeaponExtAtt(0 * 10 + posidx);
 
-			if (info.attack + weaponinfo.attack >= 500)
+			if (info.attack + weaponinfo.attack + weaponExt.attack >= 500)
 			{
 				UserData::getInstance()->setNewMapConfig(type, 1);
 				isget = true;
@@ -106,8 +107,8 @@ bool NewMapOpenMgr::tryGet(MapOpenType type, bool needpop)
 		const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(1, lv);
 		int posidx = WeaponControl::getInstance()->getEquipPosIdx(1);
 		auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(1 * 10 + posidx);
-
-		if (info.attack + weaponinfo.attack >= 460)
+		auto&  weaponExt = UserData::getInstance()->getWeaponExtAtt(1 * 10 + posidx);
+		if (info.attack + weaponinfo.attack + weaponExt.attack>= 460)
 		{
 			UserData::getInstance()->setNewMapConfig(type, 1);
 			isget = true;
@@ -121,8 +122,8 @@ bool NewMapOpenMgr::tryGet(MapOpenType type, bool needpop)
 		const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(2, lv);
 		int posidx = WeaponControl::getInstance()->getEquipPosIdx(2);
 		auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(2 * 10 + posidx);
-
-		if (info.attack + weaponinfo.attack >= 480)
+		auto&  weaponExt = UserData::getInstance()->getWeaponExtAtt(2 * 10 + posidx);
+		if (info.attack + weaponinfo.attack + weaponExt.attack >= 480)
 		{
 			UserData::getInstance()->setNewMapConfig(type, 1);
 			isget = true;
@@ -135,8 +136,8 @@ bool NewMapOpenMgr::tryGet(MapOpenType type, bool needpop)
 		const PlayerInfo_T& info = ParamMgr::getInstance()->getPlayerInfo(3, lv);
 		int posidx = WeaponControl::getInstance()->getEquipPosIdx(3);
 		auto&  weaponinfo = UserData::getInstance()->getWeaponAttack(3 * 10 + posidx);
-
-		if (info.hpadd + weaponinfo.hpAdd >= 450)
+		auto&  weaponExt = UserData::getInstance()->getWeaponExtAtt(3 * 10 + posidx);
+		if (info.hpadd + weaponinfo.hpAdd + weaponExt.hpAdd>= 450)
 		{
 			UserData::getInstance()->setNewMapConfig(type, 1);
 			isget = true;

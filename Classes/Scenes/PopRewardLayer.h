@@ -44,6 +44,7 @@ public:
 	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
 	
+	void addSkillDes(int skillid);
 private:
 	static PopRewardLayer *s_pInstance;
 

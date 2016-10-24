@@ -104,12 +104,19 @@ void Player::initFightData()
 		_totalDp += _arrRoleInfo[i].dp;
 
 		auto weaponInfo = WeaponControl::getInstance()->getEquipWenpon(roleId);
-		auto attInfo = UserData::getInstance()->getWeaponAttack(weaponInfo.id-500);
+		auto attInfo = UserData::getInstance()->getWeaponAttack(weaponInfo.id- WeaponControl::s_weaponStartIdx);
+		
+		auto extAttInfo = UserData::getInstance()->getWeaponExtAtt(weaponInfo.id - WeaponControl::s_weaponStartIdx);
+
 		_arrRoleInfo[i].attack += attInfo.attack;//weaponInfo.attack;
-//		_arrRoleInfo[i].dp += attInfo.def;//weaponInfo.def;
 		_arrRoleInfo[i].hpadd += attInfo.hpAdd;//weaponInfo.hpadd;
 		_arrRoleInfo[i].dpadd += attInfo.dpAdd;//weaponInfo.dpadd;
 		_arrRoleInfo[i].def += attInfo.def;//weaponInfo.def;
+
+		_arrRoleInfo[i].attack += extAttInfo.attack;//weaponInfo.attack;
+		_arrRoleInfo[i].hpadd += extAttInfo.hpAdd;//weaponInfo.hpadd;
+		_arrRoleInfo[i].dpadd += extAttInfo.dpAdd;//weaponInfo.dpadd;
+		_arrRoleInfo[i].def += extAttInfo.def;//weaponInfo.def;
 
 		_totalDef += _arrRoleInfo[i].def;
 

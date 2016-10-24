@@ -8,6 +8,7 @@
 #define PAY_SDK_UNIPAY 4
 #define PAY_SDK_ALLPAY 5
 #define PAY_SDK_BAIDU 6
+#define PAY_SDK_MIGU 6
 
 #ifndef CC_PAY_SDK
 #define CC_PAY_SDK PAY_SDK_FREE

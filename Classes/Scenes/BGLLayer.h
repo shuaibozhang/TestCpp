@@ -5,6 +5,7 @@
 #include "ui/CocosGUI.h"
 #include "cocostudio/CCArmature.h"
 #include "ParamData.h"
+#include "../GLCommon/UI/GLPageView.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -48,8 +49,12 @@ public:
 	void updateLvInfo();
 	void updateNumsInfo();
 	void showDes();
+	//void updateWenponInfo();
 
 	void updateAllInBtn();
+
+	void popJinhuaLayer();
+	void hidePopBuyLayer();
 private:
 	float _pressdur;
 	bool _ispressed;
@@ -73,10 +78,14 @@ private:
 	float _totalExp;
 	Vec2 _startpos;
 	Node* _upNode;
+	Button* _upBotton;
 	Node* _partsInfoNodes[ParamData::WENPON_COUNT];
 	Sprite* _selecIcon;
 	Vec2 _iconPosBak[10];
 	Node* _pageLayout[ParamData::ROLE_COUNT];
 	Button* _btnall;
+	LayerColor* _popBuyLayer;
+	Node* _wenponInfo;
+	glui::GLPageView* _pageViewWenpons;
 };
 #endif

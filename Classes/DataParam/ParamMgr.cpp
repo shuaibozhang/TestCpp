@@ -548,7 +548,7 @@ void ParamMgr::loadBoxDetailInfo()
 		{ 100,100,100,100,100,100,100 },
 		{ 1,3,5,8,5,12,24 },
 		{ 1,1,1,1,1,1,1 },
-		{ 6,20,30,50,100,100,100 },
+		{ 6,20,30,50,0,0,0 },
 		{ 100,100,100,100,100,100,100 }
 	};
 
@@ -1058,6 +1058,7 @@ void ParamMgr::loadWeaponConfig()
 			UserData::getInstance()->setWeaponAttack(i, temp);
 		}
 	}
+
 	UserData::getInstance()->saveUserData(false);
 }
 

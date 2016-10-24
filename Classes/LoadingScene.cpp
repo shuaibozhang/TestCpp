@@ -8,7 +8,7 @@
 #include "GameResPool.h"
 #include "Utils/ParticleManager.h"
 #include "GLCommon/JRCommon.h"
-
+#include "Defines.h"
 
 
 static const LoadResInfo_T s_loadGameResInfo[] = {
@@ -38,6 +38,10 @@ static const LoadResInfo_T s_loadGameResInfo[] = {
 	{ LoadResType::PLIST_PVR_CCZ, "ui/comitems", "" },
 	{ LoadResType::PLIST_PVR_CCZ, "ui/comscale9", "" },
 	{ LoadResType::PLIST_PVR_CCZ, "ui/dayrewardui", "" },
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
+	{ LoadResType::PLIST_PVR_CCZ, "uiext/miguui", "" },
+#endif
+	
 	
 	{ LoadResType::JPG, "mapsnew/map_3_bg.jpg", "" },
 	{ LoadResType::PNG, "mapsnew/commond/map_com_0.png", "" },
@@ -310,11 +314,6 @@ void LoadingScene::initSkillResData()
 {
 	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
-		/*test*/
-		if (i == RoleId_E::ROLE_ID_QYL)
-		{
-			break;
-		}
 		for (int j = 0; j < 3; j++)
 		{
 			if (j == 2 && i != RoleId_E::ROLE_ID_CBD)

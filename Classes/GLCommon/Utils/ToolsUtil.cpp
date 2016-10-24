@@ -534,6 +534,7 @@ float ToolsUtil::getCrossValue(float totalVale, int count, int index)
 
 bool ToolsUtil::isFileExist(const char* pFileName)
 {
+#if 0
 	if( !pFileName ) return false;
 	//strFilePathName is :/data/data/ + package name
 	std::string filePath = FileUtils::getInstance()->getWritablePath();
@@ -546,13 +547,18 @@ bool ToolsUtil::isFileExist(const char* pFileName)
 		return true;
 	}
 	return false;
+#endif
+	return FileUtils::getInstance()->isFileExist(pFileName);
 }
 
 
 void ToolsUtil::deleteSpan(std::string &str)
 {
-	str.erase(str.find_last_not_of(' ') + 1, string::npos);
-	str.erase(0, str.find_first_not_of(' '));
+	int pos = string::npos;
+	while ((pos = str.find_first_of(' ')) != string::npos)
+	{
+		str.erase(pos, 1);
+	}
 }
 
 

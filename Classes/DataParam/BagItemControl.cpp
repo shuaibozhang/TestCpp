@@ -372,4 +372,105 @@ void BagItemControl::autoEquipItems()
 	}
 }
 
+void BagItemControl::autoEquipInFight()
+{	
+	vector<int> itmeids = { 1007, 1013, 1014 };
+	vector<int> typecpunt = { 0 , 0, 0, 0};
+
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
+	{
+		const auto& temp = _bagEquipConfig[i];
+		int type = getItemsType(temp);
+		typecpunt[type]++;
+	}
+	bool isBagHasItem = true;
+	int totalCount = 0;
+
+	for (int i = 0; i < ParamData::EQUIP_ITEM_MAX_COUNT; i++)
+	{
+		const auto& temp = _bagEquipConfig[i];
+		
+		int needEquipType = 0;
+
+		if (temp == -1)
+		{
+			for (int n = 0; n < itmeids.size(); n++)
+			{
+				if (typecpunt[n] < typecpunt[needEquipType])
+				{
+					needEquipType = n;
+				}
+			}
+		}
+		else
+		{
+			continue;
+		}
+				
+		if (temp == -1 && isBagHasItem && totalCount < 3 && itmeids.size() > 0)
+		{	
+			isBagHasItem = false;
+			for (int j = 0; j < g_pagecount * g_onepagetnum; j++)
+			{
+				int page = j / g_onepagetnum;
+				int posInPage = j % g_onepagetnum;
+
+				//if (_bagItemConfig[page][posInPage] >= 1000 && _bagItemConfig[page][posInPage] < 1500)
+				if (_bagItemConfig[page][posInPage] == 1014 || _bagItemConfig[page][posInPage] == 1013 || _bagItemConfig[page][posInPage] == 1007)
+				{
+					isBagHasItem = true;
+					if (_bagItemConfig[page][posInPage] == itmeids[needEquipType])
+					{
+						typecpunt[needEquipType]++;
+						itmeids.erase(itmeids.begin() + needEquipType);
+						typecpunt.erase(typecpunt.begin() + needEquipType);
+						changePos(posInPage, g_onepagetnum + i, page);
+						totalCount++;
+						break;
+					}					
+				}
+			}
+		}	
+	}
+}
+
+/*
+* ITEMS_HP = 0,
+* ITEMS_CROSS,
+* ITEMS_S
+* other
+*/
+int BagItemControl::getItemsType(int itemid)
+{
+	int hp[] = {1000,1002,1004,1005,1007};
+	int cross[] = { 1008,1009,1010,1011,1012, 1013 };
+	int s[] = { 1014 };
+
+	for each (int temp in hp)
+	{
+		if (temp == itemid)
+		{
+			return 0;
+		}
+	}
+
+	for each (int temp in cross)
+	{
+		if (temp == itemid)
+		{
+			return 1;
+		}
+	}
+
+	for each (int temp in s)
+	{
+		if (temp == itemid)
+		{
+			return 2;
+		}
+	}
+
+	return 3;
+}
+
 

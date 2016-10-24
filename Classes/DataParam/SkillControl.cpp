@@ -255,3 +255,20 @@ int SkillControl::getEquipSkillByPlayer(int playerIndex, int flagMask)
 
 	return -1;
 }
+
+
+bool SkillControl::checkHaveLockSuperSkill()
+{
+	int superskillid[7] = { 7,14,28,31,44,45,53 };
+	
+	for each (int skill in superskillid)
+	{
+		if (SkillControl::getInstance()->isSkillLock(skill) == true)
+		{
+			return true;
+		}
+	}	
+	
+	return false;
+	
+}

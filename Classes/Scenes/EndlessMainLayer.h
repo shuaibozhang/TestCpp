@@ -84,6 +84,7 @@ private:
 	Label *_pConnectDesc;
 	Node *_pCost0;
 	Node *_pCost1;
+	int _freeTimes;
 };
 
 #endif // 

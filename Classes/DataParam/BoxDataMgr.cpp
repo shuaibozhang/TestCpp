@@ -4,9 +4,16 @@
 #include "CrushUtil.h"
 #include "UserData.h"
 
+
+BoxDataMgr *BoxDataMgr::s_pInstance = nullptr;
+
 BoxDataMgr * BoxDataMgr::getInstance()
 {
-	return nullptr;
+	if (nullptr == s_pInstance)
+	{
+		s_pInstance = new BoxDataMgr();
+	}
+	return s_pInstance;
 }
 
 BoxDataMgr::BoxDataMgr()

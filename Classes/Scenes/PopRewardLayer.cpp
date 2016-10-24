@@ -10,6 +10,8 @@
 #include "GameLayer.h"
 #include "DayActiveMgr.h"
 #include "Armtr/GameArmtr.h"
+#include "../GLCommon/Utils/ResMgr.h"
+#include "../DataParam/SkillControl.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -575,6 +577,45 @@ void PopRewardLayer::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * unuse
 
 void PopRewardLayer::onTouchCancelled(cocos2d::Touch * touch, cocos2d::Event * unused_event)
 {
+}
+
+void PopRewardLayer::addSkillDes(int skillidx)
+{
+	int playeridx = 0;
+	std::string name;
+	std::string get;
+	std::string itemname;
+
+	std::string title;
+	if (BagItemControl::getInstace()->checkItemType(skillidx) == 1)
+	{
+		playeridx = SkillControl::getInstance()->getSkillOwnerBySkillid(skillidx);
+		get = ResMgr::getInstance()->getString("getnewskill")->getCString();
+		title = ResMgr::getInstance()->getString("getnewskilltitle")->getCString();
+	}
+	else
+	{
+		//warming 500 is the start id of wenponid
+		playeridx = (skillidx - 500) / 10;
+		get = ResMgr::getInstance()->getString("getneww")->getCString();
+		title = ResMgr::getInstance()->getString("getnewwtitle")->getCString();
+	}
+
+	name = ResMgr::getInstance()->getString(String::createWithFormat("player_%d", playeridx)->getCString())->getCString();
+	ComInfo_T temp;
+	ParamMgr::getInstance()->getComGameItemInfo(skillidx, temp);
+	itemname = temp.name;
+	auto richtextCur = RichText::create();
+	auto temp0 = RichElementText::create(0, Color3B(145, 80, 39), 255, name, "", 24);
+	auto temp1 = RichElementText::create(0, Color3B(145, 80, 39), 255, get, "", 24);
+	auto temp2 = RichElementText::create(0, Color3B(145, 80, 39), 255, itemname, "", 24);
+
+	richtextCur->pushBackElement(temp0);
+	richtextCur->pushBackElement(temp1);
+	richtextCur->pushBackElement(temp2);
+
+	richtextCur->setPosition(Vec2(320.f, VisibleRect::top().y / 2 - 150.f));
+	this->addChild(richtextCur);
 }
 
 void PopRewardLayer::changeAniPic(cocostudio::Armature * ani, const std::vector<PopItemInfo_T>& arrItems)

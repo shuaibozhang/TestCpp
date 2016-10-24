@@ -10,6 +10,9 @@
 #include "DayActiveMgr.h"
 #include "NewMapOpenMgr.h"
 #include "ParamData.h"
+#include "../Store/PurchaseLayer.h"
+#include "../StoreBridge/StoreAssets.h"
+#include "../DataParam/WeaponControl.h"
 
 extern const char* g_iconbgname[];
 
@@ -91,6 +94,8 @@ const BGLExReward_T g_arrBGLExReward[] = {
 	{ 1012,1,3 },
 };
 
+const int g_JinhuaConst = 100000;
+
 BGLLayer::~BGLLayer()
 {
 	SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("ui/bglui.plist"); 
@@ -100,6 +105,7 @@ BGLLayer::~BGLLayer()
 bool BGLLayer::init()
 {
 	_selecIcon = nullptr;
+	_popBuyLayer = nullptr;
 
 	auto layer = LayerColor::create(Color4B(0, 0, 0, 188), 640.f, VisibleRect::top().y);
 	this->addChild(layer);
@@ -127,6 +133,8 @@ bool BGLLayer::init()
 	_isZhuruPress = false;
 	_totalExp = 0.f;
 	_isPlayAni = false;
+	_wenponInfo = nullptr;
+	_pageViewWenpons = nullptr;
 
 	auto btncancle = Button::create("wup_close_0.png", "wup_close_1.png", "", Widget::TextureResType::PLIST);
 	roonode->addChild(btncancle);
@@ -183,34 +191,44 @@ bool BGLLayer::init()
 	_costGoldNum->setPosition(goldbg->getPosition() + Vec2(0.f, 0.f));
 	_costGoldNum->setScale(0.8f);
 
-	auto upbtn = Button::create("baguan_btn_up_0.png", "baguan_btn_up_1.png", "baguan_btn_up_2.png", Widget::TextureResType::PLIST);
-	_upNode->addChild(upbtn);
-	upbtn->setPosition(Vec2(320.f, 450.f - 15.f));
-	upbtn->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+	_upBotton = Button::create("baguan_btn_up_0.png", "baguan_btn_up_1.png", "baguan_btn_up_2.png", Widget::TextureResType::PLIST);
+	_upNode->addChild(_upBotton);
+	_upBotton->setPosition(Vec2(320.f, 450.f - 15.f));
+	_upBotton->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
 		if (type == Widget::TouchEventType::ENDED)
 		{
-			int curlv = UserData::getInstance()->getBGLLv();
-			int cost = g_BglUpInfo[curlv].costgold;
-			if (UserData::getInstance()->getGoldNum() >= cost)
+			int lv = UserData::getInstance()->getBGLLv();
+			if (lv >= 10)
 			{
-				_mainArm->getAnimation()->play("bagua_shengji");
-				UserData::getInstance()->setBGLLv(curlv + 1);
-				UserData::getInstance()->giveGold(-cost);
-				UserData::getInstance()->saveUserData();
-
-				updateLvInfo();
+				if (UserData::getInstance()->getHaveJinhuaBGL() == 0)
+				{
+					popJinhuaLayer();
+				}
 			}
 			else
 			{
-				GameUtils::toastTip("no_gold");
+				int curlv = UserData::getInstance()->getBGLLv();
+				int cost = g_BglUpInfo[curlv].costgold;
+				if (UserData::getInstance()->getGoldNum() >= cost)
+				{
+					_mainArm->getAnimation()->play("bagua_shengji");
+					UserData::getInstance()->setBGLLv(curlv + 1);
+					UserData::getInstance()->giveGold(-cost);
+					UserData::getInstance()->saveUserData();
+
+					updateLvInfo();
+				}
+				else
+				{
+					GameUtils::toastTip("no_gold");
+				}
 			}
-			
 		}
 	});
 
 	auto textpng = Sprite::createWithSpriteFrameName("bgguan_text_sjrl.png");
 	_upNode->addChild(textpng);
-	textpng->setPosition(upbtn->getPosition() + Vec2(0.f, 3.f));
+	textpng->setPosition(_upBotton->getPosition() + Vec2(0.f, 3.f));
 
 	auto desbtn = Button::create("baguan_btn_shuoming.png", "", "", Widget::TextureResType::PLIST);
 	roonode->addChild(desbtn);
@@ -249,17 +267,17 @@ bool BGLLayer::init()
 	drawnode->drawRect(_touchRect.origin, Vec2(_touchRect.getMaxX(), _touchRect.getMaxY()), Color4F(1.f, 1.f, 1.f, 1.f));
 #endif
 
-	auto pageview = glui::GLPageView::create();
-	roonode->addChild(pageview);
-	pageview->setContentSize(Size(640.f, 350.f));
+	_pageViewWenpons = glui::GLPageView::create();
+	roonode->addChild(_pageViewWenpons);
+	_pageViewWenpons->setContentSize(Size(640.f, 350.f));
 	//pageview->setCanScroll(false);
-	pageview->setClippingEnabled(true);
-	pageview->setCustomScrollThreshold(150.f);
+	_pageViewWenpons->setClippingEnabled(true);
+	_pageViewWenpons->setCustomScrollThreshold(150.f);
 
-	pageview->addEventListener([=](Ref*, ui::PageView::EventType type) {
+	_pageViewWenpons->addEventListener([=](Ref*, ui::PageView::EventType type) {
 		if (type == ui::PageView::EventType::TURNING)
 		{
-			_curpageidx = pageview->getCurPageIndex();
+			_curpageidx = _pageViewWenpons->getCurPageIndex();
 			for (int idxpage = 0; idxpage < ParamData::ROLE_COUNT; idxpage++)
 			{
 				if (idxpage == _curpageidx)
@@ -272,13 +290,15 @@ bool BGLLayer::init()
 				}
 				
 			}
+
+			updateLvInfo();
 		}
 	});
 
 	for (int i = 0; i < ParamData::ROLE_COUNT; i++)
 	{
 		auto layout = ui::Layout::create();	
-		pageview->addPage(layout);
+		_pageViewWenpons->addPage(layout);
 		_startpos = Vec2(80.f, 220.f + g_offdown);
 		_pageLayout[i] = layout;
 		/************/		
@@ -441,6 +461,7 @@ bool BGLLayer::init()
 			{
 				_mainArm->getAnimation()->play("bagua_lianhua1");
 				_isPlayAni = true;
+				_pageViewWenpons->setTouchEnabled(false);
 			}
 			else
 			{
@@ -455,6 +476,10 @@ bool BGLLayer::init()
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, touchnode);
+
+	_wenponInfo = CSLoader::createNode("csb/bgl_wpinfo.csb");
+	this->addChild(_wenponInfo);
+	_wenponInfo->setPosition(Vec2(320.f,VisibleRect::top().y - 150.f));
 
 	updateLvInfo();
 
@@ -708,15 +733,31 @@ void BGLLayer::armCallBack(Armature * armature, MovementEventType movementType, 
 		{
 			_mainArm->getAnimation()->play("bagua_daiji");
 
-			if (_totalExp >= 50000)
+			if (UserData::getInstance()->getHaveJinhuaBGL() == 0)
 			{
-				NewMapOpenMgr::getInstance()->tryGet(MapOpenType::BGL50000);
-			}
+				if (_totalExp >= 50000)
+				{
+					NewMapOpenMgr::getInstance()->tryGet(MapOpenType::BGL50000);
+				}
 
-			getReward(_totalExp);
-			_totalExp = 0.f;
-			_isPlayAni = false;
-			updateAllInBtn();
+				getReward(_totalExp);
+				_totalExp = 0.f;
+				_isPlayAni = false;
+				updateAllInBtn();
+			}
+			else
+			{
+				auto idxEquuip = WeaponControl::getInstance()->getEquipWenpon(_curpageidx);
+				AttactInfo_T attInfo = UserData::getInstance()->getWeaponExtAtt(idxEquuip.id - WeaponControl::s_weaponStartIdx);
+
+				attInfo.attack += 100;
+				UserData::getInstance()->setWeaponExtAtt(idxEquuip.id - WeaponControl::s_weaponStartIdx, attInfo);
+				UserData::getInstance()->saveUserData();
+
+				_isPlayAni = false;
+				_pageViewWenpons->setTouchEnabled(true);
+			}
+			
 		}
 		else if (movementID.compare("bagua_shengji") == 0)
 		{
@@ -798,9 +839,45 @@ void BGLLayer::getReward(float exp)
 void BGLLayer::updateLvInfo()
 {
 	int lv = UserData::getInstance()->getBGLLv();
+	_wenponInfo->setVisible(false);
+
 	if (lv >= 10)
 	{
-		_upNode->setVisible(false);
+		if (UserData::getInstance()->getHaveJinhuaBGL() == 0)
+		{
+			_upBotton->loadTextures("bagua_btn_jh_0.png", "bagua_btn_jh_1.png", "bagua_btn_jh_2.png", Widget::TextureResType::PLIST);
+			_costGoldNum->setString(String::createWithFormat("%d", g_JinhuaConst)->getCString());
+		}
+		else
+		{
+			/*auto curshownode = static_cast<Bone*>(_mainArm->getBone("Layer2")->getChildByName("Layer3"))->getDisplayManager()->getDisplayRenderNode();
+			if (dynamic_cast<Sprite*>(curshownode))
+			{
+				dynamic_cast<Sprite*>(curshownode)->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(""));
+			}*/
+			_upNode->setVisible(false);
+			_wenponInfo->setVisible(true);
+
+			auto icon = static_cast<Sprite*>(_wenponInfo->getChildByName("icon"));
+			auto des = static_cast<Text*>(_wenponInfo->getChildByName("info"));
+			auto idxEquuip = WeaponControl::getInstance()->getEquipWenpon(_curpageidx);
+			auto& attInfo = UserData::getInstance()->getWeaponAttack(idxEquuip.id - WeaponControl::s_weaponStartIdx);
+			AttactInfo_T extInfo;
+			extInfo.attack = 0;
+			extInfo.def = 0;
+			extInfo.dpAdd = 0;
+			extInfo.hpAdd = 0;
+			if (_curpageidx == 3)
+			{
+				des->setString(String::createWithFormat("+%d%%", extInfo.hpAdd / attInfo.hpAdd)->getCString());
+			}
+			else
+			{
+				des->setString(String::createWithFormat("+%d%%", extInfo.attack / attInfo.attack)->getCString());
+			}
+
+			icon->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(idxEquuip.picname));
+		}
 	}
 	else
 	{
@@ -876,5 +953,47 @@ void BGLLayer::updateAllInBtn()
 	else
 	{
 		_btnall->setEnabled(false);
+	}
+}
+
+void BGLLayer::popJinhuaLayer()
+{
+	Color4B color(0, 0, 0, 200);
+	_popBuyLayer = LayerColor::create(color);
+	_popBuyLayer->setContentSize(Size(640.f, VisibleRect::top().y));
+	this->addChild(_popBuyLayer, 100);
+
+	auto dispatcher = Director::getInstance()->getEventDispatcher();
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = [](Touch *touch, Event *event) {return true; };
+	listener->setSwallowTouches(true);
+	dispatcher->addEventListenerWithSceneGraphPriority(listener, _popBuyLayer);
+
+	auto root = CSLoader::createNode("csb/bgl_jh.csb");
+	_popBuyLayer->addChild(root, 10);
+	root->setPositionY((VisibleRect::top().y - 960)/2);
+
+	static_cast<Button*>(root->getChildByName("btn_ok"))->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+		if (type == Widget::TouchEventType::ENDED)
+		{
+			auto layer = PurchaseLayer::create(StoreAssetMgr::ITEMID_GOOD_BGLJINHUA, "", this, true);
+			this->addChild(layer, 100);
+		}
+	});
+
+	static_cast<Button*>(root->getChildByName("btn_cancle"))->addTouchEventListener([=](Ref*, Widget::TouchEventType type) {
+		if (type == Widget::TouchEventType::ENDED)
+		{
+			_popBuyLayer->removeFromParent();
+		}
+	});
+}
+
+void BGLLayer::hidePopBuyLayer()
+{
+	if (_popBuyLayer)
+	{
+		_popBuyLayer->removeFromParent();
+		_popBuyLayer = nullptr;
 	}
 }

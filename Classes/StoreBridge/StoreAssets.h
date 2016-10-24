@@ -109,6 +109,7 @@ public:
 	static const char* ITEMID_GOOD_REFRESH_STORE;
 
 	static const char* ITEMID_GOOD_FIRSTGIFT;
+	static const char* ITEMID_GOOD_FIRSTGIFT_2;
 
 	static const char* ITEMID_GOOD_REGETTILI;
 	static const char* ITEMID_GOOD_BUYTILI;
@@ -126,5 +127,12 @@ public:
 	static const char* ITEMID_GOOD_UNLIMTWENPONGIFT_1;
 
 	static const char* ITEMID_GOOD_PLAYER_4;
+
+	static const char* ITEMID_GOOD_VIP;
+	static const char* ITEMID_GOOD_SUPERSKILL;
+
+	static const char* ITEMID_GOOD_SUPERGIFT;
+
+	static const char* ITEMID_GOOD_BGLJINHUA;
 };
 #endif

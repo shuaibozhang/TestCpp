@@ -78,6 +78,8 @@ int cocos2dx_StoreInventory::buy(string itemId){
 				vector[idx].payprice
 				);
 #else
+			CCLOG("%s:%d", itemId.c_str(),
+				(int)vector[idx].payprice);
 			cocos2dx_EventHandlers::getInstance()->marketPurchase(itemId);
 #endif
 		}
@@ -135,6 +137,8 @@ int cocos2dx_StoreInventory::buy(string itemId){
 				vector[idx].payprice
 				);
 #else
+			CCLOG("%s:%d", itemId.c_str(),
+				(int)vector[idx].payprice);
 			cocos2dx_EventHandlers::getInstance()->marketPurchase(itemId);
 #endif
 		}
