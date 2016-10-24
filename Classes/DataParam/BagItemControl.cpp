@@ -446,24 +446,27 @@ int BagItemControl::getItemsType(int itemid)
 	int cross[] = { 1008,1009,1010,1011,1012, 1013 };
 	int s[] = { 1014 };
 
-	for each (int temp in hp)
+	for (int i = 0; i < sizeof(hp) / sizeof(hp[0]); i++)
 	{
+		int temp = hp[i];
 		if (temp == itemid)
 		{
 			return 0;
 		}
 	}
 
-	for each (int temp in cross)
+	for (int i = 0; i < sizeof(cross) / sizeof(cross[0]); i++)
 	{
+		int temp = cross[i];
 		if (temp == itemid)
 		{
 			return 1;
 		}
 	}
 
-	for each (int temp in s)
+	for (int i = 0; i < sizeof(s) / sizeof(s[0]); i++)
 	{
+		int temp = s[i];
 		if (temp == itemid)
 		{
 			return 2;

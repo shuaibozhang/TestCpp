@@ -270,8 +270,6 @@ private:
 	std::vector<Node*> _arrrRightBnts;
 	
 	Node* _pTiliMaxIcon;
-
-	//TimeCountDownNode* _giftTimeNode;
 };
 
 

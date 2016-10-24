@@ -261,8 +261,9 @@ bool SkillControl::checkHaveLockSuperSkill()
 {
 	int superskillid[7] = { 7,14,28,31,44,45,53 };
 	
-	for each (int skill in superskillid)
+	for (int i = 0; i < sizeof(superskillid) / sizeof(superskillid[0]);  i++)
 	{
+		int skill = superskillid[i];
 		if (SkillControl::getInstance()->isSkillLock(skill) == true)
 		{
 			return true;

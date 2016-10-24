@@ -117,9 +117,6 @@ void StoreAssetMgr::initStoreAsset()
 		StoreItem_T temp = { String::createWithFormat("itemid_good_weapon_%d", tempskill.id)->getCString() , tempskill.paytype, tempskill.price };
 		addSingleItem(temp);
 	}
-
-	//StoreItem_T temp = { "item_good_bgljinhua", PAYTYPE_GOLD, 100000 };
-	//addSingleItem(temp);
 }
 
 void StoreAssetMgr::loadStoreAssets()

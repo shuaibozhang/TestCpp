@@ -1005,7 +1005,7 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 		MainLayer::getCurMainLayer()->updataGiftBtns();
 		BagItemControl::getInstace()->saveItemConfig();
 	}
-	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0)
+	else if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT) == 0 || itemId.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2) == 0)
 	{
 #if CC_PAY_SDK == PAY_SDK_MIGU
 		BagItemControl::getInstace()->addBagItem(1004);
@@ -1027,6 +1027,12 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 #endif
 		MainLayer::getCurMainLayer()->firstGiftBuyCallBack();
 		GameUtils::toastTip("buy_succeed");
+
+		if (itemId.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2) == 0)
+		{
+			UserData::getInstance()->giveItem(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT, 1, false);
+		}
+
 		UserData::getInstance()->saveUserData();
 
 		MainLayer::getCurMainLayer()->showNewGetItem();
@@ -1045,8 +1051,9 @@ void PurchaseLayer::onPurchaseOk(string itemId)
 	{
 		int superskillid[7] = {7,14,28,31,44,45,53};
 		std::vector<int> lockSkillIds;
-		for each (int skill in superskillid)
+		for (int i = 0; i < sizeof(superskillid) / sizeof(superskillid[0]); i++)
 		{
+			int skill = superskillid[i];
 			if (SkillControl::getInstance()->isSkillLock(skill) == true)
 			{
 				lockSkillIds.push_back(skill);
