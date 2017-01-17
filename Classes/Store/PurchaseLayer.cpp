@@ -25,6 +25,7 @@
 #include "../DataParam/TimeLimitActivityMgr.h"
 #include "../Scenes/VipInfoLayer.h"
 #include "../Scenes/BGLLayer.h"
+#include"../platBridge/cocos2dx_plat.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -119,6 +120,8 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	{
 #if (CC_PAY_SDK == PAY_SDK_MIGU)
 		paynode = GameCSLoader::createNode("storeassets/firstbuygiift_mm.csb");
+#elif(CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode = GameCSLoader::createNode("storeassets/firstbuygiift_zy.csb");
 #else
 		paynode = GameCSLoader::createNode("storeassets/firstbuygiift.csb");
 #endif
@@ -136,17 +139,28 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		auto pArmtr = Armature::create("libao");
 		paynode->addChild(pArmtr);
 		pArmtr->getAnimation()->play("libao_1");
-		pArmtr->setPosition(Vec2(-88.f, -132.f));
+		pArmtr->setPosition(Vec2(-88.f, -112.f));
 
 		auto lab = static_cast<TextAtlas*>(paynode->getChildByName("time"));
 		lab->setVisible(false);
+
+#if(CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode->getChildByName("Text_1")->setOpacity(0);
+		paynode->getChildByName("Text_1")->setPositionY(-VisibleRect::top().y / 2 + 50.f);
+		auto actionshow = FadeIn::create(1.0f);
+		paynode->getChildByName("Text_1")->runAction(actionshow);
+#endif
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_FIRSTGIFT_2) == 0)
 	{
 #if (CC_PAY_SDK == PAY_SDK_MIGU)
 		paynode = GameCSLoader::createNode("storeassets/firstbuygiift_mm.csb");
+		static_cast<Sprite*>(paynode->getChildByName("store_des_gift_2"))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("store_first2_des.png"));
+#elif(CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode = GameCSLoader::createNode("storeassets/firstbuygiift_zy1.csb");
 #else
 		paynode = GameCSLoader::createNode("storeassets/firstbuygiift.csb");
+		static_cast<Sprite*>(paynode->getChildByName("store_des_gift_2"))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("store_first2_des.png"));
 #endif
 
 		this->addChild(paynode);
@@ -157,8 +171,6 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 
 		_btnCancle = static_cast<GameButton*>(paynode->getChildByName("btn_cancle"));
 		_btnCancle->addTouchEventListener(CC_CALLBACK_2(PurchaseLayer::buttonCancelCallback, this));
-
-		static_cast<Sprite*>(paynode->getChildByName("store_des_gift_2"))->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("store_first2_des.png"));
 
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("effect/libao.ExportJson");
 		auto pArmtr = Armature::create("libao");
@@ -179,6 +191,13 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		}), DelayTime::create(1.f));
 
 		paynode->runAction(RepeatForever::create(actiontime));
+
+#if(CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode->getChildByName("Text_1")->setOpacity(0);
+		paynode->getChildByName("Text_1")->setPositionY(-VisibleRect::top().y / 2 + 50.f);
+		auto actionshow = FadeIn::create(1.0f);
+		paynode->getChildByName("Text_1")->runAction(actionshow);
+#endif
 	}
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_DAYGIFT) == 0)
 	{
@@ -276,8 +295,11 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	else if (itemid.compare(StoreAssetMgr::ITEMID_GOOD_REBORN_2) == 0)
 	{
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("storeassets/uirenwu.ExportJson");
-
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode = GameCSLoader::createNode("storeassets/reborn_zy.csb");
+#else
 		paynode = GameCSLoader::createNode("storeassets/reborn.csb");
+#endif
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(220.f, VisibleRect::top().y / 2));
 
@@ -291,13 +313,14 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 
 		auto countdown = static_cast<TextAtlas*>(paynode->getChildByName("countdown_num"));
 		countdown->setString(String::createWithFormat("%d", 10)->getCString());
-
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+#else
 		auto pricePic = static_cast<Sprite*>(paynode->getChildByName("pay_reborn_1_22"));
 		pricePic->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("pay_reborn_2.png"));
 
 		auto zcPic = static_cast<Sprite*>(paynode->getChildByName("pay_reborn_2z_21"));
 		zcPic->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("pay_reborn_4z.png"));
-
+#endif
 		static int idx = 9;
 		idx = 9;
 		auto actionchange = Repeat::create(Sequence::createWithTwoActions(DelayTime::create(1.f), CallFunc::create([=]() {		
@@ -325,7 +348,11 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	{
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("storeassets/uirenwu.ExportJson");
 
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode = GameCSLoader::createNode("storeassets/reborn_zy.csb");
+#else
 		paynode = GameCSLoader::createNode("storeassets/reborn.csb");
+#endif
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(220.f, VisibleRect::top().y / 2));
 
@@ -340,12 +367,14 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		auto countdown = static_cast<TextAtlas*>(paynode->getChildByName("countdown_num"));
 		countdown->setString(String::createWithFormat("%d", 10)->getCString());
 
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+#else
 		auto pricePic = static_cast<Sprite*>(paynode->getChildByName("pay_reborn_1_22"));
 		pricePic->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("pay_reborn_1.png"));
 
 		auto zcPic = static_cast<Sprite*>(paynode->getChildByName("pay_reborn_2z_21"));
 		zcPic->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("pay_reborn_2z.png"));
-
+#endif
 		static int idx = 9;
 		idx = 9;
 		auto actionchange = Repeat::create(Sequence::createWithTwoActions(DelayTime::create(1.f), CallFunc::create([=]() {
@@ -373,7 +402,11 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 	{
 		ArmatureDataManager::getInstance()->addArmatureFileInfo("storeassets/uirenwu.ExportJson");
 
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+		paynode = GameCSLoader::createNode("storeassets/reborn_zy.csb");
+#else
 		paynode = GameCSLoader::createNode("storeassets/reborn.csb");
+#endif
 		this->addChild(paynode);
 		paynode->setPosition(Vec2(220.f, VisibleRect::top().y / 2));
 
@@ -388,12 +421,14 @@ void PurchaseLayer::showDialog(const std::string & itemid)
 		auto countdown = static_cast<TextAtlas*>(paynode->getChildByName("countdown_num"));
 		countdown->setString(String::createWithFormat("%d", 10)->getCString());
 
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+#else
 		auto pricePic = static_cast<Sprite*>(paynode->getChildByName("pay_reborn_1_22"));
 		pricePic->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("pay_reborn_4.png"));
 
 		auto zcPic = static_cast<Sprite*>(paynode->getChildByName("pay_reborn_2z_21"));
 		zcPic->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName("pay_reborn_6z.png"));
-
+#endif
 		static int idx = 9;
 		idx = 9;
 		auto actionchange = Repeat::create(Sequence::createWithTwoActions(DelayTime::create(1.f), CallFunc::create([=]() {

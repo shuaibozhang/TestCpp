@@ -37,8 +37,13 @@ public:
 	bool doRound();
 	void startAtt();
 //	void doAtt(int attIndex);
+#if (CC_PLATFORM_IOS  == CC_TARGET_PLATFORM)
+	bool doHurt(float damage, int attribute, long round, float attrParam);	//type:0 100 normal att
+	bool doHurtByRole(float damage, int attribute, long round, float attrParam);	//type:0 100 normal att
+#else
 	bool doHurt(float damage, int attribute, int round, float attrParam);	//type:0 100 normal att
 	bool doHurtByRole(float damage, int attribute, int round, float attrParam);	//type:0 100 normal att
+#endif
 	void doDead();
 //	void doHurt(CrushArr_T *pCrushInfo, int roleId);
 	void addHP(float addValue);

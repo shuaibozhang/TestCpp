@@ -662,8 +662,12 @@ void GameLayer::itemsCallback(cocos2d::Ref* pSender, Widget::TouchEventType type
 			GameUtils::toastTip("guide_unable_item");
 			return;
 		}
-
-		int idx = (int)(((Node*)(pSender))->getUserData());
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	int idx = (long)(((Node*)(pSender))->getUserData());
+#else
+	int idx = (int)(((Node*)(pSender))->getUserData());
+#endif
+		
 		auto itemid = BagItemControl::getInstace()->getEquipItemsByIdx(idx);
 		auto config = ParamMgr::getInstance()->getItemByID(itemid);
 		CCLOG("use item: %d, type:%d, value :%d", idx, config.type, config.value);

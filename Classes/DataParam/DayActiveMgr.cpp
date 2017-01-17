@@ -152,9 +152,9 @@ void DayActivityMgr::getReward()
 		temp.itemCount = 2;
 		arrItems.push_back(temp);
 
-		temp.itemId = 1004;
-		temp.itemCount = 1;
-		arrItems.push_back(temp);
+		//temp.itemId = 1004;
+		//temp.itemCount = 1;
+		//arrItems.push_back(temp);
 
 		UserData::getInstance()->setDayActiveReward(0, 1);
 
@@ -178,9 +178,9 @@ void DayActivityMgr::getReward()
 		temp.itemCount = 1;
 		arrItems.push_back(temp);
 
-		temp.itemId = 1014;
-		temp.itemCount = 1;
-		arrItems.push_back(temp);
+		//temp.itemId = 1014;
+		//temp.itemCount = 1;
+		//arrItems.push_back(temp);
 
 		UserData::getInstance()->setDayActiveReward(1, 1);
 

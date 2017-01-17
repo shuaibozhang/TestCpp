@@ -305,7 +305,11 @@ void RoleQyl::doAttPer()
 		{
 			float damage = 0.f;
 			this->retain();
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+			_curAttInfo.pDesMonster->doHurtByRole(_curAttInfo.skillParam1, AttAttrbt_E::ATT_NORMAL, (long)(&damage), -101.f);
+#else
 			_curAttInfo.pDesMonster->doHurtByRole(_curAttInfo.skillParam1, AttAttrbt_E::ATT_NORMAL, (int)(&damage), -101.f);
+#endif
 			this->release();
 			Player::getInstance()->addHp(damage * 0.4f);
 			Player::getInstance()->addDp(damage * 0.3f);
@@ -327,7 +331,11 @@ void RoleQyl::doAttPer()
 		{
 			float damage = 0.f;
 			this->retain();
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+			_curAttInfo.pDesMonster->doHurtByRole(_curAttInfo.skillParam1, _curAttInfo.pSkillInfo->attribute, (long)(&damage), -101.f);
+#else
 			_curAttInfo.pDesMonster->doHurtByRole(_curAttInfo.skillParam1, _curAttInfo.pSkillInfo->attribute, (int)(&damage), -101.f);
+#endif
 			this->release();
 
 			Player::getInstance()->addHp(damage, _rolePosIndex);

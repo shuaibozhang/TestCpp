@@ -244,7 +244,7 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 	auto bg = ImageView::create("bgs/main_darkness_bg.png");
 	this->addChild(bg, 0);
 	bg->setScale9Enabled(true);
-	bg->setContentSize(Size(640.f, VisibleRect::top().y));
+    bg->setContentSize(cocos2d::Size(640.f, VisibleRect::top().y));
 	bg->setPosition(Vec2(320.f, VisibleRect::top().y / 2));
 
 	auto logo = Sprite::create("bgs/main_dark_logo.png");
@@ -267,7 +267,7 @@ bool ItemsShop::initShop(int shoptype, int shopidx)
 
 	_itemsRoot = Node::create();
 	this->addChild(_itemsRoot, 1);
-	_itemsRoot->setContentSize(Size(150.f * _vectorSellItems.size(), 150.f));
+    _itemsRoot->setContentSize(cocos2d::Size(150.f * _vectorSellItems.size(), 150.f));
 	_itemsRoot->setPositionX(320.f -150.f * _vectorSellItems.size()/2.f);
 
 	_itembgNode = Node::create();
@@ -533,9 +533,9 @@ void ItemsShop::onEnter()
 
 	for (int i = 0; i < _sellitemsPos.size(); i++)
 	{
-		Rect temp;
+		cocos2d::Rect temp;
 		temp.origin = _sellitemsPos[i] + Vec2(-45.f, -45.f);
-		temp.size = Size(90.f, 90.f);
+        temp.size = cocos2d::Size(90.f, 90.f);
 		_equipRectInWorld.push_back(temp);
 		_itemsPos.push_back(_sellitemsPos[i]);
 	}
@@ -1543,7 +1543,9 @@ bool StoreLayer2::init()
 #if (CC_PAY_SDK == PAY_SDK_MIGU)
 	root = GameCSLoader::createNode("csb/newstoreui_mm.csb");
 	this->addChild(root);
-	
+#elif(CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	root = GameCSLoader::createNode("csb/newstoreui_zy.csb");
+	this->addChild(root);
 #else
 	root = GameCSLoader::createNode("csb/newstoreui.csb");
 	this->addChild(root);
@@ -1590,8 +1592,8 @@ bool StoreLayer2::init()
 	});
 
 	//fix bg size
-	static_cast<ImageView*>(root->getChildByName("Image_44"))->setContentSize(Size(640.f, VisibleRect::top().y - 60.f));
-	static_cast<ImageView*>(root->getChildByName("Image_1"))->setContentSize(Size(531.f, VisibleRect::top().y - 180.f));
+    static_cast<ImageView*>(root->getChildByName("Image_44"))->setContentSize(cocos2d::Size(640.f, VisibleRect::top().y - 60.f));
+	static_cast<ImageView*>(root->getChildByName("Image_1"))->setContentSize(cocos2d::Size(531.f, VisibleRect::top().y - 180.f));
 
 	//init nodes
 	_topNode = static_cast<Node*>(root->getChildByName("Node_2"));
@@ -2306,7 +2308,7 @@ void StoreLayer2::showWenInfo(int wenponid, int btnidx)
 
 	auto imageview = ImageView::create("store_iteminfo_tipbg.png", Widget::TextureResType::PLIST);
 	imageview->setScale9Enabled(true);
-	imageview->setContentSize(Size(370.f, 145.f));
+	imageview->setContentSize(cocos2d::Size(370.f, 145.f));
 	node->addChild(imageview, 0);
 	this->addChild(node, 5);
 	node->setPosition(Vec2(posx[btnidx], VisibleRect::top().y - 960.f + posy[btnidx] - 80.f));
@@ -2456,7 +2458,7 @@ void StoreLayer2::showSkillInfo(int skillid, int btnidx)
 
 	auto imageview = ImageView::create("store_iteminfo_tipbg.png", Widget::TextureResType::PLIST);
 	imageview->setScale9Enabled(true);
-	imageview->setContentSize(Size(400.f, 145.f));
+	imageview->setContentSize(cocos2d::Size(400.f, 145.f));
 	node->addChild(imageview, 0);
 	this->addChild(node, 5);
 	node->setPosition(Vec2(posx[btnidx], VisibleRect::top().y - 960.f + posy[btnidx] - 80.f));
@@ -2478,7 +2480,7 @@ void StoreLayer2::showSkillInfo(int skillid, int btnidx)
 	textvalue->setString(skillinfo.des);
 
 	auto length = skillinfo.des.length() / 2 / 18;
-	textvalue->setTextAreaSize(Size(360.f, 20 * length));
+	textvalue->setTextAreaSize(cocos2d::Size(360.f, 20 * length));
 	textvalue->setPosition(infopos + Vec2(180.f, 0.f));
 
 	auto listener = EventListenerTouchOneByOne::create();
@@ -2508,7 +2510,7 @@ void StoreLayer2::showItemInfo(int itemid, int btnidx)
 
 	auto imageview = ImageView::create("store_iteminfo_tipbg.png", Widget::TextureResType::PLIST);
 	imageview->setScale9Enabled(true);
-	imageview->setContentSize(Size(400.f, 145.f));
+	imageview->setContentSize(cocos2d::Size(400.f, 145.f));
 	node->addChild(imageview, 0);
 	this->addChild(node, 5);
 	node->setPosition(Vec2(posx[btnidx], VisibleRect::top().y - 960.f + posy[btnidx] - 80.f));
@@ -2532,7 +2534,7 @@ void StoreLayer2::showItemInfo(int itemid, int btnidx)
 		textvalue->setString(desvalue);
 
 		auto length = desvalue.length() / 2 / 18;
-		textvalue->setTextAreaSize(Size(360.f, 20 * length));
+		textvalue->setTextAreaSize(cocos2d::Size(360.f, 20 * length));
 		textvalue->setPosition(infopos + Vec2(180.f, 0.f));
 	}
 	else
@@ -2554,7 +2556,7 @@ void StoreLayer2::showItemInfo(int itemid, int btnidx)
 		textvalue->setString(skillinfo.des);
 
 		auto length = skillinfo.des.length() / 2 / 18;
-		textvalue->setTextAreaSize(Size(360.f, 20 * length));
+		textvalue->setTextAreaSize(cocos2d::Size(360.f, 20 * length));
 		textvalue->setPosition(infopos + Vec2(180.f, 0.f));
 	}
 	
@@ -2606,7 +2608,7 @@ bool GiftLayer::init()
 
 	auto offy = VisibleRect::top().y - 960.f;
 
-	static_cast<ui::ImageView*>(_root->getChildByName("mainbg"))->setContentSize(Size(640.f, 880.f + offy));
+	static_cast<ui::ImageView*>(_root->getChildByName("mainbg"))->setContentSize(cocos2d::Size(640.f, 880.f + offy));
 	
 	auto titlenode = _root->getChildByName("titlebg");
 	titlenode->setPositionY(titlenode->getPositionY() + offy);

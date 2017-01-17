@@ -5,6 +5,7 @@
 #include "GLCommon/Utils/ResMgr.h"
 #include "GameUtils.h"
 #include "UserData.h"
+#include "GameMap.h"
 
 bool NewWorldInfo::init()
 {
@@ -57,6 +58,7 @@ bool NewWorldInfo::init()
 	btngo->addTouchEventListener([=](Ref * ref, Widget::TouchEventType type) {
 		if (type == Widget::TouchEventType::ENDED)
 		{
+#if (1 != CC_ENABLE_NEW_WORLD)
 			for (int i = 0; i < 10; i++)
 			{
 				if (NewMapOpenMgr::getInstance()->isGet(MapOpenType(i)) == false)
@@ -65,6 +67,7 @@ bool NewWorldInfo::init()
 					return;
 				}
 			}
+#endif
 			showInfo();
 		}
 	});
@@ -114,7 +117,11 @@ bool NewWorldInfo::init()
 
 void NewWorldInfo::menuOnColorStone(Ref * ref, Widget::TouchEventType type)
 {
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	int idx = long(((Node*)(ref))->getUserData());
+#else
 	int idx = int(((Node*)(ref))->getUserData());
+#endif
 	_infoText_0->setString(ResMgr::getInstance()->getString(String::createWithFormat("newmap_tip_%d_0", idx)->getCString())->getCString());
 	_infoText_1->setString(ResMgr::getInstance()->getString(String::createWithFormat("newmap_tip_%d_1", idx)->getCString())->getCString());
 	_selectIcon->setPosition(((Node*)(ref))->getPosition());
@@ -127,4 +134,14 @@ void NewWorldInfo::showInfo()
 
 	auto root = _mainroot->getChildByName("node_0");
 	root->setVisible(false);
+#if (1 == CC_ENABLE_NEW_WORLD)
+	if (UserData::getInstance()->getPlayerPos() >= 100)
+	{
+		WordMap::getInstance()->toOldMap();
+	}
+	else
+	{
+		WordMap::getInstance()->toNewMap();
+	}
+#endif
 }

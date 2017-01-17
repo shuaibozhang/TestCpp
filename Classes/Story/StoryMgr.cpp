@@ -5,6 +5,9 @@
 #include "../Scenes/MainScene.h"
 #include "../DataParam/UserData.h"
 #include "ParamMgr.h"
+#include "../Defines.h"
+#include "../GLCommon//Utils/ToolsUtil.h"
+#include "../StoreBridge/StoreAssets.h"
 
 const std::string KEY_STORY_IDX = "key_story_idx";
 
@@ -131,7 +134,28 @@ bool StoryMgr::checkShowStory(int btnpos, bool isstart)
 	{
 		if (_curStoryConfig.posid == btnpos)
 		{
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+			if ((ToolsUtil::getRandomInt(1, 100) <= ParamData::P_POPBUY)&& UserData::getInstance()->getItemBalance(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT) == 0)
+			{
+				if (btnpos == 0)
+				{
+					MainLayer::getCurMainLayer()->getWordMap()->showDialogBuy(_curStoryConfig.posid, true);
+				}
+				else
+				{
+					MainLayer::getCurMainLayer()->getWordMap()->showDialogBuy(_curStoryConfig.posid);
+				}
+				
+				MainLayer::getCurMainLayer()->getWordMap()->tryBackToLastPos();
+			}
+			else
+			{
+				MainLayer::getCurMainLayer()->getWordMap()->showEnterStoryDiglog(_curStoryConfig.fileid, _curStoryConfig.posid);
+			}
+#else
 			MainLayer::getCurMainLayer()->getWordMap()->showEnterStoryDiglog(_curStoryConfig.fileid, _curStoryConfig.posid);
+#endif
+			
 			//GameMap::getCurGameMap()->enterStory(_curStoryConfig.fileid, 0);
 			return true;
 		}

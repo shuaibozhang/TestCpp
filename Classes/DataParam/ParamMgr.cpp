@@ -7,6 +7,7 @@
 #include "GLCommon/JRCommon.h"
 #include "UserData.h"
 #include "WeaponControl.h"
+#include "Defines.h"
 
 USING_NS_CC;
 using namespace rapidjson;
@@ -548,7 +549,7 @@ void ParamMgr::loadBoxDetailInfo()
 		{ 100,100,100,100,100,100,100 },
 		{ 1,3,5,8,5,12,24 },
 		{ 1,1,1,1,1,1,1 },
-		{ 6,20,30,50,0,0,0 },
+		{ 5,5,5,5,0,0,0 },
 		{ 100,100,100,100,100,100,100 }
 	};
 
@@ -848,7 +849,13 @@ const StageInfo_T * ParamMgr::getStageInfo(int id)
 	else if (-2 == id)
 	{
 		pRet = _pInstanceStageInfo;
+	}	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	else if(id >= 100)
+	{
+		pRet = _arrStageInfo[id-18];
 	}
+#endif
 	else
 	{
 		pRet = _arrStageInfo[id];
@@ -1627,13 +1634,13 @@ void ParamMgr::changeShowReliveWeight(int typeValue)
 	switch (typeValue)
 	{
 	case 0:
-		_showReliveWeight += 2;
+		_showReliveWeight += 3;// += 2;
 		break;
 	case 1:
-		_showReliveWeight = MAX(0, _showReliveWeight - 4);
+		_showReliveWeight = MAX(0, _showReliveWeight - 2);//-4
 		break;
 	case 2:
-		_showReliveWeight = MAX(0, _showReliveWeight - 3);
+//		_showReliveWeight = MAX(0, _showReliveWeight - 3);
 		break;
 	}
 }

@@ -1,0 +1,402 @@
+[
+  {
+    "excel_id": 1, 
+    "equip_id": 1500, 
+    "name": "小砍刀", 
+    "group": 60, 
+    "price": 240, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 2, 
+    "equip_id": 1501, 
+    "name": "明甬刀", 
+    "group": 50, 
+    "price": 350, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 3, 
+    "equip_id": 1502, 
+    "name": "日本刀", 
+    "group": 40, 
+    "price": 600, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 4, 
+    "equip_id": 1503, 
+    "name": "苗刀", 
+    "group": 30, 
+    "price": 1200, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 5, 
+    "equip_id": 1504, 
+    "name": "马背刀", 
+    "group": 30, 
+    "price": 2000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 6, 
+    "equip_id": 1505, 
+    "name": "大唐龙雀刀", 
+    "group": 30, 
+    "price": 3500, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 7, 
+    "equip_id": 1506, 
+    "name": "吴越刀", 
+    "group": 20, 
+    "price": 5000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 8, 
+    "equip_id": 1507, 
+    "name": "龙泉汉刀", 
+    "group": 20, 
+    "price": 8000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 9, 
+    "equip_id": 1508, 
+    "name": "尚方宝刀", 
+    "group": 20, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 10, 
+    "equip_id": 1509, 
+    "name": "干将莫邪", 
+    "group": 10, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 11, 
+    "equip_id": 1510, 
+    "name": "石斧", 
+    "group": 60, 
+    "price": 240, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 12, 
+    "equip_id": 1511, 
+    "name": "小铁斧", 
+    "group": 50, 
+    "price": 350, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 13, 
+    "equip_id": 1512, 
+    "name": "大锥斧", 
+    "group": 40, 
+    "price": 600, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 14, 
+    "equip_id": 1513, 
+    "name": "铜斧", 
+    "group": 30, 
+    "price": 1200, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 15, 
+    "equip_id": 1514, 
+    "name": "黄铜斧", 
+    "group": 30, 
+    "price": 2000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 16, 
+    "equip_id": 1515, 
+    "name": "破银斧", 
+    "group": 30, 
+    "price": 3500, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 17, 
+    "equip_id": 1516, 
+    "name": "六叶斧", 
+    "group": 20, 
+    "price": 5000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 18, 
+    "equip_id": 1517, 
+    "name": "钢玉斧", 
+    "group": 20, 
+    "price": 8000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 19, 
+    "equip_id": 1518, 
+    "name": "流金斧", 
+    "group": 20, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 20, 
+    "equip_id": 1519, 
+    "name": "八瓣莲花斧", 
+    "group": 10, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 21, 
+    "equip_id": 1520, 
+    "name": "简镖", 
+    "group": 60, 
+    "price": 240, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 22, 
+    "equip_id": 1521, 
+    "name": "袖镖", 
+    "group": 50, 
+    "price": 350, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 23, 
+    "equip_id": 1522, 
+    "name": "细线镖", 
+    "group": 40, 
+    "price": 600, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 24, 
+    "equip_id": 1523, 
+    "name": "弹丸镖", 
+    "group": 30, 
+    "price": 1200, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 25, 
+    "equip_id": 1524, 
+    "name": "柳叶镖", 
+    "group": 30, 
+    "price": 2000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 26, 
+    "equip_id": 1525, 
+    "name": "钱镖", 
+    "group": 30, 
+    "price": 3500, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 27, 
+    "equip_id": 1526, 
+    "name": "箭镖", 
+    "group": 20, 
+    "price": 5000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 28, 
+    "equip_id": 1527, 
+    "name": "峨眉镖", 
+    "group": 20, 
+    "price": 8000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 29, 
+    "equip_id": 1528, 
+    "name": "梅花针", 
+    "group": 20, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 30, 
+    "equip_id": 1529, 
+    "name": "烟花绣", 
+    "group": 10, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 31, 
+    "equip_id": 1530, 
+    "name": "玫瑰枝", 
+    "group": 60, 
+    "price": 240, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 32, 
+    "equip_id": 1531, 
+    "name": "白莲杖", 
+    "group": 50, 
+    "price": 350, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 33, 
+    "equip_id": 1532, 
+    "name": "菊花手杖", 
+    "group": 40, 
+    "price": 600, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 34, 
+    "equip_id": 1533, 
+    "name": "桃花仙枝", 
+    "group": 30, 
+    "price": 1200, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 35, 
+    "equip_id": 1534, 
+    "name": "洪氏打狗棒", 
+    "group": 30, 
+    "price": 2000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 36, 
+    "equip_id": 1535, 
+    "name": "幻音魔法杖", 
+    "group": 30, 
+    "price": 3500, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 37, 
+    "equip_id": 1536, 
+    "name": "寒冰杖", 
+    "group": 20, 
+    "price": 5000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 38, 
+    "equip_id": 1537, 
+    "name": "消魔杖", 
+    "group": 20, 
+    "price": 8000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 39, 
+    "equip_id": 1538, 
+    "name": "巴里巴拉魔杖", 
+    "group": 20, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 40, 
+    "equip_id": 1539, 
+    "name": "迷你笑笑枝", 
+    "group": 10, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 41, 
+    "equip_id": 1540, 
+    "name": "青木杖", 
+    "group": 60, 
+    "price": 240, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 42, 
+    "equip_id": 1541, 
+    "name": "天星杖", 
+    "group": 50, 
+    "price": 350, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 43, 
+    "equip_id": 1542, 
+    "name": "月光杖", 
+    "group": 40, 
+    "price": 600, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 44, 
+    "equip_id": 1543, 
+    "name": "绿玉杖", 
+    "group": 30, 
+    "price": 1200, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 45, 
+    "equip_id": 1544, 
+    "name": "破法杖", 
+    "group": 30, 
+    "price": 2000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 46, 
+    "equip_id": 1545, 
+    "name": "饮血杖", 
+    "group": 30, 
+    "price": 3500, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 47, 
+    "equip_id": 1546, 
+    "name": "彩金杖", 
+    "group": 20, 
+    "price": 5000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 48, 
+    "equip_id": 1547, 
+    "name": "星钻神杖", 
+    "group": 20, 
+    "price": 8000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 49, 
+    "equip_id": 1548, 
+    "name": "紫銮法杖", 
+    "group": 20, 
+    "price": 12000, 
+    "price_type": 0
+  }, 
+  {
+    "excel_id": 50, 
+    "equip_id": 1549, 
+    "name": "黄金圣杖", 
+    "group": 10, 
+    "price": 12000, 
+    "price_type": 0
+  }
+]

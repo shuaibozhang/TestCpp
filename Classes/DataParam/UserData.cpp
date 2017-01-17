@@ -118,6 +118,11 @@ const char* KEY_HAVE_JINHUA_BGL = "key_havejinhua_bgl";
 
 const char* KEY_EXT_ATT = "key_extern_att_%d";
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+// 20161024 J CC_ENABLE_NEW_WORLD
+const int g_newStartIdx = 100;
+#endif
+
 UserData::UserData()
 {
 
@@ -256,6 +261,16 @@ bool UserData::loadUserData()
 		_userInfo._isPassBoss[i] = getIntFromDBForKey(String::createWithFormat(KEY_PASSBOSS_STAGE, i)->getCString(), 0);
 		_userInfoBak._isPassBoss[i] = _userInfo._isPassBoss[i];
 	}
+	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161023 J
+	for (int i = 0; i < sizeof(_userInfo._isNewPassBoss) / sizeof(_userInfo._isNewPassBoss[0]); i++)
+	{
+		_userInfo._isNewPassBoss[i] = getIntFromDBForKey(String::createWithFormat(KEY_PASSBOSS_STAGE, i)->getCString(), 0);
+		_userInfoBak._isNewPassBoss[i] = _userInfo._isNewPassBoss[i];
+	}
+	//
+#endif
 
 	for (int i = 0; i < sizeof(_userInfo._storePageOneItemIdx) / sizeof(_userInfo._storePageOneItemIdx[0]); i++)
 	{
@@ -495,6 +510,18 @@ bool UserData::loadUserData()
 
 		USERDATA_LOAD_INT(_userInfo._isBoxGet[i], _userInfoBak._isBoxGet[i], strKey->getCString(), 0);
 	}
+	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161023 J
+	for (int i = 0; i < sizeof(_userInfo._isNewBoxGet) / sizeof(_userInfo._isNewBoxGet[0]); i++)
+	{
+		auto strKey = __String::createWithFormat(KEY_BOXGET_IDX, i);
+
+		USERDATA_LOAD_INT(_userInfo._isNewBoxGet[i], _userInfoBak._isNewBoxGet[i], strKey->getCString(), 0);
+	}
+	//
+#endif
+
 	CCASSERT((sizeof(g_activityKeys) / sizeof(g_activityKeys[0])) == (sizeof(g_activityRewardsNum) / sizeof(g_activityRewardsNum[0])), "g_activityKeys size != g_activityRewardsNum size");
 	for (int i = 0; i < sizeof(g_activityKeys) / sizeof(g_activityKeys[0]); i ++)
 	{
@@ -639,6 +666,19 @@ bool UserData::saveUserData(bool close)
 		}
 	}
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+	// 20161023 J
+	for (int i = 0; i < sizeof(_userInfo._isNewPassBoss) / sizeof(_userInfo._isNewPassBoss[0]); i++)
+	{
+		if (_userInfoBak._isNewPassBoss[i] != _userInfo._isNewPassBoss[i])
+		{
+			setIntFromDBForKey(String::createWithFormat(KEY_PASSBOSS_STAGE, i)->getCString(), _userInfo._isNewPassBoss[i]);
+			_userInfoBak._isNewPassBoss[i] = _userInfo._isNewPassBoss[i];
+		}
+	}
+	//
+#endif
+
 	for (int i = 0; i < sizeof(_userInfo._wenponlv)/sizeof(_userInfo._wenponlv[0]); i++)
 	{
 		if (_userInfoBak._wenponlv[i] != _userInfo._wenponlv[i])
@@ -666,7 +706,6 @@ bool UserData::saveUserData(bool close)
 			setIntFromDBForKey(String::createWithFormat(KEY_PARTS_NUM, i)->getCString(), _userInfo._wenponPartNum[i]);
 			_userInfoBak._wenponPartNum[i] = _userInfo._wenponPartNum[i];
 		}
-		
 		
 	}
 
@@ -877,7 +916,16 @@ bool UserData::saveUserData(bool close)
 		USERDATA_SAVE_INT(_userInfo._isBoxGet[i], _userInfoBak._isBoxGet[i], strKey->getCString());
 	}
 
-	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161023 J
+	for (int i = 0; i < sizeof(_userInfo._isNewBoxGet) / sizeof(_userInfo._isNewBoxGet[0]); i++)
+	{
+		auto strKey = __String::createWithFormat(KEY_BOXGET_IDX, i);
+		USERDATA_SAVE_INT(_userInfo._isNewBoxGet[i], _userInfoBak._isNewBoxGet[i], strKey->getCString());
+	}
+	//
+#endif
+
 	for (auto& temp : _userInfo._activityMap)
 	{
 		auto lastvalue = _userInfoBak._activityMap.find(temp.first);
@@ -908,6 +956,51 @@ void UserData::resetUserData()
 {
 
 }
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+// 20161023 J
+int UserData::getIsBossPass(int posidx) 
+{
+	if (posidx >= g_newStartIdx)
+	{
+		return _userInfo._isNewPassBoss[posidx - g_newStartIdx];
+	}
+	return _userInfo._isPassBoss[posidx];
+}
+
+void  UserData::setBossPass(int posidx, int ispossvaleue)
+{
+	if (posidx >= g_newStartIdx)
+	{
+		_userInfo._isNewPassBoss[posidx - g_newStartIdx] = ispossvaleue;
+	}
+	else
+	{
+		_userInfo._isPassBoss[posidx] = ispossvaleue;
+	}
+}
+
+int UserData::getBoxGet(int idx) 
+{
+	if (idx>= g_newStartIdx)
+	{
+		return _userInfo._isNewBoxGet[idx - g_newStartIdx];
+	}
+	return _userInfo._isBoxGet[idx]; 
+}
+
+void UserData::setBoxGet(int idx, int get) 
+{ 
+	if (idx >= g_newStartIdx)
+	{
+		_userInfo._isNewBoxGet[idx-g_newStartIdx] = get;
+	}
+	else
+	{
+		_userInfo._isBoxGet[idx] = get;
+	}
+}
+#endif
 
 int UserData::getIsSkillEquip(int playeridx, int skillid, bool dbclose)
 {

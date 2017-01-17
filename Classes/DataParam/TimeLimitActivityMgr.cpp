@@ -284,7 +284,7 @@ void CommondActivityMagr::intiAndShowActivitys(int curday)
 
 	std::map<std::string, std::function<void(int)>> initCallMap;
 	//initCallMap.insert(std::pair<std::string, std::function<void(int)> >(ACTIVITY_NAME_MIDAUTUMAN, std::bind(&MainLayer::initCommondActivity, MainLayer::getCurMainLayer(), std::placeholders::_1)));
-	initCallMap.insert(std::pair<std::string, std::function<void(int)> >(ACTIVITY_NAME_GUOQING, std::bind(&MainLayer::initGuoqingActivity, MainLayer::getCurMainLayer(), std::placeholders::_1)));
+	//initCallMap.insert(std::pair<std::string, std::function<void(int)> >(ACTIVITY_NAME_GUOQING, std::bind(&MainLayer::initGuoqingActivity, MainLayer::getCurMainLayer(), std::placeholders::_1)));
 
 	for (auto& tempconfig : _mapActivitys)
 	{

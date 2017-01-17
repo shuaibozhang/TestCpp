@@ -1,0 +1,172 @@
+{
+  "item_0": {
+    "id": 1000, 
+    "name": "治疗药水", 
+    "price": 60, 
+    "price_type": 0, 
+    "typeid": 0, 
+    "typeVal": 250, 
+    "description": "立即回复血量250点", 
+    "pic_name": "putong0.png"
+  }, 
+  "item_1": {
+    "id": 1001, 
+    "name": "防护药水", 
+    "price": 50, 
+    "price_type": 0, 
+    "typeid": 1, 
+    "typeVal": 250, 
+    "description": "立即回复防御250点", 
+    "pic_name": "putong1.png"
+  }, 
+  "item_2": {
+    "id": 1002, 
+    "name": "强力治疗药水", 
+    "price": 200, 
+    "price_type": 0, 
+    "typeid": 0, 
+    "typeVal": 1000, 
+    "description": "立即回复血量1000点", 
+    "pic_name": "qiangli0.png"
+  }, 
+  "item_3": {
+    "id": 1003, 
+    "name": "强力防护药水", 
+    "price": 150, 
+    "price_type": 0, 
+    "typeid": 1, 
+    "typeVal": 800, 
+    "description": "立即回复防御800点", 
+    "pic_name": "qiangli1.png"
+  }, 
+  "item_4": {
+    "id": 1004, 
+    "name": "强力综合药水", 
+    "price": 1000, 
+    "price_type": 0, 
+    "typeid": 2, 
+    "typeVal": 1000, 
+    "description": "立即回复血量和防御1000点", 
+    "pic_name": "qiangli2.png"
+  }, 
+  "item_5": {
+    "id": 1005, 
+    "name": "神奇治疗药水", 
+    "price": 1000, 
+    "price_type": 0, 
+    "typeid": 0, 
+    "typeVal": 2000, 
+    "description": "立即回复血量2000点", 
+    "pic_name": "shenqi0.png"
+  }, 
+  "item_6": {
+    "id": 1006, 
+    "name": "神奇防护药水", 
+    "price": 750, 
+    "price_type": 0, 
+    "typeid": 1, 
+    "typeVal": 1600, 
+    "description": "立即回复防御1600点", 
+    "pic_name": "shenqi1.png"
+  }, 
+  "item_7": {
+    "id": 1007, 
+    "name": "神奇综合药水", 
+    "price": 5000, 
+    "price_type": 0, 
+    "typeid": 2, 
+    "typeVal": 2000, 
+    "description": "立即回复血量和防御2000点", 
+    "pic_name": "shenqi2.png"
+  }, 
+  "item_8": {
+    "id": 1008, 
+    "name": "十字架", 
+    "price": 80, 
+    "price_type": 0, 
+    "typeid": 3, 
+    "typeVal": 4, 
+    "description": "解除低阶异常状态4个", 
+    "pic_name": "shizi0.png"
+  }, 
+  "item_9": {
+    "id": 1009, 
+    "name": "银十字架", 
+    "price": 300, 
+    "price_type": 0, 
+    "typeid": 3, 
+    "typeVal": 8, 
+    "description": "解除低阶异常状态8个", 
+    "pic_name": "shizi1.png"
+  }, 
+  "item_10": {
+    "id": 1010, 
+    "name": "白银十字架", 
+    "price": 500, 
+    "price_type": 0, 
+    "typeid": 4, 
+    "typeVal": 4, 
+    "description": "解除中阶异常状态4个", 
+    "pic_name": "shizi2.png"
+  }, 
+  "item_11": {
+    "id": 1011, 
+    "name": "白金十字架", 
+    "price": 1000, 
+    "price_type": 0, 
+    "typeid": 4, 
+    "typeVal": 8, 
+    "description": "解除中阶异常状态8个", 
+    "pic_name": "shizi3.png"
+  }, 
+  "item_12": {
+    "id": 1012, 
+    "name": "神圣十字架", 
+    "price": 2000, 
+    "price_type": 0, 
+    "typeid": 5, 
+    "typeVal": 4, 
+    "description": "解除高阶异常状态4个", 
+    "pic_name": "shizi4.png"
+  }, 
+  "item_13": {
+    "id": 1013, 
+    "name": "万能十字架", 
+    "price": 4000, 
+    "price_type": 0, 
+    "typeid": 5, 
+    "typeVal": 8, 
+    "description": "解除所有高阶异常状态", 
+    "pic_name": "shizi5.png"
+  },
+  "item_14": {
+    "id": 1014,
+    "name": "S技能镖符",
+    "price": 5,
+    "price_type": 2,
+    "typeid": 6,
+    "typeVal": 1,
+    "description": "立刻随机产生一个S技能镖符",
+    "pic_name": "sicon.png"
+  },
+   "item_15": {
+    "id": 1015, 
+    "name": "经验加倍药水", 
+    "price": 5, 
+    "price_type": 2, 
+    "typeid": 7, 
+    "typeVal": 1, 
+    "description": "使用后杀敌经验翻倍，累加使用倍数递增，仅限本关卡", 
+    "pic_name": "exp_potion.png"
+  },
+   "item_16": {
+    "id": 1016,
+    "name": "七彩镖石",
+    "price": 5,
+    "price_type": 2,
+    "typeid": 6,
+    "typeVal": 1,
+    "description": "开启新大陆的钥匙",
+    "pic_name": "newworld_icon_colorstone_0.png"
+  }
+}

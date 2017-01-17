@@ -17,7 +17,7 @@ enum TimeTypeEnum
 
 enum TimeCountTimes
 {
-	TIME_GIFT_CHANGE = 20,
+	TIME_GIFT_CHANGE = 24*60*60,
 };
 
 class TimeCountDownNode : public Node

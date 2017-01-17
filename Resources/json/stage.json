@@ -455,7 +455,7 @@
         ], 
         [
           4, 
-          3, 
+          5, 
           4
         ]
       ]
@@ -512,12 +512,11 @@
           5
         ], 
         [
-          5, 
-          5
+          3, 
+          3
         ], 
         [
           5, 
-          4, 
           5
         ]
       ]
@@ -566,6 +565,10 @@
     "monsArray": [
       [
         [
+          3, 
+          3
+        ], 
+        [
           4, 
           4
         ], 
@@ -573,11 +576,6 @@
           3, 
           6, 
           3
-        ], 
-        [
-          6, 
-          3, 
-          6
         ]
       ]
     ]
@@ -629,7 +627,6 @@
     "monsArray": [
       [
         [
-          5, 
           3, 
           5
         ], 
@@ -683,8 +680,8 @@
     "boxmons_monsid": 95, 
     "stage_des": "龙门镇的西边是无穷尽的山，无穷尽的水，听说也有无穷尽\\n的山贼。", 
     "role_lv": 6, 
-    "gold_per": 50, 
-    "exp_per": 70, 
+    "gold_per": 52, 
+    "exp_per": 75, 
     "arr_weapon_id": [
       1, 
       0, 
@@ -741,8 +738,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "自古山林生穷寇，龙门镇自然也不能免俗。", 
     "role_lv": 6, 
-    "gold_per": 55, 
-    "exp_per": 90, 
+    "gold_per": 60, 
+    "exp_per": 100, 
     "arr_weapon_id": [
       1, 
       1, 
@@ -799,7 +796,7 @@
     "boxmons_monsid": 95, 
     "stage_des": "有几户人家，散落在路的两旁，平时做点茶水的小生意。", 
     "role_lv": 7, 
-    "gold_per": 65, 
+    "gold_per": 70, 
     "exp_per": 110, 
     "arr_weapon_id": [
       1, 
@@ -913,8 +910,8 @@
     "boxmons_monsid": 97, 
     "stage_des": "一条山坳，两边都是锋利的高山，一看就是个是非之地。", 
     "role_lv": 8, 
-    "gold_per": 78, 
-    "exp_per": 150, 
+    "gold_per": 82, 
+    "exp_per": 160, 
     "arr_weapon_id": [
       1, 
       1, 
@@ -1048,7 +1045,7 @@
     "boxmons_monsid": 95, 
     "stage_des": "附近可有蛇出没，而且这些蛇不被蛊惑，异常凶狠。", 
     "role_lv": 9, 
-    "gold_per": 80, 
+    "gold_per": 83, 
     "exp_per": 170, 
     "arr_weapon_id": [
       2, 
@@ -1106,7 +1103,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "这里的冰蛇也不好惹，很容易让你动弹不得。", 
     "role_lv": 9, 
-    "gold_per": 81, 
+    "gold_per": 83, 
     "exp_per": 180, 
     "arr_weapon_id": [
       2, 
@@ -1174,7 +1171,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "青花寨可是用千年沉木盖起来的，最不怕刀剑，而且对树木\\n有深刻的研究。", 
     "role_lv": 10, 
-    "gold_per": 82, 
+    "gold_per": 84, 
     "exp_per": 210, 
     "arr_weapon_id": [
       2, 
@@ -1201,7 +1198,6 @@
       ], 
       [
         [
-          13, 
           11, 
           13
         ], 
@@ -1255,7 +1251,7 @@
     "boxmons_monsid": 97, 
     "stage_des": "有些喽啰常年在山上巡逻，所以对雷电，有一定的免疫能力。", 
     "role_lv": 10, 
-    "gold_per": 83, 
+    "gold_per": 85, 
     "exp_per": 250, 
     "arr_weapon_id": [
       2, 
@@ -1316,7 +1312,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "青花会的人自制了一种炸弹，只需几回合就会爆炸造成伤害。", 
     "role_lv": 11, 
-    "gold_per": 83, 
+    "gold_per": 85, 
     "exp_per": 300, 
     "arr_weapon_id": [
       2, 
@@ -1386,7 +1382,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "路越来越难走，环境越来越复杂，很容易被埋伏。", 
     "role_lv": 11, 
-    "gold_per": 84, 
+    "gold_per": 86, 
     "exp_per": 400, 
     "arr_weapon_id": [
       2, 
@@ -1448,7 +1444,7 @@
     "boxmons_monsid": 96, 
     "stage_des": "青花会有严密的组织结构，他们的头领通常非常神秘。", 
     "role_lv": 12, 
-    "gold_per": 84, 
+    "gold_per": 86, 
     "exp_per": 500, 
     "arr_weapon_id": [
       2, 
@@ -1512,7 +1508,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "敌人在远处，会发动技能，把你死死的冰住", 
     "role_lv": 12, 
-    "gold_per": 85, 
+    "gold_per": 86, 
     "exp_per": 600, 
     "arr_weapon_id": [
       2, 
@@ -1587,7 +1583,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "青花会，善用火和冰，以此打击进犯的敌人。", 
     "role_lv": 13, 
-    "gold_per": 85, 
+    "gold_per": 87, 
     "exp_per": 700, 
     "arr_weapon_id": [
       2, 
@@ -2156,8 +2152,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "龙门古镇人杰地灵，但是如今，却被很多眼睛盯上了。", 
     "role_lv": 16, 
-    "gold_per": 92, 
-    "exp_per": 745, 
+    "gold_per": 100, 
+    "exp_per": 780, 
     "arr_weapon_id": [
       3, 
       3, 
@@ -2216,8 +2212,8 @@
     "boxmons_monsid": 97, 
     "stage_des": "路上行人越来越多，分不清敌我。", 
     "role_lv": 17, 
-    "gold_per": 93, 
-    "exp_per": 745, 
+    "gold_per": 120, 
+    "exp_per": 800, 
     "arr_weapon_id": [
       3, 
       3, 
@@ -2297,8 +2293,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "隘口附近，气候非常多变，雨非常多。", 
     "role_lv": 17, 
-    "gold_per": 95, 
-    "exp_per": 750, 
+    "gold_per": 140, 
+    "exp_per": 810, 
     "arr_weapon_id": [
       3, 
       3, 
@@ -2385,8 +2381,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "离龙门镖局越来越远，环境会给人带来更多的压力。", 
     "role_lv": 18, 
-    "gold_per": 95, 
-    "exp_per": 750, 
+    "gold_per": 160, 
+    "exp_per": 850, 
     "arr_weapon_id": [
       3, 
       3, 
@@ -2448,8 +2444,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "锦衣卫，分为很多等级，千户、百户的高手，轻易见不到。", 
     "role_lv": 18, 
-    "gold_per": 96, 
-    "exp_per": 755, 
+    "gold_per": 180, 
+    "exp_per": 850, 
     "arr_weapon_id": [
       3, 
       3, 
@@ -2513,8 +2509,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "他们对火的狂热痴迷，已经让自己与火融为一体。", 
     "role_lv": 18, 
-    "gold_per": 100, 
-    "exp_per": 755, 
+    "gold_per": 200, 
+    "exp_per": 1100, 
     "arr_weapon_id": [
       5, 
       3, 
@@ -2604,8 +2600,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "当敌人合力发起攻击时，真的会让人难以招架。", 
     "role_lv": 19, 
-    "gold_per": 110, 
-    "exp_per": 770, 
+    "gold_per": 190, 
+    "exp_per": 820, 
     "arr_weapon_id": [
       5, 
       3, 
@@ -2665,8 +2661,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "肃杀的氛围越来越重，压得人喘不过气。", 
     "role_lv": 20, 
-    "gold_per": 112, 
-    "exp_per": 800, 
+    "gold_per": 190, 
+    "exp_per": 850, 
     "arr_weapon_id": [
       5, 
       3, 
@@ -2743,8 +2739,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "锦衣卫的人可不好惹，一言不合就把你变成石块！", 
     "role_lv": 20, 
-    "gold_per": 115, 
-    "exp_per": 850, 
+    "gold_per": 200, 
+    "exp_per": 1200, 
     "arr_weapon_id": [
       5, 
       5, 
@@ -2782,7 +2778,6 @@
       ], 
       [
         [
-          31, 
           32, 
           31
         ], 
@@ -2825,8 +2820,8 @@
     "boxmons_monsid": 96, 
     "stage_des": "青花会狡兔三窟，看来老巢并不是很好找。", 
     "role_lv": 21, 
-    "gold_per": 118, 
-    "exp_per": 850, 
+    "gold_per": 200, 
+    "exp_per": 1200, 
     "arr_weapon_id": [
       5, 
       5, 
@@ -2884,8 +2879,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "周围充满了灌木丛，一不小心就遭受敌人的埋伏。", 
     "role_lv": 22, 
-    "gold_per": 118, 
-    "exp_per": 850, 
+    "gold_per": 200, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       5, 
       5, 
@@ -2950,8 +2945,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "有些发疯的敌人，会连续攻击，小心为上。", 
     "role_lv": 22, 
-    "gold_per": 119, 
-    "exp_per": 850, 
+    "gold_per": 200, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       5, 
       5, 
@@ -3009,8 +3004,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "谁会想到，在这么平静的地方，会隐藏着青花会的老巢", 
     "role_lv": 23, 
-    "gold_per": 119, 
-    "exp_per": 850, 
+    "gold_per": 210, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       5, 
       5, 
@@ -3067,8 +3062,8 @@
     "boxmons_monsid": 97, 
     "stage_des": "山里的猛兽，也加入到这场游戏中来，变得更加有趣。", 
     "role_lv": 23, 
-    "gold_per": 120, 
-    "exp_per": 850, 
+    "gold_per": 210, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       5, 
       5, 
@@ -3132,8 +3127,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "野猪出没的地方，都不会太过安宁，小心他们的疯狂。", 
     "role_lv": 24, 
-    "gold_per": 120, 
-    "exp_per": 850, 
+    "gold_per": 210, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       6, 
       5, 
@@ -3199,8 +3194,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "能找到这里，很不容易，这一次，一定不要再错过什么。", 
     "role_lv": 24, 
-    "gold_per": 122, 
-    "exp_per": 860, 
+    "gold_per": 220, 
+    "exp_per": 1380, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3217,7 +3212,6 @@
       [
         [
           35, 
-          36, 
           35
         ], 
         [
@@ -3229,7 +3223,6 @@
       [
         [
           37, 
-          62, 
           37
         ], 
         [
@@ -3287,8 +3280,8 @@
     "boxmons_monsid": 95, 
     "stage_des": "平时并不经常行走的道路，因为通往京城的买卖，利润\\n总是不高。", 
     "role_lv": 25, 
-    "gold_per": 180, 
-    "exp_per": 860, 
+    "gold_per": 230, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3345,8 +3338,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "风光变得逐渐不同，但是目标却越来越清晰。", 
     "role_lv": 25, 
-    "gold_per": 200, 
-    "exp_per": 860, 
+    "gold_per": 250, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3404,8 +3397,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "山势逐渐险峻，危险也越来越近。", 
     "role_lv": 26, 
-    "gold_per": 200, 
-    "exp_per": 860, 
+    "gold_per": 250, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3467,8 +3460,8 @@
     "boxmons_monsid": 97, 
     "stage_des": "去京城的路上，已经被锦衣卫布置了重兵把手，要做好\\n艰苦奋斗的准备！", 
     "role_lv": 26, 
-    "gold_per": 280, 
-    "exp_per": 860, 
+    "gold_per": 300, 
+    "exp_per": 1380, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3533,8 +3526,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "我只是一个小商店，卖一些小东西。", 
     "role_lv": 27, 
-    "gold_per": 300, 
-    "exp_per": 860, 
+    "gold_per": 500, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3599,8 +3592,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "京城似乎已经戒严，想要蒙混过去，看来是不可能了。", 
     "role_lv": 27, 
-    "gold_per": 310, 
-    "exp_per": 870, 
+    "gold_per": 650, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3662,8 +3655,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "有很多刀枪不入的怪兽，逐渐的从山上爬了下来", 
     "role_lv": 28, 
-    "gold_per": 350, 
-    "exp_per": 880, 
+    "gold_per": 750, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       6, 
       6, 
@@ -3728,8 +3721,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "对于自带免疫的怪兽，记得提前做好准备。", 
     "role_lv": 28, 
-    "gold_per": 380, 
-    "exp_per": 880, 
+    "gold_per": 780, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       8, 
       6, 
@@ -3749,7 +3742,6 @@
           43
         ], 
         [
-          43, 
           44, 
           43
         ], 
@@ -3787,8 +3779,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "锦衣卫已经有所觉察，京城的防卫越来越重视。", 
     "role_lv": 29, 
-    "gold_per": 400, 
-    "exp_per": 900, 
+    "gold_per": 780, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       8, 
       6, 
@@ -3852,8 +3844,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "锦衣卫派出了千户侍卫，他可能就在附近巡视。", 
     "role_lv": 29, 
-    "gold_per": 450, 
-    "exp_per": 950, 
+    "gold_per": 780, 
+    "exp_per": 1380, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -3901,7 +3893,7 @@
     "style": 0, 
     "floor": 1, 
     "stageNum": [
-      4
+      3
     ], 
     "stageName": [
       "野外"
@@ -3922,8 +3914,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "对火的研究和使用，他们正变得越来越狂热。", 
     "role_lv": 30, 
-    "gold_per": 460, 
-    "exp_per": 950, 
+    "gold_per": 750, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -3944,11 +3936,6 @@
         ], 
         [
           47, 
-          47
-        ], 
-        [
-          47, 
-          46, 
           47
         ], 
         [
@@ -3985,8 +3972,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "在深山峻岭中穿行，不小心就会有生命危险。", 
     "role_lv": 30, 
-    "gold_per": 500, 
-    "exp_per": 950, 
+    "gold_per": 750, 
+    "exp_per": 1350, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -4048,8 +4035,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "此树气候湿热，有大量的荆棘生长，一定要小心！", 
     "role_lv": 31, 
-    "gold_per": 510, 
-    "exp_per": 950, 
+    "gold_per": 780, 
+    "exp_per": 1380, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -4118,8 +4105,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "离京城逐渐近了，危险也会越来越大。", 
     "role_lv": 31, 
-    "gold_per": 520, 
-    "exp_per": 950, 
+    "gold_per": 750, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -4177,8 +4164,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "这可能是最困难的时刻，就看能不能撑过去了。", 
     "role_lv": 32, 
-    "gold_per": 530, 
-    "exp_per": 950, 
+    "gold_per": 750, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -4242,8 +4229,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "千户锦衣卫也已经全部出动，看来这次，一定要玩点大的。", 
     "role_lv": 32, 
-    "gold_per": 540, 
-    "exp_per": 950, 
+    "gold_per": 780, 
+    "exp_per": 1400, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -4275,8 +4262,7 @@
         ], 
         [
           48, 
-          49, 
-          48
+          49
         ], 
         [
           49, 
@@ -4317,8 +4303,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "锦衣卫越来越多，不知道会不会让人感到害怕。", 
     "role_lv": 33, 
-    "gold_per": 600, 
-    "exp_per": 950, 
+    "gold_per": 1000, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       8, 
       8, 
@@ -4377,8 +4363,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "北方本来有一条直通皇宫的密道，后来被锦衣卫给密封了。", 
     "role_lv": 33, 
-    "gold_per": 620, 
-    "exp_per": 960, 
+    "gold_per": 1500, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       9, 
       8, 
@@ -4438,8 +4424,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "北方渐渐天寒地洞，引来了很多神秘的生物。", 
     "role_lv": 34, 
-    "gold_per": 650, 
-    "exp_per": 970, 
+    "gold_per": 1800, 
+    "exp_per": 1300, 
     "arr_weapon_id": [
       9, 
       8, 
@@ -4510,8 +4496,8 @@
     "boxmons_monsid": -1, 
     "stage_des": "高等级的锦衣卫，自带回血技能，稍不留神，就满血复活。", 
     "role_lv": 34, 
-    "gold_per": 750, 
-    "exp_per": 970, 
+    "gold_per": 2200, 
+    "exp_per": 1400, 
     "arr_weapon_id": [
       9, 
       9, 
@@ -4595,7 +4581,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "这里有一个商铺，卖一些小玩意。", 
     "role_lv": 35, 
-    "gold_per": 800, 
+    "gold_per": 2200, 
     "exp_per": 1400, 
     "arr_weapon_id": [
       9, 
@@ -4658,7 +4644,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "敌人越来越危险，因为他们躲在暗处。", 
     "role_lv": 35, 
-    "gold_per": 850, 
+    "gold_per": 2300, 
     "exp_per": 1500, 
     "arr_weapon_id": [
       9, 
@@ -4717,7 +4703,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "锦衣卫他们会隐忍许久，然后突然发动攻击", 
     "role_lv": 36, 
-    "gold_per": 900, 
+    "gold_per": 2400, 
     "exp_per": 1600, 
     "arr_weapon_id": [
       9, 
@@ -4784,7 +4770,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "离皇宫越来越近，锦衣卫应该感到害怕了。", 
     "role_lv": 36, 
-    "gold_per": 950, 
+    "gold_per": 2500, 
     "exp_per": 1700, 
     "arr_weapon_id": [
       9, 
@@ -4854,7 +4840,7 @@
     "boxmons_monsid": 97, 
     "stage_des": "皇宫近在眼前，但是想进去，谈何容易。", 
     "role_lv": 36, 
-    "gold_per": 1000, 
+    "gold_per": 2600, 
     "exp_per": 1800, 
     "arr_weapon_id": [
       9, 
@@ -4919,7 +4905,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "大内高手，很多都是刀枪不入，闯关并没有那么简单。", 
     "role_lv": 37, 
-    "gold_per": 1050, 
+    "gold_per": 2500, 
     "exp_per": 2300, 
     "arr_weapon_id": [
       9, 
@@ -4984,7 +4970,7 @@
     "boxmons_monsid": 96, 
     "stage_des": "密切注意你的周围，可能随时就有一把剑射过来。", 
     "role_lv": 38, 
-    "gold_per": 1100, 
+    "gold_per": 2600, 
     "exp_per": 2400, 
     "arr_weapon_id": [
       9, 
@@ -5063,7 +5049,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "快到了决战时刻，各种有头有脸的人物，都出现了。", 
     "role_lv": 38, 
-    "gold_per": 1150, 
+    "gold_per": 2700, 
     "exp_per": 2500, 
     "arr_weapon_id": [
       9, 
@@ -5132,7 +5118,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "快到了决战时刻，各种有头有脸的人物，都出现了。", 
     "role_lv": 39, 
-    "gold_per": 1200, 
+    "gold_per": 2800, 
     "exp_per": 2600, 
     "arr_weapon_id": [
       9, 
@@ -5215,7 +5201,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "势头似乎得到了一些遏制，但结果仍为未可知。", 
     "role_lv": 39, 
-    "gold_per": 1250, 
+    "gold_per": 2600, 
     "exp_per": 2700, 
     "arr_weapon_id": [
       9, 
@@ -5280,7 +5266,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "情况越来越复杂，敌人也越来越危险。", 
     "role_lv": 40, 
-    "gold_per": 1400, 
+    "gold_per": 2600, 
     "exp_per": 2800, 
     "arr_weapon_id": [
       9, 
@@ -5364,7 +5350,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "皇天后的闺房就在前方，她还会怀念之前的岁月吗？", 
     "role_lv": 42, 
-    "gold_per": 1500, 
+    "gold_per": 2900, 
     "exp_per": 2900, 
     "arr_weapon_id": [
       9, 
@@ -5470,7 +5456,7 @@
     "boxmons_monsid": -1, 
     "stage_des": "皇天后的闺房就在前方，她还会怀念之前的岁月吗？", 
     "role_lv": 45, 
-    "gold_per": 1500, 
+    "gold_per": 2900, 
     "exp_per": 2900, 
     "arr_weapon_id": [
       9, 

@@ -105,7 +105,12 @@ void DungeonLayer::menuOnGo(Ref *ref, Widget::TouchEventType type)
 
 	int curDayInWeek = NetDataMgr::getInstance()->getOnlineDayInWeek() - 1;
 	Node* tempBtn = static_cast<Node*>(ref);
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	int idx = long(tempBtn->getUserData());
+#else
 	int idx = int(tempBtn->getUserData());
+#endif
+	
 	if (_arrDungeonInfo[idx]._weekStage[curDayInWeek] == 0)
 	{
 		return;

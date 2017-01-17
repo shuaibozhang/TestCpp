@@ -1,0 +1,67 @@
+{
+    "storekey": "guoqingactivity",
+    "activityname": "国庆活动",
+    "activitydes": "",
+    "activitytype": "single",
+    "isRepeat": false,
+    "startday": "2016-09-24",
+    "longtime": 14,
+    "activitys": [
+        {
+            "name": "",
+            "des": "",
+            "key": "payrmb_guoqing",
+            "num": 6,
+            "reward": [
+                -101,
+                1014
+            ],
+            "rewardcount": [
+              20,
+              10
+            ]
+        },
+        {
+            "name": "团圆月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "payrmb_guoqing",
+            "num": 30,
+            "reward": [              
+                -101,
+                1506
+            ],
+            "rewardcount": [
+               100,
+               20
+            ]
+        },
+        {
+            "name": "富贵月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "payrmb_guoqing",
+            "num": 68,
+            "reward": [               
+                -101,             
+                1508
+            ],
+            "rewardcount": [
+               200,
+               20
+            ]
+        },
+        {
+            "name": "龙门月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "payrmb_guoqing",
+            "num": 128,
+            "reward": [
+                -101,
+                10000
+            ],
+            "rewardcount": [
+                300,
+                1
+            ]
+        }
+    ]
+}

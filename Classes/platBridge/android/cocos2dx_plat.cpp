@@ -140,3 +140,9 @@ void cocos2dx_plat::setGameValue(string key, string strValue)
 {
     PlatJniHelpers::jniCommonVoidCall("setGameValue", "com/gl/jni/JniHelp",key.c_str(),strValue.c_str());
 }
+
+string cocos2dx_plat::getUserId()
+{
+	string ret = PlatJniHelpers::jniCommonStringCall("getUserId", "com/gl/jni/JniHelp");
+	return ret;
+}

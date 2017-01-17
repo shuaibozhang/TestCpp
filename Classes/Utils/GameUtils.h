@@ -47,11 +47,12 @@ public:
 
 //	static void getOnlineTime(tm& time);
 
-	static void getRectPosInWorld(Node *pNode, const Rect &boundingBox, Vec2 *arrPos);
-	static bool isNodeRectCollision(Node *pNode1, const Rect &boundingBox1, Node *pNode2, const Rect &boundingBox2);
+	static void getRectPosInWorld(Node *pNode, const cocos2d::Rect &boundingBox, Vec2 *arrPos);
+	static bool isNodeRectCollision(Node *pNode1, const cocos2d::Rect &boundingBox1, Node *pNode2, const cocos2d::Rect &boundingBox2);
 	
 	static float getMoveDur(Vec2 offset, float speed);
 
+	static bool isAdsLoaded();
 
 	static void getDataFromServicer(const char *strUrl, const char *strReqDesc, const char *strReqData, const char *strTag, const ccHttpRequestCallback& callback);
 	static void postDataToServicer(const char *strUrl, const char *strReqDesc, const char *strReqData, const char *strTag, const ccHttpRequestCallback& callback);

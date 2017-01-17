@@ -2,19 +2,14 @@
 #define _DEFINES_H_
 
 #define PAY_SDK_FREE 0
-#define PAY_SDK_MILI 1
-#define PAY_SDK_JIDI 2
-#define PAY_SDK_DIANXIN 3
-#define PAY_SDK_UNIPAY 4
-#define PAY_SDK_ALLPAY 5
-#define PAY_SDK_BAIDU 6
-#define PAY_SDK_MIGU 6
+#define PAY_SDK_MIGU 1
+#define PAY_SDK_ZHUOYI 2
 
 #ifndef CC_PAY_SDK
 #define CC_PAY_SDK PAY_SDK_FREE
 #endif
 
-#if (CC_PAY_SDK == PAY_SDK_ALLPAY || CC_PAY_SDK == PAY_SDK_JIDI || CC_PAY_SDK == PAY_SDK_UNIPAY || CC_PAY_SDK == PAY_SDK_BAIDU)
+#if (CC_PAY_SDK == PAY_SDK_MIGU)
 
 #define CC_ENABLE_CHECK_SIGN 0
 
@@ -24,6 +19,9 @@
 
 #endif
 
+#ifndef CC_ENABLE_NEW_WORLD
+#define CC_ENABLE_NEW_WORLD 0
+#endif
 
 #ifndef CC_ENABLE_DEBUG_MONSTER_ANIM
 #define CC_ENABLE_DEBUG_MONSTER_ANIM 0

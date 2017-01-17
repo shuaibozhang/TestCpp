@@ -294,7 +294,37 @@ bool MainLayer::init()
 #ifdef USING_TIME_MGR
 	this->schedule(CC_CALLBACK_1(MainLayer::timeMgrClick, this), 1, CC_REPEAT_FOREVER, 0, "timeMgrClickAction");
 #endif
+//	NetDataMgr::getInstance()->postTmpSort(100, CC_CALLBACK_2(MainLayer::onPostTmpSortCallback, this));
+//	NetDataMgr::getInstance()->checkExchangeCode("R77uPE8uWCIx", CC_CALLBACK_2(MainLayer::onCheckCodeCallback, this));
 	
+//	UserData::getInstance()->addBoxConfig(0, 0);
+
+//	auto pGuide = GameGuideLayer::create(0);
+//	this->addChild(pGuide, 999);
+
+//  	auto pLayer = PopRewardLayer::create(537, 1);
+//  	this->addChild(pLayer, 100); 
+
+// 	auto pHit = GameArmtr::createHit("");
+// 	pHit->retain();
+// 	this->addChild(pHit, 100);
+// 	pHit->setPosition(Vec2(320.f, 400.f));
+// 	pHit->play("hit3");
+// 	this->runAction(RepeatForever::create(Sequence::createWithTwoActions(DelayTime::create(1.f), CallFunc::create([=] {pHit->play("hit2"); }))));
+// 	this->runAction(RepeatForever::create(Sequence::create(DelayTime::create(1.f), 
+// 		CallFunc::create([=] {pHit->removeFromParent(); }), 
+// 		DelayTime::create(2.f), 
+// 		CallFunc::create([=] {
+// 		this->addChild(pHit, 100);
+// 		pHit->play("hit2"); }), nullptr)));
+
+//	CrushUtil::giveUserItem(PopRewardBoxId::POP_BOX_0, 1, 1, true);
+
+//	std::vector<PopItemInfo_T> arrReward;
+//	CrushUtil::getSettleReward(25, arrReward);
+//	auto pLayer = PopRewardLayer::create(arrReward, 1);
+//	this->addChild(pLayer, POP_REWARD_Z);
+//	pLayer->setRankIdx(1000);
 
 	return true;
 }
@@ -302,7 +332,6 @@ bool MainLayer::init()
 void MainLayer::onEnter()
 {
 	Layer::onEnter();
-	this->enterMainLayer();
 
 	_leftBtnsNode->setPositionX(-200.f);
 	auto actionMoveInL = EaseSineOut::create(MoveTo::create(0.5f, Vec2(0.f, 0.f)));
@@ -322,6 +351,7 @@ void MainLayer::onEnter()
 	updataGiftBtns();
 	updataDayActivityBtn();
 
+	this->enterMainLayer();
 #ifdef USING_TIME_MGR
 	TimeMgr::getInstane()->fixTime();
 #endif
@@ -495,7 +525,12 @@ void MainLayer::initMapLayer()
 void MainLayer::menuCallback(cocos2d::Ref * pSender)
 {
 	auto menuitem = static_cast<GLMenuItemSprite*>(pSender);
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	auto idx = long(menuitem->getUserData());
+#else
 	auto idx = int(menuitem->getUserData());
+#endif
+	
 	float actiondur = 0.4f;
 
 	if (idx == _curMenuIdx)
@@ -1040,7 +1075,7 @@ void MainLayer::initTimeCounrdown()
 	
 	
 	//init right btns
-		float _offyRight = -100.f;
+		float _offyRight = 0.f;
 		_boxStoreBtn = GameButton::create("box_shop_btn.png", "", "", Widget::TextureResType::PLIST);
 		_rightBtnsNode->addChild(_boxStoreBtn, MAPUI_Z);
 		_boxStoreBtn->setPosition(pos + Vec2(0.f, _offyRight));
@@ -1146,8 +1181,17 @@ void MainLayer::initTimeCounrdown()
 
 #if (CC_PAY_SDK == PAY_SDK_MIGU)
 			_giftBtn = GameButton::create("migu_btn_supergift.png", "", "", Widget::TextureResType::PLIST);
-#else			
-			_giftBtn = GameButton::create("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+#else		
+			int mainSceneIdx = UserData::getInstance()->getMainSceneGiftIdx();
+			if (mainSceneIdx == 0)
+			{
+				_giftBtn = GameButton::create("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+			}
+			else
+			{
+				_giftBtn = GameButton::create("store_icon_firstbuy_2.png", "", "", Widget::TextureResType::PLIST);
+			}
+			
 #endif
 			
 			_rightBtnsNode->addChild(_giftBtn, MAPUI_POP);
@@ -1212,10 +1256,11 @@ void MainLayer::initTimeCounrdown()
 
 			_arrrRightBnts.push_back(_giftBtn);
 		}
+		updateGiftChange();
 
 		_offyRight -= 100.f;
 
-		_7xiActivityBtn = GameButton::create("store_icon_qixi.png", "", "", Widget::TextureResType::PLIST);
+		/*_7xiActivityBtn = GameButton::create("store_icon_qixi.png", "", "", Widget::TextureResType::PLIST);
 		_rightBtnsNode->addChild(_7xiActivityBtn, MAPUI_Z);
 		_7xiActivityBtn->setPosition(pos + Vec2(0.f, _offyRight));
 		_7xiActivityBtn->setVisible(true);
@@ -1229,7 +1274,7 @@ void MainLayer::initTimeCounrdown()
 				}
 			}
 		});
-		_arrrRightBnts.push_back(_7xiActivityBtn);
+		_arrrRightBnts.push_back(_7xiActivityBtn);*/
 	
 	_backToForegroundlistener = EventListenerCustom::create(EVENT_COME_TO_FOREGROUND,
 		[this](EventCustom*)
@@ -1715,13 +1760,14 @@ void MainLayer::leaveFight()
 
 void MainLayer::enterMainLayer()
 {
+	BagItemControl::getInstace()->autoEquipItems();
+	GameLayer::getInstance()->updateEquipItems();
+
 	if (this->checkGuide())
 	{
 		//avoid can't touch
 		return;
 	}
-	BagItemControl::getInstace()->autoEquipItems();
-	GameLayer::getInstance()->updateEquipItems();
 
 	bool isCanPop = true;
 	if (NetDataMgr::getInstance()->getHasSelfInfo())
@@ -1762,30 +1808,33 @@ void MainLayer::enterMainLayer()
 		_achCountBg->setVisible(false);
 	}
 
-	if(_isNeedActivityReward)
+	if (!this->isGuideEffectPop())
 	{
-		int onlineDay = NetDataMgr::getInstance()->getOnlineDay();
-		if (onlineDay != -1)
+		if (_isNeedActivityReward)
 		{
-			auto pLayer = DailyRewardLayer::create(2, onlineDay);
-			this->addChild(pLayer, POP_Z);
-			_isNeedActivityReward = false;
+			int onlineDay = NetDataMgr::getInstance()->getOnlineDay();
+			if (onlineDay != -1)
+			{
+				auto pLayer = DailyRewardLayer::create(2, onlineDay);
+				this->addChild(pLayer, POP_Z);
+				_isNeedActivityReward = false;
+			}
+
 		}
-		
-	}
-	else if (_isNeedDaily)
-	{
-		auto pLayer = DailyRewardLayer::create();
-		this->addChild(pLayer, POP_Z);
+		else if (_isNeedDaily)
+		{
+			auto pLayer = DailyRewardLayer::create();
+			this->addChild(pLayer, POP_Z);
 
-		_isNeedDaily = false;
-	}
-	else if (_isNeedWeekReward)
-	{
-		auto pLayer = DailyRewardLayer::create(true);
-		this->addChild(pLayer, POP_Z);
+			_isNeedDaily = false;
+		}
+		else if (_isNeedWeekReward)
+		{
+			auto pLayer = DailyRewardLayer::create(true);
+			this->addChild(pLayer, POP_Z);
 
-		_isNeedWeekReward = false;
+			_isNeedWeekReward = false;
+		}
 	}
 
 	if (cocos2dx_plat::getGameValue(AnncLayer::ANNC_KEY_SHOW) == "1")
@@ -2003,18 +2052,11 @@ void MainLayer::firstGiftBuyCallBack()
 	{
 		gift->setVisible(false);
 	}
-
+	
 	_giftTimeNode->setDur(TimeCountTimes::TIME_GIFT_CHANGE);
 	UserData::getInstance()->setMainSceneGiftIdx(0);
-	//UserData::getInstance()->saveUserData();
-	/*auto light = _lightArr[2];
-	light->setVisible(false);
-	light->stopAllActions();*/
-
-	//_daylimitGift->setPositionY(_daylimitGift->getPositionY() + 100.f);
-	/*auto light3 = _lightArr[3];
-	light3->setPositionY(light3->getPositionY() + 100.f);*/
-
+	
+	updateGiftChange();
 	updataGiftBtns();
 }
 
@@ -2107,10 +2149,10 @@ void MainLayer::updataGiftBtns()
 
 	auto pos = Vec2(150.f, VisibleRect::top().y - 200.f) + Vec2(-100.f, 60.f);
 	int idx2 = 0;
-	if (_timeLimitActivityBtn == nullptr || (_timeLimitActivityBtn != nullptr && _timeLimitActivityBtn->isVisible() == false))
-	{
+	//if (_timeLimitActivityBtn == nullptr || (_timeLimitActivityBtn != nullptr && _timeLimitActivityBtn->isVisible() == false))
+	//{
 		//pos += Vec2(0.f, 100.f);
-	}
+	//}
 	for (auto& temp : _arrrRightBnts)
 	{
 		temp->setPosition(pos + Vec2(0.f, -100.f * idx2));
@@ -2304,6 +2346,11 @@ void MainLayer::popPurchaseLayer(std::string itemid, bool dirbuy)
 	this->addChild(layer, MainLayer_Z::POP_Z);
 }
 
+bool MainLayer::isGuideEffectPop()
+{
+	return !UserData::getInstance()->isNeedGuide() && (!UserData::getInstance()->getIsBoxGuided() || !UserData::getInstance()->getWeaponGuided());
+}
+
 int MainLayer::getCurGiftStage()
 {
 	int curstage = 0;
@@ -2324,7 +2371,7 @@ int MainLayer::getCurGiftStage()
 	}
 	else
 	{
-		superGiftStage = 1;
+		superGiftStage = 0;
 	}
 
 	UserData::getInstance()->freeDB();
@@ -2347,6 +2394,68 @@ int MainLayer::getCurGiftStage()
 	}
 
 	return curstage;
+}
+
+void MainLayer::updateGiftChange()
+{
+	/* change cur gift type*/
+	if (_giftBtn)
+	{
+		int giftdur = _giftTimeNode->getDur();
+		
+		int curGiftIdx = UserData::getInstance()->getMainSceneGiftIdx();		
+
+		
+		int stageGift = getCurGiftStage();
+
+		if (stageGift == 0 || stageGift == 2)
+		{
+			if (curGiftIdx == 0)
+			{
+				_giftBtn->loadTextures("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+
+			}
+			else if (curGiftIdx == 1)
+			{
+				_giftBtn->loadTextures("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+				if (_giftBtn->getChildByName("icon_3z") == nullptr)
+				{
+					Sprite* icon3z
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+                    = Sprite::create("ios/ios_text_xszk.png");
+#else
+                    = Sprite::createWithSpriteFrameName("store_icon_firstbuy_3z.png");
+#endif
+                    
+					_giftBtn->addChild(icon3z);
+					icon3z->setName("icon_3z");
+					icon3z->setPosition(Vec2(70.f, 60.f));
+					auto actionRotate = Sequence::create(RotateTo::create(0.1, 30), RotateTo::create(0.2, -10), RotateTo::create(0.2, 5), RotateTo::create(0.1, 0), nullptr);
+					auto action = RepeatForever::create(actionRotate);
+
+					icon3z->runAction(action);
+				}
+			}
+			_giftBtn->setVisible(true);
+		}
+		else if (stageGift == 1)
+		{
+			if (curGiftIdx == 1)
+			{
+				_giftBtn->loadTextures("store_supergift.png", "", "", Widget::TextureResType::PLIST);
+				_giftBtn->setVisible(true);
+			}
+			else
+			{
+				_giftBtn->setVisible(false);
+				updataGiftBtns();
+			}
+		}
+		else
+		{
+			_giftBtn->setVisible(false);
+		}
+	}
 }
 
 void MainLayer::clickAction(int click)
@@ -2429,8 +2538,10 @@ void MainLayer::clickAction(int click)
 		int giftdur = _giftTimeNode->getDur();
 		if (giftdur <= 0)
 		{
+
 			int curGiftIdx = UserData::getInstance()->getMainSceneGiftIdx();
-			int nextGiftIdx = curGiftIdx == 0 ? 1 : 0;
+			//int nextGiftIdx = curGiftIdx == 0 ? 1 : 0;
+			int nextGiftIdx = 0;
 			UserData::getInstance()->setMainSceneGiftIdx(nextGiftIdx);
 
 			_giftTimeNode->setDur(TimeCountTimes::TIME_GIFT_CHANGE);
@@ -2441,15 +2552,49 @@ void MainLayer::clickAction(int click)
 				if (nextGiftIdx == 0)
 				{
 					_giftBtn->loadTextures("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+					if (_giftBtn->getChildByName("icon_3z") != nullptr)
+					{
+						_giftBtn->getChildByName("icon_3z")->setVisible(false);
+					}
 
 				}
 				else if (nextGiftIdx == 1)
 				{
-					_giftBtn->loadTextures("store_icon_firstbuy_2.png", "", "", Widget::TextureResType::PLIST);
+					_giftBtn->loadTextures("store_icon_firstbuy.png", "", "", Widget::TextureResType::PLIST);
+					if (_giftBtn->getChildByName("icon_3z") == nullptr)
+					{
+						auto icon3z 
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+                        = Sprite::create("ios/ios_text_xszk.png");
+#else
+                        = Sprite::createWithSpriteFrameName("store_icon_firstbuy_3z.png");
+#endif
+						icon3z->setName("icon_3z");
+						_giftBtn->addChild(icon3z);
+						icon3z->setPosition(Vec2(70.f, 60.f));
+						auto actionRotate = Sequence::create(RotateTo::create(0.1, 30), RotateTo::create(0.2, -10), RotateTo::create(0.2, 5), RotateTo::create(0.1, 0), nullptr);
+						auto action = RepeatForever::create(actionRotate);
+
+						icon3z->runAction(action);
+					}
+					else
+					{
+						_giftBtn->getChildByName("icon_3z")->setVisible(true);
+					}
 				}
 			}
 			else if(stageGift == 1)
 			{
+				
+				if (_giftBtn->getChildByName("icon_3z") != nullptr)
+				{
+					_giftBtn->getChildByName("icon_3z")->setVisible(false);
+				}
+				else
+				{
+					
+				}
+
 				if (nextGiftIdx == 1)
 				{
 					_giftBtn->loadTextures("store_supergift.png", "", "", Widget::TextureResType::PLIST);
@@ -2459,6 +2604,10 @@ void MainLayer::clickAction(int click)
 				{
 					_giftBtn->setVisible(false);
 				}
+			}
+			else
+			{
+				_giftBtn->setVisible(false);
 			}
 			
 			/*chang show gift btn*/
@@ -2470,7 +2619,7 @@ void MainLayer::clickAction(int click)
 				/*chang time Label*/
 			}
 		}
-	}	
+	}
 }
 
 void MainLayer::offlineClickAction(float dt)
@@ -3055,7 +3204,12 @@ void PlayersLayer::menuOnPlayerEquip(Ref* ref, Widget::TouchEventType type)
 {
 	if (type == Widget::TouchEventType::ENDED)
 	{
-		int idx = int(((Node*)ref)->getUserData());
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	int idx = long(((Node*)ref)->getUserData());
+#else
+	int idx = int(((Node*)ref)->getUserData());
+#endif
+		
 		PlayerMgr::getInstance()->switchStage(idx);
 	}
 }
@@ -3064,7 +3218,12 @@ void PlayersLayer::menuOnPlayerBuy(Ref * ref, Widget::TouchEventType type)
 {
 	if (type == Widget::TouchEventType::ENDED)
 	{
-		int idx = int(((Node*)ref)->getUserData());
+#if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	int idx = long(((Node*)ref)->getUserData());
+#else
+	int idx = int(((Node*)ref)->getUserData());
+#endif
+		
 		if (idx == 4)
 		{
 			MainLayer::getCurMainLayer()->popPurchaseLayer(StoreAssetMgr::ITEMID_GOOD_PLAYER_4, true);
@@ -3675,7 +3834,7 @@ void EquipLayer::freshenUpadtaLayer()
 	int weaponInfo[4];
 	int weaponMinInfo[4];
 	int weaponMaxInfo[4];
-	auto& curInfo = UserData::getInstance()->getTrueWeaponAttack(_idx * 10 + _selectIdx);
+	auto curInfo = UserData::getInstance()->getTrueWeaponAttack(_idx * 10 + _selectIdx);
 
 	weaponInfo[0] = curInfo.attack;
 	weaponInfo[1] = curInfo.def;
@@ -5636,6 +5795,36 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 	if (onlineDay != lastLoginDay)
 	//if (true)
 	{
+		//set for gift change
+		int curDayIdx = 6;
+		int giftChangeTime[7] = { 24, 3, 2, 1, 1, 1, 1 };
+		for (int i = 0; i < 7; i++)
+		{
+			if (!UserData::getInstance()->getIsGotDailyReward(i))
+			{
+				curDayIdx = i;
+				break;
+			}
+		}
+		if (curDayIdx == 0)
+		{
+			UserData::getInstance()->setMainSceneGiftIdx(0);
+			if (_giftTimeNode)
+			{
+				_giftTimeNode->setDur(giftChangeTime[curDayIdx] * 60 * 60);
+			}
+		}
+		else
+		{
+			UserData::getInstance()->setMainSceneGiftIdx(1);
+			if (_giftTimeNode)
+			{
+				_giftTimeNode->setDur(giftChangeTime[curDayIdx] * 60 * 60);
+			}
+		}
+		updateGiftChange();
+		
+
 		UserData::getInstance()->setEndlessCount(0);
 		UserData::getInstance()->setTiliBuyTimes(3);
 		UserData::getInstance()->setPopGuideBoss(1);
@@ -5672,7 +5861,7 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 
 		if (curactivitydayidx >= 0 && curactivitydayidx < 7)
 		{
-			if (!GameMap::getCurGameMap()->isInFight())//not in fight
+			if (!GameMap::getCurGameMap()->isInFight() && !this->isGuideEffectPop())//not in fight
 			{
 				auto pLayer = DailyRewardLayer::create(2, onlineDay);
 				this->addChild(pLayer, POP_Z);
@@ -5684,7 +5873,7 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 		}
 		else if (!UserData::getInstance()->getIsGotDailyReward(6))
 		{
-			if (!GameMap::getCurGameMap()->isInFight())//not in fight
+			if (!GameMap::getCurGameMap()->isInFight() && !this->isGuideEffectPop())//not in fight
 			{
 				auto pLayer = DailyRewardLayer::create();
 				this->addChild(pLayer, POP_Z);
@@ -5696,7 +5885,7 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 		}
 		else
 		{
-			if (!GameMap::getCurGameMap()->isInFight())//not in fight
+			if (!GameMap::getCurGameMap()->isInFight() && !this->isGuideEffectPop())//not in fight
 			{
 				auto pLayer = DailyRewardLayer::create(true);
 				this->addChild(pLayer, POP_Z);
@@ -5731,14 +5920,17 @@ void MainLayer::onUpdateSelfInfoCallback(HttpClient* client, HttpResponse* respo
 	UserData::getInstance()->setLastLoginDay(onlineDay);
 	MagPieMgr::getInstance()->setDayIdx(onlineDay - MagPieMgr::MAGPIE_START_DAY);
 	TimeLimitActivityMgr::getInstance()->intiAndShowActivitys(onlineDay);
-	
+
 
 	this->updataGiftBtns();
 
 	if (!JRTime::isTheSameWeek(onlineDay, lastLoginDay))
 	{
 		UserData::getInstance()->setWeeklyScore(0);
-		NetDataMgr::getInstance()->updateRole(CC_CALLBACK_2(MainLayer::onUpdateSelfInfoCallback, this));
+		if (0 != lastLoginDay)
+		{
+			NetDataMgr::getInstance()->updateRole(CC_CALLBACK_2(MainLayer::onUpdateSelfInfoCallback, this));
+		}
 	}
 
 	if (0 == lastSettleDay)

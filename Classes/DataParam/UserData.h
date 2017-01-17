@@ -5,6 +5,7 @@
 #include "ParamData.h"
 #include "BagItemControl.h"
 #include "../Scenes/TimeCountDownNode.h"
+#include "Defines.h"
 
 USING_NS_CC;
 using namespace std;
@@ -245,14 +246,22 @@ public:
 	}
 	//
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+	int getIsBossPass(int posidx);
+#else	
 	int getIsBossPass(int posidx) {
 		return _userInfo._isPassBoss[posidx];
 	}
+#endif
 
 	int getPlayingGuanqiaIdx() { return _userInfo._guanqiaIsPlayingIdx; }
 	void setPlayingGuanqiaIdx(int posidx) { _userInfo._guanqiaIsPlayingIdx = posidx; }
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+	void setBossPass(int posidx, int ispossvaleue);
+#else
 	void setBossPass(int posidx, int ispossvaleue) { _userInfo._isPassBoss[posidx] = ispossvaleue; }
+#endif
 
 	int getEndlessCount() { return _userInfo._endlessCount; }
 	void setEndlessCount(int endlessCount) { _userInfo._endlessCount = endlessCount; }
@@ -320,8 +329,13 @@ public:
 	int getCurDayGiftTimes() { return _userInfo._dayGiftBuyTimes; }
 	void setCurDayGiftTimes(int gifttype) { _userInfo._dayGiftBuyTimes = gifttype; }
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+	int getBoxGet(int idx);
+	void setBoxGet(int idx, int get);
+#else
 	int getBoxGet(int idx) { return _userInfo._isBoxGet[idx]; }
 	void setBoxGet(int idx, int get) { _userInfo._isBoxGet[idx] = get; }
+#endif
 
 	int getHavePopBgl() { return _userInfo._havePopBgl; }
 	void setHavePopBgl(int havepop) { _userInfo._havePopBgl = havepop; }
@@ -481,7 +495,10 @@ private:
 		int _isEndlessGuided;
 
 		int _isPassBoss[81];
-
+#if (1 == CC_ENABLE_NEW_WORLD)
+		//20161023 J
+		int _isNewPassBoss[80];
+#endif
 		int _guanqiaIsPlayingIdx;
 		int _bgllv;
 		bool _arrIsGotDailyReward[7];
@@ -495,6 +512,9 @@ private:
 		int _dayGiftBuyTimes;
 
 		int _isBoxGet[81];
+#if (1 == CC_ENABLE_NEW_WORLD)
+		int _isNewBoxGet[80];
+#endif
 		int _havePopBgl;
 
 		int _daypass;

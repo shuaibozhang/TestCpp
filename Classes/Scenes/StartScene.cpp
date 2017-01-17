@@ -145,6 +145,19 @@ bool StartScene::init()
 	textqq->setString("QQ: 3286043664");
 	textqq->setPosition(Vec2(530.f, 20.f));
 
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	auto textUserId = Text::create();
+	this->addChild(textUserId);
+	textUserId->setFontSize(24);
+	textUserId->setPosition(Vec2(530.f, 50.f));
+
+	auto action = Sequence::createWithTwoActions(DelayTime::create(1.f), CallFunc::create([=]() {
+		textUserId->setString(string("UserID: ") + cocos2dx_plat::getUserId());
+	}));
+	this->runAction(action);
+#endif
+	
+
 	setKeyboardEnabled(true);
 
 	_keyboardListener->onKeyReleased = [=](EventKeyboard::KeyCode code, Event* event) {

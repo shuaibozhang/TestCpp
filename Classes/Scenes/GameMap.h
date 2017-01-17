@@ -9,6 +9,7 @@
 #include "effects/RTTNode.h"
 #include "GLCommon/GLGraph.h"
 #include "../effects/RTTNode.h"
+#include "Defines.h"
 
 USING_NS_CC;
 using namespace ui;
@@ -146,6 +147,7 @@ public:
 	void setCanTouchMove(bool canTouch);
 
 	void showDialog(Node* targetNode);
+	//void showDialogBuyInStory(int idx, bool story = false);
 	void showEnterStoryDiglog(int fileid, int pos);
 	void showEnterFightDiglog(int pos, bool inmove = false);
 
@@ -203,7 +205,15 @@ public:
 	void updateNewMapBtn();
 
 	static const int s_mapBtnNum = 81;
-	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161023 J
+	static const int s_newMapBtnNum = 80;
+	static const int s_newStartIdx = 100;
+	static const int s_blankStageNum = 18;
+
+	void toNewMap();
+	void toOldMap();
+#endif
 	void popNearyBoss();
 private:
 	bool _pauseGame;
@@ -214,6 +224,12 @@ private:
 	float _sizeMax;
 	float _sizeMin;
 	Node* _mapRoot;
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161020 J
+	Node* _newMapRoot;		
+	Node * _newBtn[s_newMapBtnNum];
+#endif
 	Node* _btns[s_mapBtnNum];
 	GLGraph _graph;
 	Node* _players;
@@ -239,8 +255,20 @@ private:
 	Vec2 _pos[s_mapBtnNum];
 	std::vector<Node*> _mapEageLineVector;
 	std::map<std::string, Node*> _mapEageLineMap;
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161023 J
+	int _newArrGuaiQiaMapidx[s_newMapBtnNum];
+	Vec2 _newPos[s_newMapBtnNum];
+	std::vector<Node*> _newMapEageLineVector;
+#endif
 	bool _isShowPoints;
 	cocos2d::Menu* _mapPointsMenu;
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161020 J
+	cocos2d::Menu* _newMapPointMenu;
+#endif
 	cocos2d::Node* _mapLinesNode;
 	bool _endmove;
 
@@ -250,5 +278,8 @@ private:
 	Vec2 _jiantouCenter;
 	Node* _fignerAni;
 	ui::Button* _newMapBtn;
+#if (1 == CC_ENABLE_NEW_WORLD)
+	ui::Button* _oldMapBtn;
+#endif
 };
 #endif

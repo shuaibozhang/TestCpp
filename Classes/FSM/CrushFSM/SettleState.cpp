@@ -132,7 +132,7 @@ void SettleState::enter(CrushLayer * pOwner)
 			arrPer[i] = arrCount[i] * 1.f / (arrCount[0] + arrCount[1] + arrCount[2] + arrCount[3]);
 		}
 
-		GameMap::getCurGameMap()->showResault(isWin, totalExp, 0, arrPer);
+		GameMap::getCurGameMap()->showResault(isWin, totalExp, FightLayer::getInstance()->getTotalGold(), arrPer);
 		GameLayer::getInstance()->stopFight(); }), nullptr));
 
 #endif

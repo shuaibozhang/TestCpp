@@ -62,12 +62,11 @@ std::string cocos2dx_plat::getonlineTime( void )
 	auto sec = JRTime::getCurSecInMin();
 //	static char a[50];
 	char a[50] = {0};
-	sprintf(a, "%d-%d-%d-%d-%d", yera, day + 11, hour, min, sec);
+	sprintf(a, "%d-%d-%d-%d-%d", yera, day, hour, min, sec);
 
 	string ret(a);
 
 	return ret;
-	//return "error";
 }
 
 
@@ -109,4 +108,9 @@ string cocos2dx_plat::getGameValue(string key)
 void cocos2dx_plat::setGameValue(string key, string strValue)
 {
 	return;
+}
+
+string cocos2dx_plat::getUserId(void)
+{
+	return "user_110";
 }

@@ -215,6 +215,8 @@ public:
 	static const int ONLINE_TEACHER_REWARD_NUM = 6;
 
 	static const int MAX_TILI = 50;
+
+	static const int P_POPBUY = 40;
 };
 
 

@@ -32,6 +32,7 @@ public:
 	static bool hasSensitiveWord(string text);
 	static string getGameValue(string key);
 	static void setGameValue(string key, string strValue);
+	static string getUserId();
 };
 
 #endif

@@ -44,7 +44,11 @@ bool RoleDialog::init(const std::string & talkId, int rolePosIndex, int contentT
 		_rolePosIndex = rolePosIndex;
 		
 		float lblWidth = 300.f;
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+		float lblHeight = 60.f;
+#else
 		float lblHeight = 50.f;
+#endif
 		float bgWidth = lblWidth + 30.f;
 		float bgHeight = lblHeight + 60.f;
 

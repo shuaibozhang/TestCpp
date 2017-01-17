@@ -48,7 +48,11 @@ void GameResPool::recycleRes(int resId, Node *pRes)
 
 void GameResPool::recycleRes(Node * pRes)
 {
+#if (CC_PLATFORM_IOS  == CC_TARGET_PLATFORM)
+	int resId = (long)(pRes->getUserData());	
+#else
 	int resId = (int)(pRes->getUserData());
+#endif
 	recycleRes(resId, pRes);
 }
 

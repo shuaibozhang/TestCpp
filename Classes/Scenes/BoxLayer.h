@@ -10,58 +10,6 @@ using namespace ui;
 class GameButton;
 class TimeCountDownNode;
 
-class TiliRewardLayer : public Layer
-{
-public:
-	TiliRewardLayer();
-	~TiliRewardLayer();
-
-	CREATE_FUNC(TiliRewardLayer);
-	virtual bool init()override;
-
-	void initTimeInfo();
-	void getCurOnlineTime();
-
-	void timeAction();
-
-	void menuOnOpenBox(Ref*, Widget::TouchEventType type);
-	void menuOnGetTili(Ref*, Widget::TouchEventType type);
-	//void menuOnReGetTili(Ref*, Widget::TouchEventType type);
-	void menuOnBuyTili(Ref*, Widget::TouchEventType type);
-
-	void updateBoxStage();
-	void updateBtnsStage();
-	void checkBtnShow(int idx);
-
-	void buyCallBack(const std::string& itemid);
-	void regetCallBack(const std::string& itemid);
-	/*@param
-	type: 0 is free get, 1 is buy reget;
-	idx: the idx from 0 to 2;
-	*/
-	bool checkCanGetTili(int type, int idx);
-
-	void updateStaticBtnInfo();
-private:
-	TimeCountDownNode* _tiliTimeNode;
-	int _curTime;
-	Node* _root;
-
-	Node* _textOpen;
-	Node* _timeInfoNode;
-	Node* _barNode;
-	Text* _winTimeText;
-	LoadingBar* _winTimesBar;
-	Button* _btns[5];
-	bool _getOnlineTime;
-
-	EventListenerCustom* _backToForegroundlistener;
-
-	Text* _buyTimeText;
-
-	int _curRegetBuyIdx;
-};
-
 class BoxLayer : public Layer
 {
 public:

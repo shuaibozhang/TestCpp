@@ -67,7 +67,7 @@ void GLLocalStorage::glLocalStorageInit( const std::string& fullpath/* = "" */)
 		else
 			ret = sqlite3_open(fullpath.c_str(), &_db);
 
-#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32)  
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_WIN32 || CC_TARGET_PLATFORM != CC_PLATFORM_IOS)  
 		sqlite3_key(_db, "test", 4);
 #endif       
 

@@ -207,7 +207,11 @@ void Monster::startAtt()
 	this->startAttAnim();
 }
 
+#if (CC_PLATFORM_IOS  == CC_TARGET_PLATFORM)
+bool Monster::doHurtByRole(float damage, int attribute, long round, float attrParam)
+#else
 bool Monster::doHurtByRole(float damage, int attribute, int round, float attrParam)
+#endif
 {
 	GameLayer::getInstance()->addCombo();
 
@@ -219,7 +223,11 @@ bool Monster::doHurtByRole(float damage, int attribute, int round, float attrPar
 	return doHurt(damage, attribute, round, attrParam);
 }
 
+#if (CC_PLATFORM_IOS  == CC_TARGET_PLATFORM)
+bool Monster::doHurt(float damage, int attribute, long round, float attrParam)
+#else
 bool Monster::doHurt(float damage, int attribute, int round, float attrParam)
+#endif
 {
 	if (!_isDead)
 	{
@@ -238,6 +246,10 @@ bool Monster::doHurt(float damage, int attribute, int round, float attrParam)
 		}
 		else
 		{
+			if (AttAttrbt_E::ATT_DRUG == attribute)
+			{
+				round = MAX(0, round - pDefAttrbtInfo->hurt);
+			}
 			factDamage = damage * pDefAttrbtInfo->hurt;
 			factAttrDamage = attrParam * pDefAttrbtInfo->hurt;
 
@@ -246,7 +258,7 @@ bool Monster::doHurt(float damage, int attribute, int round, float attrParam)
 		}
 
 		if (AttAttrbt_E::ATT_NORMAL != attribute && 0 != round && AttAttrbt_E::ATT_ABSORB_HP != attribute
-			&& !(nullptr != pDefAttrbtInfo && AttAttrbt_E::ATT_DRUG == attribute))// && 0.f != pDefAttrbtInfo->hurt
+			&& !(nullptr != pDefAttrbtInfo && AttAttrbt_E::ATT_DRUG == attribute && 0 == round))// && 0.f != pDefAttrbtInfo->hurt
 		{
 			bool isFound = false;
 			for (int i = 0; i < _arrWeakInfo.size(); i++)
@@ -388,7 +400,8 @@ void Monster::doDead()
 		int goldCount = ToolsUtil::getRandomInt(_pMonsterInfo->goldRange[0], _pMonsterInfo->goldRange[1]);
 		goldCount = CrushUtil::getMonsterGoldValue(_pMonsterInfo->lv, Player::getInstance()->getBaseLv(), goldCount, GameLayer::getInstance()->getIsNeedGrow());
 #endif
-//		goldCount = 1;
+		//		goldCount = 1;
+		FightLayer::getInstance()->setTotalGold(FightLayer::getInstance()->getTotalGold() + goldCount);
 		while (goldCount > 0)
 		{
 			int itemId = 0;
@@ -417,7 +430,6 @@ void Monster::doDead()
 				FightLayer::getInstance()->addChild(pItem);
 			}), nullptr));
 		}
-		FightLayer::getInstance()->setTotalGold(FightLayer::getInstance()->getTotalGold() + goldCount);
 
 		this->dropBoxItem();
 	}

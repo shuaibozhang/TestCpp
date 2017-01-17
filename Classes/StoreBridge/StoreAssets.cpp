@@ -129,6 +129,13 @@ void StoreAssetMgr::loadStoreAssets()
 
 	std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
 	_jsonBezierDoc.Parse<0>((char*)(load_str.c_str()));
+#elif(CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	auto contentStr = FileUtils::getInstance()->getDataFromFile("storeassets/store_zy.b");
+
+	ToolsUtil::unbtea(contentStr);
+
+	std::string load_str((const char*)contentStr.getBytes(), contentStr.getSize());
+	_jsonBezierDoc.Parse<0>((char*)(load_str.c_str()));
 #else
 	auto contentStr = FileUtils::getInstance()->getDataFromFile("storeassets/store.b");
 

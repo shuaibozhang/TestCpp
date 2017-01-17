@@ -464,6 +464,7 @@ void FightLayer::startFight()
 	_gameState = 1;
 	_openBoxCount = 0;
 	_boxMonsterWaveIdx = -1;
+	_totalGold = 0;
 
 	Player::getInstance()->initFightData();
 

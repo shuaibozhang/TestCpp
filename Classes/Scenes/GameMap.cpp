@@ -35,6 +35,8 @@
 #include "../DataParam/DayActiveMgr.h"
 #include "../DataParam/NewMapOpenMgr.h"
 #include "NewWorldInfoLayer.h"
+#include "../StoreBridge/StoreAssets.h"
+#include "../Defines.h"
 
 extern const char* g_boxBtnPicName[7];
 
@@ -944,6 +946,7 @@ void GameMap::prepareMap(int idx)
 		_prepareCount = 1;
 		_pngQueue.push("mapsnew/map_4.pvr.ccz");
 	}
+#if (CC_ENABLE_NEW_WORLD == 1)
 	else if (idx == 5)
 	{
 		_prepareCount = 1;
@@ -959,6 +962,7 @@ void GameMap::prepareMap(int idx)
 		_prepareCount = 1;
 		_pngQueue.push("mapsnew/map_7.pvr.ccz");
 	}
+#endif
 	
 	preLoadMapRes();
 }
@@ -1006,6 +1010,7 @@ void GameMap::freeUnusedMap(int idx)
 		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_4.plist");
 		Director::getInstance()->getTextureCache()->removeTextureForKey("mapsnew/map_4.pvr.ccz");
 	}
+#if (CC_ENABLE_NEW_WORLD == 1)
 	else if (idx == 5)
 	{
 		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_5.plist");
@@ -1021,6 +1026,7 @@ void GameMap::freeUnusedMap(int idx)
 		SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("mapsnew/map_7.plist");
 		Director::getInstance()->getTextureCache()->removeTextureForKey("mapsnew/map_7.pvr.ccz");
 	}
+#endif
 }
 
 void GameMap::initMoveLayer()
@@ -1068,6 +1074,7 @@ void GameMap::initMoveLayer()
 		_curMapLayer3Off = 1360.f;
 		_curMapLayer1Off = 1000.f;
 	}
+#if (CC_ENABLE_NEW_WORLD == 1)
 	else if (_idx == 5)
 	{
 		_curMapLayer2Off = 1400.f;
@@ -1092,6 +1099,7 @@ void GameMap::initMoveLayer()
 		_curMapLayer3Off = 1408.f;
 		_curMapLayer1Off = 902.f;
 	}
+#endif
 	
 
 	_needMoveMapLayer.clear();
@@ -1316,6 +1324,10 @@ WordMap::WordMap():_moveAction(nullptr),
 	_newMapBtn(nullptr)
 {
 	memset(_arrGuaiQiaMapidx, -1, sizeof(_arrGuaiQiaMapidx));
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	memset(_newArrGuaiQiaMapidx, -1, sizeof(_newArrGuaiQiaMapidx));
+#endif
 	s_pInstance = this;	
 }
 
@@ -1371,6 +1383,22 @@ bool WordMap::initWordMap()
 	_mapRoot->setPosition(Vec2(-9.f,7.f));
 	_touchScaleNode->addChild(_mapRoot);
 	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	// 20161020 J
+	_newMapRoot = GameCSLoader::createNode("newWorld2/newworldmapnode.csb");
+	_touchScaleNode->addChild(_newMapRoot);
+	if (UserData::getInstance()->getPlayerPos() >= s_newStartIdx)
+	{
+		_mapRoot->setVisible(false);
+		_newMapRoot->setVisible(true);
+	}
+	else
+	{
+		_mapRoot->setVisible(true);
+		_newMapRoot->setVisible(false);
+	}
+#endif
+
 	auto _mapStartY = 50.f;
 	_jiantouCenter = Vec2(320.f, (VisibleRect::top().y) * 0.5f + 360.f * 0.5f);
 
@@ -1444,6 +1472,13 @@ bool WordMap::initWordMap()
 	_mapRoot->addChild(_mapPointsMenu, 3);
 	_mapPointsMenu->setPosition(Vec2(0.f, 0.f));
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161020 J
+	_newMapPointMenu = Menu::create();
+	_newMapPointMenu->setPosition(Vec2());
+	_newMapRoot->addChild(_newMapPointMenu);
+#endif
+
 	Vec2 newWorldMapPos = Vec2(1338.f, 405);
 	_newMapBtn = Button::create("mainui_newmappoint_1.png", "", "", Widget::TextureResType::PLIST);
 	_mapRoot->addChild(_newMapBtn, 4);
@@ -1465,6 +1500,108 @@ bool WordMap::initWordMap()
 	auto actionRotate2 = RepeatForever::create(RotateBy::create(0.5f, -180.f));
 	newmapbg->runAction(actionRotate2);
 
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	_oldMapBtn = Button::create("mainui_newmappoint_1.png", "", "", Widget::TextureResType::PLIST);
+	_newMapRoot->addChild(_oldMapBtn, 4);
+	_oldMapBtn->setPosition(newWorldMapPos);
+	auto actionRotateNew = RepeatForever::create(RotateBy::create(1.f, 180.f));
+	_oldMapBtn->runAction(actionRotateNew);
+
+	_oldMapBtn->addTouchEventListener([=](Ref*, Widget::TouchEventType type)
+	{
+		if (type == Widget::TouchEventType::ENDED)
+		{
+			auto layer = NewWorldInfo::create();
+			MainLayer::getCurMainLayer()->addChild(layer, POP_Z);
+		}
+	});
+	auto oldmapbg = Sprite::createWithSpriteFrameName("mainui_newmappoint_0.png");
+	_oldMapBtn->addChild(oldmapbg);
+	oldmapbg->setPosition(_oldMapBtn->getContentSize() / 2.f);
+	auto actionRotateNew2 = RepeatForever::create(RotateBy::create(0.5f, -180.f));
+	oldmapbg->runAction(actionRotateNew2);
+	//20161020 J
+	for (int i = s_newStartIdx; i < s_newStartIdx +s_newMapBtnNum;i++)
+	{
+		bool isshop = false;
+
+		auto& shopinfo = ParamMgr::getInstance()->getShopAttr();
+		for (auto&temp : shopinfo)
+		{
+			if (temp.pos == i)
+			{
+				isshop = true;
+				break;
+			}
+		}
+
+		if (isshop)
+		{
+			auto fakeBtn = _newMapRoot->getChildByName(String::createWithFormat("pos_%d", i)->getCString());
+			auto btnsprite = Sprite::createWithSpriteFrameName("word_shop.png");
+			glui::GLMenuItemSprite* realBtn = glui::GLMenuItemSprite::create(btnsprite, CC_CALLBACK_1(WordMap::menuOnShop, this));
+			realBtn->setScale(1.1f);
+
+			_newPos[i - s_newStartIdx] = fakeBtn->getPosition();
+
+			auto jump = Sequence::createWithTwoActions(DelayTime::create(2.f), JumpTo::create(0.5f, _newPos[i- s_newStartIdx], 15.f, 2));
+			realBtn->runAction(RepeatForever::create(jump));
+
+			realBtn->setPosition(fakeBtn->getPosition());
+			realBtn->setAnchorPoint(Vec2(0.5f, 0.22f));
+			realBtn->setName(String::createWithFormat("%d", i)->getCString());
+			_graph.addNewNode(realBtn);
+
+			_newBtn[i - s_newStartIdx] = realBtn;
+
+
+			fakeBtn->removeFromParent();
+
+			_newMapPointMenu->addChild(realBtn);
+		}
+		else
+		{
+			auto fakeBtn = _newMapRoot->getChildByName(String::createWithFormat("pos_%d", i)->getCString());
+
+			_newPos[i - s_newStartIdx] = fakeBtn->getPosition();
+
+			auto btnsprite = Sprite::createWithSpriteFrameName("mapui_point.png");
+			glui::GLMenuItemSprite* realBtn = glui::GLMenuItemSprite::create(btnsprite, CC_CALLBACK_1(WordMap::menuOnPoint, this));
+			realBtn->setScale(1.3f);
+			
+			if (StoryMgr::getInstance()->isStoryPos(i))
+			{
+				realBtn->setScale(1.8f);
+			}
+
+			if (UserData::getInstance()->getIsBossPass(i) == 1 && checkIsBoss(i))
+			{
+				auto jingyingicon = Sprite::createWithSpriteFrameName("guanqia_boss.png");
+				_newMapRoot->addChild(jingyingicon, 5);
+
+				jingyingicon->setName(String::createWithFormat("boss_jingying_%d", i)->getCString());
+
+				jingyingicon->setPosition(_newPos[i- s_newStartIdx] + Vec2(0.f, 40.f));
+				auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+				jingyingicon->runAction(RepeatForever::create(actionmove));
+			}
+
+			realBtn->setPosition(fakeBtn->getPosition());
+			realBtn->setName(String::createWithFormat("%d", i)->getCString());
+			_graph.addNewNode(realBtn);
+
+			_newBtn[i - s_newStartIdx] = realBtn;
+
+			fakeBtn->removeFromParent();
+
+			_newMapPointMenu->addChild(realBtn);
+
+			updateBoxGetInfo(i);
+		}
+	}
+#endif
+	
 	for (int i = 0; i < s_mapBtnNum; i++)
 	{	
 		rapidjson::Value& xy = posarr[i];
@@ -1571,8 +1708,28 @@ bool WordMap::initWordMap()
 
 	_players = Sprite::createWithSpriteFrameName("mapui_playerpos_0.png");
 	_players->setAnchorPoint(Vec2(0.5f, 0.2f));
+#if (1 == CC_ENABLE_NEW_WORLD)
+	_players->retain();
+	int pos = UserData::getInstance()->getPlayerPos();
+	if (pos>= s_newStartIdx)
+	{
+		_newMapRoot->addChild(_players, 3);
+		_players->setPosition(_newBtn[pos- s_newStartIdx]->getPosition());
+		_curNode = _newBtn[pos- s_newStartIdx];
+		_startPos = _curNode->getPosition();
+	}
+	else
+	{
+		_mapRoot->addChild(_players, 3);
+		_players->setPosition(_btns[pos]->getPosition());
+		_curNode = _btns[pos];
+		_startPos = _curNode->getPosition();
+	}
+#else	
 	_mapRoot->addChild(_players,3);
 	_players->setPosition(_btns[UserData::getInstance()->getPlayerPos()]->getPosition());
+#endif
+
 
 	_players->stopAllActions();
 	Vector<SpriteFrame*> animations;
@@ -1588,11 +1745,11 @@ bool WordMap::initWordMap()
 	Animate* animate = Animate::create(animation);
 	_players->runAction(RepeatForever::create(animate));
 
-	if (UserData::getInstance()->isNeedGuide())
+	if (UserData::getInstance()->getMaxPos() <= 1)
 	{
 		_fignerAni = Sprite::createWithSpriteFrameName("com_finger_0.png");
 		_mapRoot->addChild(_fignerAni, 4);
-		_fignerAni->setPosition(_btns[0]->getPosition() + Vec2(30.f, -40.f));
+		_fignerAni->setPosition(_btns[UserData::getInstance()->getMaxPos()]->getPosition() + Vec2(30.f, -40.f));
 
 		auto action = Sequence::createWithTwoActions(MoveBy::create(0.5f, Vec2(10.f, -20.f)), MoveBy::create(0.5f, Vec2(-10.f, 20.f)));
 		_fignerAni->runAction(RepeatForever::create(action));
@@ -1623,16 +1780,35 @@ bool WordMap::initWordMap()
 
 void WordMap::addJingYing(int i)
 {
-	if (checkIsBoss(i) && _mapRoot->getChildByName(String::createWithFormat("boss_jingying_%d", i)->getCString()) == nullptr)
+#if (1 == CC_ENABLE_NEW_WORLD)
+	if (i >= s_newStartIdx)
 	{
-		auto jingyingicon = Sprite::createWithSpriteFrameName("guanqia_boss.png");
-		_mapRoot->addChild(jingyingicon, 5);
+		if (checkIsBoss(i) && _mapRoot->getChildByName(String::createWithFormat("boss_jingying_%d", i)->getCString()) == nullptr)
+		{
+			auto jingyingicon = Sprite::createWithSpriteFrameName("guanqia_boss.png");
+			_newMapRoot->addChild(jingyingicon, 5);
 
-		jingyingicon->setName(String::createWithFormat("boss_jingying_%d", i)->getCString());
+			jingyingicon->setName(String::createWithFormat("boss_jingying_%d", i)->getCString());
 
-		jingyingicon->setPosition(_pos[i] + Vec2(0.f, 40.f));
-		auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
-		jingyingicon->runAction(RepeatForever::create(actionmove));
+			jingyingicon->setPosition(_newPos[i-s_newStartIdx] + Vec2(0.f, 40.f));
+			auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+			jingyingicon->runAction(RepeatForever::create(actionmove));
+		}
+	}
+	else
+#endif
+	{
+		if (checkIsBoss(i) && _mapRoot->getChildByName(String::createWithFormat("boss_jingying_%d", i)->getCString()) == nullptr)
+		{
+			auto jingyingicon = Sprite::createWithSpriteFrameName("guanqia_boss.png");
+			_mapRoot->addChild(jingyingicon, 5);
+
+			jingyingicon->setName(String::createWithFormat("boss_jingying_%d", i)->getCString());
+
+			jingyingicon->setPosition(_pos[i] + Vec2(0.f, 40.f));
+			auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+			jingyingicon->runAction(RepeatForever::create(actionmove));
+		}
 	}
 }
 
@@ -1709,17 +1885,40 @@ void WordMap::showDialog(Node* targetNode)
 
 }
 
+
 void WordMap::showEnterStoryDiglog(int fileid, int posidx)
 {
-	auto info = ParamMgr::getInstance()->getStageInfo(posidx);
+	bool showBuy = false;
 
-	auto dialogNode = GameCSLoader::createNode("maps/mapdialognode.csb");
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	if ((ToolsUtil::getRandomInt(1, 100) <= ParamData::P_POPBUY))
+	{
+		showBuy = true;
+	}
+#endif
+	auto info = ParamMgr::getInstance()->getStageInfo(posidx);
+	Node* dialogNode = nullptr;
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	
+	if (showBuy)
+	{
+		dialogNode = GameCSLoader::createNode("maps/mapdialognode_buy_zy.csb");		
+	}
+	else
+	{
+		dialogNode = GameCSLoader::createNode("maps/mapdialognode_zy.csb");
+	}
+#else
+	dialogNode = GameCSLoader::createNode("maps/mapdialognode.csb");
+#endif
+	
 	MainLayer::getCurMainLayer()->addChild(dialogNode,MainLayer_Z::POP_Z);
 	dialogNode->setPosition(310.f, VisibleRect::top().y /2.f - 140.f);
 
 	auto text = static_cast<Text*>(dialogNode->getChildByName("tiptext"));
+	
 	text->setString(info->stageDesc);
-
+	
 	auto text2 = static_cast<Text*>(dialogNode->getChildByName("posname"));
 	auto name = ParamMgr::getInstance()->getPosName(StoryMgr::getInstance()->getCurStoryConfig().posid);
 	auto guanqia = String::createWithFormat(ResMgr::getInstance()->getString("guanqia_idx")->getCString(), posidx + 1)->getCString() + name;
@@ -1744,9 +1943,19 @@ void WordMap::showEnterStoryDiglog(int fileid, int posidx)
 	btnok->addTouchEventListener([=](Ref*, ui::Widget::TouchEventType type) {
 		if (type == ui::Widget::TouchEventType::ENDED)
 		{
+			if (showBuy)
+			{
+				MainLayer::getCurMainLayer()->popPurchaseLayer(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT, true);
+			}
+
 			if (UserData::getInstance()->getTili() < info->energyCost)
 			{
 				cocos2dx_plat::showToast(ResMgr::getInstance()->getString("no_enough_tili")->getCString());
+				if (showBuy)
+				{
+					dialogNode->removeFromParent();
+					tryBackToLastPos();
+				}
 				return;
 			}
 			else
@@ -1764,6 +1973,12 @@ void WordMap::showEnterStoryDiglog(int fileid, int posidx)
 	btncancle->addTouchEventListener([=](Ref*, ui::Widget::TouchEventType type) {
 		if (type == ui::Widget::TouchEventType::ENDED)
 		{
+			if (showBuy)
+			{
+				GameMap::getCurGameMap()->loadStory(0);
+				dialogNode->removeFromParent();
+				return;
+			}
 			dialogNode->removeFromParent();
 			tryBackToLastPos();
 		}
@@ -1771,43 +1986,70 @@ void WordMap::showEnterStoryDiglog(int fileid, int posidx)
 
 	btnok->setPositionY(btnok->getPositionY());
 
-	auto boxpos = Vec2(-105.f, 95.f);
-	auto& boxget = info->arrBoxChance;
-	int idxbox = 0;
-	for (int i = 0; i < sizeof(boxget) / sizeof(int); i++)
+	if (!showBuy)
 	{
-		if (boxget[i] == 0)
+		auto boxpos = Vec2(-105.f, 95.f);
+		auto& boxget = info->arrBoxChance;
+		int idxbox = 0;
+		for (int i = 0; i < sizeof(boxget) / sizeof(int); i++)
 		{
-			continue;
+			if (boxget[i] == 0)
+			{
+				continue;
+			}
+
+			auto bg = Sprite::createWithSpriteFrameName("guanqia_boxbg.png");
+			dialogNode->addChild(bg);
+			bg->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
+
+			auto icon = Sprite::createWithSpriteFrameName(g_boxBtnPicName[i]);
+			icon->setScale(0.4f);
+			//auto icon = Sprite::createWithSpriteFrameName(String::createWithFormat("quanqia_box_%d.png", i)->getCString());
+			dialogNode->addChild(icon);
+			icon->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
+
+			idxbox++;
 		}
-
-		auto bg = Sprite::createWithSpriteFrameName("guanqia_boxbg.png");
-		dialogNode->addChild(bg);
-		bg->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
-
-		auto icon = Sprite::createWithSpriteFrameName(g_boxBtnPicName[i]);
-		icon->setScale(0.4f);
-		//auto icon = Sprite::createWithSpriteFrameName(String::createWithFormat("quanqia_box_%d.png", i)->getCString());
-		dialogNode->addChild(icon);
-		icon->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
-	
-		idxbox++;
 	}
+	
 }
 
 void WordMap::showEnterFightDiglog(int idx, bool inmove)
 {
+	bool showBuy = false;
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	if ((ToolsUtil::getRandomInt(1, 100) <= ParamData::P_POPBUY))
+	{
+		showBuy = true;
+	}
+#endif
+
 	bool bossAndHardMode = false;
 
 	auto info = ParamMgr::getInstance()->getStageInfo(idx);
 
-	auto dialogNode = GameCSLoader::createNode("maps/mapdialognode.csb");
+	Node* dialogNode = nullptr;
+#if (CC_PAY_SDK == PAY_SDK_ZHUOYI)
+	if (showBuy)
+	{
+		dialogNode = GameCSLoader::createNode("maps/mapdialognode_buy_zy.csb");		
+
+	}
+	else
+	{
+		dialogNode = GameCSLoader::createNode("maps/mapdialognode_zy.csb");
+	}
+#else
+	dialogNode = GameCSLoader::createNode("maps/mapdialognode.csb");
+#endif
+
 	MainLayer::getCurMainLayer()->addChild(dialogNode, MainLayer_Z::POP_Z);
 	dialogNode->setPosition(310.f, VisibleRect::top().y / 2.f - 140.f);
 
 	auto text = static_cast<Text*>(dialogNode->getChildByName("tiptext"));
+	
 	text->setString(info->stageDesc);
-
+	
 	auto text2 = static_cast<Text*>(dialogNode->getChildByName("posname"));
 	auto name = ParamMgr::getInstance()->getPosName(idx);
 	
@@ -1841,9 +2083,35 @@ void WordMap::showEnterFightDiglog(int idx, bool inmove)
 	btnok->addTouchEventListener([=](Ref*, ui::Widget::TouchEventType type) {
 		if (type == ui::Widget::TouchEventType::ENDED)
 		{
+			if (showBuy)
+			{
+				MainLayer::getCurMainLayer()->popPurchaseLayer(StoreAssetMgr::ITEMID_GOOD_SUPERGIFT, true);
+			}
+
 			if (UserData::getInstance()->getTili() < info->energyCost)
 			{
 				cocos2dx_plat::showToast(ResMgr::getInstance()->getString("no_enough_tili")->getCString());
+				if (showBuy)
+				{
+					if (inmove)
+					{
+						norCurLightRoad();
+						norLastLightRoad();
+						_nextNode = nullptr;
+						_finishMoveRoad = true;
+						_needMove = false;
+						GameMap::getCurGameMap()->setAutoMove(false);
+					}
+
+					if (!_endmove)
+					{
+						MainLayer::getCurMainLayer()->moveUpMenu(1.0f);
+						GameMap::getCurGameMap()->moveUpEffect(0.5f, true);
+					}
+
+					dialogNode->removeFromParent();
+					tryBackToLastPos();
+				}
 				return;
 			}
 			else
@@ -1907,27 +2175,29 @@ void WordMap::showEnterFightDiglog(int idx, bool inmove)
 			dialogNode->removeFromParent();
 		}
 	});
-
-	auto boxpos = Vec2(-105.f, 95.f);
-	auto& boxget = info->arrBoxChance;
-	int idxbox = 0;
-	for (int i = 0; i < sizeof(boxget) / sizeof(int); i++)
+	if (!showBuy)
 	{
-		if (boxget[i] == 0)
+		auto boxpos = Vec2(-105.f, 95.f);
+		auto& boxget = info->arrBoxChance;
+		int idxbox = 0;
+		for (int i = 0; i < sizeof(boxget) / sizeof(int); i++)
 		{
-			continue;
+			if (boxget[i] == 0)
+			{
+				continue;
+			}
+
+			auto bg = Sprite::createWithSpriteFrameName("guanqia_boxbg.png");
+			dialogNode->addChild(bg);
+			bg->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
+			auto icon = Sprite::createWithSpriteFrameName(g_boxBtnPicName[i]);
+			icon->setScale(0.4f);
+			//auto icon = Sprite::createWithSpriteFrameName(String::createWithFormat("quanqia_box_%d.png", i)->getCString());
+			dialogNode->addChild(icon);
+			icon->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
+
+			idxbox++;
 		}
-
-		auto bg = Sprite::createWithSpriteFrameName("guanqia_boxbg.png");
-		dialogNode->addChild(bg);
-		bg->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
-		auto icon = Sprite::createWithSpriteFrameName(g_boxBtnPicName[i]);
-		icon->setScale(0.4f);
-		//auto icon = Sprite::createWithSpriteFrameName(String::createWithFormat("quanqia_box_%d.png", i)->getCString());
-		dialogNode->addChild(icon);
-		icon->setPosition(boxpos + Vec2(90.f * idxbox, 0.f));
-
-		idxbox++;
 	}
 }
 
@@ -1938,6 +2208,37 @@ void WordMap::loadMapConfig()
 	_mapLinesNode = Node::create();
 	_mapRoot->addChild(_mapLinesNode, 2);
 
+#if (1 == CC_ENABLE_NEW_WORLD)
+	auto node2 = _newMapRoot->getChildByName("eages");
+
+	for (auto& eage :node2->getChildren())
+	{
+
+		auto name = eage->getName();
+		auto itr = name.find_first_of('-');
+		auto num1 = std::string(name, 0, itr);
+		auto num2 = std::string(name, itr + 1);
+		int eageleft = atoi(num1.c_str());
+		int egaeright = atoi(num2.c_str());
+
+		eage->setPosition((_newPos[eageleft-s_newStartIdx] + _newPos[egaeright- s_newStartIdx]) * 0.5f);
+		eage->setLocalZOrder(2);
+
+		auto angle = Vec2(1.f, 0.f).getAngle(_newPos[eageleft- s_newStartIdx] - _newPos[egaeright- s_newStartIdx]);
+		eage->setRotation(-angle / 3.14 * 180);
+
+		float trueleagth = _newPos[eageleft- s_newStartIdx].getDistance(_newPos[egaeright- s_newStartIdx]);
+		float nowleagth = eage->getContentSize().width;
+		float scalex = trueleagth / nowleagth;
+		eage->setScaleX(scalex);
+		eage->setScaleY(1.3f);
+
+		_newMapEageLineVector.push_back(eage);
+
+		_graph.addNewEdges(_newBtn[eageleft - s_newStartIdx], _newBtn[egaeright - s_newStartIdx]);
+	}
+#endif	
+	
 	for (auto& eage : node->getChildren())
 	{
 		eage->setLocalZOrder(2);
@@ -1990,9 +2291,19 @@ void WordMap::loadMapConfig()
 			const rapidjson::Value& arry = item["sceneid"];
 
 			_arrGuaiQiaMapidx[i] = arry[0].GetDouble();
-			//debug zsb
-			//_arrGuaiQiaMapidx[i] = 7;
 		}
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+		//20161021 J
+		for (int i = s_newStartIdx; i < s_newStartIdx + s_newMapBtnNum;i++)
+		{
+			const rapidjson::Value& item = _jsonBezierDoc[i-s_blankStageNum];
+			const rapidjson::Value& arry = item["sceneid"];
+
+			_newArrGuaiQiaMapidx[i - s_newStartIdx] = arry[0].GetDouble();
+		}
+#endif
+
 	}
 }
 
@@ -2079,6 +2390,10 @@ void WordMap::doSearchRoad(Node * start, Node* end)
 
 void WordMap::hightLightRoad(Node * start, Node * end)
 {
+#if (1 == CC_ENABLE_NEW_WORLD)
+	int startIdx = atoi(start->getName().c_str());
+#endif
+
 	if (start->getName().compare(end->getName()) == 0)
 	{
 		if (_nextNode != nullptr)
@@ -2087,21 +2402,43 @@ void WordMap::hightLightRoad(Node * start, Node * end)
 			norLastLightRoad();
 			_eagesVector.clear();
 			auto node = _mapLinesNode;
+#if (1 == CC_ENABLE_NEW_WORLD)
+			auto node2 = _newMapRoot->getChildByName("eages");
+#endif
 				//->getChildByName("eages");
 			{
 				auto eageleft = _curNode->getName();
 				auto egaeright = _nextNode->getName();
 				auto truname = eageleft + "-" + egaeright;
 				auto truname2 = egaeright + "-" + eageleft;
-				auto btn = node->getChildByName(truname);
-				if (btn == nullptr)
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+				if (startIdx>= s_newStartIdx)
 				{
-					btn = node->getChildByName(truname2);
+					auto btn = node2->getChildByName(truname);
+					if (btn == nullptr)
+					{
+						btn = node2->getChildByName(truname2);
+					}
+					if (btn)
+					{
+						_eagesVector.pushBack(btn);
+						btn->setColor(Color3B(255, 0, 0));
+					}
 				}
-				if (btn)
+				else
+#endif
 				{
-					_eagesVector.pushBack(btn);
-					btn->setColor(Color3B(255, 0, 0));
+					auto btn = node->getChildByName(truname);
+					if (btn == nullptr)
+					{
+						btn = node->getChildByName(truname2);
+					}
+					if (btn)
+					{
+						_eagesVector.pushBack(btn);
+						btn->setColor(Color3B(255, 0, 0));
+					}
 				}
 			}
 		}	
@@ -2116,20 +2453,40 @@ void WordMap::hightLightRoad(Node * start, Node * end)
 			_graph.getSeatchPath(start, end, road);
 			auto node = _mapLinesNode;
 				//->getChildByName("eages");
+#if (1 == CC_ENABLE_NEW_WORLD)
+			auto node2 = _newMapRoot->getChildByName("eages");
+#endif
 			for (size_t i = 0; i < road.size() - 1; i++)
 			{
 				auto eageleft = road[i]->getName();
 				auto egaeright = road[i + 1]->getName();
 				auto truname = eageleft + "-" + egaeright;
 				auto truname2 = egaeright + "-" + eageleft;
-				auto btn = node->getChildByName(truname);
-				if (btn == nullptr)
-				{
-					btn = node->getChildByName(truname2);
-				}
 
-				_eagesVector.pushBack(btn);
-				btn->setColor(Color3B(255, 0, 0));
+#if (1 == CC_ENABLE_NEW_WORLD)
+				if (startIdx >= s_newStartIdx)
+				{
+					auto btn = node2->getChildByName(truname);
+					if (btn == nullptr)
+					{
+						btn = node2->getChildByName(truname2);
+					}
+
+					_eagesVector.pushBack(btn);
+					btn->setColor(Color3B(255, 0, 0));
+				}
+				else
+#endif
+				{
+					auto btn = node->getChildByName(truname);
+					if (btn == nullptr)
+					{
+						btn = node->getChildByName(truname2);
+					}
+
+					_eagesVector.pushBack(btn);
+					btn->setColor(Color3B(255, 0, 0));
+				}
 			}
 			_eagesVectorLast = _eagesVector;
 		}
@@ -2142,20 +2499,42 @@ void WordMap::hightLightRoad(Node * start, Node * end)
 				_eagesVector.clear();
 				auto node = _mapLinesNode;
 					//->getChildByName("eages");
+#if (1 == CC_ENABLE_NEW_WORLD)
+				auto node2 = _newMapRoot->getChildByName("eages");
+#endif
 				{
 					auto eageleft = _curNode->getName();
 					auto egaeright = _nextNode->getName();
 					auto truname = eageleft + "-" + egaeright;
 					auto truname2 = egaeright + "-" + eageleft;
-					auto btn = node->getChildByName(truname);
-					if (btn == nullptr)
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+					if (startIdx >= s_newStartIdx)
 					{
-						btn = node->getChildByName(truname2);
+						auto btn = node2->getChildByName(truname);
+						if (btn == nullptr)
+						{
+							btn = node2->getChildByName(truname2);
+						}
+						if (btn)
+						{
+							_eagesVector.pushBack(btn);
+							btn->setColor(Color3B(255, 0, 0));
+						}
 					}
-					if (btn)
+					else
+#endif
 					{
-						_eagesVector.pushBack(btn);
-						btn->setColor(Color3B(255, 0, 0));
+						auto btn = node->getChildByName(truname);
+						if (btn == nullptr)
+						{
+							btn = node->getChildByName(truname2);
+						}
+						if (btn)
+						{
+							_eagesVector.pushBack(btn);
+							btn->setColor(Color3B(255, 0, 0));
+						}
 					}
 				}
 			}
@@ -2172,20 +2551,40 @@ void WordMap::hightLightRoad(Node * start, Node * end)
 				auto road = temp2.size() <= temp1.size() ? temp2 : temp1;
 				auto node = _mapLinesNode;
 					//->getChildByName("eages");
+#if (1 == CC_ENABLE_NEW_WORLD)
+				auto node2 = _newMapRoot->getChildByName("eages");
+#endif
 				for (size_t i = 0; i < road.size() - 1; i++)
 				{
 					auto eageleft = road[i]->getName();
 					auto egaeright = road[i + 1]->getName();
 					auto truname = eageleft + "-" + egaeright;
 					auto truname2 = egaeright + "-" + eageleft;
-					auto btn = node->getChildByName(truname);
-					if (btn == nullptr)
-					{
-						btn = node->getChildByName(truname2);
-					}
 
-					_eagesVector.pushBack(btn);
-					btn->setColor(Color3B(255, 0, 0));
+#if (1 == CC_ENABLE_NEW_WORLD)
+					if (startIdx>=s_newStartIdx)
+					{
+						auto btn = node2->getChildByName(truname);
+						if (btn == nullptr)
+						{
+							btn = node2->getChildByName(truname2);
+						}
+
+						_eagesVector.pushBack(btn);
+						btn->setColor(Color3B(255, 0, 0));
+					}
+					else
+#endif
+					{
+						auto btn = node->getChildByName(truname);
+						if (btn == nullptr)
+						{
+							btn = node->getChildByName(truname2);
+						}
+
+						_eagesVector.pushBack(btn);
+						btn->setColor(Color3B(255, 0, 0));
+					}
 				}
 				//if _cur and _next is same , it will crash
 				{
@@ -2193,16 +2592,35 @@ void WordMap::hightLightRoad(Node * start, Node * end)
 					auto egaeright = _nextNode->getName();
 					auto truname = eageleft + "-" + egaeright;
 					auto truname2 = egaeright + "-" + eageleft;
-					auto btn = node->getChildByName(truname);
-					if (btn == nullptr)
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+					if (startIdx>=s_newStartIdx)
 					{
-						btn = node->getChildByName(truname2);
+						auto btn = node2->getChildByName(truname);
+						if (btn == nullptr)
+						{
+							btn = node2->getChildByName(truname2);
+						}
+						if (btn)
+						{
+							_eagesVector.pushBack(btn);
+							btn->setColor(Color3B(255, 0, 0));
+						}
 					}
-					if (btn)
+					else
+#endif
 					{
-						_eagesVector.pushBack(btn);
-						btn->setColor(Color3B(255, 0, 0));
-					}			
+						auto btn = node->getChildByName(truname);
+						if (btn == nullptr)
+						{
+							btn = node->getChildByName(truname2);
+						}
+						if (btn)
+						{
+							_eagesVector.pushBack(btn);
+							btn->setColor(Color3B(255, 0, 0));
+						}
+					}
 				}
 
 				if (_eagesVectorLast.empty())
@@ -2322,7 +2740,7 @@ bool WordMap::checkEnemy(int playerpos)
 
 	if (UserData::getInstance()->getIsBossPass(playerpos) == 0)
 	{
-		showEnterFightDiglog(playerpos, true);
+		showEnterFightDiglog(playerpos, true);		
 		return true;
 	}
 
@@ -2375,45 +2793,92 @@ void WordMap::showTargetInfo(int idx)
 	int max = UserData::getInstance()->getMaxPos();
 	
 	//addJingYing(getCurPosIdx());
-
-	auto sprite = Sprite::createWithSpriteFrameName("mapui_target.png");
-	sprite->setPosition(_pos[idx] + Vec2(0.f, 40.f));
-	_mapRoot->addChild(sprite,5);
-	_targetInfoVector.pushBack(sprite);
-	sprite->setName(String::createWithFormat("targetsprite_%d", idx)->getCString());
-
-	auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
-	sprite->runAction(RepeatForever::create(actionmove));
-
-	for (int i = 0; i < s_mapBtnNum; i++)
+#if (1 == CC_ENABLE_NEW_WORLD)
+	if (idx >= s_newStartIdx)
 	{
-		auto eage = _mapEageLineVector[i];
-		auto name = eage->getName();
-		auto itr = name.find_first_of('-');
-		auto num1 = std::string(name, 0, itr);
-		auto num2 = std::string(name, itr + 1);
-		int eageleft = atoi(num1.c_str());
-		int egaeright = atoi(num2.c_str());
+		auto sprite = Sprite::createWithSpriteFrameName("mapui_target.png");
+		sprite->setPosition(_newPos[idx-s_newStartIdx] + Vec2(0.f, 40.f));
+		_newMapRoot->addChild(sprite, 5);
+		_targetInfoVector.pushBack(sprite);
+		sprite->setName(String::createWithFormat("targetsprite_%d", idx)->getCString());
 
-		if (eageleft <= max && egaeright <= max)
+		auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+		sprite->runAction(RepeatForever::create(actionmove));
+
+		for (int i = s_newStartIdx; i < s_newStartIdx + s_newMapBtnNum-1; i++)
 		{
-			eage->setVisible(true);
-		}
-		else
-		{
-			eage->setVisible(false);
-		}
+			auto eage = _newMapEageLineVector[i- s_newStartIdx];
+			auto name = eage->getName();
+			auto itr = name.find_first_of('-');
+			auto num1 = std::string(name, 0, itr);
+			auto num2 = std::string(name, itr + 1);
+			int eageleft = atoi(num1.c_str());
+			int egaeright = atoi(num2.c_str());
+
+			if (eageleft <= max && egaeright <= max)
+			{
+				eage->setVisible(true);
+			}
+			else
+			{
+				eage->setVisible(false);
+			}
 
 
-		if (i <= max)
-		{
-			_btns[i]->setVisible(true);
-			_graph._vertexInfoVector[i].islocked = false;
+			if (i <= max)
+			{
+				_newBtn[i - s_newStartIdx]->setVisible(true);
+				_graph._newVertexInfoVector[i].islocked = false;
+			}
+			else
+			{
+				_newBtn[i - s_newStartIdx]->setVisible(false);
+				_graph._newVertexInfoVector[i].islocked = true;
+			}
 		}
-		else
+	}
+	else
+#endif
+	{
+		auto sprite = Sprite::createWithSpriteFrameName("mapui_target.png");
+		sprite->setPosition(_pos[idx] + Vec2(0.f, 40.f));
+		_mapRoot->addChild(sprite, 5);
+		_targetInfoVector.pushBack(sprite);
+		sprite->setName(String::createWithFormat("targetsprite_%d", idx)->getCString());
+
+		auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+		sprite->runAction(RepeatForever::create(actionmove));
+
+		for (int i = 0; i < s_mapBtnNum; i++)
 		{
-			_btns[i]->setVisible(false);
-			_graph._vertexInfoVector[i].islocked = true;
+			auto eage = _mapEageLineVector[i];
+			auto name = eage->getName();
+			auto itr = name.find_first_of('-');
+			auto num1 = std::string(name, 0, itr);
+			auto num2 = std::string(name, itr + 1);
+			int eageleft = atoi(num1.c_str());
+			int egaeright = atoi(num2.c_str());
+
+			if (eageleft <= max && egaeright <= max)
+			{
+				eage->setVisible(true);
+			}
+			else
+			{
+				eage->setVisible(false);
+			}
+
+
+			if (i <= max)
+			{
+				_btns[i]->setVisible(true);
+				_graph._vertexInfoVector[i].islocked = false;
+			}
+			else
+			{
+				_btns[i]->setVisible(false);
+				_graph._vertexInfoVector[i].islocked = true;
+			}
 		}
 	}
 }
@@ -2429,36 +2894,74 @@ void WordMap::unShowTargetInfo()
 
 int WordMap::getSceneId(int pos)
 {
-	//debug zsb
-	//return 5;
+#if (1 == CC_ENABLE_NEW_WORLD)
+	if (pos>= s_newStartIdx)
+	{
+		return _newArrGuaiQiaMapidx[pos-s_newStartIdx];
+	}
+#endif
 	return _arrGuaiQiaMapidx[pos]; 
 }
 
 void WordMap::checkAndPreMap()
 {
-	for (int i = 0; i < sizeof(_arrGuaiQiaMapidx); i++)
+#if (1 == CC_ENABLE_NEW_WORLD)
+	int startIdx=atoi(_startNode->getName().c_str());
+	if (startIdx >= s_newStartIdx)
 	{
-		if (_curNode->getName().compare(String::createWithFormat("%d", i)->getCString()) == 0)
+		for (int i = s_newStartIdx; i < sizeof(_newArrGuaiQiaMapidx) + s_newStartIdx; i++)
 		{
-			while (1)
+			if (_curNode->getName().compare(String::createWithFormat("%d", i)->getCString()) == 0)
 			{
-				if (GameMap::getCurGameMap()->getPrepareCount() == 0)
+				while (1)
 				{
-					GameMap::getCurGameMap()->changeToMap(_arrGuaiQiaMapidx[i]);
-					break;
+					if (GameMap::getCurGameMap()->getPrepareCount() == 0)
+					{
+						GameMap::getCurGameMap()->changeToMap(_newArrGuaiQiaMapidx[i - s_newStartIdx]);
+						break;
+					}
 				}
-			}
 
-			break;
+				break;
+			}
+		}
+
+		for (int i = s_newStartIdx; i < sizeof(_newArrGuaiQiaMapidx) + s_newStartIdx; i++)
+		{
+			if (_curPosIdx > 0 && _vertorNode[_curPosIdx - 1]->getName().compare(String::createWithFormat("%d", i)->getCString()) == 0)
+			{
+				GameMap::getCurGameMap()->prepareMap(_newArrGuaiQiaMapidx[i - s_newStartIdx]);
+				return;
+			}
 		}
 	}
-
-	for (int i = 0; i < sizeof(_arrGuaiQiaMapidx); i++)
+	else
+#endif
 	{
-		if(_curPosIdx > 0 && _vertorNode[_curPosIdx - 1]->getName().compare(String::createWithFormat("%d", i)->getCString()) == 0)
+		for (int i = 0; i < sizeof(_arrGuaiQiaMapidx); i++)
 		{
-			GameMap::getCurGameMap()->prepareMap(_arrGuaiQiaMapidx[i]);
-			return;
+			if (_curNode->getName().compare(String::createWithFormat("%d", i)->getCString()) == 0)
+			{
+				while (1)
+				{
+					if (GameMap::getCurGameMap()->getPrepareCount() == 0)
+					{
+						GameMap::getCurGameMap()->changeToMap(_arrGuaiQiaMapidx[i]);
+						break;
+					}
+				}
+
+				break;
+			}
+		}
+
+		for (int i = 0; i < sizeof(_arrGuaiQiaMapidx); i++)
+		{
+			if (_curPosIdx > 0 && _vertorNode[_curPosIdx - 1]->getName().compare(String::createWithFormat("%d", i)->getCString()) == 0)
+			{
+				GameMap::getCurGameMap()->prepareMap(_arrGuaiQiaMapidx[i]);
+				return;
+			}
 		}
 	}
 	
@@ -2587,7 +3090,16 @@ void WordMap::update(float delta)
 						bossguanqia = true;
 					}
 
-					GameMap::getCurGameMap()->changeToMap(_arrGuaiQiaMapidx[idx]);
+#if (1 == CC_ENABLE_NEW_WORLD)
+					if (idx >= s_newStartIdx)
+					{
+						GameMap::getCurGameMap()->changeToMap(_newArrGuaiQiaMapidx[idx-s_newStartIdx]);
+					}
+					else
+#endif
+					{
+						GameMap::getCurGameMap()->changeToMap(_arrGuaiQiaMapidx[idx]);
+					}
 				}
 
 				int idx = atoi(_curNode->getName().c_str());
@@ -2694,9 +3206,22 @@ void WordMap::changeMapLineAndPoints(bool show)
 
 void WordMap::setStartPos()
 {
-	auto node = _btns[UserData::getInstance()->getPlayerPos()];
-	_touchScaleNode->setPosition(_touchScaleNode->getPosition() - node->getPosition());
-	_touchScaleNode->checkMove();
+	int pos = UserData::getInstance()->getPlayerPos();
+	
+#if (1 == CC_ENABLE_NEW_WORLD)
+	if (pos>=s_newStartIdx)
+	{
+		auto node = _newBtn[pos-s_newStartIdx];
+		_touchScaleNode->setPosition(_touchScaleNode->getPosition() - node->getPosition());
+		_touchScaleNode->checkMove();
+	}
+	else
+#endif
+	{
+		auto node = _btns[pos];
+		_touchScaleNode->setPosition(_touchScaleNode->getPosition() - node->getPosition());
+		_touchScaleNode->checkMove();
+	}
 }
 
 void WordMap::pauseGame()
@@ -2769,6 +3294,14 @@ void WordMap::updateJiantou()
 	{
 		_jiantouPlayer->setVisible(false);
 	}
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	//20161024 J
+	if (UserData::getInstance()->getPlayerPos() >= s_newStartIdx)
+	{
+		hideJiantou();
+	}
+#endif
 
 	if (StoryMgr::getInstance()->isStoryOver())
 	{
@@ -2844,10 +3377,14 @@ void WordMap::hideJiantou()
 
 void WordMap::hideFinget()
 {
-	if (_fignerAni && UserData::getInstance()->isNeedGuide() == false)
+	if (_fignerAni && UserData::getInstance()->getMaxPos() > 1)
 	{
 		_fignerAni->removeFromParent();
 		_fignerAni = nullptr;
+	}
+	else if (_fignerAni  && UserData::getInstance()->getMaxPos() <= 1)
+	{
+		_fignerAni->setPosition(_btns[UserData::getInstance()->getMaxPos()]->getPosition() + Vec2(30.f, -40.f));
 	}
 }
 
@@ -2869,6 +3406,33 @@ void WordMap::updataPointsBtns()
 		UserData::getInstance()->setPlayingGuanqiaIdx(max + 1);
 		max++;
 	}*/
+#if (1 == CC_ENABLE_NEW_WORLD)
+	for (int i = s_newStartIdx; i < s_newMapBtnNum + s_newStartIdx-1; i++)
+	{
+		auto eage = _newMapEageLineVector[i-s_newStartIdx];
+		auto name = eage->getName();
+		auto itr = name.find_first_of('-');
+		auto num1 = std::string(name, 0, itr);
+		auto num2 = std::string(name, itr + 1);
+		int eageleft = atoi(num1.c_str());
+		int egaeright = atoi(num2.c_str());
+
+		bool pass = UserData::getInstance()->getIsBossPass(i) == 1 ? true : false;
+		if (checkShowShop(i))
+		{
+			pass = true;
+		}
+
+		if (!pass)
+		{	
+			static_cast<glui::GLMenuItemSprite*>(_newBtn[i- s_newStartIdx])->setColor(Color3B(128, 128, 128));
+		}
+		else
+		{
+			static_cast<glui::GLMenuItemSprite*>(_newBtn[i- s_newStartIdx])->setColor(Color3B(255, 255, 255));
+		}
+	}
+#endif
 
 	for (int i = 0; i < s_mapBtnNum; i++)
 	{
@@ -2947,8 +3511,19 @@ void WordMap::tryBackToLastPos()
 			//int idx = atoi(_curNode->getName().c_str());
 			int idx = idxlast >=0 ? idxlast : 0;
 			//_curNode = _vertorNode[nodeidx];
-			_curNode = _btns[idx];
-			_players->setPosition(_pos[idx]);
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+			if (idx >= s_newStartIdx)
+			{
+				_curNode = _newBtn[idx- s_newStartIdx];
+				_players->setPosition(_newPos[idx- s_newStartIdx]);
+			}
+			else
+#endif
+			{
+				_curNode = _btns[idx];
+				_players->setPosition(_pos[idx]);
+			}
 
 			UserData::getInstance()->setPlayerPos(idx);
 			UserData::getInstance()->saveUserData(true);
@@ -2968,26 +3543,59 @@ void WordMap::updateBoxGetInfo(int idx)
 
 	if (flagIsBox != -1 && UserData::getInstance()->getIsBossPass(idx) == 1 && UserData::getInstance()->getBoxGet(idx) == 0)
 	{
-		auto lastsprite = _mapRoot->getChildByName(String::createWithFormat("boxget_%d", idx)->getCString());
-		if (lastsprite == nullptr)
+#if (1 == CC_ENABLE_NEW_WORLD)
+		//20161023 J
+		if (idx>=s_newStartIdx)
 		{
-			auto sprite = Sprite::createWithSpriteFrameName("mapui_box.png");
-			_mapRoot->addChild(sprite, 5);
-			sprite->setName(String::createWithFormat("boxget_%d", idx)->getCString());
-			sprite->setPosition(_pos[idx] + Vec2(0.f, 40.f));
+			auto lastsprite = _newMapRoot->getChildByName(String::createWithFormat("boxget_%d", idx)->getCString());
+			if (lastsprite == nullptr)
+			{
+				auto sprite = Sprite::createWithSpriteFrameName("mapui_box.png");
+				_newMapRoot->addChild(sprite, 5);
+				sprite->setName(String::createWithFormat("boxget_%d", idx)->getCString());
+				sprite->setPosition(_newPos[idx- s_newStartIdx] + Vec2(0.f, 40.f));
 
-			auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
-			sprite->runAction(RepeatForever::create(actionmove));
+				auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+				sprite->runAction(RepeatForever::create(actionmove));
+			}
 		}
-		
+		else
+#endif
+		{
+			auto lastsprite = _mapRoot->getChildByName(String::createWithFormat("boxget_%d", idx)->getCString());
+			if (lastsprite == nullptr)
+			{
+				auto sprite = Sprite::createWithSpriteFrameName("mapui_box.png");
+				_mapRoot->addChild(sprite, 5);
+				sprite->setName(String::createWithFormat("boxget_%d", idx)->getCString());
+				sprite->setPosition(_pos[idx] + Vec2(0.f, 40.f));
+
+				auto actionmove = Sequence::createWithTwoActions(MoveBy::create(1.f, Vec2(0.f, 30.f)), MoveBy::create(1.f, Vec2(0.f, -30.f)));
+				sprite->runAction(RepeatForever::create(actionmove));
+			}
+		}
 	}
 	else if(flagIsBox != -1)
 	{
-		auto sprite = _mapRoot->getChildByName(String::createWithFormat("boxget_%d", idx)->getCString());
-		if (sprite)
+#if (1 == CC_ENABLE_NEW_WORLD)
+		if (idx >= s_newStartIdx)
 		{
-			sprite->stopAllActions();
-			sprite->removeFromParent();
+			auto sprite = _newMapRoot->getChildByName(String::createWithFormat("boxget_%d", idx)->getCString());
+			if (sprite)
+			{
+				sprite->stopAllActions();
+				sprite->removeFromParent();
+			}
+		}
+		else
+#endif
+		{
+			auto sprite = _mapRoot->getChildByName(String::createWithFormat("boxget_%d", idx)->getCString());
+			if (sprite)
+			{
+				sprite->stopAllActions();
+				sprite->removeFromParent();
+			}
 		}
 	}
 }
@@ -3010,12 +3618,49 @@ void WordMap::updateNewMapBtn()
 void WordMap::popNearyBoss()
 {
 	int max = UserData::getInstance()->getMaxPos();
-	for (int i = max - 1; i > 0; i--)
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+	if (max >= s_newStartIdx)
 	{
-		if (checkIsBoss(i) == true)
+		for (int i = max - 1; i > s_newStartIdx; i--)
 		{
-			menuOnPoint(_btns[i]);
-			return;
+			if (checkIsBoss(i) == true)
+			{
+				menuOnPoint(_newBtn[i-s_newStartIdx]);
+				return;
+			}
+		}
+	}
+	else
+#endif
+	{
+		for (int i = max - 1; i > 0; i--)
+		{
+			if (checkIsBoss(i) == true)
+			{
+				menuOnPoint(_btns[i]);
+				return;
+			}
 		}
 	}
 }
+
+#if (1 == CC_ENABLE_NEW_WORLD)
+void WordMap::toNewMap()
+{
+	_mapRoot->setVisible(false);
+	_newMapRoot->setVisible(true);
+	_players->removeFromParent();
+	_newMapRoot->addChild(_players);
+	UserData::getInstance()->setPlayerPos(100);
+}
+
+void WordMap::toOldMap()
+{
+	_mapRoot->setVisible(true);
+	_newMapRoot->setVisible(false);
+	_players->removeFromParent();
+	_mapRoot->addChild(_players);
+	UserData::getInstance()->setPlayerPos(1);
+}
+#endif

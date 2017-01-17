@@ -256,6 +256,15 @@ float GameUtils::getMoveDur(Vec2 offset, float speed)
 }
 
 
+bool GameUtils::isAdsLoaded()
+{
+#if (CC_PLATFORM_IOS == CC_TARGET_PLATFORM)
+    return MainLayer::getCurMainLayer()->getAdBtn()->isVisible();
+#else
+	return false;
+#endif
+}
+
 void GameUtils::getDataFromServicer(const char *strUrl, const char *strReqDesc, const char *strReqData, const char *strTag, const ccHttpRequestCallback& callback)
 {
 	string strFullUrl(strUrl);

@@ -577,7 +577,12 @@ void BGLLayer::menuOndel(Ref * btn, Widget::TouchEventType type)
 	_isDelPress = true;
 	if (type == Widget::TouchEventType::ENDED && _isPlayAni == false)
 	{
-		int idx = int(((Node*)btn)->getUserData());
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	int idx = long(((Node*)btn)->getUserData());
+#else
+	int idx = int(((Node*)btn)->getUserData());
+#endif
+		
 		changePartsNum(idx, 1);
 		_isDelPress = false;
 
@@ -733,6 +738,7 @@ void BGLLayer::armCallBack(Armature * armature, MovementEventType movementType, 
 		{
 			_mainArm->getAnimation()->play("bagua_daiji");
 
+#if(CC_ENABLE_NEW_WORLD == 1)
 			if (UserData::getInstance()->getHaveJinhuaBGL() == 0)
 			{
 				if (_totalExp >= 50000)
@@ -757,6 +763,18 @@ void BGLLayer::armCallBack(Armature * armature, MovementEventType movementType, 
 				_isPlayAni = false;
 				_pageViewWenpons->setTouchEnabled(true);
 			}
+#else
+			if (_totalExp >= 50000)
+			{
+				NewMapOpenMgr::getInstance()->tryGet(MapOpenType::BGL50000);
+			}
+
+			getReward(_totalExp);
+			_totalExp = 0.f;
+			_isPlayAni = false;
+			updateAllInBtn();
+#endif
+			
 			
 		}
 		else if (movementID.compare("bagua_shengji") == 0)
@@ -843,6 +861,7 @@ void BGLLayer::updateLvInfo()
 
 	if (lv >= 10)
 	{
+#if(CC_ENABLE_NEW_WORLD == 1)
 		if (UserData::getInstance()->getHaveJinhuaBGL() == 0)
 		{
 			_upBotton->loadTextures("bagua_btn_jh_0.png", "bagua_btn_jh_1.png", "bagua_btn_jh_2.png", Widget::TextureResType::PLIST);
@@ -853,7 +872,7 @@ void BGLLayer::updateLvInfo()
 			/*auto curshownode = static_cast<Bone*>(_mainArm->getBone("Layer2")->getChildByName("Layer3"))->getDisplayManager()->getDisplayRenderNode();
 			if (dynamic_cast<Sprite*>(curshownode))
 			{
-				dynamic_cast<Sprite*>(curshownode)->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(""));
+			dynamic_cast<Sprite*>(curshownode)->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(""));
 			}*/
 			_upNode->setVisible(false);
 			_wenponInfo->setVisible(true);
@@ -878,6 +897,11 @@ void BGLLayer::updateLvInfo()
 
 			icon->setSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(idxEquuip.picname));
 		}
+#else
+		_upNode->setVisible(false);
+		_wenponInfo->setVisible(false);
+#endif
+		
 	}
 	else
 	{

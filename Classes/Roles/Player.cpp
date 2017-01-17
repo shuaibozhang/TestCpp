@@ -881,9 +881,10 @@ void Player::doDead()
 //					GameLayer::getInstance()->popReborn();
 				}
 			}
-			else if (ParamMgr::getInstance()->getShowReliveWeight() >= 4)
+			else if ((ParamMgr::getInstance()->getShowReliveWeight() >= 3 || GameUtils::isAdsLoaded()) && _reliveTimes < 1)
 			{
 				_isWaitRelive = true;
+				_reliveTimes++;
 				ParamMgr::getInstance()->changeShowReliveWeight(2);
 //				GameLayer::getInstance()->popReborn();
 			}

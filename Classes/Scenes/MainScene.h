@@ -181,6 +181,7 @@ public:
 	void initVipBtn();
 
 	void popPurchaseLayer(std::string itemid, bool dirbuy = false);
+	bool isGuideEffectPop();
 
 	/*
 	*@return
@@ -190,7 +191,7 @@ public:
 	*3 is firstgift and supergift have buy
 	*/
 	int getCurGiftStage();
-
+	void updateGiftChange();
 	CC_SYNTHESIZE(TimeCountDownNode*, _giftTimeNode, GiftTimeNode);
 private:
 	EventListenerCustom* _backToForegroundlistener;

@@ -1,0 +1,81 @@
+{
+    "storekey": "moonactivity",
+    "activityname": "中秋活动",
+    "activitydes": "",
+    "activitytype": "single",
+    "isRepeat": true,
+    "startday": "2016-09-12",
+    "longtime": 8,
+    "activitys": [
+        {
+            "name": "嫦娥月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "pass_guanqia",
+            "num": 10,
+            "reward": [
+                -102,
+                -101,
+                1014,
+                1503
+            ],
+            "rewardcount": [
+                10,
+                2,
+                3,
+                10
+            ]
+        },
+        {
+            "name": "团圆月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "pass_ta",
+            "num": 10,
+            "reward": [
+                -102,
+                -101,
+                1014,
+                1504
+            ],
+            "rewardcount": [
+                15,
+                5,
+                5,
+                10
+            ]
+        },
+        {
+            "name": "富贵月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "payrmb",
+            "num": 6,
+            "reward": [
+                -102,
+                -101,
+                1015,
+                1506
+            ],
+            "rewardcount": [
+                20,
+                10,
+                5,
+                10
+            ]
+        },
+        {
+            "name": "龙门月饼",
+            "des": "当日通过关卡累计至10个",
+            "key": "pass_mission",
+            "num": 3,
+            "reward": [
+                -101,
+                1014,
+                1507
+            ],
+            "rewardcount": [
+                20,
+                6,
+                10
+            ]
+        }
+    ]
+}

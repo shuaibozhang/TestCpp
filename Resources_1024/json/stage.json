@@ -1,0 +1,5545 @@
+[
+  {
+    "id": 0, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "内院"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "大门粉刷一新，门口的石狮子庄重威严，一段新的旅程，\\n即将开启！", 
+    "role_lv": 0, 
+    "gold_per": 16, 
+    "exp_per": 33, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          66
+        ], 
+        [
+          67
+        ], 
+        [
+          68, 
+          68
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 1, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "外院"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": 8, 
+    "boxmons_monsid": 95, 
+    "stage_des": "万永商号的打手已经在门外溜达好几天了，看起来一副\\n很欠揍的样子！", 
+    "role_lv": 1, 
+    "gold_per": 17, 
+    "exp_per": 34, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          0, 
+          0
+        ], 
+        [
+          0, 
+          1
+        ], 
+        [
+          0, 
+          69, 
+          0
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 2, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      2
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "据说镖局里埋着很多的宝藏，不过见到的人，寥寥无几。", 
+    "role_lv": 1, 
+    "gold_per": 18, 
+    "exp_per": 35, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          1, 
+          0, 
+          1
+        ], 
+        [
+          1, 
+          2, 
+          1
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 3, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小镇"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": 9, 
+    "boxmons_monsid": 96, 
+    "stage_des": "互相配合很重要，任何困难能克服！", 
+    "role_lv": 2, 
+    "gold_per": 19, 
+    "exp_per": 36, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          1, 
+          1
+        ], 
+        [
+          2, 
+          2
+        ], 
+        [
+          2, 
+          70, 
+          2
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 4, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "此处山清水秀，地势低洼，很多时候走镖，都从这里出发。", 
+    "role_lv": 2, 
+    "gold_per": 20, 
+    "exp_per": 37, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          2, 
+          3
+        ], 
+        [
+          3, 
+          3
+        ], 
+        [
+          2, 
+          3, 
+          2
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 5, 
+    "style": 1, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "入口", 
+      "出口"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": 10, 
+    "boxmons_monsid": 97, 
+    "stage_des": "万永商号新雇佣的打手，攻击会带有buff效果，消除镖符\\n才可以解除。", 
+    "role_lv": 3, 
+    "gold_per": 21, 
+    "exp_per": 38, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          3, 
+          3
+        ], 
+        [
+          4, 
+          4
+        ]
+      ], 
+      [
+        [
+          3, 
+          4
+        ], 
+        [
+          4, 
+          5, 
+          4
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 6, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "草地"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "这里有一个商铺，卖一些小玩意。", 
+    "role_lv": 3, 
+    "gold_per": 22, 
+    "exp_per": 39, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          2, 
+          3
+        ], 
+        [
+          3, 
+          3
+        ], 
+        [
+          5, 
+          5
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 7, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      2
+    ], 
+    "stageName": [
+      "岔路"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "万永商号逐步做大做强，但同时也得罪了一些恶势力。", 
+    "role_lv": 4, 
+    "gold_per": 23, 
+    "exp_per": 40, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          3, 
+          4, 
+          3
+        ], 
+        [
+          4, 
+          3, 
+          4
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 8, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "从这里往西，有一条进京的咽喉要道，古往今来，都乃\\n兵家必争之地。", 
+    "role_lv": 4, 
+    "gold_per": 24, 
+    "exp_per": 41, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          2, 
+          2
+        ], 
+        [
+          2, 
+          5
+        ], 
+        [
+          5, 
+          5
+        ], 
+        [
+          5, 
+          4, 
+          5
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 9, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "腹地"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "万永商号的打手实力变得越来越强，一定要小心！", 
+    "role_lv": 5, 
+    "gold_per": 25, 
+    "exp_per": 43, 
+    "arr_weapon_id": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          4, 
+          4
+        ], 
+        [
+          3, 
+          6, 
+          3
+        ], 
+        [
+          6, 
+          3, 
+          6
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 10, 
+    "style": 2, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      2, 
+      1
+    ], 
+    "stageName": [
+      "门口", 
+      "中庭", 
+      "后堂"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 500, 
+    "award_gold": 500, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "老掌柜新学了一招寒冰掌，听说可以把镖符一并封住，\\n威力无穷。", 
+    "role_lv": 5, 
+    "gold_per": 26, 
+    "exp_per": 45, 
+    "arr_weapon_id": [
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          5, 
+          3, 
+          5
+        ], 
+        [
+          4, 
+          4
+        ]
+      ], 
+      [
+        [
+          4, 
+          6, 
+          4
+        ], 
+        [
+          6, 
+          4, 
+          6
+        ]
+      ], 
+      [
+        [
+          12
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 11, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小路"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": 11, 
+    "boxmons_monsid": 95, 
+    "stage_des": "龙门镇的西边是无穷尽的山，无穷尽的水，听说也有无穷尽\\n的山贼。", 
+    "role_lv": 6, 
+    "gold_per": 50, 
+    "exp_per": 70, 
+    "arr_weapon_id": [
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          6, 
+          7
+        ], 
+        [
+          6, 
+          7, 
+          6
+        ], 
+        [
+          7, 
+          7
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 12, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "自古山林生穷寇，龙门镇自然也不能免俗。", 
+    "role_lv": 6, 
+    "gold_per": 55, 
+    "exp_per": 90, 
+    "arr_weapon_id": [
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          7, 
+          8
+        ], 
+        [
+          8, 
+          8
+        ], 
+        [
+          8, 
+          7, 
+          8
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 13, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      2
+    ], 
+    "stageName": [
+      "岔路"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": 12, 
+    "boxmons_monsid": 95, 
+    "stage_des": "有几户人家，散落在路的两旁，平时做点茶水的小生意。", 
+    "role_lv": 7, 
+    "gold_per": 65, 
+    "exp_per": 110, 
+    "arr_weapon_id": [
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          8, 
+          9
+        ], 
+        [
+          8, 
+          9, 
+          8
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 14, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "山脚"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "光线逐渐的变暗，危险仿佛随之而来。", 
+    "role_lv": 7, 
+    "gold_per": 70, 
+    "exp_per": 120, 
+    "arr_weapon_id": [
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          7, 
+          7
+        ], 
+        [
+          9, 
+          9
+        ], 
+        [
+          9, 
+          71, 
+          9
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 15, 
+    "style": 1, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      3
+    ], 
+    "stageName": [
+      "岗哨1", 
+      "岗哨2"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": 13, 
+    "boxmons_monsid": 97, 
+    "stage_des": "一条山坳，两边都是锋利的高山，一看就是个是非之地。", 
+    "role_lv": 8, 
+    "gold_per": 78, 
+    "exp_per": 150, 
+    "arr_weapon_id": [
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          8, 
+          8
+        ], 
+        [
+          8, 
+          9
+        ]
+      ], 
+      [
+        [
+          9, 
+          10, 
+          9
+        ], 
+        [
+          10, 
+          10
+        ], 
+        [
+          10, 
+          72, 
+          10
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 16, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "小路1", 
+      "小路2"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "这里有一个商铺，卖一些小玩意。", 
+    "role_lv": 8, 
+    "gold_per": 79, 
+    "exp_per": 160, 
+    "arr_weapon_id": [
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          9, 
+          11
+        ], 
+        [
+          11, 
+          11
+        ]
+      ], 
+      [
+        [
+          10, 
+          11
+        ], 
+        [
+          11, 
+          72, 
+          11
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 17, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "偏路"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": 14, 
+    "boxmons_monsid": 95, 
+    "stage_des": "附近可有蛇出没，而且这些蛇不被蛊惑，异常凶狠。", 
+    "role_lv": 9, 
+    "gold_per": 80, 
+    "exp_per": 170, 
+    "arr_weapon_id": [
+      2, 
+      1, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          10, 
+          10
+        ], 
+        [
+          13, 
+          10
+        ], 
+        [
+          10, 
+          13, 
+          10
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 18, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "路尽头"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "这里的冰蛇也不好惹，很容易让你动弹不得。", 
+    "role_lv": 9, 
+    "gold_per": 81, 
+    "exp_per": 180, 
+    "arr_weapon_id": [
+      2, 
+      1, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          11, 
+          11
+        ], 
+        [
+          11, 
+          13
+        ], 
+        [
+          13, 
+          13
+        ], 
+        [
+          13, 
+          11, 
+          13
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 19, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "stageName": [
+      "贼窝1", 
+      "贼窝2", 
+      "贼窝3", 
+      "贼窝4"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 2000, 
+    "award_gold": 1000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "青花寨可是用千年沉木盖起来的，最不怕刀剑，而且对树木\\n有深刻的研究。", 
+    "role_lv": 10, 
+    "gold_per": 82, 
+    "exp_per": 210, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          11, 
+          11
+        ], 
+        [
+          13, 
+          11
+        ]
+      ], 
+      [
+        [
+          13, 
+          11, 
+          13
+        ], 
+        [
+          14, 
+          14
+        ]
+      ], 
+      [
+        [
+          13, 
+          14, 
+          13
+        ], 
+        [
+          14, 
+          73, 
+          14
+        ]
+      ], 
+      [
+        [
+          23
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 20, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "深处"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": 15, 
+    "boxmons_monsid": 97, 
+    "stage_des": "有些喽啰常年在山上巡逻，所以对雷电，有一定的免疫能力。", 
+    "role_lv": 10, 
+    "gold_per": 83, 
+    "exp_per": 250, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          15, 
+          15
+        ], 
+        [
+          15, 
+          16, 
+          15
+        ], 
+        [
+          16, 
+          15, 
+          16
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 21, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      3, 
+      2
+    ], 
+    "stageName": [
+      "山脚1", 
+      "山脚2"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "青花会的人自制了一种炸弹，只需几回合就会爆炸造成伤害。", 
+    "role_lv": 11, 
+    "gold_per": 83, 
+    "exp_per": 300, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          13, 
+          14
+        ], 
+        [
+          14, 
+          14
+        ], 
+        [
+          14, 
+          15, 
+          14
+        ]
+      ], 
+      [
+        [
+          15, 
+          17, 
+          15
+        ], 
+        [
+          17, 
+          15, 
+          17
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 22, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "山间"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "路越来越难走，环境越来越复杂，很容易被埋伏。", 
+    "role_lv": 11, 
+    "gold_per": 84, 
+    "exp_per": 400, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      1, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          16, 
+          16
+        ], 
+        [
+          16, 
+          18
+        ], 
+        [
+          18, 
+          18
+        ], 
+        [
+          18, 
+          74, 
+          18
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 23, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "幽境"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": 16, 
+    "boxmons_monsid": 96, 
+    "stage_des": "青花会有严密的组织结构，他们的头领通常非常神秘。", 
+    "role_lv": 12, 
+    "gold_per": 84, 
+    "exp_per": 500, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          13, 
+          13
+        ], 
+        [
+          16, 
+          16
+        ], 
+        [
+          13, 
+          16
+        ], 
+        [
+          16, 
+          19, 
+          16
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 24, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      3, 
+      2
+    ], 
+    "stageName": [
+      "山涧1", 
+      "山涧2"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "敌人在远处，会发动技能，把你死死的冰住", 
+    "role_lv": 12, 
+    "gold_per": 85, 
+    "exp_per": 600, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          15, 
+          15
+        ], 
+        [
+          15, 
+          18
+        ], 
+        [
+          15, 
+          18, 
+          15
+        ]
+      ], 
+      [
+        [
+          18, 
+          18
+        ], 
+        [
+          18, 
+          74, 
+          18
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 25, 
+    "style": 0, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      2, 
+      3
+    ], 
+    "stageName": [
+      "入口", 
+      "浅处", 
+      "深处"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1, 
+      0
+    ], 
+    "boxpro": [
+      0.6, 
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "青花会，善用火和冰，以此打击进犯的敌人。", 
+    "role_lv": 13, 
+    "gold_per": 85, 
+    "exp_per": 700, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          20, 
+          19
+        ], 
+        [
+          19, 
+          20, 
+          19
+        ]
+      ], 
+      [
+        [
+          20, 
+          19
+        ], 
+        [
+          19, 
+          20, 
+          19
+        ]
+      ], 
+      [
+        [
+          18, 
+          20
+        ], 
+        [
+          18, 
+          20, 
+          18
+        ], 
+        [
+          20, 
+          19, 
+          20
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 26, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "边陲"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "经过一道道山口，苍凉的气息扑面而来，大战，仿佛一触\\n即发。", 
+    "role_lv": 13, 
+    "gold_per": 87, 
+    "exp_per": 600, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          20, 
+          20
+        ], 
+        [
+          20, 
+          21, 
+          20
+        ], 
+        [
+          20, 
+          21
+        ], 
+        [
+          21, 
+          20, 
+          21
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 27, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "驿站"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": 17, 
+    "boxmons_monsid": 95, 
+    "stage_des": "道路越来越荒凉，一条通向东，一条通向西，反正哪条都\\n不好走。", 
+    "role_lv": 14, 
+    "gold_per": 88, 
+    "exp_per": 700, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          18, 
+          18
+        ], 
+        [
+          18, 
+          21, 
+          18
+        ], 
+        [
+          18, 
+          21, 
+          18
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 28, 
+    "style": 1, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      2, 
+      3
+    ], 
+    "stageName": [
+      "行宫1", 
+      "行宫2", 
+      "行宫3"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1, 
+      0
+    ], 
+    "boxpro": [
+      0.8, 
+      0.1
+    ], 
+    "boxmons_id": 18, 
+    "boxmons_monsid": 97, 
+    "stage_des": "他们学了一种新技能，先潜伏几回合，然后爆炸让周围的\\n镖符都着火。", 
+    "role_lv": 14, 
+    "gold_per": 89, 
+    "exp_per": 710, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          20, 
+          19
+        ], 
+        [
+          20, 
+          19, 
+          19
+        ]
+      ], 
+      [
+        [
+          20, 
+          20
+        ], 
+        [
+          21, 
+          20, 
+          21
+        ]
+      ], 
+      [
+        [
+          21, 
+          22
+        ], 
+        [
+          22, 
+          20, 
+          22
+        ], 
+        [
+          20, 
+          21, 
+          21, 
+          20
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 29, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "这里有一个商铺，卖一些小玩意。", 
+    "role_lv": 15, 
+    "gold_per": 89, 
+    "exp_per": 720, 
+    "arr_weapon_id": [
+      2, 
+      2, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          20, 
+          20
+        ], 
+        [
+          21, 
+          20, 
+          21
+        ], 
+        [
+          20, 
+          21, 
+          22
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 30, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "岔路"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "路上偶有野花盛开，但这并不是一个温暖的地方，寒意袭人。", 
+    "role_lv": 15, 
+    "gold_per": 90, 
+    "exp_per": 730, 
+    "arr_weapon_id": [
+      3, 
+      2, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          20, 
+          20
+        ], 
+        [
+          21, 
+          19, 
+          21
+        ], 
+        [
+          21, 
+          20, 
+          21
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 31, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      3
+    ], 
+    "stageName": [
+      "门前1", 
+      "门前2"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "渐入寒冰之地，很多土长的喽啰并不怕冰的侵袭。", 
+    "role_lv": 16, 
+    "gold_per": 90, 
+    "exp_per": 740, 
+    "arr_weapon_id": [
+      3, 
+      2, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          21, 
+          21
+        ], 
+        [
+          22, 
+          22
+        ]
+      ], 
+      [
+        [
+          20, 
+          21, 
+          22
+        ], 
+        [
+          21, 
+          24, 
+          21
+        ], 
+        [
+          22, 
+          24, 
+          22
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 32, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "stageName": [
+      "前台", 
+      "后台", 
+      "总台", 
+      "CEO"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 3000, 
+    "award_gold": 5000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "青花会的会长—南宫残红，亲自盖了这个地方，他十分喜欢。", 
+    "role_lv": 16, 
+    "gold_per": 91, 
+    "exp_per": 740, 
+    "arr_weapon_id": [
+      3, 
+      3, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          20, 
+          20
+        ], 
+        [
+          21, 
+          22, 
+          21
+        ]
+      ], 
+      [
+        [
+          21, 
+          20, 
+          21
+        ], 
+        [
+          22, 
+          75, 
+          22
+        ]
+      ], 
+      [
+        [
+          22, 
+          24
+        ], 
+        [
+          24, 
+          22, 
+          24
+        ]
+      ], 
+      [
+        [
+          33
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 33, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小路"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "龙门古镇人杰地灵，但是如今，却被很多眼睛盯上了。", 
+    "role_lv": 16, 
+    "gold_per": 92, 
+    "exp_per": 745, 
+    "arr_weapon_id": [
+      3, 
+      3, 
+      2, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          25, 
+          25
+        ], 
+        [
+          26, 
+          26
+        ], 
+        [
+          26, 
+          76, 
+          26
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 34, 
+    "style": 1, 
+    "floor": 2, 
+    "stageNum": [
+      3, 
+      4
+    ], 
+    "stageName": [
+      "关口1", 
+      "关口2"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": 19, 
+    "boxmons_monsid": 97, 
+    "stage_des": "路上行人越来越多，分不清敌我。", 
+    "role_lv": 17, 
+    "gold_per": 93, 
+    "exp_per": 745, 
+    "arr_weapon_id": [
+      3, 
+      3, 
+      3, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          25, 
+          24
+        ], 
+        [
+          24, 
+          24
+        ], 
+        [
+          24, 
+          25, 
+          24
+        ]
+      ], 
+      [
+        [
+          26, 
+          25
+        ], 
+        [
+          25, 
+          25
+        ], 
+        [
+          25, 
+          26
+        ], 
+        [
+          25, 
+          24, 
+          26
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 35, 
+    "style": 0, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      3, 
+      3
+    ], 
+    "stageName": [
+      "荒漠1", 
+      "荒漠2", 
+      "荒漠3"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "隘口附近，气候非常多变，雨非常多。", 
+    "role_lv": 17, 
+    "gold_per": 95, 
+    "exp_per": 750, 
+    "arr_weapon_id": [
+      3, 
+      3, 
+      3, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          24, 
+          24
+        ], 
+        [
+          24, 
+          26, 
+          24
+        ]
+      ], 
+      [
+        [
+          24, 
+          25
+        ], 
+        [
+          24, 
+          25, 
+          24
+        ], 
+        [
+          25, 
+          24, 
+          25
+        ]
+      ], 
+      [
+        [
+          25, 
+          25
+        ], 
+        [
+          25, 
+          24, 
+          25
+        ], 
+        [
+          26, 
+          24, 
+          26
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 36, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "监狱"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1, 
+      0
+    ], 
+    "boxpro": [
+      0.3, 
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "离龙门镖局越来越远，环境会给人带来更多的压力。", 
+    "role_lv": 18, 
+    "gold_per": 95, 
+    "exp_per": 750, 
+    "arr_weapon_id": [
+      3, 
+      3, 
+      3, 
+      2
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          25, 
+          25
+        ], 
+        [
+          25, 
+          26, 
+          27
+        ], 
+        [
+          26, 
+          26
+        ], 
+        [
+          27, 
+          26, 
+          27
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 37, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "岔路"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "锦衣卫，分为很多等级，千户、百户的高手，轻易见不到。", 
+    "role_lv": 18, 
+    "gold_per": 96, 
+    "exp_per": 755, 
+    "arr_weapon_id": [
+      3, 
+      3, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          25, 
+          25
+        ], 
+        [
+          25, 
+          25, 
+          27
+        ], 
+        [
+          27, 
+          76, 
+          27
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 38, 
+    "style": 0, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      3, 
+      4
+    ], 
+    "stageName": [
+      "前门", 
+      "中门", 
+      "后门"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0, 
+      1
+    ], 
+    "boxpro": [
+      0.5, 
+      0.5
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "他们对火的狂热痴迷，已经让自己与火融为一体。", 
+    "role_lv": 18, 
+    "gold_per": 100, 
+    "exp_per": 755, 
+    "arr_weapon_id": [
+      5, 
+      3, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          26, 
+          26
+        ], 
+        [
+          26, 
+          27, 
+          26
+        ]
+      ], 
+      [
+        [
+          27, 
+          27
+        ], 
+        [
+          27, 
+          28, 
+          27
+        ], 
+        [
+          27, 
+          28, 
+          27, 
+          28
+        ]
+      ], 
+      [
+        [
+          26, 
+          26
+        ], 
+        [
+          27, 
+          27
+        ], 
+        [
+          27, 
+          26, 
+          27
+        ], 
+        [
+          28, 
+          77, 
+          28
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 39, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "当敌人合力发起攻击时，真的会让人难以招架。", 
+    "role_lv": 19, 
+    "gold_per": 110, 
+    "exp_per": 770, 
+    "arr_weapon_id": [
+      5, 
+      3, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          28, 
+          29
+        ], 
+        [
+          29, 
+          29, 
+          29
+        ], 
+        [
+          28, 
+          29, 
+          28
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 40, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      3, 
+      2
+    ], 
+    "stageName": [
+      "前厅", 
+      "后厅"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "肃杀的氛围越来越重，压得人喘不过气。", 
+    "role_lv": 20, 
+    "gold_per": 112, 
+    "exp_per": 800, 
+    "arr_weapon_id": [
+      5, 
+      3, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          29, 
+          29
+        ], 
+        [
+          29, 
+          30, 
+          29
+        ], 
+        [
+          30, 
+          29, 
+          30
+        ]
+      ], 
+      [
+        [
+          30, 
+          30
+        ], 
+        [
+          30, 
+          31, 
+          30
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 41, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      2, 
+      2, 
+      2, 
+      1
+    ], 
+    "stageName": [
+      "一层", 
+      "二层", 
+      "三层", 
+      "四层"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 6000, 
+    "award_gold": 6000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      2, 
+      3
+    ], 
+    "boxpro": [
+      0.7, 
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "锦衣卫的人可不好惹，一言不合就把你变成石块！", 
+    "role_lv": 20, 
+    "gold_per": 115, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      5, 
+      5, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          28, 
+          29
+        ], 
+        [
+          28, 
+          29, 
+          28
+        ]
+      ], 
+      [
+        [
+          30, 
+          31
+        ], 
+        [
+          31, 
+          30, 
+          31
+        ]
+      ], 
+      [
+        [
+          31, 
+          32, 
+          31
+        ], 
+        [
+          32, 
+          31, 
+          32
+        ]
+      ], 
+      [
+        [
+          34
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 42, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小桥"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": 20, 
+    "boxmons_monsid": 96, 
+    "stage_des": "青花会狡兔三窟，看来老巢并不是很好找。", 
+    "role_lv": 21, 
+    "gold_per": 118, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      5, 
+      5, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          35, 
+          35
+        ], 
+        [
+          35, 
+          36
+        ], 
+        [
+          36, 
+          35, 
+          36
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 43, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "小道"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "周围充满了灌木丛，一不小心就遭受敌人的埋伏。", 
+    "role_lv": 22, 
+    "gold_per": 118, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      5, 
+      5, 
+      3, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          36, 
+          36
+        ], 
+        [
+          35, 
+          36, 
+          35
+        ]
+      ], 
+      [
+        [
+          36, 
+          35, 
+          36
+        ], 
+        [
+          35, 
+          78, 
+          35
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 44, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "街道"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      0.4
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "有些发疯的敌人，会连续攻击，小心为上。", 
+    "role_lv": 22, 
+    "gold_per": 119, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      5, 
+      5, 
+      5, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          35, 
+          37
+        ], 
+        [
+          35, 
+          37, 
+          35
+        ], 
+        [
+          37, 
+          35, 
+          37
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 45, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      2
+    ], 
+    "stageName": [
+      "大道"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "谁会想到，在这么平静的地方，会隐藏着青花会的老巢", 
+    "role_lv": 23, 
+    "gold_per": 119, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      5, 
+      5, 
+      5, 
+      3
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          36, 
+          37
+        ], 
+        [
+          36, 
+          37, 
+          36
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 46, 
+    "style": 1, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "郊外", 
+      "郊内"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2, 
+      1
+    ], 
+    "boxpro": [
+      0.6, 
+      0.3
+    ], 
+    "boxmons_id": 21, 
+    "boxmons_monsid": 97, 
+    "stage_des": "山里的猛兽，也加入到这场游戏中来，变得更加有趣。", 
+    "role_lv": 23, 
+    "gold_per": 120, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      5, 
+      5, 
+      5, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          36, 
+          36
+        ], 
+        [
+          36, 
+          35, 
+          36
+        ]
+      ], 
+      [
+        [
+          36, 
+          36
+        ], 
+        [
+          62, 
+          78, 
+          62
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 47, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "密林"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "野猪出没的地方，都不会太过安宁，小心他们的疯狂。", 
+    "role_lv": 24, 
+    "gold_per": 120, 
+    "exp_per": 850, 
+    "arr_weapon_id": [
+      6, 
+      5, 
+      5, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          37, 
+          37
+        ], 
+        [
+          36, 
+          36, 
+          36
+        ], 
+        [
+          37, 
+          36, 
+          37
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 48, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      2, 
+      2, 
+      3, 
+      1
+    ], 
+    "stageName": [
+      "野外1", 
+      "野外2", 
+      "野外3", 
+      "野外4"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 8000, 
+    "award_gold": 8000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3, 
+      2
+    ], 
+    "boxpro": [
+      0.5, 
+      0.5
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "能找到这里，很不容易，这一次，一定不要再错过什么。", 
+    "role_lv": 24, 
+    "gold_per": 122, 
+    "exp_per": 860, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      5, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          35, 
+          36, 
+          35
+        ], 
+        [
+          36, 
+          62, 
+          36
+        ]
+      ], 
+      [
+        [
+          37, 
+          62, 
+          37
+        ], 
+        [
+          62, 
+          37, 
+          62
+        ]
+      ], 
+      [
+        [
+          38, 
+          38
+        ], 
+        [
+          37, 
+          36, 
+          37
+        ], 
+        [
+          38, 
+          78, 
+          38
+        ]
+      ], 
+      [
+        [
+          63
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 49, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "关口"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": 22, 
+    "boxmons_monsid": 95, 
+    "stage_des": "平时并不经常行走的道路，因为通往京城的买卖，利润\\n总是不高。", 
+    "role_lv": 25, 
+    "gold_per": 180, 
+    "exp_per": 860, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      5, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          36, 
+          35
+        ], 
+        [
+          35, 
+          35
+        ], 
+        [
+          35, 
+          37, 
+          35
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 50, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小路"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.5
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "风光变得逐渐不同，但是目标却越来越清晰。", 
+    "role_lv": 25, 
+    "gold_per": 200, 
+    "exp_per": 860, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      5, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          37, 
+          37
+        ], 
+        [
+          37, 
+          36, 
+          37
+        ], 
+        [
+          38, 
+          37, 
+          38
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 51, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "山势逐渐险峻，危险也越来越近。", 
+    "role_lv": 26, 
+    "gold_per": 200, 
+    "exp_per": 860, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      6, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          38, 
+          38
+        ], 
+        [
+          39, 
+          37, 
+          39
+        ], 
+        [
+          39, 
+          38, 
+          39
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 52, 
+    "style": 1, 
+    "floor": 2, 
+    "stageNum": [
+      3, 
+      1
+    ], 
+    "stageName": [
+      "晓庐", 
+      "苍庐"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      2, 
+      1
+    ], 
+    "boxpro": [
+      0.6, 
+      0.3
+    ], 
+    "boxmons_id": 23, 
+    "boxmons_monsid": 97, 
+    "stage_des": "去京城的路上，已经被锦衣卫布置了重兵把手，要做好\\n艰苦奋斗的准备！", 
+    "role_lv": 26, 
+    "gold_per": 280, 
+    "exp_per": 860, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      6, 
+      5
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          39, 
+          39
+        ], 
+        [
+          39, 
+          38, 
+          39
+        ], 
+        [
+          40, 
+          79, 
+          40
+        ]
+      ], 
+      [
+        [
+          45
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 53, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "密林1", 
+      "密林2"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "我只是一个小商店，卖一些小东西。", 
+    "role_lv": 27, 
+    "gold_per": 300, 
+    "exp_per": 860, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          42, 
+          43
+        ], 
+        [
+          42, 
+          43, 
+          42
+        ]
+      ], 
+      [
+        [
+          43, 
+          42, 
+          43
+        ], 
+        [
+          43, 
+          43, 
+          42
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 54, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "森林"
+    ], 
+    "sceneid": [
+      0
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "京城似乎已经戒严，想要蒙混过去，看来是不可能了。", 
+    "role_lv": 27, 
+    "gold_per": 310, 
+    "exp_per": 870, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          42, 
+          43
+        ], 
+        [
+          42, 
+          43, 
+          44
+        ], 
+        [
+          43, 
+          44, 
+          43
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 55, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "雨林1", 
+      "雨林2"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2, 
+      1
+    ], 
+    "boxpro": [
+      0.6, 
+      0.4
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "有很多刀枪不入的怪兽，逐渐的从山上爬了下来", 
+    "role_lv": 28, 
+    "gold_per": 350, 
+    "exp_per": 880, 
+    "arr_weapon_id": [
+      6, 
+      6, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          42, 
+          44
+        ], 
+        [
+          42, 
+          44, 
+          42
+        ]
+      ], 
+      [
+        [
+          42, 
+          43, 
+          42
+        ], 
+        [
+          43, 
+          44, 
+          43
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 56, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "岔路"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "对于自带免疫的怪兽，记得提前做好准备。", 
+    "role_lv": 28, 
+    "gold_per": 380, 
+    "exp_per": 880, 
+    "arr_weapon_id": [
+      8, 
+      6, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          44, 
+          43
+        ], 
+        [
+          43, 
+          44, 
+          43
+        ], 
+        [
+          44, 
+          80, 
+          44
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 57, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "山脚"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "锦衣卫已经有所觉察，京城的防卫越来越重视。", 
+    "role_lv": 29, 
+    "gold_per": 400, 
+    "exp_per": 900, 
+    "arr_weapon_id": [
+      8, 
+      6, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          43, 
+          45
+        ], 
+        [
+          43, 
+          45, 
+          43
+        ], 
+        [
+          45, 
+          43, 
+          45
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 58, 
+    "style": 2, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      2, 
+      1
+    ], 
+    "stageName": [
+      "密林1", 
+      "密林2", 
+      "密林3"
+    ], 
+    "sceneid": [
+      1
+    ], 
+    "award_exp": 10000, 
+    "award_gold": 10000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3, 
+      2
+    ], 
+    "boxpro": [
+      0.1, 
+      0.9
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "锦衣卫派出了千户侍卫，他可能就在附近巡视。", 
+    "role_lv": 29, 
+    "gold_per": 450, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          44, 
+          44
+        ], 
+        [
+          44, 
+          45, 
+          44
+        ]
+      ], 
+      [
+        [
+          45, 
+          45
+        ], 
+        [
+          45, 
+          44, 
+          45
+        ]
+      ], 
+      [
+        [
+          41
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 59, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "野外"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "对火的研究和使用，他们正变得越来越狂热。", 
+    "role_lv": 30, 
+    "gold_per": 460, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          46, 
+          47
+        ], 
+        [
+          47, 
+          47
+        ], 
+        [
+          47, 
+          46, 
+          47
+        ], 
+        [
+          47, 
+          48, 
+          47
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 60, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "山边"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "在深山峻岭中穿行，不小心就会有生命危险。", 
+    "role_lv": 30, 
+    "gold_per": 500, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      6, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          45, 
+          45
+        ], 
+        [
+          45, 
+          46, 
+          45
+        ], 
+        [
+          46, 
+          80, 
+          46
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 61, 
+    "style": 2, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      3, 
+      1
+    ], 
+    "stageName": [
+      "密林1", 
+      "密林2", 
+      "密林3"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 12000, 
+    "award_gold": 10000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "此树气候湿热，有大量的荆棘生长，一定要小心！", 
+    "role_lv": 31, 
+    "gold_per": 510, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      8, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          46, 
+          46
+        ], 
+        [
+          46, 
+          47, 
+          46
+        ]
+      ], 
+      [
+        [
+          47, 
+          47
+        ], 
+        [
+          47, 
+          48, 
+          47
+        ], 
+        [
+          48, 
+          47, 
+          48
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 62, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小路"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "离京城逐渐近了，危险也会越来越大。", 
+    "role_lv": 31, 
+    "gold_per": 520, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      8, 
+      6
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          45, 
+          45
+        ], 
+        [
+          45, 
+          49, 
+          45
+        ], 
+        [
+          45, 
+          48, 
+          49
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 63, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小径"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "这可能是最困难的时刻，就看能不能撑过去了。", 
+    "role_lv": 32, 
+    "gold_per": 530, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          47, 
+          47
+        ], 
+        [
+          47, 
+          46, 
+          47
+        ], 
+        [
+          45, 
+          47, 
+          45
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 64, 
+    "style": 2, 
+    "floor": 3, 
+    "stageNum": [
+      2, 
+      3, 
+      1
+    ], 
+    "stageName": [
+      "浅滩", 
+      "深滩", 
+      "荒滩"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 16000, 
+    "award_gold": 20000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3, 
+      2
+    ], 
+    "boxpro": [
+      0.2, 
+      0.8
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "千户锦衣卫也已经全部出动，看来这次，一定要玩点大的。", 
+    "role_lv": 32, 
+    "gold_per": 540, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          47, 
+          47
+        ], 
+        [
+          47, 
+          48, 
+          47
+        ]
+      ], 
+      [
+        [
+          48, 
+          48
+        ], 
+        [
+          48, 
+          49, 
+          48
+        ], 
+        [
+          49, 
+          81, 
+          49
+        ]
+      ], 
+      [
+        [
+          51
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 65, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "驿站"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "锦衣卫越来越多，不知道会不会让人感到害怕。", 
+    "role_lv": 33, 
+    "gold_per": 600, 
+    "exp_per": 950, 
+    "arr_weapon_id": [
+      8, 
+      8, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          45, 
+          45
+        ], 
+        [
+          47, 
+          47
+        ], 
+        [
+          45, 
+          47, 
+          45
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 66, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "小路"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1, 
+      0
+    ], 
+    "boxpro": [
+      0.5, 
+      0.5
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "北方本来有一条直通皇宫的密道，后来被锦衣卫给密封了。", 
+    "role_lv": 33, 
+    "gold_per": 620, 
+    "exp_per": 960, 
+    "arr_weapon_id": [
+      9, 
+      8, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          46, 
+          46
+        ], 
+        [
+          46, 
+          47, 
+          46
+        ], 
+        [
+          46, 
+          48, 
+          46
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 67, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      2
+    ], 
+    "stageName": [
+      "小径1", 
+      "小径2"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "北方渐渐天寒地洞，引来了很多神秘的生物。", 
+    "role_lv": 34, 
+    "gold_per": 650, 
+    "exp_per": 970, 
+    "arr_weapon_id": [
+      9, 
+      8, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          45, 
+          45
+        ], 
+        [
+          46, 
+          45, 
+          46
+        ]
+      ], 
+      [
+        [
+          46, 
+          48, 
+          46
+        ], 
+        [
+          47, 
+          48, 
+          47
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 68, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      2, 
+      2, 
+      3, 
+      1
+    ], 
+    "stageName": [
+      "入口", 
+      "中部", 
+      "尾端", 
+      "尽头"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 30000, 
+    "award_gold": 50000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      1.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "高等级的锦衣卫，自带回血技能，稍不留神，就满血复活。", 
+    "role_lv": 34, 
+    "gold_per": 750, 
+    "exp_per": 970, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          44, 
+          44
+        ], 
+        [
+          46, 
+          46
+        ]
+      ], 
+      [
+        [
+          46, 
+          46
+        ], 
+        [
+          46, 
+          47, 
+          46
+        ]
+      ], 
+      [
+        [
+          47, 
+          47
+        ], 
+        [
+          48, 
+          49, 
+          48
+        ], 
+        [
+          49, 
+          81, 
+          49
+        ]
+      ], 
+      [
+        [
+          52
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 69, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "雪原"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      0
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "这里有一个商铺，卖一些小玩意。", 
+    "role_lv": 35, 
+    "gold_per": 800, 
+    "exp_per": 1400, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          53, 
+          53
+        ], 
+        [
+          53, 
+          54
+        ], 
+        [
+          53, 
+          54, 
+          53
+        ], 
+        [
+          54, 
+          53, 
+          54
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 70, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      3
+    ], 
+    "stageName": [
+      "半岛"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "敌人越来越危险，因为他们躲在暗处。", 
+    "role_lv": 35, 
+    "gold_per": 850, 
+    "exp_per": 1500, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      8, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          54, 
+          54
+        ], 
+        [
+          53, 
+          54, 
+          53
+        ], 
+        [
+          54, 
+          53, 
+          54
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 71, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "雪山"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "锦衣卫他们会隐忍许久，然后突然发动攻击", 
+    "role_lv": 36, 
+    "gold_per": 900, 
+    "exp_per": 1600, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          53, 
+          53
+        ], 
+        [
+          54, 
+          54
+        ], 
+        [
+          53, 
+          55, 
+          53
+        ], 
+        [
+          54, 
+          55, 
+          54
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 72, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      3
+    ], 
+    "stageName": [
+      "山脚", 
+      "山顶"
+    ], 
+    "sceneid": [
+      2
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1, 
+      0
+    ], 
+    "boxpro": [
+      0.5, 
+      0.5
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "离皇宫越来越近，锦衣卫应该感到害怕了。", 
+    "role_lv": 36, 
+    "gold_per": 950, 
+    "exp_per": 1700, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          53, 
+          56
+        ], 
+        [
+          53, 
+          56, 
+          53
+        ]
+      ], 
+      [
+        [
+          56, 
+          56
+        ], 
+        [
+          56, 
+          64, 
+          56
+        ], 
+        [
+          64, 
+          56, 
+          64
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 73, 
+    "style": 1, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "东郊"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      0.0
+    ], 
+    "boxmons_id": 24, 
+    "boxmons_monsid": 97, 
+    "stage_des": "皇宫近在眼前，但是想进去，谈何容易。", 
+    "role_lv": 36, 
+    "gold_per": 1000, 
+    "exp_per": 1800, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          54, 
+          54
+        ], 
+        [
+          56, 
+          56
+        ], 
+        [
+          56, 
+          57, 
+          56
+        ], 
+        [
+          57, 
+          56, 
+          57
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 74, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "岭上"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2, 
+      1
+    ], 
+    "boxpro": [
+      0.5, 
+      0.5
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "大内高手，很多都是刀枪不入，闯关并没有那么简单。", 
+    "role_lv": 37, 
+    "gold_per": 1050, 
+    "exp_per": 2300, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      8
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          48, 
+          49
+        ], 
+        [
+          48, 
+          48
+        ], 
+        [
+          49, 
+          65, 
+          49
+        ], 
+        [
+          65, 
+          49, 
+          65
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 75, 
+    "style": 1, 
+    "floor": 2, 
+    "stageNum": [
+      3, 
+      4
+    ], 
+    "stageName": [
+      "山涧1", 
+      "山涧2"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": 25, 
+    "boxmons_monsid": 96, 
+    "stage_des": "密切注意你的周围，可能随时就有一把剑射过来。", 
+    "role_lv": 38, 
+    "gold_per": 1100, 
+    "exp_per": 2400, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          54, 
+          55
+        ], 
+        [
+          54, 
+          56, 
+          54
+        ], 
+        [
+          54, 
+          58, 
+          54
+        ]
+      ], 
+      [
+        [
+          54, 
+          58
+        ], 
+        [
+          56, 
+          58
+        ], 
+        [
+          56, 
+          56, 
+          56
+        ], 
+        [
+          58, 
+          82, 
+          58
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 76, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "湖边"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      0.2
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "快到了决战时刻，各种有头有脸的人物，都出现了。", 
+    "role_lv": 38, 
+    "gold_per": 1150, 
+    "exp_per": 2500, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          53, 
+          53
+        ], 
+        [
+          53, 
+          54
+        ], 
+        [
+          53, 
+          59, 
+          53
+        ], 
+        [
+          54, 
+          59, 
+          54
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 77, 
+    "style": 2, 
+    "floor": 3, 
+    "stageNum": [
+      3, 
+      4, 
+      1
+    ], 
+    "stageName": [
+      "一层", 
+      "二层", 
+      "三层"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 50000, 
+    "award_gold": 10000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3, 
+      2
+    ], 
+    "boxpro": [
+      0.7, 
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "快到了决战时刻，各种有头有脸的人物，都出现了。", 
+    "role_lv": 39, 
+    "gold_per": 1200, 
+    "exp_per": 2600, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "monsArray": [
+      [
+        [
+          54, 
+          54
+        ], 
+        [
+          54, 
+          65, 
+          54
+        ], 
+        [
+          56, 
+          65, 
+          56
+        ]
+      ], 
+      [
+        [
+          54, 
+          54
+        ], 
+        [
+          56, 
+          65
+        ], 
+        [
+          56, 
+          56
+        ], 
+        [
+          58, 
+          56, 
+          58
+        ]
+      ], 
+      [
+        [
+          60
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 78, 
+    "style": 0, 
+    "floor": 1, 
+    "stageNum": [
+      4
+    ], 
+    "stageName": [
+      "狭路"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      1
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "势头似乎得到了一些遏制，但结果仍为未可知。", 
+    "role_lv": 39, 
+    "gold_per": 1250, 
+    "exp_per": 2700, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      5, 
+      5, 
+      5, 
+      5
+    ], 
+    "monsArray": [
+      [
+        [
+          53, 
+          53
+        ], 
+        [
+          54, 
+          44
+        ], 
+        [
+          53, 
+          54, 
+          55
+        ], 
+        [
+          55, 
+          54, 
+          55
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 79, 
+    "style": 0, 
+    "floor": 2, 
+    "stageNum": [
+      2, 
+      4
+    ], 
+    "stageName": [
+      "秘境1", 
+      "秘境2"
+    ], 
+    "sceneid": [
+      4
+    ], 
+    "award_exp": 0, 
+    "award_gold": 0, 
+    "need_biaoqi": 1, 
+    "boxid": [
+      2
+    ], 
+    "boxpro": [
+      0.3
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "情况越来越复杂，敌人也越来越危险。", 
+    "role_lv": 40, 
+    "gold_per": 1400, 
+    "exp_per": 2800, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      10, 
+      10, 
+      10, 
+      10
+    ], 
+    "monsArray": [
+      [
+        [
+          57, 
+          57, 
+          57
+        ], 
+        [
+          56, 
+          57, 
+          56
+        ]
+      ], 
+      [
+        [
+          56, 
+          65
+        ], 
+        [
+          54, 
+          56, 
+          54
+        ], 
+        [
+          56, 
+          55, 
+          56
+        ], 
+        [
+          58, 
+          59, 
+          58
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 80, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      3, 
+      4, 
+      4, 
+      1
+    ], 
+    "stageName": [
+      "入口", 
+      "前庭", 
+      "中庭", 
+      "后庭"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 60000, 
+    "award_gold": 12000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3, 
+      2
+    ], 
+    "boxpro": [
+      0.9, 
+      0.1
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "皇天后的闺房就在前方，她还会怀念之前的岁月吗？", 
+    "role_lv": 42, 
+    "gold_per": 1500, 
+    "exp_per": 2900, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      20, 
+      20, 
+      20, 
+      20
+    ], 
+    "monsArray": [
+      [
+        [
+          55, 
+          55
+        ], 
+        [
+          54, 
+          57
+        ], 
+        [
+          57, 
+          55, 
+          57
+        ]
+      ], 
+      [
+        [
+          64, 
+          55
+        ], 
+        [
+          53, 
+          54
+        ], 
+        [
+          54, 
+          58, 
+          54
+        ]
+      ], 
+      [
+        [
+          56, 
+          57
+        ], 
+        [
+          58, 
+          57
+        ], 
+        [
+          56, 
+          82, 
+          56
+        ], 
+        [
+          58, 
+          59, 
+          58
+        ]
+      ], 
+      [
+        [
+          61
+        ]
+      ]
+    ]
+  }, 
+  {
+    "id": 81, 
+    "style": 2, 
+    "floor": 4, 
+    "stageNum": [
+      3, 
+      4, 
+      4, 
+      1
+    ], 
+    "stageName": [
+      "入口", 
+      "前庭", 
+      "中庭", 
+      "后庭"
+    ], 
+    "sceneid": [
+      3
+    ], 
+    "award_exp": 60000, 
+    "award_gold": 12000, 
+    "need_biaoqi": 2, 
+    "boxid": [
+      3, 
+      2
+    ], 
+    "boxpro": [
+      0.9, 
+      0.1
+    ], 
+    "boxmons_id": -1, 
+    "boxmons_monsid": -1, 
+    "stage_des": "皇天后的闺房就在前方，她还会怀念之前的岁月吗？", 
+    "role_lv": 45, 
+    "gold_per": 1500, 
+    "exp_per": 2900, 
+    "arr_weapon_id": [
+      9, 
+      9, 
+      9, 
+      9
+    ], 
+    "arr_weapon_lv": [
+      30, 
+      30, 
+      30, 
+      30
+    ], 
+    "monsArray": [
+      [
+        [
+          55, 
+          55
+        ], 
+        [
+          54, 
+          57
+        ], 
+        [
+          57, 
+          55, 
+          57
+        ]
+      ], 
+      [
+        [
+          64, 
+          55
+        ], 
+        [
+          53, 
+          54
+        ], 
+        [
+          54, 
+          58, 
+          54
+        ]
+      ], 
+      [
+        [
+          56, 
+          57
+        ], 
+        [
+          58, 
+          57
+        ], 
+        [
+          56, 
+          82, 
+          56
+        ], 
+        [
+          58, 
+          59, 
+          58
+        ]
+      ], 
+      [
+        [
+          61
+        ]
+      ]
+    ]
+  }
+]
